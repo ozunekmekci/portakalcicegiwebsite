@@ -163,3 +163,124 @@ portakalcicegi/
 | Görseller yok | Placeholder ile başla, sahip ekler |
 | Koleksiyon isimleri belirsiz | Hafta 3'e kadar sahibinden alınacak |
 | Domain gecikmesi | Vercel subdomain ile yayına alınır, domain sonra eklenir |
+
+---
+
+## HAFTA 5 — Ürün Kataloğu Sistemi
+**Hedef:** Amazon tarzı ürün listeleme + detay sayfaları, Notion'dan yönetilen
+
+### Mimari Ek
+
+```
+app/
+├── koleksiyonlar/
+│   └── [slug]/
+│       └── page.tsx          # Koleksiyon ürün listesi
+├── urunler/
+│   └── [slug]/
+│       └── page.tsx          # Tekil ürün sayfası
+components/
+├── sections/
+│   └── Collections.tsx       # Mevcut — koleksiyon kartları (güncellenir)
+├── ui/
+│   ├── ProductCard.tsx       # Yeni — ürün kartı (liste görünümü)
+│   └── ProductGallery.tsx    # Yeni — ürün detay görseli
+lib/
+└── notion.ts                 # Genişletilecek — getProducts(), getProductBySlug()
+```
+
+### Notion Yapısı Eklentisi
+
+**Ürünler** veritabanı (Koleksiyonlar'a Relation):
+- İsim (Title)
+- Slug (Text) — URL için: "babyshower-bulut-set"
+- Koleksiyon (Relation → Koleksiyonlar)
+- Ana Görsel (URL) — Google Drive public link
+- Ek Görseller (Text) — virgülle ayrılmış URL'ler
+- Fiyat Aralığı (Text) — "₺850 - ₺1.200"
+- Kısa Açıklama (Text) — kart için 1-2 cümle
+- Detay Açıklama (Text) — ürün sayfası için
+- Minimum Adet (Number) — 100
+- Aktif (Checkbox)
+
+### Google Drive Görsel Dönüşümü
+
+Normal Drive linki çalışmaz — direkt görsel URL'e çevrilmeli:
+`https://drive.google.com/file/d/FILE_ID/view`
+→ `https://drive.google.com/uc?export=view&id=FILE_ID`
+
+lib/utils.ts'e yardımcı fonksiyon eklenecek.
+
+---
+
+### GÖREV 5.1 — Notion Ürünler Veritabanı & API
+
+- [ ] Notion'da "Ürünler" veritabanı oluştur (yukarıdaki alanlar)
+- [ ] Koleksiyonlar DB ile Relation kur
+- [ ] `lib/notion.ts` güncelle:
+  - `getProducts(koleksiyonSlug?)` — tüm veya filtreli ürünler
+  - `getProductBySlug(slug)` — tekil ürün
+- [ ] `lib/utils.ts` oluştur:
+  - `driveUrlToDirectUrl(url)` — Drive link dönüşümü
+  - `slugify(text)` — Türkçe slug üretimi
+- [ ] `content/products.ts` fallback data (3-4 örnek ürün)
+
+---
+
+### GÖREV 5.2 — Koleksiyon Listesi Sayfası
+
+- [ ] `app/koleksiyonlar/[slug]/page.tsx` — Server Component
+  - Notion'dan o koleksiyonun ürünlerini çek
+  - Üst: koleksiyon adı + açıklama banner
+  - Grid: `grid-cols-2 md:grid-cols-3 lg:grid-cols-4`
+  - Her kart: ProductCard.tsx
+- [ ] `components/ui/ProductCard.tsx` — Client Component
+  - Büyük görsel (aspect-[3/4])
+  - Ürün adı (font-serif)
+  - Fiyat aralığı (turuncu)
+  - Minimum adet badge
+  - Hover: scale + overlay "İncele" butonu
+  - Tıklanınca: `/urunler/[slug]`
+- [ ] Ana sayfadaki Collections kartları güncelle:
+  - "İncele" butonu artık `/koleksiyonlar/[slug]`'a gitsin
+  - WhatsApp deeplink yine de altta kalsın
+
+---
+
+### GÖREV 5.3 — Tekil Ürün Sayfası
+
+- [ ] `app/urunler/[slug]/page.tsx` — Server Component
+  - generateMetadata ile SEO (her ürüne özel title/description)
+  - Sol: Ana görsel + thumbnail'lar (ProductGallery)
+  - Sağ: Ürün adı, fiyat aralığı, min adet, açıklama
+  - Büyük WhatsApp CTA: "Bu Ürün İçin Sipariş Ver"
+    deeplink: `wa.me/90XXX?text=Merhaba! [Ürün Adı] için sipariş vermek istiyorum.`
+  - Altında: "Bu Koleksiyonun Diğer Ürünleri" grid (3 kart)
+- [ ] `components/ui/ProductGallery.tsx` — Client Component
+  - Ana görsel büyük, altında küçük thumbnail'lar
+  - Thumbnail'a tıklayınca ana görsel değişir (useState)
+  - Framer Motion: görsel geçişi fade
+
+---
+
+### GÖREV 5.4 — Navigasyon & Breadcrumb
+
+- [ ] Navbar "Koleksiyonlar" linki dropdown olsun:
+  - Babyshower → /koleksiyonlar/babyshower
+  - Doğum Günü → /koleksiyonlar/dogum-gunu
+  - Diş Buğdayı → /koleksiyonlar/dis-bugdayi
+  - Düğün & Nişan → /koleksiyonlar/dugun-nisan
+- [ ] Tüm iç sayfalara breadcrumb:
+  Ana Sayfa > Babyshower > Ürün Adı
+- [ ] Ana sayfa Collections section güncelle:
+  Koleksiyon kartına tıklayınca /koleksiyonlar/[slug]'a git
+
+---
+
+### GÖREV 5.5 — Son Test & PROGRESS Güncellemesi
+
+- [ ] Notion'a 2-3 gerçek ürün gir, tüm alanları doldur
+- [ ] Her sayfayı telefonda test et
+- [ ] Lighthouse skoru kontrol (≥90 korunmalı)
+- [ ] Tüm WhatsApp deeplink'leri çalışıyor mu kontrol
+- [ ] PROGRESS.md son duruma güncelle

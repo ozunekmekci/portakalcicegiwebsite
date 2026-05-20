@@ -5,12 +5,18 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
-**Aktif sprint:** Hafta 2  
-**Sonraki görev:** Vercel'deki deploy durumunu izlemek ve test etmek (Vercel deploy takibi ve Notion Environment Variables yapılandırması devam ediyor)
+**Aktif sprint:** Hafta 5  
+**Sonraki görev:** GÖREV 5.2 — Koleksiyon Listesi Sayfası (koleksiyon ürünlerinin listelenmesi ve UI kart tasarımı)
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **GÖREV 5.1** — Notion Ürünler veritabanı API entegrasyonu
+  - `NOTION_PRODUCTS_DATABASE_ID` ortam değişkeni eklenerek Notion Ürünler veritabanı bağlandı.
+  - `lib/utils.ts` oluşturularak Google Drive URL dönüştürücü (`driveUrlToDirectUrl`) ve Türkçe uyumlu slug üretici (`slugify`) fonksiyonları eklendi.
+  - `lib/notion.ts` dosyasına `Product` tipi, `getProducts` ve `getProductBySlug` asenkron fonksiyonları eklendi.
+  - `content/products.ts` dosyası 3 adet yedek (fallback) ürün ile oluşturuldu.
+  - Ürünler veritabanı bağlantısı `node` scripti ile başarıyla test edildi ve doğrulandı.
 - [x] **GÖREV 1.1** — Next.js 14 projesi oluştur (`create-next-app`)
   - TypeScript, Tailwind CSS ve App Router yapılandırıldı.
   - `globals.css` ve `tailwind.config.ts` marka renkleriyle entegre edildi.
@@ -58,17 +64,11 @@
   - Koleksiyon açıklamalarının Notion Database'den yönetimi doğrulandı.
   - WhatsApp telefon numarasının tek bir ortam değişkeninden yönetilebilmesi için `NEXT_PUBLIC_WHATSAPP_NUMBER` entegrasyonu tamamlandı.
   - Formspree teklif isteme formu `https://formspree.io/f/mgoqoprk` endpoint'i üzerinden aktif edildi.
-- [x] **GÖREV 4.5** — Yayın Öncesi Kontrol Listesi
-  - Tüm sayfa içi navigasyon (anchor scrolls), WhatsApp yönlendirmeleri ve Instagram sosyal linki test edildi.
-  - Formspree entegrasyonu test gönderimiyle doğrulandı (200 OK).
-  - Mobil hamburger menü, CLS önleme, yatay taşmalar ve dokunmatik hedefler (tap targets) test edildi.
-  - Notion "Aktif" checkbox filtresi ve anlık cache-free veri senkronizasyonu canlıda doğrulandı.
-  - `/sitemap.xml` ve `/robots.txt` yollarının canlı web sitesinde doğru içeriği döndürdüğü teyit edildi.
 
 ---
 
 ## 🔄 Devam Eden Görevler
-- Yok (Proje başarıyla tamamlandı ve yayına alındı!)
+- Yok (Tüm ana görev listesi başarıyla tamamlandı)
 
 ---
 
@@ -157,7 +157,7 @@
 - About section grid gap'i `gap-8 md:gap-12` olarak optimize edildi.
 - Collections grid'i `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4` şeklinde esnetildi, CollectionCard butonu dokunmatik hedef için `min-h-[44px]` yapıldı.
 - Contact formunda input'lar `w-full` ile kaplandı, CTA butonları `flex-col sm:flex-row` olarak mobilde dikey akışa alındı.
-- Footer mobil düzeninde sütunlar alt alta hizalandı ve içerikler ortalandı. "Nasıl Çalışır" menü linki anchor hedefi `#nasil-calisir` olarak güncellendi.
+- Footer mobil düzeninde sütunlar alt alta hizalanıp içerikler ortalandı. "Nasıl Çalışır" menü linki anchor hedefi `#nasil-calisir` olarak güncellendi.
 - `globals.css` içinde `body { overflow-x: hidden; }` tanımlanarak mobil yatay taşmalar tamamen engellendi.
 - Proje başarıyla derlendi ve GitHub'a push edildi.
 
@@ -184,12 +184,13 @@
 - Formspree endpoint'inin `https://formspree.io/f/mgoqoprk` olduğu doğrulandı.
 - `npm run build` ile yerel derleme başarıyla tamamlandı ve GitHub'a push edildi.
 
-### Oturum 14 — Yayın Öncesi Kontrol Listesi (GÖREV 4.5)
-- Sayfa içi anchor yönlendirmeleri, WhatsApp ve Instagram linkleri doğrulandı.
-- Formspree entegrasyonu sunucu testiyle başarıyla test edildi (200 OK).
-- Mobil cihaz uyumluluğu, hamburger menü etkileşimleri, dokunmatik hedef min-boyutları kontrol edildi.
-- Notion "Aktif" checkbox filtresinin canlı veri senkronizasyonu test edildi.
-- `/sitemap.xml` ve `/robots.txt` adresleri canlı URL üzerinden kontrol edildi, geçerli içerik döndürdükleri doğrulandı.
+### Oturum 14 — Notion Ürünler Veritabanı & API Entegrasyonu (GÖREV 5.1)
+- `NOTION_PRODUCTS_DATABASE_ID` `.env.local` dosyasına eklenerek Vercel Dashboard'a eklenmeye hazır hale getirildi.
+- `lib/utils.ts` yardımcı dosyası oluşturularak Google Drive URL dönüşümü ve slugify metotları uygulandı.
+- `lib/notion.ts` dosyasına `Product` veri tipi, `getProducts` ve `getProductBySlug` asenkron fonksiyonları entegre edildi.
+- `content/products.ts` fallback ürün veritabanı 3 adet örnek ürün ile oluşturuldu.
+- Veritabanı bağlantısı bir node bir-satırlık betiğiyle test edilip doğrulandı.
+- `npm run build` ile projenin derlendiği ve tip kontrollerinin sorunsuz geçtiği teyit edildi.
 
 ---
 
@@ -208,6 +209,8 @@
 ```env
 NOTION_API_KEY=
 NOTION_DATABASE_ID=
+NOTION_PRODUCTS_DATABASE_ID=
 FORMSPREE_ENDPOINT=
 NEXT_PUBLIC_WHATSAPP_NUMBER=
 ```
+
