@@ -21,6 +21,7 @@ async function optimizeImages() {
     if (fs.existsSync(aboutInput)) {
       console.log(`Processing About Image: ${aboutInput} -> ${aboutOutput}`);
       await sharp(aboutInput)
+        .rotate()
         .resize(800) // width: 800px, auto height
         .webp({ quality: 80 })
         .toFile(aboutOutput);
@@ -49,6 +50,7 @@ async function optimizeImages() {
       if (fs.existsSync(inputPath)) {
         console.log(`Processing Gallery Image ${i + 1}: ${inputPath} -> ${outputPath}`);
         await sharp(inputPath)
+          .rotate()
           .resize(600, 600, {
             fit: "cover",
             position: "center"
