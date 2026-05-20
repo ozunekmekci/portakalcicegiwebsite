@@ -6,7 +6,7 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 1  
-**Sonraki görev:** GÖREV 1.2 — Vercel'e bağla ve ilk deploy
+**Sonraki görev:** GÖREV 1.4 — Notion veritabanı kur (Vercel deploy takibi de devam ediyor)
 
 ---
 
@@ -15,11 +15,17 @@
   - TypeScript, Tailwind CSS ve App Router yapılandırıldı.
   - `globals.css` ve `tailwind.config.ts` marka renkleriyle entegre edildi.
   - `Playfair Display` ve `Inter` google fontları `layout.tsx`'te kuruldu.
+- [x] **GÖREV 1.3** — Navbar ve Footer component'ları
+  - `framer-motion` ve `lucide-react@0.454.0` entegre edildi.
+  - Sticky, mobil menü uyumlu ve Framer Motion giriş animasyonlu `Navbar` yapıldı.
+  - Sosyal medya ve hızlı linkleri içeren koyu temalı `Footer` yapıldı.
+  - `RootLayout` içerisine yerleştirildi ve test build'i alındı.
 
 ---
 
 ## 🔄 Devam Eden Görevler
-> Mevcut aktif görev yok.
+- [/] **GÖREV 1.2** — Vercel'e bağla ve ilk deploy
+  - Git reposu GitHub'a aktarıldı, JSX escape fix'i push edildi. Kullanıcıdan Vercel deploy'u bekleniyor.
 
 ---
 
@@ -46,6 +52,11 @@
 - Marka kimliğini yansıtan CSS değişkenleri ve Tailwind genişletmeleri tamamlandı.
 - Playfair Display ve Inter yazı tipleri font optimizasyonuyla bağlandı.
 - Hoş geldin ekranı minimalist tarzda güncellendi ve dev sunucuda test edildi.
+
+### Oturum 2 — Layout Bileşenleri & Paket Entegrasyonu
+- `framer-motion` ve `lucide-react` kuruldu. NPM'in getirdiği type hatalı `1.16.0` sürümü yerine kararlı `0.454.0` sürümü kuruldu.
+- Mobil uyumlu `Navbar` ve `Footer` bileşenleri kodlandı ve `layout.tsx` içerisine bağlandı.
+- `npm run build` yerelde başarıyla tamamlandı ve kodlar GitHub reposuna push edildi.
 
 
 ---
