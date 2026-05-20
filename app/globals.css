@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-orange: #ff914b;
+  --color-orange-dark: #fa3500;
+  --color-yellow: #e7b72f;
+  --color-bg-cream: #fbf7f0;
+  --color-bg-gray: #dcdcd9;
+  --color-text-dark: #1a1a1a;
+  --color-text-mid: #555555;
+}
+
+body {
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-cream);
+  font-family: var(--font-inter), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+}
+
