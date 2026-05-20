@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 interface NavLink {
   label: string;
@@ -16,8 +18,17 @@ const navLinks: NavLink[] = [
   { label: "İletişim", href: "#iletisim" },
 ];
 
+const koleksiyonlar = [
+  { isim: "Babyshower", slug: "babyshower" },
+  { isim: "Doğum Günü", slug: "dogum-gunu" },
+  { isim: "Diş Buğdayı", slug: "dis-bugdayi" },
+  { isim: "Düğün & Nişan", slug: "dugun-nisan" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
@@ -39,22 +50,68 @@ export default function Navbar() {
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className="font-serif text-xl md:text-2xl font-semibold text-brand-orange-dark hover:opacity-90 transition-opacity">
+            <Link href="/" className="font-serif text-xl md:text-2xl font-semibold text-brand-orange-dark hover:opacity-90 transition-opacity">
               Portakal Çiçeği Atölye
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex space-x-8 items-center">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="font-sans text-brand-text-mid hover:text-brand-orange transition-colors text-sm font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              if (link.label === "Koleksiyonlar") {
+                const koleksiyonlarHref = pathname === "/" ? "#koleksiyonlar" : "/koleksiyonlar/babyshower";
+                return (
+                  <div
+                    key={link.label}
+                    className="relative py-4"
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                    onMouseLeave={() => setIsDropdownOpen(false)}
+                  >
+                    <a
+                      href={koleksiyonlarHref}
+                      className="font-sans text-brand-text-mid hover:text-brand-orange transition-colors text-sm font-medium flex items-center gap-1 cursor-pointer"
+                    >
+                      {link.label}
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                    </a>
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 bg-white rounded-xl shadow-lg py-2 min-w-[180px] z-50 border border-black/5 overflow-hidden"
+                        >
+                          {koleksiyonlar.map((kol) => (
+                            <Link
+                              key={kol.slug}
+                              href={`/koleksiyonlar/${kol.slug}`}
+                              className="block px-4 py-2.5 text-sm text-[#1a1a1a] hover:bg-[#fbf7f0] hover:text-[#ff914b] transition-colors"
+                            >
+                              {kol.isim}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              // Normal anchor navigation if home page, or go home then scroll
+              const normHref = pathname === "/" ? link.href : `/${link.href}`;
+
+              return (
+                <a
+                  key={link.label}
+                  href={normHref}
+                  className="font-sans text-brand-text-mid hover:text-brand-orange transition-colors text-sm font-medium"
+                >
+                  {link.label}
+                </a>
+              );
+            })}
             <a
               href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555"}`}
               target="_blank"
@@ -91,16 +148,47 @@ export default function Navbar() {
             className="md:hidden bg-brand-bg-cream border-t border-brand-bg-gray/20 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block font-sans text-brand-text-mid hover:text-brand-orange text-base font-medium py-3 border-b border-brand-bg-gray/10 last:border-0"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                if (link.label === "Koleksiyonlar") {
+                  const koleksiyonlarHref = pathname === "/" ? "#koleksiyonlar" : "/koleksiyonlar/babyshower";
+                  return (
+                    <div key={link.label} className="py-2 border-b border-brand-bg-gray/10">
+                      <a
+                        href={koleksiyonlarHref}
+                        onClick={() => setIsOpen(false)}
+                        className="block font-sans text-brand-text-mid hover:text-brand-orange text-base font-medium pb-2"
+                      >
+                        {link.label}
+                      </a>
+                      <div className="pl-4 space-y-2 pt-1">
+                        {koleksiyonlar.map((kol) => (
+                          <Link
+                            key={kol.slug}
+                            href={`/koleksiyonlar/${kol.slug}`}
+                            onClick={() => setIsOpen(false)}
+                            className="block font-sans text-brand-text-mid/80 hover:text-brand-orange text-sm font-medium py-1.5"
+                          >
+                            • {kol.isim}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+
+                const normHref = pathname === "/" ? link.href : `/${link.href}`;
+
+                return (
+                  <a
+                    key={link.label}
+                    href={normHref}
+                    onClick={() => setIsOpen(false)}
+                    className="block font-sans text-brand-text-mid hover:text-brand-orange text-base font-medium py-3 border-b border-brand-bg-gray/10 last:border-0"
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <div className="pt-4">
                 <a
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555"}`}

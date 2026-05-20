@@ -3,6 +3,7 @@ import { getProducts } from "@/lib/notion"
 import { fallbackProducts } from "@/content/products"
 import ProductCard from "@/components/ui/ProductCard"
 import { Product } from "@/lib/notion"
+import Breadcrumb from "@/components/ui/Breadcrumb"
 
 type Props = {
   params: {
@@ -57,13 +58,14 @@ export default async function KoleksiyonPage({ params }: Props) {
       <section className="bg-[#dcdcd9] py-16 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
-          <nav className="text-xs md:text-sm text-brand-text-mid mb-4 font-sans" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-brand-orange transition-colors">
-              Ana Sayfa
-            </Link>
-            <span className="mx-2 text-gray-400">&gt;</span>
-            <span className="text-brand-text-dark font-medium">{isim}</span>
-          </nav>
+          <div className="mb-4">
+            <Breadcrumb
+              items={[
+                { label: "Ana Sayfa", href: "/" },
+                { label: isim },
+              ]}
+            />
+          </div>
 
           {/* Title and details */}
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-brand-text-dark leading-tight">

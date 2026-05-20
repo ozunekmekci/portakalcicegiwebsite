@@ -2,6 +2,7 @@ import { getCollections } from "@/lib/notion";
 import { fallbackCollections } from "@/content/collections";
 import CollectionCard from "@/components/ui/CollectionCard";
 import { Suspense } from "react";
+import Link from "next/link";
 
 // 1. Grid renderer that fetches data asynchronously
 async function CollectionsGrid() {
@@ -68,6 +69,15 @@ export default function Collections() {
         <Suspense fallback={<CollectionsGridSkeleton />}>
           <CollectionsGrid />
         </Suspense>
+
+        <div className="text-center">
+          <Link
+            href="/koleksiyonlar/babyshower"
+            className="inline-block text-[#ff914b] hover:underline font-semibold font-sans transition-all duration-300"
+          >
+            Tüm koleksiyonları keşfet →
+          </Link>
+        </div>
       </div>
     </section>
   );

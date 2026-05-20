@@ -6,11 +6,16 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 5  
-**Sonraki görev:** GÖREV 5.4 — Navigasyon & Breadcrumb (Navbar ve Collections dropdown linklerinin bağlanması)
+**Sonraki görev:** GÖREV 5.5 — Final testleri ve iyileştirmeler (Notion API gecikmelerini aşmak için revalidation veya sayfa yükleme optimizasyonları)
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **GÖREV 5.4** — Navbar koleksiyon dropdown ve breadcrumb sistemi
+  - `components/layout/Navbar.tsx` güncellenerek "Koleksiyonlar" linki masaüstünde hover ile açılan Framer Motion animasyonlu bir dropdown'a, mobilde ise indented satırlara dönüştürüldü.
+  - `components/ui/Breadcrumb.tsx` breadcrumb bileşeni hiyerarşik ChevronRight bölücüsü, tıklanabilir Link'ler ve son eleman truncate desteğiyle yazıldı.
+  - `app/koleksiyonlar/[slug]/page.tsx` ve `app/urunler/[slug]/page.tsx` içindeki breadcrumb şablonları yeni `<Breadcrumb>` bileşeniyle güncellendi.
+  - Ana sayfadaki `Collections.tsx` bölümünün altına "/koleksiyonlar/babyshower" linkli "Tüm koleksiyonları keşfet →" CTA linki eklendi.
 - [x] **GÖREV 5.3** — Tekil ürün sayfası ve ProductGallery bileşeni
   - `components/ui/ProductGallery.tsx` client bileşeni stateful resim seçimi, AnimatePresence ile geçiş animasyonları ve responsive küçük resim listesiyle kodlandı.
   - `app/urunler/[slug]/page.tsx` dinamik ürün detay sayfası breadcrumb navigasyonu, kategori badge'i, WhatsApp CTA sipariş butonu, ilgili diğer ürünler listesi ve slug normalizasyonuyla oluşturuldu.
@@ -215,6 +220,13 @@
 - `app/urunler/[slug]/page.tsx` server component'i breadcrumb, dynamic metadata, kategori badge'i, WhatsApp "Bu Ürün İçin Sipariş Ver" CTA butonu ve "Bu Koleksiyonun Diğer Ürünleri" grid'i ile tasarlandı.
 - `app/not-found.tsx` dosyası oluşturularak 404 hataları için şık ve markalı bir "Sayfa Bulunamadı" arayüzü tasarlandı.
 - `npm run build` ile yerel derleme başarıyla test edildi ve tüm tekil ürün SSG rotaları doğrulandı.
+
+### Oturum 17 — Navbar Koleksiyon Dropdown ve Breadcrumb Sistemi (GÖREV 5.4)
+- `components/layout/Navbar.tsx` güncellendi; masaüstünde hover ile açılan ve ChevronDown ikonu ile süslenmiş, animasyonlu bir Koleksiyonlar dropdown'u oluşturuldu. Hamburger menüde ise bu linkler indented bullet'lar halinde düzenlendi.
+- `components/ui/Breadcrumb.tsx` breadcrumb navigasyon bileşeni ChevronRight bölücüsü, Link hover renk efektleri ve son item'a özel truncate desteğiyle kodlandı.
+- `app/koleksiyonlar/[slug]/page.tsx` ve `app/urunler/[slug]/page.tsx` içindeki Breadcrumb yapısı bu yeni modüler bileşene taşındı.
+- `components/sections/Collections.tsx` ana sayfa bölümünün altına "Tüm koleksiyonları keşfet →" linki eklendi.
+- `npm run build` ile projenin derlendiği ve tip kontrollerinin sorunsuz geçtiği teyit edildi.
 
 ---
 

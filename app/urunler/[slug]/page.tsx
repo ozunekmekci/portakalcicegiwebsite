@@ -5,6 +5,7 @@ import ProductCard from "@/components/ui/ProductCard"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { MessageCircle } from "lucide-react"
+import Breadcrumb from "@/components/ui/Breadcrumb"
 
 type Props = {
   params: {
@@ -105,17 +106,13 @@ export default async function UrunDetayPage({ params }: Props) {
   return (
     <main className="bg-[#fbf7f0] min-h-screen">
       {/* Breadcrumb Nav */}
-      <nav className="text-sm text-[#555555] py-4 px-6 max-w-7xl mx-auto font-sans" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-[#ff914b] transition-colors">
-          Ana Sayfa
-        </Link>
-        <span className="mx-2 text-gray-400">&gt;</span>
-        <Link href={`/koleksiyonlar/${product.koleksiyonSlug}`} className="hover:text-[#ff914b] transition-colors">
-          {koleksiyonIsim}
-        </Link>
-        <span className="mx-2 text-gray-400">&gt;</span>
-        <span className="text-brand-text-dark font-medium">{product.isim}</span>
-      </nav>
+      <div className="py-4 px-6 max-w-7xl mx-auto">
+        <Breadcrumb items={[
+          { label: "Ana Sayfa", href: "/" },
+          { label: koleksiyonIsim, href: `/koleksiyonlar/${product.koleksiyonSlug}` },
+          { label: product.isim },
+        ]} />
+      </div>
 
       {/* Main Content Grid */}
       <section className="py-8 px-6 max-w-7xl mx-auto">
