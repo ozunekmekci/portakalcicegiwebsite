@@ -71,7 +71,8 @@ export default function Navbar() {
               onClick={toggleMenu}
               type="button"
               className="text-brand-text-dark hover:text-brand-orange p-2 focus:outline-none"
-              aria-label="Menüyü aç/kapat"
+              aria-expanded={isOpen}
+              aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

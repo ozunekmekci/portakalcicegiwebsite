@@ -15,7 +15,7 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="space-y-6 flex flex-col justify-center"
         >
-          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange font-bold uppercase">
+          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase">
             HAKKIMIZDA
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-brand-text-dark leading-tight font-bold whitespace-pre-line">

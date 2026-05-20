@@ -58,7 +58,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.6 }}
           className="text-center space-y-4 max-w-xl mx-auto"
         >
-          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange font-bold uppercase">
+          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase">
             NASIL ÇALIŞIR
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-brand-text-dark leading-tight font-bold whitespace-pre-line">

@@ -1,8 +1,10 @@
 import { getCollections } from "@/lib/notion";
 import { fallbackCollections } from "@/content/collections";
 import CollectionCard from "@/components/ui/CollectionCard";
+import { Suspense } from "react";
 
-export default async function Collections() {
+// 1. Grid renderer that fetches data asynchronously
+async function CollectionsGrid() {
   let collections = [];
   try {
     collections = await getCollections();
@@ -14,11 +16,43 @@ export default async function Collections() {
   }
 
   return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {collections.map((col, i) => (
+        <CollectionCard key={col.id} {...col} index={i} />
+      ))}
+    </div>
+  );
+}
+
+// 2. Pulse loading skeleton for 4 items
+export function CollectionsGridSkeleton() {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {Array.from({ length: 4 }).map((_, i) => (
+        <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm animate-pulse flex flex-col h-full border border-brand-bg-gray/10">
+          <div className="aspect-[4/3] bg-brand-bg-cream/60 w-full" />
+          <div className="p-6 flex-grow flex flex-col justify-between space-y-6">
+            <div className="space-y-3">
+              <div className="h-4 bg-brand-bg-cream/80 w-1/3 rounded" />
+              <div className="h-6 bg-brand-bg-cream/80 w-3/4 rounded" />
+              <div className="h-4 bg-brand-bg-cream/80 w-5/6 rounded" />
+            </div>
+            <div className="h-11 bg-brand-bg-cream/80 w-full rounded-full" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// 3. Main wrapper containing static Header and Suspense boundary
+export default function Collections() {
+  return (
     <section id="koleksiyonlar" aria-label="Koleksiyonlar" className="bg-brand-bg-gray py-24 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header Block */}
         <div className="text-center space-y-4 max-w-xl mx-auto">
-          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange font-bold uppercase">
+          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase">
             KOLEKSİYONLAR
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-brand-text-dark leading-tight font-bold whitespace-pre-line">
@@ -30,12 +64,10 @@ export default async function Collections() {
           </p>
         </div>
 
-        {/* Grid layout for Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {collections.map((col, i) => (
-            <CollectionCard key={col.id} {...col} index={i} />
-          ))}
-        </div>
+        {/* Suspense wrapper with loading skeleton fallback */}
+        <Suspense fallback={<CollectionsGridSkeleton />}>
+          <CollectionsGrid />
+        </Suspense>
       </div>
     </section>
   );

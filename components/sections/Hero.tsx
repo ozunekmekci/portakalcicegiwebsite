@@ -31,7 +31,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0 }}
-          className="text-xs md:text-sm font-sans tracking-widest text-brand-orange font-bold uppercase"
+          className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase"
         >
           ÖZEL TASARIM • EL YAPIMI • HATIRLIK
         </motion.span>

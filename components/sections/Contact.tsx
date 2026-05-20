@@ -54,7 +54,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="space-y-4 max-w-xl mx-auto"
         >
-          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange font-bold uppercase">
+          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase">
             İLETİŞİM
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-[#fbf7f0] leading-tight font-bold whitespace-pre-line">
@@ -118,6 +118,7 @@ export default function Contact() {
               type="text"
               name="name"
               placeholder="Adınız Soyadınız"
+              aria-label="Adınız Soyadınız"
               required
               value={formData.name}
               onChange={handleChange}
@@ -127,6 +128,7 @@ export default function Contact() {
               type="tel"
               name="phone"
               placeholder="Telefon Numaranız"
+              aria-label="Telefon Numaranız"
               required
               value={formData.phone}
               onChange={handleChange}
@@ -135,6 +137,7 @@ export default function Contact() {
             <textarea
               name="message"
               placeholder="Mesajınız veya İstediğiniz Tasarım/Adet"
+              aria-label="Mesajınız veya İstediğiniz Tasarım/Adet"
               required
               rows={4}
               value={formData.message}
