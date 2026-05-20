@@ -6,7 +6,7 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 2  
-**Sonraki görev:** GÖREV 2.3 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
+**Sonraki görev:** GÖREV 2.4 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
 
 ---
 
@@ -23,7 +23,9 @@
   - Krem rengi arka planlı, estetik blur daire dekorasyonlu, Playfair Display tipografili, Framer Motion animasyonlu ve smooth scroll/WA tetikleyicili Hero section tamamlandı.
 - [x] **GÖREV 2.2** — About Section (Hakkımızda)
   - Gri arka planlı, responsive grid yapılı, metin/alıntılı ve görsel placeholder'lı About section tamamlandı.
-  - `app/page.tsx`'e entegre edildi (`id="hakkinda"`), build alındı ve push edildi.
+- [x] **GÖREV 2.3** — HowItWorks Section (Nasıl Çalışır)
+  - Krem rengi arka planlı, Lucide ikonlu (`Palette`, `Pencil`, `Package`), hover efektli ve stagger (sıralı geçiş) giriş animasyonlu 3 kartlı Nasıl Çalışır adımları tamamlandı.
+  - `app/page.tsx`'e entegre edildi (`id="nasil-calisir"`), build alındı ve push edildi.
 
 ---
 
@@ -83,6 +85,13 @@
 - Sol kolonda marka hikayesi, Playfair Display başlık ve turuncu alıntı çizgisi; sağ kolonda ise gölgeli premium bir görsel placeholder (🍊 emojisi ve açıklama) yerleştirildi.
 - Scroll reveal kayma animasyonları Framer Motion ile tanımlandı.
 - `app/page.tsx` güncellenerek `id="hakkinda"` ile Hero'nun hemen altına yerleştirildi.
+- `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
+
+### Oturum 6 — HowItWorks Section Geliştirilmesi
+- `components/sections/HowItWorks.tsx` bileşeni oluşturuldu.
+- Krem rengi arka planlı, Lucide ikonlu (`Palette`, `Pencil`, `Package`), absolute konumlandırılmış büyük sayfa numaralarına sahip, hover efektli ve stagger giriş animasyonlu 3 kartlı Nasıl Çalışır adımları tamamlandı.
+- Framer Motion `ease` özelliğinin TS derleme hatası vermesini engellemek için casting (`as const`) uygulandı.
+- `app/page.tsx` güncellenerek `id="nasil-calisir"` ile About'un altına HowItWorks entegre edildi.
 - `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
 
 ---
