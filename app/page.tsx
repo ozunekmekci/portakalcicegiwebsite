@@ -5,6 +5,9 @@ import Collections from "@/components/sections/Collections";
 import Gallery from "@/components/sections/Gallery";
 import Contact from "@/components/sections/Contact";
 
+// Notion değişikliklerinin anında (sayfa her yenilendiğinde) yansıması için önbelleği devre dışı bırakıyoruz.
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <>
