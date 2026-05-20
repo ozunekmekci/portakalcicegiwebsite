@@ -5,8 +5,8 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
-**Aktif sprint:** Hafta 1  
-**Sonraki görev:** GÖREV 2.1 — Notion'dan dinamik veri çekme ve UI geliştirme (Vercel deploy takibi de devam ediyor)
+**Aktif sprint:** Hafta 2  
+**Sonraki görev:** GÖREV 2.2 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
 
 ---
 
@@ -16,20 +16,18 @@
   - `globals.css` ve `tailwind.config.ts` marka renkleriyle entegre edildi.
   - `Playfair Display` ve `Inter` google fontları `layout.tsx`'te kuruldu.
 - [x] **GÖREV 1.3** — Navbar ve Footer component'ları
-  - `framer-motion` ve `lucide-react@0.454.0` entegre edildi.
-  - Sticky, mobil menü uyumlu ve Framer Motion giriş animasyonlu `Navbar` yapıldı.
-  - Sosyal medya ve hızlı linkleri içeren koyu temalı `Footer` yapıldı.
+  - Sticky `Navbar` (framer-motion, hamburger menu) ve koyu temalı `Footer` (sosyal linkler) tamamlandı.
 - [x] **GÖREV 1.4** — Notion API Entegrasyonu
-  - `.env.local` oluşturuldu, API anahtarı ve veritabanı ID'si girildi.
-  - `@notionhq/client` v2.2.16 ve `dotenv` bağımlılıkları kuruldu.
-  - `lib/notion.ts` entegrasyon dosyası ve `content/collections.ts` fallback yapısı oluşturuldu.
-  - Test bağlantısı başarıyla kuruldu ve `npm run build` ile derleme doğrulandı.
+  - `@notionhq/client@2.2.16` ve `dotenv` kuruldu, `lib/notion.ts` ve fallback `content/collections.ts` oluşturuldu, test bağlantısı doğrulandı.
+- [x] **GÖREV 2.1** — Hero Section (Karşılama Ekranı)
+  - Krem rengi arka planlı, estetik blur daire dekorasyonlu, Playfair Display tipografili, Framer Motion animasyonlu ve smooth scroll/WA tetikleyicili Hero section tamamlandı.
+  - `app/page.tsx`'e entegre edildi, build alındı ve push edildi.
 
 ---
 
 ## 🔄 Devam Eden Görevler
 - [/] **GÖREV 1.2** — Vercel'e bağla ve ilk deploy
-  - Git reposu GitHub'a aktarıldı, JSX escape fix'i push edildi. Kullanıcıdan Vercel deploy'u bekleniyor.
+  - Git reposu GitHub'a aktarıldı. Kullanıcıdan Vercel deploy'u bekleniyor.
 
 ---
 
@@ -69,6 +67,13 @@
 - `lib/notion.ts` entegrasyonu ve `content/collections.ts` fallback koleksiyon verisi kodlandı.
 - API bağlantı testi yapıldı, bağlantının başarıyla kurulduğu (`kayıt sayısı: 0`) doğrulandı.
 - Proje `npm run build` ile yerelde derlendi.
+
+### Oturum 4 — Hero Section Geliştirilmesi
+- `components/sections/Hero.tsx` bileşeni oluşturuldu.
+- Zengin tasarımlı, premium tipografili ve Framer Motion geçiş animasyonlu Hero section tamamlandı.
+- Yumuşak kaydırmalı (smooth scroll) "Koleksiyonları Keşfet" butonu ve WhatsApp deeplink yönlendirmeli "Sipariş Ver" butonu yerleştirildi.
+- `app/page.tsx` güncellenerek Hero bileşeni entegre edildi.
+- `npm run build` ile yerel derleme başarıyla tamamlandı ve GitHub'a push edildi.
 
 ---
 
