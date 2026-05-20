@@ -1,8 +1,20 @@
 export function driveUrlToDirectUrl(url: string): string {
   if (!url) return ""
-  // https://drive.google.com/file/d/FILE_ID/view → https://drive.google.com/uc?export=view&id=FILE_ID
-  const match = url.match(/\/file\/d\/([^/]+)/)
-  if (match) return `https://drive.google.com/uc?export=view&id=${match[1]}`
+  
+  let fileId = ""
+  const matchD = url.match(/\/file\/d\/([^/&?#\s]+)/)
+  if (matchD) {
+    fileId = matchD[1]
+  } else {
+    const matchId = url.match(/[?&]id=([^/&?#\s]+)/)
+    if (matchId) {
+      fileId = matchId[1]
+    }
+  }
+
+  if (fileId) {
+    return `https://lh3.googleusercontent.com/d/${fileId}`
+  }
   return url
 }
 

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, Instagram } from "lucide-react";
 
 export default function Contact() {
+  const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX").replace(/\D/g, "");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -74,9 +75,8 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap"
         >
-          {/* WhatsApp Button */}
           <motion.a
-            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"}`}
+            href={`https://wa.me/${waNumber}`}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

@@ -13,6 +13,8 @@ const footerLinks: FooterLink[] = [
 ];
 
 export default function Footer() {
+  const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555").replace(/\D/g, "");
+
   return (
     <footer className="bg-brand-text-dark text-brand-bg-cream font-sans border-t border-brand-text-mid/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -62,7 +64,7 @@ export default function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555"}`}
+                href={`https://wa.me/${waNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 bg-brand-bg-cream/10 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300"

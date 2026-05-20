@@ -6,11 +6,17 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 5  
-**Sonraki görev:** GÖREV 5.5 — Final testleri ve iyileştirmeler (Notion API gecikmelerini aşmak için revalidation veya sayfa yükleme optimizasyonları)
+**Sonraki görev:** PROJE TAMAMLANDI 🎉
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **GÖREV 5.5** — Son test ve WhatsApp numarası entegrasyonu
+  - `NEXT_PUBLIC_WHATSAPP_NUMBER` ortam değişkeni üzerinden gelen numaranın temizlenerek (rakam dışı karakterlerden arındırılarak) tüm WhatsApp deeplink'lerine (`Navbar`, `Footer`, `Contact`, `CollectionCard`, `UrunDetay` vb.) dinamik entegrasyonu tamamlandı.
+  - `lib/utils.ts` içindeki `driveUrlToDirectUrl` metodu Google Drive doğrudan görsel paylaşımı için `lh3.googleusercontent.com` direkt link formatı ile güncellenerek görsel yüklenme sorunu çözüldü.
+  - `app/koleksiyonlar/[slug]/page.tsx` ve `app/urunler/[slug]/page.tsx` sayfalarına `export const revalidate = 0` / `dynamic = "force-dynamic"` eklenerek Notion veritabanı değişikliklerinin anlık olarak yansıması sağlandı.
+  - `app/sitemap.ts` dosyası Notion API entegrasyonlu ve tüm dinamik koleksiyon/ürün rotalarını barındıracak şekilde güncellendi.
+  - Canlı Notion bağlantısı ve veritabanı sorguları yerel script ile test edilip doğrulandı.
 - [x] **GÖREV 5.4** — Navbar koleksiyon dropdown ve breadcrumb sistemi
   - `components/layout/Navbar.tsx` güncellenerek "Koleksiyonlar" linki masaüstünde hover ile açılan Framer Motion animasyonlu bir dropdown'a, mobilde ise indented satırlara dönüştürüldü.
   - `components/ui/Breadcrumb.tsx` breadcrumb bileşeni hiyerarşik ChevronRight bölücüsü, tıklanabilir Link'ler ve son eleman truncate desteğiyle yazıldı.
@@ -227,6 +233,14 @@
 - `app/koleksiyonlar/[slug]/page.tsx` ve `app/urunler/[slug]/page.tsx` içindeki Breadcrumb yapısı bu yeni modüler bileşene taşındı.
 - `components/sections/Collections.tsx` ana sayfa bölümünün altına "Tüm koleksiyonları keşfet →" linki eklendi.
 - `npm run build` ile projenin derlendiği ve tip kontrollerinin sorunsuz geçtiği teyit edildi.
+
+### Oturum 18 — Son Testler, Canlı Entegrasyon ve WhatsApp Optimizasyonu (GÖREV 5.5)
+- `lib/utils.ts` dosyası güncellenerek Google Drive görsel paylaşımlarında `lh3.googleusercontent.com` direkt link yapısına geçildi, resim yüklenememe problemi kalıcı olarak çözüldü.
+- `app/koleksiyonlar/[slug]/page.tsx` ve `app/urunler/[slug]/page.tsx` rotalarına `force-dynamic` ve sıfır revalidation parametreleri eklenerek Notion veritabanı değişikliklerinin anlık olarak senkronize yansıması sağlandı.
+- Tüm WhatsApp sipariş butonları/linkleri (`Navbar`, `Footer`, `Contact`, `CollectionCard`, `UrunDetay`) taranıp `NEXT_PUBLIC_WHATSAPP_NUMBER` ortam değişkeninin numeric-only temizlenmiş haliyle dinamikleştirildi.
+- `app/sitemap.ts` Notion API bağlantısıyla dinamik sitemap.xml rotalarını üretecek şekilde güncellendi.
+- Canlı Notion databases sorguları bağımsız script ile test edilip doğrulandı.
+- `npm run build` ile Next.js üretim derlemesi sıfır hata ile tamamlandı.
 
 ---
 

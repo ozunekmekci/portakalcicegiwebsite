@@ -7,6 +7,10 @@ import { notFound } from "next/navigation"
 import { MessageCircle } from "lucide-react"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 type Props = {
   params: {
     slug: string
@@ -95,7 +99,8 @@ export default async function UrunDetayPage({ params }: Props) {
   const emoji = getEmoji(product.koleksiyonSlug)
 
   const waText = encodeURIComponent(`Merhaba! ${product.isim} için sipariş vermek istiyorum. Detay alabilir miyim?`)
-  const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"
+  const waNumber = rawNumber.replace(/\D/g, "")
   const waHref = `https://wa.me/${waNumber}?text=${waText}`
 
   // Aynı koleksiyondaki diğer aktif ürünler (maksimum 4 adet, mevcut ürün hariç)

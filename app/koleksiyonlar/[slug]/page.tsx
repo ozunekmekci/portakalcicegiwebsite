@@ -5,6 +5,10 @@ import ProductCard from "@/components/ui/ProductCard"
 import { Product } from "@/lib/notion"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 type Props = {
   params: {
     slug: string
@@ -50,7 +54,9 @@ export default async function KoleksiyonPage({ params }: Props) {
 
 
   const waText = encodeURIComponent(`Merhaba! ${isim} koleksiyonu için özel sipariş vermek istiyorum.`)
-  const waHref = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"}?text=${waText}`
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"
+  const waNumber = rawNumber.replace(/\D/g, "")
+  const waHref = `https://wa.me/${waNumber}?text=${waText}`
 
   return (
     <main className="bg-[#fbf7f0] min-h-screen">
