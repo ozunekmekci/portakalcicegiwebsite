@@ -15,8 +15,41 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portakalcicegiwebsite.vercel.app"),
   title: "Portakal Çiçeği Atölye | Premium Hediyelik Tasarımı",
-  description: "Özel günleriniz için modern, butik ve premium 3D akrilik hediyelikler tasarlıyoruz.",
+  description: "Doğum, baby shower, düğün ve nişanlarınız için özel tasarım, 3D akrilik hediyelikler. 100+ adet toplu siparişlerde özel fiyat. İstanbul.",
+  keywords: ["hediyelik", "baby shower", "düğün hediyesi", "doğum hediyesi", "3D akrilik", "pleksi hediyelik", "özel tasarım", "toplu sipariş", "diş buğdayı", "nikah şekeri"],
+  authors: [{ name: "Portakal Çiçeği Atölye" }],
+  creator: "Portakal Çiçeği Atölye",
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "https://portakalcicegi.com.tr",
+    siteName: "Portakal Çiçeği Atölye",
+    title: "Portakal Çiçeği Atölye | Premium Hediyelik Tasarımı",
+    description: "Özel günleriniz için tasarlanmış, el yapımı 3D akrilik hediyelikler.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Portakal Çiçeği Atölye",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portakal Çiçeği Atölye",
+    description: "Premium hediyelik tasarımı",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({

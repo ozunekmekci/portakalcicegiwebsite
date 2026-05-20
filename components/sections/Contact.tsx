@@ -44,7 +44,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="iletisim" className="bg-[#1a1a1a] py-24 px-6 overflow-hidden text-white">
+    <section id="iletisim" aria-label="İletişim" className="bg-[#1a1a1a] py-24 px-6 overflow-hidden text-white">
       <div className="max-w-4xl mx-auto space-y-16 text-center">
         {/* Header Block */}
         <motion.div

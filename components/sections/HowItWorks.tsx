@@ -48,7 +48,7 @@ export default function HowItWorks() {
 
 
   return (
-    <section id="nasil-calisir" className="bg-brand-bg-cream py-24 px-6 overflow-hidden">
+    <section id="nasil-calisir" aria-label="Nasıl Çalışır" className="bg-brand-bg-cream py-24 px-6 overflow-hidden">
       <div className="max-w-5xl mx-auto space-y-16">
         {/* Header Block */}
         <motion.div

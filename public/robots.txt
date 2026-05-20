@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portakalcicegiwebsite.vercel.app/sitemap.xml

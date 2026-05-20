@@ -8,7 +8,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen bg-brand-bg-cream flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
+    <section aria-label="Karşılama" className="relative min-h-screen bg-brand-bg-cream flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
       {/* Decorative Blob Right-Bottom */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}

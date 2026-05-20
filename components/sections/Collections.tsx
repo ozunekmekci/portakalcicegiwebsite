@@ -14,7 +14,7 @@ export default async function Collections() {
   }
 
   return (
-    <section id="koleksiyonlar" className="bg-brand-bg-gray py-24 px-6 overflow-hidden">
+    <section id="koleksiyonlar" aria-label="Koleksiyonlar" className="bg-brand-bg-gray py-24 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header Block */}
         <div className="text-center space-y-4 max-w-xl mx-auto">

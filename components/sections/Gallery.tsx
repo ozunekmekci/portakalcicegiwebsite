@@ -26,7 +26,7 @@ export default function Gallery() {
   };
 
   return (
-    <section id="galeri" className="bg-brand-bg-cream py-24 px-6 overflow-hidden">
+    <section id="galeri" aria-label="Galeri" className="bg-brand-bg-cream py-24 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header Block */}
         <motion.div

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="hakkinda" className="bg-brand-bg-gray py-24 px-6 overflow-hidden">
+    <section id="hakkinda" aria-label="Hakkımızda" className="bg-brand-bg-gray py-24 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Left Column: Text */}
         <motion.div
