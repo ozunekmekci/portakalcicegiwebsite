@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { slugify } from "@/lib/utils";
 
 type Props = {
   isim: string;
@@ -67,14 +69,20 @@ export default function CollectionCard({ isim, aciklama, kategori, gorselUrl, in
           </p>
         </div>
 
-        <div>
+        <div className="flex flex-col space-y-2">
+          <Link
+            href={`/koleksiyonlar/${slugify(kategori)}`}
+            className="inline-flex items-center justify-center min-h-[44px] border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-full px-6 py-2 text-sm font-medium font-sans text-center"
+          >
+            İncele
+          </Link>
           <a
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center min-h-[44px] border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-full px-6 py-2 text-sm font-medium font-sans"
+            className="text-xs text-[#555555] hover:text-brand-orange transition-colors font-sans text-center"
           >
-            İncele
+            veya direkt sipariş için →
           </a>
         </div>
       </div>

@@ -6,17 +6,23 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 5  
-**Sonraki görev:** GÖREV 5.2 — Koleksiyon Listesi Sayfası (koleksiyon ürünlerinin listelenmesi ve UI kart tasarımı)
+**Sonraki görev:** GÖREV 5.3 — Tekil Ürün Sayfası (ürün detaylarının ve resim galerisinin gösterilmesi)
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **GÖREV 5.2** — Koleksiyon listesi sayfası ve ProductCard bileşeni
+  - `components/ui/ProductCard.tsx` client bileşeni hover efektleri, aspect-[3/4] oranlı görsel alanı (görsel yoksa kategori bazlı emoji fallback) ve minimum adet rozetiyle oluşturuldu.
+  - `app/koleksiyonlar/[slug]/page.tsx` dinamik kategoriler sayfası breadcrumb, dinamik metaveriler, banner yapısı ve robust slug eşleme/normalizasyon kuralları ile geliştirildi.
+  - Ana sayfadaki `CollectionCard.tsx` bileşenindeki "İncele" butonu dynamic routing ile `/koleksiyonlar/[slugify(kategori)]` olarak güncellendi ve altına küçük bir doğrudan sipariş WhatsApp linki eklendi.
+  - `next.config.mjs` dosyası Google Drive ve Google User Content görselleri için `remotePatterns` ile güncellendi.
 - [x] **GÖREV 5.1** — Notion Ürünler veritabanı API entegrasyonu
   - `NOTION_PRODUCTS_DATABASE_ID` ortam değişkeni eklenerek Notion Ürünler veritabanı bağlandı.
   - `lib/utils.ts` oluşturularak Google Drive URL dönüştürücü (`driveUrlToDirectUrl`) ve Türkçe uyumlu slug üretici (`slugify`) fonksiyonları eklendi.
   - `lib/notion.ts` dosyasına `Product` tipi, `getProducts` ve `getProductBySlug` asenkron fonksiyonları eklendi.
   - `content/products.ts` dosyası 3 adet yedek (fallback) ürün ile oluşturuldu.
   - Ürünler veritabanı bağlantısı `node` scripti ile başarıyla test edildi ve doğrulandı.
+
 - [x] **GÖREV 1.1** — Next.js 14 projesi oluştur (`create-next-app`)
   - TypeScript, Tailwind CSS ve App Router yapılandırıldı.
   - `globals.css` ve `tailwind.config.ts` marka renkleriyle entegre edildi.
@@ -191,6 +197,13 @@
 - `content/products.ts` fallback ürün veritabanı 3 adet örnek ürün ile oluşturuldu.
 - Veritabanı bağlantısı bir node bir-satırlık betiğiyle test edilip doğrulandı.
 - `npm run build` ile projenin derlendiği ve tip kontrollerinin sorunsuz geçtiği teyit edildi.
+
+### Oturum 15 — Koleksiyon Listesi Sayfası ve ProductCard Bileşeni (GÖREV 5.2)
+- `components/ui/ProductCard.tsx` client bileşeni yazıldı; motion animasyonları, aspect-[3/4] oranlı görsel veya kategori bazlı emoji fallback yapısı ve minimum sipariş adet badge yapısı entegre edildi.
+- `app/koleksiyonlar/[slug]/page.tsx` server component'i breadcrumb, banner, dinamik metadata ve robust slug/kategori normalizasyon eşleme mantığıyla kodlandı.
+- `components/ui/CollectionCard.tsx` güncellendi; "İncele" butonu dynamic routing ile `/koleksiyonlar/[slugify(kategori)]` olarak ayarlandı, altına doğrudan sipariş için küçük bir WhatsApp yönlendirme linki yerleştirildi.
+- `next.config.mjs` dosyası Google Drive ve Google User Content hostnameleri için `remotePatterns` içerecek şekilde güncellendi.
+- `npm run build` yerel derleme testi başarıyla tamamlandı ve statik SSG sayfalarının doğru şekilde oluşturulduğu doğrulandı.
 
 ---
 
