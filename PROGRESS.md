@@ -6,7 +6,7 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 2  
-**Sonraki görev:** GÖREV 2.2 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
+**Sonraki görev:** GÖREV 2.3 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
 
 ---
 
@@ -21,7 +21,9 @@
   - `@notionhq/client@2.2.16` ve `dotenv` kuruldu, `lib/notion.ts` ve fallback `content/collections.ts` oluşturuldu, test bağlantısı doğrulandı.
 - [x] **GÖREV 2.1** — Hero Section (Karşılama Ekranı)
   - Krem rengi arka planlı, estetik blur daire dekorasyonlu, Playfair Display tipografili, Framer Motion animasyonlu ve smooth scroll/WA tetikleyicili Hero section tamamlandı.
-  - `app/page.tsx`'e entegre edildi, build alındı ve push edildi.
+- [x] **GÖREV 2.2** — About Section (Hakkımızda)
+  - Gri arka planlı, responsive grid yapılı, metin/alıntılı ve görsel placeholder'lı About section tamamlandı.
+  - `app/page.tsx`'e entegre edildi (`id="hakkinda"`), build alındı ve push edildi.
 
 ---
 
@@ -74,6 +76,14 @@
 - Yumuşak kaydırmalı (smooth scroll) "Koleksiyonları Keşfet" butonu ve WhatsApp deeplink yönlendirmeli "Sipariş Ver" butonu yerleştirildi.
 - `app/page.tsx` güncellenerek Hero bileşeni entegre edildi.
 - `npm run build` ile yerel derleme başarıyla tamamlandı ve GitHub'a push edildi.
+
+### Oturum 5 — About Section Geliştirilmesi
+- `components/sections/About.tsx` bileşeni oluşturuldu.
+- Hero'dan ayrışan açık gri arka planlı, iki kolonlu grid yapısında duyarlı About (Hakkımızda) section tasarlandı.
+- Sol kolonda marka hikayesi, Playfair Display başlık ve turuncu alıntı çizgisi; sağ kolonda ise gölgeli premium bir görsel placeholder (🍊 emojisi ve açıklama) yerleştirildi.
+- Scroll reveal kayma animasyonları Framer Motion ile tanımlandı.
+- `app/page.tsx` güncellenerek `id="hakkinda"` ile Hero'nun hemen altına yerleştirildi.
+- `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
 
 ---
 
