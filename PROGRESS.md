@@ -6,7 +6,7 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 2  
-**Sonraki görev:** GÖREV 2.5 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
+**Sonraki görev:** Vercel'deki deploy durumunu izlemek ve test etmek (Vercel deploy takibi ve Notion Environment Variables yapılandırması devam ediyor)
 
 ---
 
@@ -16,7 +16,7 @@
   - `globals.css` ve `tailwind.config.ts` marka renkleriyle entegre edildi.
   - `Playfair Display` ve `Inter` google fontları `layout.tsx`'te kuruldu.
 - [x] **GÖREV 1.3** — Navbar ve Footer component'ları
-  - Sticky `Navbar` (framer-motion, hamburger menu) ve koyu temalı `Footer` (sosyal linkler) tamamlandı.
+  - Sticky `Navbar` (framer-motion, hamburger menu) and koyu temalı `Footer` (sosyal linkler) tamamlandı.
 - [x] **GÖREV 1.4** — Notion API Entegrasyonu
   - `@notionhq/client@2.2.16` ve `dotenv` kuruldu, `lib/notion.ts` ve fallback `content/collections.ts` oluşturuldu, test bağlantısı doğrulandı.
 - [x] **GÖREV 2.1** — Hero Section (Karşılama Ekranı)
@@ -26,8 +26,10 @@
 - [x] **GÖREV 2.3** — HowItWorks Section (Nasıl Çalışır)
   - Krem rengi arka planlı, Lucide ikonlu (`Palette`, `Pencil`, `Package`), hover efektli ve stagger (sıralı geçiş) giriş animasyonlu 3 kartlı Nasıl Çalışır adımları tamamlandı.
 - [x] **GÖREV 2.4** — Contact Section (İletişim)
-  - Koyu arka planlı, WhatsApp ve Instagram sosyal CTA butonlarına sahip, Formspree entegrasyonlu ve state-managed Teklif İsteme formu barındıran Contact section tamamlandı.
-  - `app/page.tsx`'e entegre edildi (`id="iletisim"`), build alındı ve push edildi.
+  - Formspree gerçek endpoint'i ile güncellenmiş koyu arka planlı, WhatsApp/Instagram butonlu ve state-managed formlu Contact section tamamlandı.
+- [x] **GÖREV 3.1** — Collections Section (Notion Entegrasyonu)
+  - Sunucu tarafında asenkron Notion API verilerini çeken `Collections` server component'ı ve görsel/emoji fallback özellikli, animasyonlu `CollectionCard` client component'ı tamamlandı.
+  - `next.config.mjs` resim optimizasyon ayarı yapıldı, `content/collections.ts` fallback listesi 4 adet gerçekçi koleksiyon ile güncellendi, `app/page.tsx`'e entegre edildi, build alındı ve push edildi.
 
 ---
 
@@ -101,6 +103,15 @@
 - Koyu arka planlı (`#1a1a1a`), WhatsApp ve Instagram sosyal CTA butonlarına sahip, Formspree üzerinden asenkron fetch POST istekleri yapabilen, Türkçe geribildirim mesajlı ve state-managed Teklif İsteme formu tamamlandı.
 - Scroll reveal animasyonları Framer Motion ile tanımlandı.
 - `app/page.tsx` güncellenerek `id="iletisim"` ile HowItWorks'ün altına Contact entegre edildi.
+- `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
+
+### Oturum 8 — Collections Section & Notion Entegrasyonu
+- `components/sections/Collections.tsx` server component'ı ve `components/ui/CollectionCard.tsx` client component'ı oluşturuldu.
+- Notion API üzerinden asenkron veri çekme sistemi tamamlandı, hata/boş veri durumunda 4 gerçekçi koleksiyondan oluşan fallback listesi bağlandı.
+- `next.config.mjs` dosyası remotelardan gelen görsellerin sorunsuz yüklenmesi için `images.unoptimized = true` şeklinde yapılandırıldı.
+- İncele butonlarına dinamik kategori isimli WhatsApp deeplink'leri entegre edildi.
+- Contact formu Formspree endpoint'i gerçek endpoint ile güncellendi.
+- `app/page.tsx` güncellenerek Collections bileşeni HowItWorks ile Contact arasına yerleştirildi.
 - `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
 
 ---
