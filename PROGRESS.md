@@ -6,7 +6,7 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 2  
-**Sonraki görev:** GÖREV 2.4 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
+**Sonraki görev:** GÖREV 2.5 — Koleksiyonlar Section'ı (Notion entegrasyonlu) (Vercel deploy takibi de devam ediyor)
 
 ---
 
@@ -25,7 +25,9 @@
   - Gri arka planlı, responsive grid yapılı, metin/alıntılı ve görsel placeholder'lı About section tamamlandı.
 - [x] **GÖREV 2.3** — HowItWorks Section (Nasıl Çalışır)
   - Krem rengi arka planlı, Lucide ikonlu (`Palette`, `Pencil`, `Package`), hover efektli ve stagger (sıralı geçiş) giriş animasyonlu 3 kartlı Nasıl Çalışır adımları tamamlandı.
-  - `app/page.tsx`'e entegre edildi (`id="nasil-calisir"`), build alındı ve push edildi.
+- [x] **GÖREV 2.4** — Contact Section (İletişim)
+  - Koyu arka planlı, WhatsApp ve Instagram sosyal CTA butonlarına sahip, Formspree entegrasyonlu ve state-managed Teklif İsteme formu barındıran Contact section tamamlandı.
+  - `app/page.tsx`'e entegre edildi (`id="iletisim"`), build alındı ve push edildi.
 
 ---
 
@@ -92,6 +94,13 @@
 - Krem rengi arka planlı, Lucide ikonlu (`Palette`, `Pencil`, `Package`), absolute konumlandırılmış büyük sayfa numaralarına sahip, hover efektli ve stagger giriş animasyonlu 3 kartlı Nasıl Çalışır adımları tamamlandı.
 - Framer Motion `ease` özelliğinin TS derleme hatası vermesini engellemek için casting (`as const`) uygulandı.
 - `app/page.tsx` güncellenerek `id="nasil-calisir"` ile About'un altına HowItWorks entegre edildi.
+- `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
+
+### Oturum 7 — Contact Section Geliştirilmesi
+- `components/sections/Contact.tsx` bileşeni oluşturuldu.
+- Koyu arka planlı (`#1a1a1a`), WhatsApp ve Instagram sosyal CTA butonlarına sahip, Formspree üzerinden asenkron fetch POST istekleri yapabilen, Türkçe geribildirim mesajlı ve state-managed Teklif İsteme formu tamamlandı.
+- Scroll reveal animasyonları Framer Motion ile tanımlandı.
+- `app/page.tsx` güncellenerek `id="iletisim"` ile HowItWorks'ün altına Contact entegre edildi.
 - `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
 
 ---
