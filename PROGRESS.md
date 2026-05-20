@@ -42,6 +42,11 @@
   - About görseli `about.webp` (50KB) ve 8 adet galeri resmi `gallery-*.webp` (ortalama 30KB - 70KB) olarak optimize edildi.
   - `.gitignore` dosyası güncellenerek büyük ham görsellerin repoya yüklenmesi engellendi.
   - `About.tsx` ve `Gallery.tsx` bileşenlerindeki emoji/kamera yer tutucuları yerine Next.js `Image` bileşeni eklendi.
+- [x] **GÖREV 4.2** — Performans & Lighthouse
+  - `app/layout.tsx` font yükleme ayarlarına `display: "swap"` eklendi.
+  - Üst etiketler WCAG AA (≥4.5:1) kontrast oranı için `#fa3500` (text-brand-orange-dark) rengine güncellendi.
+  - Form alanlarına `aria-label` ve mobil hamburger butona `aria-expanded` / dinamik `aria-label` eklenerek erişilebilirlik sağlandı.
+  - `Collections.tsx` bileşeni `<Suspense>` boundary ile sarılarak Notion API yükleme esnasında şık bir `CollectionsGridSkeleton` gösterilmesi sağlandı. Sayfanın ilk yükleme hızı (TTFB) artırıldı.
 
 ---
 
@@ -150,6 +155,15 @@
 - `.gitignore` dosyası güncellenerek büyük ham görsellerin repoya yüklenmesi engellendi.
 - `About.tsx` ve `Gallery.tsx` bileşenlerindeki emoji/kamera yer tutucuları yerine Next.js `Image` bileşeni eklendi.
 - `npm run build` ile yerel derleme doğrulanıp değişiklikler GitHub'a push edildi.
+
+### Oturum 12 — Performans & Lighthouse (GÖREV 4.2) & Görsel Yön Fix
+- Görsellerin EXIF yönelim bilgilerine göre yan dönmesini engellemek için `scripts/optimize-images.mjs` dosyasına `.rotate()` çağrısı eklendi, görseller yeniden üretilip GitHub'a push edildi.
+- `app/layout.tsx` font yükleme ayarlarına `display: "swap"` eklendi.
+- Sitedeki tüm sections üst etiket renkleri (`HAKKIMIZDA`, `NASIL ÇALIŞIR`, `KOLEKSİYONLAR`, `GALERİ`, `İLETİŞİM`) kontrast oranı için `#fa3500` (text-brand-orange-dark) rengine güncellendi.
+- `Contact.tsx` içerisindeki form alanlarına `aria-label` tanımlandı.
+- `Navbar.tsx` mobil menü butonuna `aria-expanded` ve dinamik `aria-label` öznitelikleri eklendi.
+- `Collections.tsx` bileşeni static header ve async `CollectionsGrid` olarak ikiye bölündü; Notion API yüklenirken `CollectionsGridSkeleton` gösterilecek şekilde React `<Suspense>` ile sarmalandı.
+- `npm run build` ile derleme doğrulanıp değişiklikler GitHub'a push edildi.
 
 ---
 
