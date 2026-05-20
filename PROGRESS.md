@@ -37,6 +37,11 @@
   - Mobil menü body scroll lock, padding genişletmeleri ve min-height 44px+ touch target'lar uygulandı.
   - Hero, About, Collections, Gallery, Contact, Footer ve global CSS (yatay kaydırma önleme) dosyalarında responsiveness iyileştirmeleri yapıldı.
   - Local build başarıyla tamamlandı, GitHub'a push edildi.
+- [x] **GÖREV 4.1** — Görsel Optimizasyon
+  - Orijinal ürün fotoğraflarını WebP formatına dönüştüren ve kırpan `scripts/optimize-images.mjs` yazıldı ve çalıştırıldı.
+  - About görseli `about.webp` (50KB) ve 8 adet galeri resmi `gallery-*.webp` (ortalama 30KB - 70KB) olarak optimize edildi.
+  - `.gitignore` dosyası güncellenerek büyük ham görsellerin repoya yüklenmesi engellendi.
+  - `About.tsx` ve `Gallery.tsx` bileşenlerindeki emoji/kamera yer tutucuları yerine Next.js `Image` bileşeni eklendi.
 
 ---
 
@@ -138,6 +143,13 @@
 - Footer mobil düzeninde sütunlar alt alta hizalandı ve içerikler ortalandı. "Nasıl Çalışır" menü linki anchor hedefi `#nasil-calisir` olarak güncellendi.
 - `globals.css` içinde `body { overflow-x: hidden; }` tanımlanarak mobil yatay taşmalar tamamen engellendi.
 - Proje başarıyla derlendi ve GitHub'a push edildi.
+
+### Oturum 11 — Görsel Optimizasyon & Entegrasyon (GÖREV 4.1)
+- `sharp` kütüphanesi kuruldu. Orijinal ürün fotoğraflarını WebP formatına dönüştüren ve kırpan `scripts/optimize-images.mjs` scripti yazıldı ve çalıştırıldı.
+- About görseli `about.webp` (50KB) ve 8 adet galeri resmi `gallery-*.webp` (ortalama 30KB - 70KB) olarak optimize edildi.
+- `.gitignore` dosyası güncellenerek büyük ham görsellerin repoya yüklenmesi engellendi.
+- `About.tsx` ve `Gallery.tsx` bileşenlerindeki emoji/kamera yer tutucuları yerine Next.js `Image` bileşeni eklendi.
+- `npm run build` ile yerel derleme doğrulanıp değişiklikler GitHub'a push edildi.
 
 ---
 
