@@ -24,7 +24,7 @@ export default function CollectionCard({ isim, aciklama, kategori, gorselUrl, in
   const emoji = getEmoji(kategori);
   const fallbackAciklama = aciklama || "Size özel tasarlanmış, el yapımı ve 3D akrilik detaylı hediyelik.";
   const waText = encodeURIComponent(`Merhaba! ${kategori} koleksiyonu hakkında bilgi almak istiyorum.`);
-  const waHref = `https://wa.me/90XXXXXXXXXXX?text=${waText}`;
+  const waHref = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"}?text=${waText}`;
 
   return (
     <motion.div

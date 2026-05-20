@@ -76,7 +76,7 @@ export default function Contact() {
         >
           {/* WhatsApp Button */}
           <motion.a
-            href="https://wa.me/90XXXXXXXXXXX"
+            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"}`}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

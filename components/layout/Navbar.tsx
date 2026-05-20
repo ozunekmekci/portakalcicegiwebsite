@@ -56,7 +56,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://wa.me/905555555555"
+              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555"}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-brand-orange hover:bg-brand-orange-dark text-white font-sans text-sm font-medium px-5 py-2.5 rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
@@ -103,7 +103,7 @@ export default function Navbar() {
               ))}
               <div className="pt-4">
                 <a
-                  href="https://wa.me/905555555555"
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555"}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
