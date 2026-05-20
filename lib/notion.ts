@@ -1,6 +1,14 @@
 import { Client } from "@notionhq/client";
 
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
+const notion = new Client({
+  auth: process.env.NOTION_API_KEY,
+  fetch: (url, options) => {
+    return fetch(url, {
+      ...options,
+      cache: "no-store",
+    });
+  },
+});
 
 export type Collection = {
   id: string;
