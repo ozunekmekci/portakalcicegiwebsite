@@ -8,7 +8,7 @@ interface FooterLink {
 const footerLinks: FooterLink[] = [
   { label: "Hakkında", href: "#hakkinda" },
   { label: "Koleksiyonlar", href: "#koleksiyonlar" },
-  { label: "Nasıl Çalışır", href: "#nasil-karar-verilir" }, // matching the brief anchor or name
+  { label: "Nasıl Çalışır", href: "#nasil-calisir" },
   { label: "İletişim", href: "#iletisim" },
 ];
 
@@ -16,9 +16,9 @@ export default function Footer() {
   return (
     <footer className="bg-brand-text-dark text-brand-bg-cream font-sans border-t border-brand-text-mid/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start text-center md:text-left">
           {/* Left Column: Brand & Slogan */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col items-center md:items-start">
             <h3 className="font-serif text-xl md:text-2xl font-semibold text-brand-orange">
               Portakal Çiçeği Atölye
             </h3>
@@ -47,11 +47,11 @@ export default function Footer() {
           </div>
 
           {/* Right Column: Social Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col items-center md:items-start w-full">
             <h4 className="text-sm font-semibold text-brand-yellow uppercase tracking-wider">
               İletişim & Sosyal Medya
             </h4>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <a
                 href="https://www.instagram.com/portakalcicegi.atolye/"
                 target="_blank"
@@ -71,7 +71,7 @@ export default function Footer() {
                 <MessageCircle className="h-5 w-5" />
               </a>
             </div>
-            <p className="text-xs text-brand-bg-cream/50 leading-relaxed">
+            <p className="text-xs text-brand-bg-cream/50 leading-relaxed max-w-xs">
               Bize Instagram DM veya WhatsApp üzerinden ulaşabilirsiniz.
             </p>
           </div>

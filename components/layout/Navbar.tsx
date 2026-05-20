@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -18,6 +18,13 @@ const navLinks: NavLink[] = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -82,24 +89,24 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-brand-bg-cream border-t border-brand-bg-gray/20 overflow-hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-3">
+            <div className="px-4 pt-2 pb-6 space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block font-sans text-brand-text-mid hover:text-brand-orange text-base font-medium py-2"
+                  className="block font-sans text-brand-text-mid hover:text-brand-orange text-base font-medium py-3 border-b border-brand-bg-gray/10 last:border-0"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-2">
+              <div className="pt-4">
                 <a
                   href="https://wa.me/905555555555"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
-                  className="block text-center bg-brand-orange hover:bg-brand-orange-dark text-white font-sans text-base font-medium py-3 rounded-full shadow-md transition-colors"
+                  className="block text-center bg-brand-orange hover:bg-brand-orange-dark text-white font-sans text-base font-medium py-3.5 rounded-full shadow-md transition-colors"
                 >
                   Sipariş Ver
                 </a>

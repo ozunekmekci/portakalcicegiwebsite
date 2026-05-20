@@ -121,7 +121,7 @@ export default function Contact() {
               required
               value={formData.name}
               onChange={handleChange}
-              className="bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans"
+              className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans"
             />
             <input
               type="tel"
@@ -130,7 +130,7 @@ export default function Contact() {
               required
               value={formData.phone}
               onChange={handleChange}
-              className="bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans"
+              className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans"
             />
             <textarea
               name="message"
@@ -139,7 +139,7 @@ export default function Contact() {
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              className="bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans resize-none"
+              className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans resize-none"
             />
 
             <button

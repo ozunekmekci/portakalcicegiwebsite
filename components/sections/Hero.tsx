@@ -14,14 +14,14 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.1, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-        className="absolute right-0 bottom-0 w-96 h-96 bg-brand-orange rounded-full blur-3xl pointer-events-none"
+        className="absolute right-0 bottom-0 w-48 h-48 md:w-96 md:h-96 bg-brand-orange rounded-full blur-3xl pointer-events-none"
       />
       {/* Decorative Blob Left-Top */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.05, scale: 1 }}
         transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
-        className="absolute -left-20 -top-20 w-80 h-80 bg-brand-orange-dark rounded-full blur-3xl pointer-events-none"
+        className="absolute -left-10 -top-10 w-40 h-40 md:-left-20 md:-top-20 md:w-80 md:h-80 bg-brand-orange-dark rounded-full blur-3xl pointer-events-none"
       />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center justify-center space-y-6 md:space-y-8">
@@ -42,7 +42,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-text-dark leading-tight font-bold whitespace-pre-line"
+          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-brand-text-dark leading-tight font-bold whitespace-pre-line"
         >
           Her Kutlama,<br />
           Bir <span className="text-brand-orange-dark relative inline-block">

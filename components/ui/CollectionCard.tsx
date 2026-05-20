@@ -72,7 +72,7 @@ export default function CollectionCard({ isim, aciklama, kategori, gorselUrl, in
             href={waHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-full px-5 py-2 text-sm font-medium font-sans"
+            className="inline-flex items-center justify-center min-h-[44px] border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-full px-6 py-2 text-sm font-medium font-sans"
           >
             İncele
           </a>

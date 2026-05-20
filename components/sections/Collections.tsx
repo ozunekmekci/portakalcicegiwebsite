@@ -31,7 +31,7 @@ export default async function Collections() {
         </div>
 
         {/* Grid layout for Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {collections.map((col, i) => (
             <CollectionCard key={col.id} {...col} index={i} />
           ))}
