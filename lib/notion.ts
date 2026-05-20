@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client";
-import { driveUrlToDirectUrl } from "@/lib/utils";
+import { driveUrlToDirectUrl, slugify } from "@/lib/utils";
 
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
@@ -52,6 +52,19 @@ export type Product = {
 }
 
 export async function getProducts(koleksiyonSlug?: string): Promise<Product[]> {
+  let collections: Collection[] = []
+  try {
+    collections = await getCollections()
+  } catch (e) {
+    console.error("Failed to fetch collections in getProducts:", e)
+  }
+
+  const collectionMap = new Map<string, Collection>()
+  collections.forEach(c => {
+    const normalizedId = c.id.replace(/-/g, "")
+    collectionMap.set(normalizedId, c)
+  })
+
   const response = await notion.databases.query({
     database_id: process.env.NOTION_PRODUCTS_DATABASE_ID!,
     filter: { property: "Aktif", checkbox: { equals: true } },
@@ -60,20 +73,39 @@ export async function getProducts(koleksiyonSlug?: string): Promise<Product[]> {
   const products = response.results.map((page: any) => {
     const anaGorselRaw = page.properties["Ana Görsel"]?.url ?? ""
     const ekGorsellerRaw = page.properties["Ek Görseller"]?.rich_text?.[0]?.plain_text ?? ""
-    const koleksiyonIsim = page.properties["Koleksiyon"]?.relation?.[0] 
-      ? "bilinmiyor" // relation ID gelir, isim ayrıca çekilmeli
-      : ""
+    
+    const relationId = page.properties["Koleksiyon"]?.relation?.[0]?.id?.replace(/-/g, "") ?? ""
+    const relatedCollection = relationId ? collectionMap.get(relationId) : null
+    
+    const koleksiyonIsim = relatedCollection ? relatedCollection.isim : ""
+    const resolvedKoleksiyonSlug = relatedCollection ? slugify(relatedCollection.kategori) : ""
+
+    let finalAnaGorsel = driveUrlToDirectUrl(anaGorselRaw)
+    let finalEkGorseller: string[] = ekGorsellerRaw
+      ? ekGorsellerRaw.split(",").map((u: string) => driveUrlToDirectUrl(u.trim())).filter(Boolean)
+      : []
+
+    const isPlaceholder = (url: string) => !url || url.includes("EXAMPLE_") || url.includes("placeholder")
+
+    // Filter out placeholders from ekGorseller
+    finalEkGorseller = finalEkGorseller.filter((url: string) => !isPlaceholder(url))
+
+    if (isPlaceholder(finalAnaGorsel)) {
+      if (finalEkGorseller.length > 0) {
+        finalAnaGorsel = finalEkGorseller[0]
+      } else {
+        finalAnaGorsel = ""
+      }
+    }
 
     return {
       id: page.id,
       slug: page.properties["Slug"]?.rich_text?.[0]?.plain_text ?? "",
       isim: page.properties["İsim"]?.title?.[0]?.plain_text ?? "",
-      koleksiyon: page.properties["Koleksiyon"]?.relation?.[0]?.id ?? "",
-      koleksiyonSlug: page.properties["Koleksiyon Slug"]?.formula?.string ?? "",
-      anaGorsel: driveUrlToDirectUrl(anaGorselRaw),
-      ekGorseller: ekGorsellerRaw
-        ? ekGorsellerRaw.split(",").map((u: string) => driveUrlToDirectUrl(u.trim()))
-        : [],
+      koleksiyon: koleksiyonIsim,
+      koleksiyonSlug: resolvedKoleksiyonSlug,
+      anaGorsel: finalAnaGorsel,
+      ekGorseller: finalEkGorseller,
       fiyatAraligi: page.properties["Fiyat Aralığı"]?.rich_text?.[0]?.plain_text ?? "",
       kisaAciklama: page.properties["Kısa Açıklama"]?.rich_text?.[0]?.plain_text ?? "",
       detayAciklama: page.properties["Detay Açıklama"]?.rich_text?.[0]?.plain_text ?? "",
@@ -82,8 +114,11 @@ export async function getProducts(koleksiyonSlug?: string): Promise<Product[]> {
     }
   })
 
-  // Koleksiyon slug filtresi — Notion'dan koleksiyon adı çekilemediği için
-  // slug eşleşmesini koleksiyon ID üzerinden yapacağız (5.2'de çözülür)
+  if (koleksiyonSlug) {
+    const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
+    return products.filter(p => normalize(p.koleksiyonSlug) === normalize(koleksiyonSlug))
+  }
+
   return products
 }
 
