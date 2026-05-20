@@ -21,7 +21,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white font-sans font-medium rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
           >
-            Bizi Instagram'da Takip Edin
+            Bizi Instagram&apos;da Takip Edin
           </a>
         </div>
       </div>
