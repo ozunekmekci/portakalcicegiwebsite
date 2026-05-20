@@ -6,11 +6,16 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 5  
-**Sonraki görev:** GÖREV 5.3 — Tekil Ürün Sayfası (ürün detaylarının ve resim galerisinin gösterilmesi)
+**Sonraki görev:** GÖREV 5.4 — Navigasyon & Breadcrumb (Navbar ve Collections dropdown linklerinin bağlanması)
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **GÖREV 5.3** — Tekil ürün sayfası ve ProductGallery bileşeni
+  - `components/ui/ProductGallery.tsx` client bileşeni stateful resim seçimi, AnimatePresence ile geçiş animasyonları ve responsive küçük resim listesiyle kodlandı.
+  - `app/urunler/[slug]/page.tsx` dinamik ürün detay sayfası breadcrumb navigasyonu, kategori badge'i, WhatsApp CTA sipariş butonu, ilgili diğer ürünler listesi ve slug normalizasyonuyla oluşturuldu.
+  - `app/not-found.tsx` dosyası estetik ve markaya uyumlu 404 sayfası olarak sıfırdan yazıldı.
+  - `generateStaticParams` ve dinamik SEO metaverileri ürün detay sayfasına entegre edildi.
 - [x] **GÖREV 5.2** — Koleksiyon listesi sayfası ve ProductCard bileşeni
   - `components/ui/ProductCard.tsx` client bileşeni hover efektleri, aspect-[3/4] oranlı görsel alanı (görsel yoksa kategori bazlı emoji fallback) ve minimum adet rozetiyle oluşturuldu.
   - `app/koleksiyonlar/[slug]/page.tsx` dinamik kategoriler sayfası breadcrumb, dinamik metaveriler, banner yapısı ve robust slug eşleme/normalizasyon kuralları ile geliştirildi.
@@ -204,6 +209,12 @@
 - `components/ui/CollectionCard.tsx` güncellendi; "İncele" butonu dynamic routing ile `/koleksiyonlar/[slugify(kategori)]` olarak ayarlandı, altına doğrudan sipariş için küçük bir WhatsApp yönlendirme linki yerleştirildi.
 - `next.config.mjs` dosyası Google Drive ve Google User Content hostnameleri için `remotePatterns` içerecek şekilde güncellendi.
 - `npm run build` yerel derleme testi başarıyla tamamlandı ve statik SSG sayfalarının doğru şekilde oluşturulduğu doğrulandı.
+
+### Oturum 16 — Tekil Ürün Sayfası ve ProductGallery Bileşeni (GÖREV 5.3)
+- `components/ui/ProductGallery.tsx` client bileşeni yazıldı. AnimatePresence resim geçiş geçişleri, 64px küçük resim flex row yatay liste tasarımı ve aktif resim halka vurgusu uygulandı.
+- `app/urunler/[slug]/page.tsx` server component'i breadcrumb, dynamic metadata, kategori badge'i, WhatsApp "Bu Ürün İçin Sipariş Ver" CTA butonu ve "Bu Koleksiyonun Diğer Ürünleri" grid'i ile tasarlandı.
+- `app/not-found.tsx` dosyası oluşturularak 404 hataları için şık ve markalı bir "Sayfa Bulunamadı" arayüzü tasarlandı.
+- `npm run build` ile yerel derleme başarıyla test edildi ve tüm tekil ürün SSG rotaları doğrulandı.
 
 ---
 
