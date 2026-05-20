@@ -1,0 +1,113 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { label: "Hakkında", href: "#hakkinda" },
+  { label: "Koleksiyonlar", href: "#koleksiyonlar" },
+  { label: "Nasıl Çalışır", href: "#nasil-calisir" },
+  { label: "İletişim", href: "#iletisim" },
+];
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  return (
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="sticky top-0 z-50 bg-brand-bg-cream shadow-sm border-b border-brand-bg-gray/20"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20 items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <a href="#" className="font-serif text-xl md:text-2xl font-semibold text-brand-orange-dark hover:opacity-90 transition-opacity">
+              Portakal Çiçeği Atölye
+            </a>
+          </div>
+
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex space-x-8 items-center">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="font-sans text-brand-text-mid hover:text-brand-orange transition-colors text-sm font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="https://wa.me/905555555555"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-brand-orange hover:bg-brand-orange-dark text-white font-sans text-sm font-medium px-5 py-2.5 rounded-full shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              Sipariş Ver
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden">
+            <button
+              onClick={toggleMenu}
+              type="button"
+              className="text-brand-text-dark hover:text-brand-orange p-2 focus:outline-none"
+              aria-label="Menüyü aç/kapat"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Nav Links Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-brand-bg-cream border-t border-brand-bg-gray/20 overflow-hidden"
+          >
+            <div className="px-4 pt-2 pb-6 space-y-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block font-sans text-brand-text-mid hover:text-brand-orange text-base font-medium py-2"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="pt-2">
+                <a
+                  href="https://wa.me/905555555555"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="block text-center bg-brand-orange hover:bg-brand-orange-dark text-white font-sans text-base font-medium py-3 rounded-full shadow-md transition-colors"
+                >
+                  Sipariş Ver
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
+  );
+}
