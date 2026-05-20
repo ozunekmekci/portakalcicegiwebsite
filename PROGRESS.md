@@ -50,18 +50,30 @@
 
 ---
 
+- [x] **GÖREV 1.2** — Vercel'e bağla ve ilk deploy
+  - Git reposu GitHub'a bağlandı ve ilk başarılı deploy tamamlandı. Vercel Authentication kaldırıldı ve sitenin canlı çalıştığı doğrulandı.
+- [x] **GÖREV 4.3** — Domain Bağlantısı (Kullanıcı Tarafından Ertelendi / Atlandı)
+- [x] **GÖREV 4.4** — Son İçerik Doldurma
+  - Ürün fotoğrafları optimize edilerek `public/images/` dizinine eklendi.
+  - Koleksiyon açıklamalarının Notion Database'den yönetimi doğrulandı.
+  - WhatsApp telefon numarasının tek bir ortam değişkeninden yönetilebilmesi için `NEXT_PUBLIC_WHATSAPP_NUMBER` entegrasyonu tamamlandı.
+  - Formspree teklif isteme formu `https://formspree.io/f/mgoqoprk` endpoint'i üzerinden aktif edildi.
+- [x] **GÖREV 4.5** — Yayın Öncesi Kontrol Listesi
+  - Tüm sayfa içi navigasyon (anchor scrolls), WhatsApp yönlendirmeleri ve Instagram sosyal linki test edildi.
+  - Formspree entegrasyonu test gönderimiyle doğrulandı (200 OK).
+  - Mobil hamburger menü, CLS önleme, yatay taşmalar ve dokunmatik hedefler (tap targets) test edildi.
+  - Notion "Aktif" checkbox filtresi ve anlık cache-free veri senkronizasyonu canlıda doğrulandı.
+  - `/sitemap.xml` ve `/robots.txt` yollarının canlı web sitesinde doğru içeriği döndürdüğü teyit edildi.
+
+---
+
 ## 🔄 Devam Eden Görevler
-- [/] **GÖREV 1.2** — Vercel'e bağla ve ilk deploy
-  - Git reposu GitHub'a aktarıldı. Kullanıcıdan Vercel deploy'u bekleniyor.
+- Yok (Proje başarıyla tamamlandı ve yayına alındı!)
 
 ---
 
 ## ❌ Engeller / Bekleyen Kararlar
-
-- [ ] Koleksiyon isimleri sahibinden alınacak (Hafta 3'ten önce gerekli)
-- [ ] Gerçek ürün fotoğrafları sahibinden alınacak
-- [ ] WhatsApp numarası deeplink için alınacak
-- [ ] Formspree hesabı açılacak (ücretsiz)
+- Yok (Tüm entegrasyonlar, Notion API, Formspree ve WhatsApp yönlendirmeleri aktif)
 - [x] Notion hesabı + entegrasyon token'ı alınacak (Tamamlandı)
 
 ---
@@ -164,6 +176,20 @@
 - `Navbar.tsx` mobil menü butonuna `aria-expanded` ve dinamik `aria-label` öznitelikleri eklendi.
 - `Collections.tsx` bileşeni static header ve async `CollectionsGrid` olarak ikiye bölündü; Notion API yüklenirken `CollectionsGridSkeleton` gösterilecek şekilde React `<Suspense>` ile sarmalandı.
 - `npm run build` ile derleme doğrulanıp değişiklikler GitHub'a push edildi.
+
+### Oturum 13 — Son İçerik Doldurma & Çevresel Değişken Entegrasyonu (GÖREV 4.4)
+- GÖREV 4.3 (Domain Bağlantısı) kullanıcı isteği üzerine atlandı/ertelendi.
+- WhatsApp numarasının tek bir merkezden kolayca değiştirilebilmesi için `NEXT_PUBLIC_WHATSAPP_NUMBER` ortam değişkeni altyapısı tüm ilgili bileşenlere (`Navbar`, `Footer`, `Contact`, `CollectionCard`) entegre edildi.
+- `.env.local` şablonuna `NEXT_PUBLIC_WHATSAPP_NUMBER` eklendi.
+- Formspree endpoint'inin `https://formspree.io/f/mgoqoprk` olduğu doğrulandı.
+- `npm run build` ile yerel derleme başarıyla tamamlandı ve GitHub'a push edildi.
+
+### Oturum 14 — Yayın Öncesi Kontrol Listesi (GÖREV 4.5)
+- Sayfa içi anchor yönlendirmeleri, WhatsApp ve Instagram linkleri doğrulandı.
+- Formspree entegrasyonu sunucu testiyle başarıyla test edildi (200 OK).
+- Mobil cihaz uyumluluğu, hamburger menü etkileşimleri, dokunmatik hedef min-boyutları kontrol edildi.
+- Notion "Aktif" checkbox filtresinin canlı veri senkronizasyonu test edildi.
+- `/sitemap.xml` ve `/robots.txt` adresleri canlı URL üzerinden kontrol edildi, geçerli içerik döndürdükleri doğrulandı.
 
 ---
 
