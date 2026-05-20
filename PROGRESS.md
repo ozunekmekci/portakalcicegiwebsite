@@ -29,7 +29,9 @@
   - Formspree gerçek endpoint'i ile güncellenmiş koyu arka planlı, WhatsApp/Instagram butonlu ve state-managed formlu Contact section tamamlandı.
 - [x] **GÖREV 3.1** — Collections Section (Notion Entegrasyonu)
   - Sunucu tarafında asenkron Notion API verilerini çeken `Collections` server component'ı ve görsel/emoji fallback özellikli, animasyonlu `CollectionCard` client component'ı tamamlandı.
-  - `next.config.mjs` resim optimizasyon ayarı yapıldı, `content/collections.ts` fallback listesi 4 adet gerçekçi koleksiyon ile güncellendi, `app/page.tsx`'e entegre edildi, build alındı ve push edildi.
+- [x] **GÖREV 3.2** — Gallery Section (Galeri)
+  - Krem arka planlı, 8 adet responsive kare placeholder fotoğraf kartı içeren grid düzenine sahip ve Instagram takip butonu barındıran Gallery section tamamlandı.
+  - `app/page.tsx`'e entegre edildi (`id="galeri"`), build alındı ve push edildi.
 
 ---
 
@@ -112,6 +114,14 @@
 - İncele butonlarına dinamik kategori isimli WhatsApp deeplink'leri entegre edildi.
 - Contact formu Formspree endpoint'i gerçek endpoint ile güncellendi.
 - `app/page.tsx` güncellenerek Collections bileşeni HowItWorks ile Contact arasına yerleştirildi.
+- `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
+
+### Oturum 9 — Gallery Section Geliştirilmesi
+- `components/sections/Gallery.tsx` bileşeni oluşturuldu.
+- Krem arka planlı (`#fbf7f0`), 8 adet (indekse göre gri ve bej arka planlı) kare placeholder fotoğraf kartı içeren responsive grid oluşturuldu.
+- Framer Motion stagger giriş ve hover animasyonları eklendi.
+- Grid altına Instagram logosu ve yönlendirmesi içeren takip butonu yerleştirildi.
+- `app/page.tsx` güncellenerek Collections ile Contact arasına Gallery entegre edildi.
 - `npm run build` ile derleme doğrulandı ve GitHub'a push edildi.
 
 ---
