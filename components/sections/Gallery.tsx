@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
+import Image from "next/image";
 
 export default function Gallery() {
   const containerVariants = {
@@ -64,12 +65,16 @@ export default function Gallery() {
                 key={index}
                 variants={cardVariants}
                 whileHover={{ scale: 1.03 }}
-                className={`${bgClass} aspect-square rounded-2xl flex flex-col items-center justify-center p-4 text-center cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300 select-none space-y-2`}
+                className={`${bgClass} aspect-square rounded-2xl relative overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300`}
               >
-                <span className="text-4xl">📷</span>
-                <span className="text-xs font-sans text-brand-text-dark/60 font-medium">
-                  Fotoğraf yakında
-                </span>
+                <Image
+                  src={`/images/gallery-${index + 1}.webp`}
+                  alt={`Portakal Çiçeği Atölyesi el yapımı tasarım detayları ${index + 1}`}
+                  fill
+                  sizes="(max-w-768px) 50vw, (max-w-1200px) 33vw, 250px"
+                  loading="lazy"
+                  className="object-cover"
+                />
               </motion.div>
             );
           })}

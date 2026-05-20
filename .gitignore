@@ -35,3 +35,7 @@ node_modules/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large raw assets
+/assets/IMG_*
+/assets/pomelli_photoshoot_image_*

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -35,7 +36,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Right Column: Visual Placeholder */}
+        {/* Right Column: Visual Showcase */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -43,14 +44,15 @@ export default function About() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="w-full flex justify-center"
         >
-          <div className="w-full max-w-md aspect-square bg-brand-bg-cream rounded-2xl shadow-xl flex flex-col items-center justify-center p-8 text-center space-y-4 hover:scale-[1.02] transition-transform duration-300">
-            <span className="text-8xl select-none">🍊</span>
-            <p className="font-serif text-xl font-semibold text-brand-text-dark">
-              Ürün görseli yakında
-            </p>
-            <p className="font-sans text-xs md:text-sm text-[#777777] max-w-xs leading-relaxed">
-              Atölyemizin özgün, çok katmanlı 3D akrilik tasarımlarından bir kesit burada sergilenecektir.
-            </p>
+          <div className="w-full max-w-md aspect-square relative rounded-2xl shadow-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+            <Image
+              src="/images/about.webp"
+              alt="Portakal Çiçeği Atölyesi el yapımı tasarım ürünleri"
+              fill
+              sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 450px"
+              priority
+              className="object-cover"
+            />
           </div>
         </motion.div>
       </div>
