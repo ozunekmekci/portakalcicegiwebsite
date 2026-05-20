@@ -6,7 +6,7 @@
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 20 Mayıs 2026  
 **Aktif sprint:** Hafta 1  
-**Sonraki görev:** GÖREV 1.4 — Notion veritabanı kur (Vercel deploy takibi de devam ediyor)
+**Sonraki görev:** GÖREV 2.1 — Notion'dan dinamik veri çekme ve UI geliştirme (Vercel deploy takibi de devam ediyor)
 
 ---
 
@@ -19,7 +19,11 @@
   - `framer-motion` ve `lucide-react@0.454.0` entegre edildi.
   - Sticky, mobil menü uyumlu ve Framer Motion giriş animasyonlu `Navbar` yapıldı.
   - Sosyal medya ve hızlı linkleri içeren koyu temalı `Footer` yapıldı.
-  - `RootLayout` içerisine yerleştirildi ve test build'i alındı.
+- [x] **GÖREV 1.4** — Notion API Entegrasyonu
+  - `.env.local` oluşturuldu, API anahtarı ve veritabanı ID'si girildi.
+  - `@notionhq/client` v2.2.16 ve `dotenv` bağımlılıkları kuruldu.
+  - `lib/notion.ts` entegrasyon dosyası ve `content/collections.ts` fallback yapısı oluşturuldu.
+  - Test bağlantısı başarıyla kuruldu ve `npm run build` ile derleme doğrulandı.
 
 ---
 
@@ -35,7 +39,7 @@
 - [ ] Gerçek ürün fotoğrafları sahibinden alınacak
 - [ ] WhatsApp numarası deeplink için alınacak
 - [ ] Formspree hesabı açılacak (ücretsiz)
-- [ ] Notion hesabı + entegrasyon token'ı alınacak
+- [x] Notion hesabı + entegrasyon token'ı alınacak (Tamamlandı)
 
 ---
 
@@ -58,6 +62,13 @@
 - Mobil uyumlu `Navbar` ve `Footer` bileşenleri kodlandı ve `layout.tsx` içerisine bağlandı.
 - `npm run build` yerelde başarıyla tamamlandı ve kodlar GitHub reposuna push edildi.
 
+### Oturum 3 — Notion API Entegrasyonu
+- `.env.local` oluşturuldu, Notion API Key ve Database ID tanımlandı.
+- `@notionhq/client` resmi paketi kuruldu. TypeScript/tip uyuşmazlığı nedeniyle v5 yerine geriye dönük tam uyumlu kararlı `v2.2.16` sürümü tercih edildi.
+- Test script'inde ortam değişkenlerini yüklemek için `dotenv` kuruldu.
+- `lib/notion.ts` entegrasyonu ve `content/collections.ts` fallback koleksiyon verisi kodlandı.
+- API bağlantı testi yapıldı, bağlantının başarıyla kurulduğu (`kayıt sayısı: 0`) doğrulandı.
+- Proje `npm run build` ile yerelde derlendi.
 
 ---
 
