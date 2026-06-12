@@ -15,117 +15,68 @@ export default function Hero({ settings = {} }: HeroProps) {
   const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
 
-  const badgeText = settings.hero_badge || "ÖZEL TASARIM • EL YAPIMI • HATIRLIK";
-  const rawTitle = settings.hero_title || "Her Kutlama,\nBir [Sanat Eseri]";
-  const descriptionText = settings.hero_description || "Doğum, baby shower, düğün ve nişanlarınız için\nözel tasarım, 3D akrilik hediyelikler.";
-
-  const renderTitle = (text: string) => {
-    if (text.includes("[") && text.includes("]")) {
-      const parts = text.split(/\[(.*?)\]/g);
-      return parts.map((part, index) => {
-        if (index % 2 === 1) {
-          return (
-            <span key={index} className="text-[#fa3500] relative inline-block">
-              {part}
-              <span className="absolute bottom-1 left-0 w-full h-[6px] bg-brand-orange/20 rounded-full -z-10"></span>
-            </span>
-          );
-        }
-        return part;
-      });
-    }
-    // Fallback highlight
-    if (text.includes("Sanat Eseri")) {
-      const parts = text.split("Sanat Eseri");
-      return (
-        <>
-          {parts[0]}
-          <span className="text-[#fa3500] relative inline-block">
-            Sanat Eseri
-            <span className="absolute bottom-1 left-0 w-full h-[6px] bg-[#ff914b]/20 rounded-full -z-10"></span>
-          </span>
-          {parts[1]}
-        </>
-      );
-    }
-    return text;
-  };
+  const titleText = settings.hero_title || "Özel günlerinize Akdeniz esintisi. Ömür boyu saklanan premium hatıralar.";
+  const descriptionText = settings.hero_description || "Doğum, baby shower, düğün ve nişanlarınız için atölyemizde özenle tasarlanan, çok katmanlı 3D akrilik ve pleksi hatıra hediyelikler.";
 
   return (
-    <section aria-label="Karşılama" className="relative min-h-screen bg-brand-bg-cream flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
-      {/* Decorative Blob Right-Bottom */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.1, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-        className="absolute right-0 bottom-0 w-48 h-48 md:w-96 md:h-96 bg-brand-orange rounded-full blur-3xl pointer-events-none"
+    <section 
+      aria-label="Karşılama" 
+      className="relative w-full h-[60vh] md:h-[55vh] md:max-h-[550px] flex items-center overflow-hidden bg-brand-text-dark"
+    >
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/hero_bg.png')" }}
       />
-      {/* Decorative Blob Left-Top */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.05, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
-        className="absolute -left-10 -top-10 w-40 h-40 md:-left-20 md:-top-20 md:w-80 md:h-80 bg-brand-orange-dark rounded-full blur-3xl pointer-events-none"
-      />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center justify-center space-y-6 md:space-y-8">
-        {/* Upper Badge */}
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0 }}
-          className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase"
-        >
-          {badgeText}
-        </motion.span>
-
-        {/* Main Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-brand-text-dark leading-tight font-bold whitespace-pre-line"
-        >
-          {renderTitle(rawTitle)}
-        </motion.h1>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="font-sans text-base md:text-lg lg:text-xl text-[#555555] max-w-xl mx-auto leading-relaxed whitespace-pre-line"
-        >
-          {descriptionText}
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full sm:w-auto"
-        >
-          <button
-            onClick={handleScrollToCollections}
-            className="w-full sm:w-auto px-8 py-3.5 bg-brand-orange text-white rounded-full font-semibold shadow-md shadow-brand-orange/20 hover:bg-brand-orange/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer text-center"
+      {/* Content Container (1400px container logic) */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-8">
+        <div className="pl-4 md:pl-16 max-w-[632px] text-left flex flex-col justify-center items-start space-y-4 md:space-y-6">
+          {/* Main Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[42px] text-[#fbf7f0] leading-tight font-bold tracking-tight"
           >
-            Koleksiyonları Keşfet
-          </button>
-          
-          <a
-            href={`https://wa.me/${waNumber}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-3.5 border-2 border-brand-orange-dark text-brand-orange-dark font-semibold rounded-full hover:bg-brand-orange-dark hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-center"
+            {titleText}
+          </motion.h1>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="font-sans text-sm sm:text-base text-[#fbf7f0]/85 leading-relaxed"
           >
-            Sipariş Ver
-          </a>
-        </motion.div>
+            {descriptionText}
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex flex-row items-center gap-4 pt-2 w-full sm:w-auto"
+          >
+            <button
+              onClick={handleScrollToCollections}
+              className="px-6 py-3 bg-brand-orange text-[#fbf7f0] rounded-full font-semibold shadow-md shadow-brand-orange/20 hover:bg-brand-orange/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer text-sm font-sans"
+            >
+              Koleksiyonları Keşfet
+            </button>
+            
+            <a
+              href={`https://wa.me/${waNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 border-2 border-[#fbf7f0] text-[#fbf7f0] font-semibold rounded-full hover:bg-[#fbf7f0] hover:text-brand-text-dark hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm font-sans text-center"
+            >
+              Sipariş Ver
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

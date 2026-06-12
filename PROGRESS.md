@@ -5,12 +5,17 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** Dashboard, Sıralama, Referanslar ve Ana Sayfa Yönetimi (Sprint 10) Tamamlandı 🎉  
-**Sonraki görev:** Yok (Yeni Özellikler Yayında)  
+**Aktif sprint:** Pazarlama Odaklı Ana Sayfa Refaktörü (Figma Compliant Blueprint) ✅  
+**Sonraki görev:** Yok (Sistem optimize edildi ve refaktör başarıyla tamamlandı)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **PAZARLAMA ODAKLI ANA SAYFA REFAKTÖRÜ (FIGMA COMPLIANT BLUEPRINT)**
+  - **Giriş Bannerı (Hero.tsx)**: Kompakt 55vh (max-height: 550px) yüksekliğe sahip, veya `h-[55vh]` (max-height: 550px) atölye konsept görseli arka planı yerleştirilip sol padding (`pl-8 md:pl-16 max-w-[632px]`) uyarınca düzenlendi. Başlık krem renginde (`text-[#fbf7f0]`) Playfair Display fontuyla *"Özel günlerinize Akdeniz esintisi. Ömür boyu saklanan premium hatıralar."* olarak yazıldı.
+  - **Kategori Şeridi (Collections.tsx)**: Hero'nun altına krem arka planla (`bg-[#fbf7f0]`) 6'lı grid yapısı kuruldu. Masaüstünde her bir kart tam olarak `w-[212px]` ve görsel alanı `h-[263px]` (Mobilde yana kaydırılabilir `overflow-x-auto flex-nowrap` yapıldı). Kategorilerin görsellerinin üst köşelerine `rounded-t-full` verilerek Akdeniz kemeri (arch) formu oluşturuldu.
+  - **Ürün Vitrini (ProductGrid.tsx)**: *"En Çok Beğenilen Atölye Tasarımları"* başlığı altında 4'lü grid yapısı kuruldu. Kart boyutları `w-[282px]` ve resim alanı `h-[420px]` olarak ayarlandı. Başlık ve Fiyat satırı `flex justify-between items-start text-[14px]` ile ayrıldı. Görselin üzerine minimalist `⭐ 4.9` rozeti ve altına yumuşak tonda `Min. Sipariş: 100 Adet` badge'i eklendi.
+  - **Yorum Alanı (Testimonials.tsx)**: Sayfada `flex flex-col lg:flex-row gap-[74px] px-8 md:px-[42px]` düzeni kuruldu. Sol kutu (`max-w-[530px]`) içine 5 siyah yıldız ikonu, altına 24px boyutunda şık müşteri yorum metni ve yazar adı eklendi. Sağ tarafa ise `w-[530px] h-[695px]` boyutunda dikey, yüksek kaliteli atölye görsel alanı yerleştirildi.
 - [x] **DİNAMİK KATEGORİ KARTLARI — EMOJİ VEYA GÖRSEL SEÇİCİ**
   - `categories` tablosuna `image_type` (TEXT, default 'emoji') ve `image_url` (TEXT, nullable) sütunları SQLite ve Postgres'te veri kaybı olmadan `ALTER TABLE` göçleri ile eklendi.
   - `lib/db-categories.ts` içerisindeki CRUD fonksiyonları ve API rotaları (`categories` POST/PUT) bu yeni alanları veritabanına yazacak/güncelleyecek şekilde güncellendi.
@@ -409,6 +414,13 @@
 - Ana sayfaya modern Framer Motion animasyonlu `<Testimonials>` müşteri yorumları bölümü eklendi.
 - `app/page.tsx` ve `/koleksiyonlar/[slug]` dinamikleştirilerek ayarlar, yorumlar ve kategori banner resimleri veritabanından çekildi.
 - Projenin `npm run build` derleme testi çalıştırıldı ve statik sayfaların hatasız oluşturulduğu teyit edildi.
+
+### Oturum 31 — Pazarlama Odaklı Ana Sayfa Refaktörü (Figma Compliant Blueprint)
+- `Hero.tsx` bileşeni compact `h-[55vh]` (max-height: 550px) yüksekliğiyle, arka plana yerleştirilen full-width atölye görseliyle, sol padding (`pl-8 md:pl-16 max-w-[632px]`) ve hizalamayla yeniden tasarlandı; Playfair Display fontunda krem renkli pazarlama sloganı yerleştirildi.
+- `Collections.tsx` bileşeni krem arka planla (`bg-[#fbf7f0]`) Hero'nun hemen altına taşındı, 6'lı grid yapısı kuruldu. Kart boyutları `w-[212px]`, görsel alanları `h-[263px]` (portre) yapıldı ve görsellere Akdeniz kemeri (`rounded-t-full`) formu verildi. Mobilde yana kaydırılabilir yatay kaydırma desteği eklendi. DB kategorileri 6'dan az olduğunda fallback kategorileriyle doldurma mantığı entegre edildi.
+- `ProductGrid.tsx` yeni bileşeni oluşturuldu, ana sayfaya eklendi. "En Çok Beğenilen Atölye Tasarımları" başlığı altında 4'lü grid yapısı kuruldu. Kart boyutları `w-[282px]`, resim alanı `h-[420px]`, görsel üstü `⭐ 4.9` rozeti, alt badge `Min. Sipariş: 100 Adet` ve `flex justify-between items-start text-[14px]` başlık/fiyat satırı eklendi.
+- `Testimonials.tsx` iki kolonlu `flex flex-col lg:flex-row gap-[74px] px-8 md:px-[42px]` düzeniyle refaktör edildi. Sol tarafa 5 siyah yıldız ikonu, 24px şık müşteri yorum metni ve yazar adı; sağ tarafa `w-[530px] h-[695px]` dikey, yüksek kaliteli atölye görsel alanı yerleştirildi.
+- Proje derleme testi (`npm run build`) sıfır hata ile tamamlandı ve tüm sayfalar başarıyla derlendi.
 
 ---
 

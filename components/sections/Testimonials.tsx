@@ -2,91 +2,71 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MessageSquare } from "lucide-react";
+import { Star } from "lucide-react";
 import { Testimonial } from "@/lib/db-queries";
 import { getOptimizedUrl } from "@/lib/cloudinary";
 
 interface TestimonialsProps {
-  testimonials: Testimonial[];
+  testimonials?: Testimonial[];
 }
 
-export default function Testimonials({ testimonials }: TestimonialsProps) {
-  if (!testimonials || testimonials.length === 0) return null;
+export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
+  // Use first active testimonial from the database or fall back to a premium default
+  const activeTestimonial = testimonials.length > 0 
+    ? testimonials[0] 
+    : {
+        name: "Merve & Caner (Gelin & Damat)",
+        text: "Düğün hatıralarımız için pleksi magnet siparişi verdik. Tasarımın inceliği, detaylardaki Akdeniz esintisi ve 3D akrilik işçilik gerçekten olağanüstüydü. Misafirlerimizden aldığımız geri dönüşler harikaydı, hediyelikler kelimenin tam anlamıyla saklanmalık birer sanat eseri oldu."
+      };
 
   return (
-    <section id="referanslar" aria-label="Müşteri Yorumları" className="bg-[#fbf7f0] py-24 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section id="referanslar" aria-label="Müşteri Yorumları" className="bg-[#fbf7f0] py-24 border-t border-b border-[#eaeaea]">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-[42px] flex flex-col lg:flex-row gap-[74px] items-center justify-between">
         
-        {/* Header Block */}
-        <div className="text-center space-y-4 max-w-xl mx-auto">
-          <span className="text-xs md:text-sm font-sans tracking-widest text-[#fa3500] font-bold uppercase">
-            MÜŞTERİ YORUMLARI
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] leading-tight font-bold whitespace-pre-line">
-            Mutlu anlara<br />
-            ortak olduk.
-          </h2>
-          <p className="font-sans text-base text-[#555555]">
-            Çiftlerimizin ve ailelerimizin bizimle ilgili paylaştığı değerli yorumlar.
-          </p>
-        </div>
+        {/* Left Box - Review Text (max-w-[530px]) */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full lg:max-w-[530px] flex flex-col justify-center text-left"
+        >
+          {/* 5 Black Star Icons */}
+          <div className="flex items-center gap-1.5 text-black mb-6">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} size={22} fill="currentColor" stroke="currentColor" className="text-black" />
+            ))}
+          </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((item, idx) => {
-            const avatarSrc = item.avatar
-              ? getOptimizedUrl(item.avatar, { width: 150, height: 150 })
-              : null;
+          {/* Customer Quote (24px size) */}
+          <blockquote className="font-serif text-[24px] leading-snug font-bold text-[#1a1a1a] tracking-tight">
+            &ldquo;{activeTestimonial.text}&rdquo;
+          </blockquote>
 
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.12, ease: "easeOut" }}
-                className="bg-white border border-[#eaeaea] rounded-3xl p-8 flex flex-col justify-between h-full shadow-sm hover:shadow-md transition-shadow duration-300 relative"
-              >
-                {/* Quote decoration */}
-                <div className="absolute top-6 right-8 text-brand-orange/15 select-none pointer-events-none">
-                  <span className="font-serif text-6xl">&ldquo;</span>
-                </div>
+          {/* Author Name */}
+          <cite className="not-italic font-sans text-xs md:text-sm font-bold uppercase tracking-widest text-[#fa3500] mt-6 block">
+            {activeTestimonial.name}
+          </cite>
+        </motion.div>
 
-                <div className="space-y-4 relative z-10 flex-grow">
-                  <p className="font-sans text-sm text-[#555555] leading-relaxed italic">
-                    &ldquo;{item.text}&rdquo;
-                  </p>
-                </div>
+        {/* Right Box - Vertical Image (w-[530px] h-[695px] on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative w-full max-w-[530px] lg:w-[530px] h-[450px] lg:h-[695px] bg-[#fbf7f0] rounded-3xl overflow-hidden shadow-sm flex-shrink-0"
+        >
+          <Image
+            src={getOptimizedUrl("/images/testimonial_side.png", { width: 600, height: 800, crop: "fill" })}
+            alt="Atölye Tasarım Konsepti"
+            fill
+            sizes="(max-w-1024px) 100vw, 530px"
+            className="object-cover transition-transform duration-700 hover:scale-103"
+            unoptimized
+          />
+        </motion.div>
 
-                {/* Customer Profile Row */}
-                <div className="flex items-center gap-4 pt-6 mt-6 border-t border-gray-100 relative z-10">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden bg-[#fbf7f0] border border-gray-100 flex items-center justify-center flex-shrink-0">
-                    {avatarSrc ? (
-                      <Image
-                        src={avatarSrc}
-                        alt={item.name}
-                        fill
-                        sizes="48px"
-                        className="object-cover"
-                        unoptimized
-                      />
-                    ) : (
-                      <MessageSquare className="text-brand-orange" size={20} />
-                    )}
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-base font-bold text-[#1a1a1a]">
-                      {item.name}
-                    </h4>
-                    <span className="text-[11px] text-brand-orange font-bold uppercase tracking-wider font-sans">
-                      Mutlu Müşteri
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

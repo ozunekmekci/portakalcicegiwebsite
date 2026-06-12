@@ -2,10 +2,11 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Collections from "@/components/sections/Collections";
+import ProductGrid from "@/components/sections/ProductGrid";
 import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
-import { getSettings, getTestimonials, Testimonial } from "@/lib/db-queries";
+import { getSettings, getTestimonials, getProducts, Testimonial } from "@/lib/db-queries";
 
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
@@ -14,14 +15,17 @@ export const fetchCache = "force-no-store";
 export default async function Home() {
   let settings: Record<string, string> = {};
   let testimonials: Testimonial[] = [];
+  let products: any[] = [];
 
   try {
-    const [settingsData, testimonialsData] = await Promise.all([
+    const [settingsData, testimonialsData, productsData] = await Promise.all([
       getSettings(),
-      getTestimonials({ onlyActive: true })
+      getTestimonials({ onlyActive: true }),
+      getProducts({ onlyActive: true, limit: 4 })
     ]);
     settings = settingsData;
     testimonials = testimonialsData;
+    products = productsData;
   } catch (error) {
     console.error("Error loading homepage data:", error);
   }
@@ -29,19 +33,13 @@ export default async function Home() {
   return (
     <>
       <Hero settings={settings} />
+      <Collections />
+      <ProductGrid products={products} />
       <About settings={settings} />
       <HowItWorks />
-      <Collections />
       <Gallery />
-      {testimonials.length > 0 && <Testimonials testimonials={testimonials} />}
+      <Testimonials testimonials={testimonials} />
       <Contact settings={settings} />
     </>
   );
 }
-
-
-
-
-
-
-
