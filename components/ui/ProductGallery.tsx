@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function ProductGallery({ anaGorsel, ekGorseller, isim, emoji = "🎁" }: Props) {
-  const allImages = [anaGorsel, ...ekGorseller].filter(Boolean)
+  const allImages = Array.from(new Set([anaGorsel, ...ekGorseller])).filter(Boolean)
   const [activeImage, setActiveImage] = useState(allImages[0] || "")
 
   return (
