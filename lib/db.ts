@@ -112,6 +112,28 @@ if (process.env.NODE_ENV !== "production") {
         console.error("Migration error (products):", err);
       }
     }
+
+    try {
+      global.dbInstance.prepare("SELECT package_content FROM products LIMIT 1").get();
+    } catch (e) {
+      try {
+        global.dbInstance.exec("ALTER TABLE products ADD COLUMN package_content TEXT");
+        console.log("SQLite products table migrated: added package_content column.");
+      } catch (err) {
+        console.error("Migration error (products package_content):", err);
+      }
+    }
+
+    try {
+      global.dbInstance.prepare("SELECT features FROM products LIMIT 1").get();
+    } catch (e) {
+      try {
+        global.dbInstance.exec("ALTER TABLE products ADD COLUMN features TEXT");
+        console.log("SQLite products table migrated: added features column.");
+      } catch (err) {
+        console.error("Migration error (products features):", err);
+      }
+    }
     
     // Başlangıç kategorilerini ekle (eğer veritabanı boşsa)
     const categoryCount = global.dbInstance.prepare("SELECT COUNT(*) as count FROM categories").get() as { count: number };

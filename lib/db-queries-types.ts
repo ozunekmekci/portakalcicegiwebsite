@@ -26,6 +26,8 @@ export interface Product {
   view_count: number;
   created_at: string;
   updated_at: string;
+  package_content: string | null;
+  features: string | null;
 }
 
 export interface ProductWithCategory extends Omit<Product, "images"> {

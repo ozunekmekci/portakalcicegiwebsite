@@ -20,4 +20,6 @@ export type Product = {
   detayAciklama: string;
   minimumAdet: number;
   aktif: boolean;
+  paketIcerigi?: string;
+  ozellikler?: string;
 };

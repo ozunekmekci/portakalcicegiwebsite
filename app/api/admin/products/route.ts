@@ -43,6 +43,8 @@ export async function POST(request: Request) {
       images = [],
       is_active = 1,
       display_order = 0,
+      package_content,
+      features,
     } = body;
 
     if (!name || !category_id) {
@@ -68,6 +70,8 @@ export async function POST(request: Request) {
       cover_image,
       is_active: Number(is_active) ? 1 : 0,
       display_order: Number(display_order) || 0,
+      package_content: package_content || null,
+      features: features || null,
     });
 
     return NextResponse.json({ success: true, id: productId, slug });

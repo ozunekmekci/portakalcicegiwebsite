@@ -85,6 +85,8 @@ export async function PUT(
 
     if (body.is_active !== undefined) updateData.is_active = Number(body.is_active) ? 1 : 0;
     if (body.display_order !== undefined) updateData.display_order = Number(body.display_order);
+    if (body.package_content !== undefined) updateData.package_content = body.package_content || null;
+    if (body.features !== undefined) updateData.features = body.features || null;
 
     const success = await updateProduct(id, updateData);
     return NextResponse.json({ success, slug: updateData.slug || currentProduct.slug });

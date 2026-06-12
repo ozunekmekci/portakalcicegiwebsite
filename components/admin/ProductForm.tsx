@@ -15,6 +15,8 @@ interface ProductFormProps {
     images: string[];
     is_active: number;
     display_order: number;
+    package_content?: string | null;
+    features?: string | null;
   };
   categories: Category[];
   onSubmit: (data: any) => Promise<void>;
@@ -36,6 +38,8 @@ export default function ProductForm({
     images: [] as string[],
     is_active: 1,
     display_order: 0,
+    package_content: "",
+    features: "",
   });
 
   useEffect(() => {
@@ -49,6 +53,8 @@ export default function ProductForm({
         images: initialData.images || [],
         is_active: initialData.is_active ?? 1,
         display_order: initialData.display_order ?? 0,
+        package_content: initialData.package_content || "",
+        features: initialData.features || "",
       });
     }
   }, [initialData]);
@@ -139,6 +145,34 @@ export default function ProductForm({
           className="w-full px-4 py-3 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl text-sm font-sans focus:outline-none focus:border-brand-orange text-brand-text-dark resize-none"
           placeholder="Ürün detaylarını, koku/tasarım özelliklerini yazın..."
         />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2 font-sans">
+            Paket İçeriği (Her satıra bir madde yazın)
+          </label>
+          <textarea
+            value={formData.package_content}
+            onChange={(e) => setFormData({ ...formData, package_content: e.target.value })}
+            rows={4}
+            className="w-full px-4 py-3 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl text-sm font-sans focus:outline-none focus:border-brand-orange text-brand-text-dark resize-y"
+            placeholder="✓ Kişiye Özel 3D Tasarım Entegrasyonu&#10;✓ Hasarsız Kargo ve Kırılma Garantisi&#10;✓ Canlı WhatsApp Taslak ve Tasarım Onayı"
+          />
+        </div>
+
+        <div>
+          <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2 font-sans">
+            Özellikler (Her satıra bir madde yazın)
+          </label>
+          <textarea
+            value={formData.features}
+            onChange={(e) => setFormData({ ...formData, features: e.target.value })}
+            rows={4}
+            className="w-full px-4 py-3 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl text-sm font-sans focus:outline-none focus:border-brand-orange text-brand-text-dark resize-y"
+            placeholder="• Malzeme: Premium Akrilik ve Aynalı Pleksi&#10;• Minimum Sipariş Adedi: 100 Adet&#10;• Teslimat Süresi: 3-5 İş Gününde Kargo"
+          />
+        </div>
       </div>
 
       <CloudinaryUpload

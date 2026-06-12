@@ -105,6 +105,24 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
         : `₺${product.fiyatAraligi}`)
     : "Fiyat Sorun";
 
+  // Split package content by newlines
+  const packageItems = product.paketIcerigi
+    ? product.paketIcerigi.split("\n").map(item => item.trim()).filter(Boolean)
+    : [
+        "✓ Kişiye Özel 3D Tasarım Entegrasyonu",
+        "✓ Hasarsız Kargo ve Kırılma Garantisi",
+        "✓ Canlı WhatsApp Taslak ve Tasarım Onayı"
+      ];
+
+  // Split features by newlines
+  const featureItems = product.ozellikler
+    ? product.ozellikler.split("\n").map(item => item.trim()).filter(Boolean)
+    : [
+        "• Malzeme: Premium Akrilik ve Aynalı Pleksi",
+        `• Minimum Sipariş Adedi: ${product.minimumAdet || 100} Adet`,
+        "• Teslimat Süresi: 3-5 İş Gününde Kargo"
+      ];
+
   return (
     <div className="proxima-page px-8 md:px-24 py-12 max-w-[1512px] mx-auto bg-[#fbf7f0] border-b border-[#eaeaea] relative overflow-hidden">
       <style dangerouslySetInnerHTML={{__html: `
@@ -346,9 +364,9 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                 Paket İçeriği
               </h3>
               <ul className="text-[16px] leading-[26px] text-neutral-600 font-light font-sans space-y-2">
-                <li>✓ Kişiye Özel 3D Tasarım Entegrasyonu</li>
-                <li>✓ Hasarsız Kargo ve Kırılma Garantisi</li>
-                <li>✓ Canlı WhatsApp Taslak ve Tasarım Onayı</li>
+                {packageItems.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
               </ul>
             </div>
 
@@ -358,9 +376,9 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                 Özellikler
               </h3>
               <ul className="text-[16px] leading-[26px] text-neutral-600 font-light font-sans space-y-2">
-                <li>• Malzeme: Premium Akrilik ve Aynalı Pleksi</li>
-                <li>• Minimum Sipariş Adedi: 100 Adet</li>
-                <li>• Teslimat Süresi: 3-5 İş Gününde Kargo</li>
+                {featureItems.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
               </ul>
             </div>
 

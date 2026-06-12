@@ -11,13 +11,14 @@ export async function createProduct(
     const result = await sql`
       INSERT INTO products (
         name, slug, category_id, description, min_order, 
-        price_range, images, cover_image, is_active, display_order
+        price_range, images, cover_image, is_active, display_order,
+        package_content, features
       )
       VALUES (
         ${product.name}, ${product.slug}, ${product.category_id}, 
         ${product.description}, ${product.min_order}, ${product.price_range}, 
         ${product.images}, ${product.cover_image}, ${product.is_active}, 
-        ${product.display_order}
+        ${product.display_order}, ${product.package_content}, ${product.features}
       )
       RETURNING id
     `;
@@ -27,9 +28,10 @@ export async function createProduct(
   const stmt = db.prepare(`
     INSERT INTO products (
       name, slug, category_id, description, min_order, 
-      price_range, images, cover_image, is_active, display_order
+      price_range, images, cover_image, is_active, display_order,
+      package_content, features
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   const result = stmt.run(
@@ -42,7 +44,9 @@ export async function createProduct(
     product.images,
     product.cover_image,
     product.is_active,
-    product.display_order
+    product.display_order,
+    product.package_content,
+    product.features
   );
 
   return result.lastInsertRowid as number;

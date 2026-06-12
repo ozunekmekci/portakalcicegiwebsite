@@ -29,6 +29,8 @@ function mapProduct(p: any): Product {
     detayAciklama: p.description || "",
     minimumAdet: p.min_order || 100,
     aktif: p.is_active === 1,
+    paketIcerigi: p.package_content || "",
+    ozellikler: p.features || "",
   }
 }
 

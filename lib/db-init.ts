@@ -106,6 +106,28 @@ export async function ensureTables() {
         console.error("Migration error Postgres (products):", err);
       }
     }
+
+    try {
+      await sql`SELECT package_content FROM products LIMIT 1`;
+    } catch (e) {
+      try {
+        await sql`ALTER TABLE products ADD COLUMN package_content TEXT`;
+        console.log("Postgres products table migrated: added package_content column.");
+      } catch (err) {
+        console.error("Migration error Postgres (products package_content):", err);
+      }
+    }
+
+    try {
+      await sql`SELECT features FROM products LIMIT 1`;
+    } catch (e) {
+      try {
+        await sql`ALTER TABLE products ADD COLUMN features TEXT`;
+        console.log("Postgres products table migrated: added features column.");
+      } catch (err) {
+        console.error("Migration error Postgres (products features):", err);
+      }
+    }
     
     // Seed initial categories if empty
     const countRes = await sql`SELECT COUNT(*) as count FROM categories`;
