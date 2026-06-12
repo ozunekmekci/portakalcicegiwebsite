@@ -11,6 +11,7 @@ export default function SettingsPage() {
     hero_badge: "",
     hero_title: "",
     hero_description: "",
+    hero_image: "",
     about_badge: "",
     about_title: "",
     about_text_1: "",
@@ -18,6 +19,7 @@ export default function SettingsPage() {
     about_quote: "",
     about_image: "",
     contact_phone: "",
+    testimonial_image: "",
   });
   
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +37,7 @@ export default function SettingsPage() {
           hero_badge: data.hero_badge || "",
           hero_title: data.hero_title || "",
           hero_description: data.hero_description || "",
+          hero_image: data.hero_image || "",
           about_badge: data.about_badge || "",
           about_title: data.about_title || "",
           about_text_1: data.about_text_1 || "",
@@ -42,6 +45,7 @@ export default function SettingsPage() {
           about_quote: data.about_quote || "",
           about_image: data.about_image || "",
           contact_phone: data.contact_phone || "",
+          testimonial_image: data.testimonial_image || "",
         });
       } catch (err) {
         console.error(err);
@@ -174,6 +178,16 @@ export default function SettingsPage() {
                 placeholder="Karşılama alanında görünecek kısa tanıtım metni..."
               />
             </div>
+
+            <div className="pt-2">
+              <CloudinaryUpload
+                images={formData.hero_image ? [formData.hero_image] : []}
+                onChange={(newImages) => setFormData({ ...formData, hero_image: newImages[0] || "" })}
+                maxImages={1}
+                label="Giriş Banner Arka Plan Görseli"
+                folder="site"
+              />
+            </div>
           </div>
         </div>
 
@@ -261,10 +275,28 @@ export default function SettingsPage() {
           </div>
         </div>
 
+        {/* TESTIMONIALS SECTION SETTINGS */}
+        <div className="bg-white border border-[#dcdcd9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+          <h2 className="font-serif text-xl font-bold text-brand-text-dark border-b border-gray-100 pb-3">
+            3. Yorumlar (Testimonials) Alanı
+          </h2>
+          <div className="grid grid-cols-1 gap-6">
+            <div className="pt-2">
+              <CloudinaryUpload
+                images={formData.testimonial_image ? [formData.testimonial_image] : []}
+                onChange={(newImages) => setFormData({ ...formData, testimonial_image: newImages[0] || "" })}
+                maxImages={1}
+                label="Yorum Alanı Yan Görseli"
+                folder="site"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* OTHER SETTINGS */}
         <div className="bg-white border border-[#dcdcd9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
           <h2 className="font-serif text-xl font-bold text-brand-text-dark border-b border-gray-100 pb-3">
-            3. İletişim Bilgileri
+            4. İletişim Bilgileri
           </h2>
           
           <div className="grid grid-cols-1 gap-6">

@@ -43,7 +43,7 @@ export default async function Home() {
       <About settings={settings} />
       <HowItWorks />
       <Gallery />
-      <Testimonials testimonials={testimonials} />
+      <Testimonials testimonials={testimonials} settings={settings} />
       <Contact settings={settings} />
     </>
   );

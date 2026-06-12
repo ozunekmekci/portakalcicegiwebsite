@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Tag, Star } from "lucide-react";
 import { ProductWithCategory } from "@/lib/db-queries-types";
 import { getOptimizedUrl } from "@/lib/cloudinary";
 
@@ -172,7 +172,7 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
               return (
                 <div
                   key={product.id}
-                  className="w-[320px] h-[440px] flex-shrink-0 relative group rounded-[2.5rem] overflow-hidden shadow-sm border border-white/10 snap-start transition-all duration-300 hover:shadow-[0_20px_40px_rgba(255,145,75,0.15)]"
+                  className="w-[320px] h-[440px] flex-shrink-0 relative group rounded-[32px] overflow-hidden snap-start transition-all duration-300 shadow-[0_15px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_25px_50px_rgba(255,145,75,0.25)] border-[3px] border-white/90 hover:border-[#ff914b] cursor-pointer bg-neutral-900"
                 >
                   <Link href={`/urunler/${product.slug}`} className="block w-full h-full">
                     {/* Full-bleed Portrait Image */}
@@ -181,50 +181,39 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
                       alt={product.name}
                       fill
                       sizes="320px"
-                      className="object-cover transition-transform duration-700 group-hover:scale-103"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
-                    {/* Top-Right Diagonal Arrow Badge ↗ */}
-                    <div className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/20 backdrop-blur-xs border border-white/40 flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#ff914b] group-hover:border-transparent shadow-xs">
-                      <span className="text-lg font-sans font-medium transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                        ↗
-                      </span>
-                    </div>
-
-                    {/* Warm Mediterranean Glassmorphism bottom overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col justify-end bg-[#fbf7f0]/60 backdrop-blur-md border-t border-white/20 rounded-b-[2.5rem] min-h-[160px]">
+                    {/* Dark gradient overlay covering the bottom portion for readability */}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent pt-32 pb-6 px-6 flex flex-col justify-end z-10">
                       
-                      {/* 5 Shining Star Icons */}
-                      <div className="flex items-center gap-0.5 text-yellow-500 mb-2">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <span key={i} className="text-sm select-none">⭐</span>
-                        ))}
-                      </div>
-
-                      {/* Product Title (Playfair Display) */}
-                      <h3 className="font-serif text-lg font-bold text-neutral-800 leading-tight mb-2 group-hover:text-brand-orange-dark transition-colors line-clamp-1">
+                      {/* Product Title (sans-serif, white, bold, text-[19px], tracking-wide) */}
+                      <h3 className="font-sans text-[19px] font-bold text-white leading-tight mb-3 transition-colors line-clamp-2 drop-shadow-md">
                         {product.name}
                       </h3>
 
-                      {/* Pricing and Min Order Row */}
-                      <div className="flex items-center justify-between mt-1">
-                        
-                        {/* Prices */}
-                        <div className="flex items-baseline font-sans">
-                          <span className="text-xs text-neutral-500 line-through mr-2 font-normal">
-                            {oldPrice}
-                          </span>
-                          <span className="text-sm font-bold text-brand-orange-dark">
-                            {newPrice}
-                          </span>
+                      {/* Info Row (Price & Rating) */}
+                      <div className="flex items-center gap-4 text-white/90 text-sm font-sans font-medium">
+                        {/* Price with tag icon */}
+                        <div className="flex items-center gap-1.5 drop-shadow-sm">
+                          <Tag size={14} className="text-[#ff914b]" />
+                          <span>{newPrice}</span>
                         </div>
 
-                        {/* Min Order Badge */}
-                        <span className="text-[10px] bg-[#ff914b]/10 text-brand-orange-dark px-2.5 py-0.5 rounded-full font-sans font-medium border border-[#ff914b]/10">
-                          Min: {product.min_order || 100} Adet
-                        </span>
+                        {/* Rating with star icon */}
+                        <div className="flex items-center gap-1.5 drop-shadow-sm ml-auto">
+                          <Star size={14} fill="#eab308" className="text-[#eab308]" />
+                          <span>4.9/5</span>
+                        </div>
                       </div>
 
+                    </div>
+
+                    {/* Top-Right Diagonal Arrow Badge ↗ */}
+                    <div className="absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/25 flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#ff914b] group-hover:border-transparent shadow-xs">
+                      <span className="text-lg font-sans font-medium transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                        ↗
+                      </span>
                     </div>
                   </Link>
                 </div>

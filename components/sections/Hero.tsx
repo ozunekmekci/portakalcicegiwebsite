@@ -17,6 +17,7 @@ export default function Hero({ settings = {} }: HeroProps) {
 
   const titleText = settings.hero_title || "Özel günlerinize Akdeniz esintisi. Ömür boyu saklanan premium hatıralar.";
   const descriptionText = settings.hero_description || "Doğum, baby shower, düğün ve nişanlarınız için atölyemizde özenle tasarlanan, çok katmanlı 3D akrilik ve pleksi hatıra hediyelikler.";
+  const heroImage = settings.hero_image || "/images/hero_bg.png";
 
   return (
     <section 
@@ -26,7 +27,7 @@ export default function Hero({ settings = {} }: HeroProps) {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/hero_bg.png')" }}
+        style={{ backgroundImage: `url('${heroImage}')` }}
       />
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
 

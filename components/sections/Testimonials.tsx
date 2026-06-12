@@ -8,9 +8,10 @@ import { getOptimizedUrl } from "@/lib/cloudinary";
 
 interface TestimonialsProps {
   testimonials?: Testimonial[];
+  settings?: Record<string, string>;
 }
 
-export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
+export default function Testimonials({ testimonials = [], settings = {} }: TestimonialsProps) {
   // Use first active testimonial from the database or fall back to a premium default
   const activeTestimonial = testimonials.length > 0 
     ? testimonials[0] 
@@ -18,6 +19,8 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
         name: "Merve & Caner (Gelin & Damat)",
         text: "Düğün hatıralarımız için pleksi magnet siparişi verdik. Tasarımın inceliği, detaylardaki Akdeniz esintisi ve 3D akrilik işçilik gerçekten olağanüstüydü. Misafirlerimizden aldığımız geri dönüşler harikaydı, hediyelikler kelimenin tam anlamıyla saklanmalık birer sanat eseri oldu."
       };
+
+  const sideImage = settings.testimonial_image || "/images/testimonial_side.png";
 
   return (
     <section id="referanslar" aria-label="Müşteri Yorumları" className="bg-[#fbf7f0] py-24 border-t border-b border-[#eaeaea]">
@@ -58,7 +61,7 @@ export default function Testimonials({ testimonials = [] }: TestimonialsProps) {
           className="relative w-full max-w-[530px] lg:w-[530px] h-[450px] lg:h-[695px] bg-[#fbf7f0] rounded-3xl overflow-hidden shadow-sm flex-shrink-0"
         >
           <Image
-            src={getOptimizedUrl("/images/testimonial_side.png", { width: 600, height: 800, crop: "fill" })}
+            src={getOptimizedUrl(sideImage, { width: 600, height: 800, crop: "fill" })}
             alt="Atölye Tasarım Konsepti"
             fill
             sizes="(max-w-1024px) 100vw, 530px"
