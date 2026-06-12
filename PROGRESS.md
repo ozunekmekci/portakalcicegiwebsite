@@ -5,12 +5,18 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** V2 Migrasyonu Tamamlandı 🎉  
+**Aktif sprint:** Koleksiyon Yönetimi (CRUD) Tamamlandı 🎉  
 **Sonraki görev:** Yok (Proje Dağıtıma Hazır)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **KOLEKSİYON (KATEGORİ) YÖNETİMİ** — CRUD Entegrasyonu
+  - `lib/db-categories.ts` dosyasına `createCategory`, `updateCategory`, `deleteCategory`, `getCategoryById` ve `getCategoryBySlug` SQLite/Postgres metotları eklenip entegre edildi.
+  - `/api/admin/categories/[id]` dinamik API rotası GET, PUT ve DELETE isteklerini işlemek üzere yazıldı.
+  - Admin panelinde kategorileri sıralı listeleyen (`/admin/kategoriler`), ekleyen (`/admin/kategori-ekle`) ve düzenleyen (`/admin/kategori-duzenle/[id]`) sayfalar tasarlandı ve bağlandı.
+  - Kategori silerken ilişkili ürünlerin CASCADE ile otomatik olarak silineceğine dair bilgilendirme ve onay yapısı entegre edildi.
+  - Ürün formlarının bu dinamik kategorileri anlık olarak veritabanından çekmesi sağlandı.
 - [x] **GÖREV 9.3** — Son testler ve deploy doğrulaması
   - Hem SQLite hem de Postgres için veritabanı boş olduğunda otomatik tohumlama (seeding) yapacak ürün verileri modüle entegre edildi.
   - Yerel veritabanı resetlenerek sıfırdan oluşturma ve tohumlama süreci test edildi.
@@ -364,6 +370,12 @@
 - SQLite ve Postgres için başlangıç verilerini ekleyen seeder veritabanı ilklendiricilerine (products tablosu) entegre edildi.
 - Sıfırdan veritabanı üretimi ve tohumlanması test edildi, sitemap'in yeni ürünlerle birlikte hatasız çalıştığı görüldü.
 - `npm run build` komutu çalıştırılarak tüm projenin sıfır hata ile derlendiği ve statik sayfaların hatasız oluşturulduğu doğrulandı.
+### Oturum 29 — Koleksiyon (Kategori) Yönetimi (Koleksiyon CRUD Entegrasyonu)
+- `lib/db-categories.ts` dosyasına SQLite ve Postgres destekli sorgu fonksiyonları (`createCategory`, `updateCategory`, `deleteCategory`, `getCategoryById`, `getCategoryBySlug`) eklendi.
+- `/api/admin/categories/[id]/route.ts` API rotası oluşturuldu ve test edildi.
+- `components/admin/AdminNav.tsx` dosyasına "Koleksiyonlar" bağlantısı eklendi.
+- `app/admin/kategoriler/page.tsx` listeleme ekranı, `app/admin/kategori-ekle/page.tsx` ekleme ekranı ve `app/admin/kategori-duzenle/[id]/page.tsx` düzenleme ekranı tasarlandı ve bağlandı.
+- Proje `npm run build` ile hatasız derlenip GitHub'a başarıyla gönderildi.
 
 ---
 
