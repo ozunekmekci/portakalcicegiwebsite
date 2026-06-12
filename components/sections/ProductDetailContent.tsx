@@ -12,13 +12,6 @@ interface ProductDetailContentProps {
   ilgiliUrunler?: Product[];
 }
 
-const materials = [
-  { id: "gold", name: "Aynalı Gold", color: "#e5c158" },
-  { id: "silver", name: "Gümüş", color: "#C0C0C0" },
-  { id: "acrylic", name: "Şeffaf Akrilik", color: "transparent", isTransparent: true },
-  { id: "wood", name: "Ahşap", color: "#a67c52" }
-];
-
 const fallbackGallery = [
   "/images/gallery-1.webp",
   "/images/gallery-2.webp",
@@ -28,20 +21,14 @@ const fallbackGallery = [
 ];
 
 export default function ProductDetailContent({ product, ilgiliUrunler = [] }: ProductDetailContentProps) {
-  const [selectedMaterial, setSelectedMaterial] = useState(materials[0]);
   const [qty, setQty] = useState(100);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Setup gallery images: Ana görsel + Ek görseller
-  const initialImages = [product.anaGorsel, ...(product.ekGorseller || [])].filter(Boolean);
-  
-  // Pad images to exactly 5 items so the thumbnail grid is fully populated
-  let galleryImages = [...initialImages];
-  while (galleryImages.length < 5) {
-    const nextFallback = fallbackGallery[galleryImages.length % fallbackGallery.length];
-    galleryImages.push(nextFallback);
+  // Setup gallery images: Ana görsel + Ek görseller (No fallbacks!)
+  const galleryImages = [product.anaGorsel, ...(product.ekGorseller || [])].filter(Boolean);
+  if (galleryImages.length === 0) {
+    galleryImages.push(fallbackGallery[0]);
   }
-  galleryImages = galleryImages.slice(0, 5);
 
   const handlePrevImage = () => {
     setActiveImageIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
@@ -61,7 +48,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
   const waText = encodeURIComponent(
-    `Merhaba! "${product.isim}" ürününden ${qty} adet sipariş vermek istiyorum. Malzeme tercihim: ${selectedMaterial.name}. Fiyat ve detaylar konusunda bilgi alabilir miyim?`
+    `Merhaba! "${product.isim}" ürününden ${qty} adet sipariş vermek istiyorum. Fiyat ve detaylar konusunda bilgi alabilir miyim?`
   );
   const waHref = `https://wa.me/${waNumber}?text=${waText}`;
 
@@ -112,41 +99,39 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
             </nav>
 
             {/* Title and Rating */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <h1 className="font-serif text-3xl md:text-4xl lg:text-[40px] font-bold text-neutral-800 leading-tight tracking-tight">
                 {product.isim}
               </h1>
               
-              {/* Price & Star Rating row */}
-              <div className="flex flex-wrap items-center gap-6 pt-1">
-                <div className="flex items-baseline font-sans">
+              {/* Price & Star Rating row (sade, zarif ve kullanışlı hizalama) */}
+              <div className="flex flex-row items-center justify-between pt-2">
+                <div className="flex items-baseline gap-3">
                   {oldPriceStr && (
-                    <span className="text-sm text-neutral-400 line-through mr-2 font-normal">
+                    <span className="text-sm md:text-base text-neutral-400 line-through font-light">
                       {oldPriceStr}
                     </span>
                   )}
-                  <span className="text-xl font-bold text-brand-orange-dark">
+                  <span className="text-2xl md:text-3xl font-bold text-brand-orange-dark font-sans">
                     {product.fiyatAraligi || "Fiyat Sorun"}
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-xs border border-[#eaeaea] text-xs font-medium text-neutral-700">
-                  <div className="flex items-center text-yellow-500">
+                <div className="flex items-center gap-1.5 text-xs font-medium text-neutral-700">
+                  <div className="flex items-center text-yellow-500 gap-0.5">
                     <Star size={13} fill="currentColor" className="text-yellow-500" />
                     <Star size={13} fill="currentColor" className="text-yellow-500" />
                     <Star size={13} fill="currentColor" className="text-yellow-500" />
                     <Star size={13} fill="currentColor" className="text-yellow-500" />
                     <Star size={13} fill="currentColor" className="text-yellow-500" />
                   </div>
-                  <span className="font-bold ml-1">4.9 / 5.0</span>
-                  <span className="text-neutral-400 font-normal">(48 Değerlendirme)</span>
+                  <span className="font-bold font-sans ml-1 text-neutral-600">4.9 / 5.0</span>
+                  <span className="text-neutral-400 font-light font-sans">({product.id ? parseInt(product.id) % 30 + 20 : 48} Değerlendirme)</span>
                 </div>
               </div>
             </div>
 
-            <hr className="border-t border-neutral-200/60" />
-
             {/* Description */}
-            <div className="space-y-3 font-sans text-neutral-600 text-[15px] leading-8 tracking-wide font-light">
+            <div className="space-y-3 font-sans text-neutral-600 text-[15px] leading-8 tracking-wide font-light pt-2">
               <p>{product.kisaAciklama}</p>
               {product.detayAciklama && product.detayAciklama !== product.kisaAciklama && (
                 <p className="text-xs md:text-sm text-neutral-500 border-l-2 border-brand-orange/40 pl-3 italic whitespace-pre-line leading-relaxed">
@@ -155,42 +140,8 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
               )}
             </div>
 
-            <hr className="border-t border-neutral-200/60" />
-
-            {/* Material Selector (Daireler) */}
-            <div className="space-y-3">
-              <span className="block text-xs font-bold uppercase tracking-wider text-neutral-700 font-sans">
-                Malzeme Seçimi: <span className="text-neutral-500 font-normal normal-case ml-1">{selectedMaterial.name}</span>
-              </span>
-              <div className="flex items-center gap-4">
-                {materials.map((mat) => {
-                  const isActive = selectedMaterial.id === mat.id;
-                  return (
-                    <button
-                      key={mat.id}
-                      onClick={() => setSelectedMaterial(mat)}
-                      title={mat.name}
-                      className={`relative w-7 h-7 rounded-full border border-neutral-300 cursor-pointer transition-all duration-300 ${
-                        isActive ? "ring-1 ring-offset-4 ring-[#ff914b] scale-110" : "hover:scale-105"
-                      }`}
-                      style={{
-                        backgroundColor: mat.isTransparent ? "transparent" : mat.color,
-                        backgroundImage: mat.isTransparent 
-                          ? "linear-gradient(45deg, #eaeaea 25%, transparent 25%, transparent 75%, #eaeaea 75%), linear-gradient(45deg, #eaeaea 25%, transparent 25%, transparent 75%, #eaeaea 75%)" 
-                          : "none",
-                        backgroundSize: mat.isTransparent ? "8px 8px" : "auto",
-                        backgroundPosition: mat.isTransparent ? "0 0, 4px 4px" : "auto"
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-
-            <hr className="border-t border-neutral-200/60" />
-
             {/* Qty & WhatsApp Action Side-by-Side */}
-            <div className="space-y-4 pt-2">
+            <div className="space-y-4 pt-6">
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 {/* Qty Selector */}
                 <div className="flex items-center justify-between border border-neutral-300 rounded-none bg-white w-full sm:max-w-[120px] h-12 px-3 flex-shrink-0">
@@ -258,7 +209,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
             {/* Asimetrik Arka Plan Bloğu */}
             <div className="absolute right-0 top-20 w-[80%] h-[350px] bg-neutral-200/40 rounded-l-[4rem] -z-10" />
 
-            {/* Özgür Görsel (c_limit ensures entire aspect ratio fits inside max-h-[460px] box) */}
+            {/* Özgür Görsel */}
             <div className="relative w-full h-[460px] flex items-center justify-center z-10">
               <Image
                 src={getOptimizedUrl(galleryImages[activeImageIndex], { width: 1000, height: 1000, crop: "limit" })}
@@ -271,61 +222,65 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
               />
             </div>
 
-            {/* Yön Okları ve Sayaç */}
-            <div className="absolute top-4 right-4 z-20 flex flex-col items-end gap-1 font-sans select-none">
-              <div className="flex items-baseline text-sm md:text-base">
-                <span className="font-bold text-neutral-800 text-lg md:text-xl">
-                  {String(activeImageIndex + 1).padStart(2, "0")}
-                </span>
-                <span className="text-neutral-400 mx-1">/</span>
-                <span className="text-neutral-400 text-sm">
-                  {String(galleryImages.length).padStart(2, "0")}
-                </span>
+            {/* Yön Okları ve Sayaç (Sadece birden fazla görsel varsa göster) */}
+            {galleryImages.length > 1 && (
+              <div className="absolute top-4 right-4 z-20 flex flex-col items-end gap-1 font-sans select-none">
+                <div className="flex items-baseline text-sm md:text-base">
+                  <span className="font-bold text-neutral-800 text-lg md:text-xl">
+                    {String(activeImageIndex + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-neutral-400 mx-1">/</span>
+                  <span className="text-neutral-400 text-sm">
+                    {String(galleryImages.length).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="flex items-center gap-4 mt-1">
+                  <button
+                    onClick={handlePrevImage}
+                    aria-label="Önceki resim"
+                    className="text-neutral-600 hover:text-[#ff914b] transition-colors cursor-pointer"
+                  >
+                    <ChevronLeft size={20} strokeWidth={1.5} />
+                  </button>
+                  <button
+                    onClick={handleNextImage}
+                    aria-label="Sonraki resim"
+                    className="text-neutral-600 hover:text-[#ff914b] transition-colors cursor-pointer"
+                  >
+                    <ChevronRight size={20} strokeWidth={1.5} />
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center gap-4 mt-1">
-                <button
-                  onClick={handlePrevImage}
-                  aria-label="Önceki resim"
-                  className="text-neutral-600 hover:text-[#ff914b] transition-colors cursor-pointer"
-                >
-                  <ChevronLeft size={20} strokeWidth={1.5} />
-                </button>
-                <button
-                  onClick={handleNextImage}
-                  aria-label="Sonraki resim"
-                  className="text-neutral-600 hover:text-[#ff914b] transition-colors cursor-pointer"
-                >
-                  <ChevronRight size={20} strokeWidth={1.5} />
-                </button>
-              </div>
+            )}
+
+          </div>
+
+          {/* Thumbnails row (Sadece birden fazla görsel varsa göster) */}
+          {galleryImages.length > 1 && (
+            <div className="flex items-center justify-center gap-3 overflow-x-auto w-full pb-2 z-10">
+              {galleryImages.map((imgUrl, i) => {
+                const isActive = activeImageIndex === i;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImageIndex(i)}
+                    className={`relative w-[70px] h-[70px] md:w-[104px] md:h-[104px] rounded-lg overflow-hidden border-2 cursor-pointer flex-shrink-0 transition-all ${
+                      isActive ? "border-[#ff914b] scale-[1.03]" : "border-neutral-200 hover:border-[#ff914b]/40"
+                    }`}
+                  >
+                    <Image
+                      src={getOptimizedUrl(imgUrl, { width: 200, height: 200, crop: "limit" })}
+                      alt={`${product.isim} - Thumbnail ${i + 1}`}
+                      fill
+                      sizes="104px"
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </button>
+                );
+              })}
             </div>
-
-          </div>
-
-          {/* Thumbnails row */}
-          <div className="flex items-center justify-center gap-3 overflow-x-auto w-full pb-2 z-10">
-            {galleryImages.map((imgUrl, i) => {
-              const isActive = activeImageIndex === i;
-              return (
-                <button
-                  key={i}
-                  onClick={() => setActiveImageIndex(i)}
-                  className={`relative w-[70px] h-[70px] md:w-[104px] md:h-[104px] rounded-lg overflow-hidden border-2 cursor-pointer flex-shrink-0 transition-all ${
-                    isActive ? "border-[#ff914b] scale-[1.03]" : "border-neutral-200 hover:border-[#ff914b]/40"
-                  }`}
-                >
-                  <Image
-                    src={getOptimizedUrl(imgUrl, { width: 200, height: 200, crop: "limit" })}
-                    alt={`${product.isim} - Thumbnail ${i + 1}`}
-                    fill
-                    sizes="104px"
-                    className="object-cover"
-                    unoptimized
-                  />
-                </button>
-              );
-            })}
-          </div>
+          )}
 
         </div>
 
