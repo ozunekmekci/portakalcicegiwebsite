@@ -5,12 +5,16 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** Pazarlama Odaklı En Çok Satanlar Slider Refaktörü (Dynamic Magnet Row) ✅  
+**Aktif sprint:** Pazarlama Odaklı En Çok Satanlar Refaktörü (Glassmorphism Carousel V4) ✅  
 **Sonraki görev:** Yok (Sistem optimize edildi ve refaktör başarıyla tamamlandı)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **PAZARLAMA ODAKLI EN ÇOK SATANLAR REFAKTÖRÜ (GLASSMORPHISM CAROUSEL V4)**
+  - **Üst Başlık ve Navigasyon (BestsellersSlider.tsx)**: Sol tarafa Playfair Display fontuyla *"✨ Haftanın Yıldız Seçimleri & En Çok Satanlar ✨"* başlığı ve zarif açıklaması eklendi; sağ tarafa ise yan yana duran minimalist, yuvarlak sol (`<`) ve sağ (`>`) ok butonları yerleştirilerek dengeli bir navigasyon düzeni sağlandı.
+  - **Ultra-Kavisli Full-Bleed Kartlar**: Masaüstünde `w-[320px] h-[440px]` boyutlarında, `rounded-[2.5rem] overflow-hidden shadow-sm` sınırlarına sahip, Next.js `<Image>` bileşeniyle full-bleed render edilen ürün kartları yapıldı. Kartın sağ üst köşesine absolute olarak yerleştirilen ince beyaz dairesel badge içindeki `↗` diagonal ok ikonu, hover durumunda sağ üste ivmelenecek şekilde (`group-hover:translate-x-1 group-hover:-translate-y-1`) animasyonlandırıldı.
+  - **Sıcak Akdeniz Cam Katmanı (Glassmorphism Overlay)**: Her kartın alt kısmına absolute konumlandırılan `absolute bottom-0 left-0 right-0 p-6` cam katmanı eklendi. Krem tonlu buzlu cam formülü `bg-[#fbf7f0]/60 backdrop-blur-md border-t border-white/20` sınıflarıyla uygulandı. Camın içine 5 parıldayan yıldız (`⭐`) ikonu, Playfair Display kalın ürün adı, yeni fiyat, slashed old fiyat ve "Min: 100 Adet" rozeti yerleştirildi.
 - [x] **PAZARLAMA ODAKLI EN ÇOK SATANLAR SLIDER REFAKTÖRÜ (DYNAMIC MAGNET ROW)**
   - **Vitrini Çerçevesi (BestsellersSlider.tsx)**: Hero section'ın hemen altına sitenin genel krem tonundan ayrışan warm clay (`bg-[#f3ece3]`) renginde `py-8 px-4 md:px-12 rounded-2xl mx-4 md:mx-12 my-6 shadow-sm` çerçevesiyle rozet başlığı yerleştirildi: *"✨ Haftanın Yıldız Seçimleri & En Çok Satanlar ✨"*.
   - **Slider Mekanizması**: Harici kütüphane bağımlılığı olmadan native Tailwind `overflow-x-auto snap-x snap-mandatory` kullanılarak mobilde swipe, masaüstünde kaydırma hissi sağlandı. Sağ tarafa absolute konumlandırılmış "Sağa Git ➔" (`CaretRight` chevron) navigasyon butonu entegre edildi.
@@ -435,6 +439,14 @@
 - Ürünlerin altına alternatif olarak `"🔥 En Popüler Butik Tercih"` ve `"📦 Güvenli Kargo Bedava"` etiketleri, fiyat alanında ise indirimli fiyatın yanında line-through çizgili dinamik olarak hesaplanan eski fiyatlar (%35 bindirilmiş) eklendi.
 - Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
 - Kullanıcı talebi doğrultusunda, "En Çok Beğenilen Atölye Tasarımları" (ProductGrid) bölümü geçici olarak yorum satırına alınarak devre dışı bırakıldı.
+
+### Oturum 33 — Pazarlama Odaklı En Çok Satanlar Refaktörü (Glassmorphism Carousel V4)
+- `BestsellersSlider.tsx` bileşeni Glassmorphism Carousel V4 standartlarına göre tamamen yeniden kodlandı.
+- Sol tarafta Playfair Display fontuyla slogan başlığı ve altında alt açıklama metni barındıran; sağ tarafta ise yan yana konumlandırılmış minimalist sol (`<`) ve sağ (`>`) ok butonlarıyla dengelenen üst navigasyon düzeni kuruldu.
+- Kart boyutları masaüstünde `w-[320px] h-[440px]` olarak ayarlandı; `rounded-[2.5rem] overflow-hidden` kavisli köşelere sahip full-bleed dikey Next.js `<Image>` yerleşimi yapıldı.
+- Kartların sağ üst köşelerine absolute konumlandırılmış `↗` (diagonal arrow) beyaz buton badge'i yerleştirilerek, kart hover edildiğinde `group-hover:translate-x-1 group-hover:-translate-y-1` animasyonuyla ivmelenmesi sağlandı.
+- Kartların alt kısımlarına `bg-[#fbf7f0]/60 backdrop-blur-md border-t border-white/20` buzlu cam overlay katmanı enjekte edildi; camın içine 5 adet parıldayan yıldız (`⭐`) ikonu, Playfair Display ürün adı, indirimli yeni fiyat, line-through çizgili dinamik eski fiyat ve "Min: 100 Adet" rozeti yerleştirildi.
+- Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
 
 ---
 

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, MessageCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductWithCategory } from "@/lib/db-queries-types";
 import { getOptimizedUrl } from "@/lib/cloudinary";
 
@@ -94,9 +94,15 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
   // Use mock products if DB has no products
   const displayProducts = products.length > 0 ? products : mockBestsellers;
 
+  const handleScrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -344, behavior: "smooth" });
+    }
+  };
+
   const handleScrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      scrollRef.current.scrollBy({ left: 344, behavior: "smooth" });
     }
   };
 
@@ -116,102 +122,115 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
       {/* High Contrast Showcase container bg-[#f3ece3] */}
       <div className="bg-[#f3ece3] py-8 px-4 md:px-12 rounded-2xl mx-4 md:mx-12 my-6 shadow-sm max-w-[1400px] lg:mx-auto relative">
         
-        {/* Header Ribbon Section */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center gap-2 bg-white/60 backdrop-blur-xs px-4 py-1.5 rounded-full shadow-xs border border-white/40">
-            <span className="text-xs md:text-sm font-serif font-bold text-neutral-800">
+        {/* Header Ribbon Section - Playfair Display title with arrows on the right */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
+          <div className="text-left space-y-1">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-800">
               ✨ Haftanın Yıldız Seçimleri & En Çok Satanlar ✨
-            </span>
+            </h2>
+            <p className="font-sans text-xs md:text-sm text-neutral-600">
+              Sizin için özenle seçilen en popüler Akdeniz esintili el yapımı tasarımlarımız.
+            </p>
+          </div>
+          
+          {/* Navigation Sol (<) and Sağ (>) Ok Buttons */}
+          <div className="flex items-center gap-2 flex-shrink-0 self-end sm:self-auto">
+            <button
+              onClick={handleScrollLeft}
+              aria-label="Sola kaydır"
+              className="w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-800 bg-white/80 hover:bg-[#ff914b] hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer shadow-xs active:scale-95"
+            >
+              <ChevronLeft size={18} strokeWidth={2.5} />
+            </button>
+            <button
+              onClick={handleScrollRight}
+              aria-label="Sağa kaydır"
+              className="w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-800 bg-white/80 hover:bg-[#ff914b] hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer shadow-xs active:scale-95"
+            >
+              <ChevronRight size={18} strokeWidth={2.5} />
+            </button>
           </div>
         </div>
 
-        {/* Outer Slider Box with Absolute Caret Button */}
+        {/* Carousel Container */}
         <div className="relative w-full">
           
           {/* Scroll List container */}
           <div 
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 w-full"
+            className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 w-full"
           >
             {displayProducts.map((product: any, idx: number) => {
               const coverImage = product.cover_image || "/images/gallery-5.webp";
               const imageUrl = coverImage.includes("res.cloudinary.com")
-                ? getOptimizedUrl(coverImage, { width: 300, height: 400, crop: "fill" })
+                ? getOptimizedUrl(coverImage, { width: 350, height: 480, crop: "fill" })
                 : coverImage;
 
               const oldPrice = getOldPrice(product.price_range);
               const newPrice = product.price_range || "Fiyat Sorun";
-              
-              // Alternate badges for marketing variation
-              const badgeText = idx % 2 === 0 ? "🔥 En Popüler Butik Tercih" : "📦 Güvenli Kargo Bedava";
 
               return (
                 <div
                   key={product.id}
-                  className="w-[260px] md:w-[280px] flex-shrink-0 flex flex-col bg-white rounded-xl p-3 shadow-sm border border-[#eaeaea] snap-start transition-all duration-300 hover:shadow-[0_15px_30px_rgba(255,145,75,0.2)] hover:border-[#ff914b]/20 group relative"
+                  className="w-[320px] h-[440px] flex-shrink-0 relative group rounded-[2.5rem] overflow-hidden shadow-sm border border-white/10 snap-start transition-all duration-300 hover:shadow-[0_20px_40px_rgba(255,145,75,0.15)]"
                 >
-                  <Link href={`/urunler/${product.slug}`} className="block">
-                    {/* Portrait Image container */}
-                    <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden bg-[#fbf7f0] border border-[#f0f0f0] mb-3">
-                      <Image
-                        src={imageUrl}
-                        alt={product.name}
-                        fill
-                        sizes="(max-w-768px) 260px, 280px"
-                        className="object-cover transition-transform duration-500 group-hover:scale-103"
-                      />
+                  <Link href={`/urunler/${product.slug}`} className="block w-full h-full">
+                    {/* Full-bleed Portrait Image */}
+                    <Image
+                      src={imageUrl}
+                      alt={product.name}
+                      fill
+                      sizes="320px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-103"
+                    />
 
-                      {/* "ADD" button appearing smoothly on hover */}
-                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 z-10">
-                        <div className="bg-[#ff914b] text-white rounded-full py-2 px-4 text-xs font-semibold shadow-md flex items-center justify-center gap-1.5 hover:bg-[#fa3500] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                          <MessageCircle size={14} className="fill-white text-[#ff914b]" />
-                          <span>💬 Tasarımı Başlat</span>
-                        </div>
+                    {/* Top-Right Diagonal Arrow Badge ↗ */}
+                    <div className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-white/20 backdrop-blur-xs border border-white/40 flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#ff914b] group-hover:border-transparent shadow-xs">
+                      <span className="text-lg font-sans font-medium transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                        ↗
+                      </span>
+                    </div>
+
+                    {/* Warm Mediterranean Glassmorphism bottom overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 z-10 flex flex-col justify-end bg-[#fbf7f0]/60 backdrop-blur-md border-t border-white/20 rounded-b-[2.5rem] min-h-[160px]">
+                      
+                      {/* 5 Shining Star Icons */}
+                      <div className="flex items-center gap-0.5 text-yellow-500 mb-2">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <span key={i} className="text-sm select-none">⭐</span>
+                        ))}
                       </div>
-                    </div>
 
-                    {/* Product Title */}
-                    <h3 className="font-serif text-sm font-bold text-brand-text-dark line-clamp-1 group-hover:text-brand-orange transition-colors">
-                      {product.name}
-                    </h3>
+                      {/* Product Title (Playfair Display) */}
+                      <h3 className="font-serif text-lg font-bold text-neutral-800 leading-tight mb-2 group-hover:text-brand-orange-dark transition-colors line-clamp-1">
+                        {product.name}
+                      </h3>
 
-                    {/* Marketing Badges */}
-                    <div className="mt-1">
-                      <span className="inline-block text-[9px] font-semibold text-brand-orange-dark bg-brand-orange/10 px-2 py-0.5 rounded">
-                        {badgeText}
-                      </span>
-                    </div>
+                      {/* Pricing and Min Order Row */}
+                      <div className="flex items-center justify-between mt-1">
+                        
+                        {/* Prices */}
+                        <div className="flex items-baseline font-sans">
+                          <span className="text-xs text-neutral-500 line-through mr-2 font-normal">
+                            {oldPrice}
+                          </span>
+                          <span className="text-sm font-bold text-brand-orange-dark">
+                            {newPrice}
+                          </span>
+                        </div>
 
-                    {/* Price Area: struck-through old price + bold new price */}
-                    <div className="flex items-baseline mt-2 font-sans">
-                      <span className="text-[11px] text-neutral-400 line-through mr-2 font-normal">
-                        {oldPrice}
-                      </span>
-                      <span className="text-sm font-bold text-brand-orange-dark">
-                        {newPrice}
-                      </span>
-                    </div>
+                        {/* Min Order Badge */}
+                        <span className="text-[10px] bg-[#ff914b]/10 text-brand-orange-dark px-2.5 py-0.5 rounded-full font-sans font-medium border border-[#ff914b]/10">
+                          Min: {product.min_order || 100} Adet
+                        </span>
+                      </div>
 
-                    {/* Min Order Badge */}
-                    <div className="mt-1.5">
-                      <span className="text-[10px] text-neutral-500 font-sans">
-                        Min. Sipariş: {product.min_order || 100} adet
-                      </span>
                     </div>
                   </Link>
                 </div>
               );
             })}
           </div>
-
-          {/* Absolute Navigation Button (Sağa Git ➔) */}
-          <button
-            onClick={handleScrollRight}
-            aria-label="Sağa kaydır"
-            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white text-neutral-800 w-11 h-11 rounded-full flex items-center justify-center shadow-md border border-neutral-200 hover:bg-[#ff914b] hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-          >
-            <ChevronRight size={20} strokeWidth={2.5} />
-          </button>
 
         </div>
 
