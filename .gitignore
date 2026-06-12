@@ -39,3 +39,8 @@ next-env.d.ts
 # large raw assets
 /assets/IMG_*
 /assets/pomelli_photoshoot_image_*
+
+# sqlite database
+/portakalcicegi.db
+/portakalcicegi.db-journal
+/portakalcicegi.db-wal

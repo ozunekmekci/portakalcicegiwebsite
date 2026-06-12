@@ -1,25 +1,27 @@
-import { getCollections, getProducts } from "@/lib/notion"
+import { getCategories, getProducts } from "@/lib/db-queries"
 import { fallbackCollections } from "@/content/collections"
 import { fallbackProducts } from "@/content/products"
-import { slugify } from "@/lib/utils"
 
 export default async function sitemap() {
-  let collections = fallbackCollections
-  let products = fallbackProducts
+  let categories: any[] = []
+  let products: any[] = []
   
   try {
-    collections = await getCollections()
+    categories = await getCategories()
     products = await getProducts()
-  } catch {}
+  } catch {
+    categories = []
+    products = []
+  }
 
-  const koleksiyonUrls = collections.map(c => ({
-    url: `https://portakalcicegiwebsite.vercel.app/koleksiyonlar/${slugify(c.kategori)}`,
+  const koleksiyonUrls = (categories.length > 0 ? categories : fallbackCollections).map(c => ({
+    url: `https://portakalcicegiwebsite.vercel.app/koleksiyonlar/${c.slug || "babyshower"}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }))
 
-  const urunUrls = products.map(p => ({
+  const urunUrls = (products.length > 0 ? products : fallbackProducts).map(p => ({
     url: `https://portakalcicegiwebsite.vercel.app/urunler/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,

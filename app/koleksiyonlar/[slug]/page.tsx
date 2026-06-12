@@ -1,8 +1,8 @@
 import Link from "next/link"
-import { getProducts } from "@/lib/notion"
+import { getProducts } from "@/lib/db-queries"
 import { fallbackProducts } from "@/content/products"
 import ProductCard from "@/components/ui/ProductCard"
-import { Product } from "@/lib/notion"
+import { Product } from "@/lib/types"
 import Breadcrumb from "@/components/ui/Breadcrumb"
 
 export const revalidate = 0;
@@ -40,15 +40,35 @@ export default async function KoleksiyonPage({ params }: Props) {
   const isim = slugToIsim[params.slug] ?? params.slug
   let filtered: Product[] = []
 
-  const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
+  let searchSlug = params.slug;
+  if (searchSlug === "baby-shower") {
+    searchSlug = "babyshower";
+  }
 
   try {
-    const products = await getProducts()
-    filtered = products.filter(p => normalize(p.koleksiyonSlug) === normalize(params.slug))
+    const dbProducts = await getProducts({ categorySlug: searchSlug, onlyActive: true })
+    filtered = dbProducts.map((p) => ({
+      id: String(p.id),
+      slug: p.slug,
+      isim: p.name,
+      koleksiyon: p.category_name,
+      koleksiyonSlug: p.category_slug,
+      anaGorsel: p.cover_image || "",
+      ekGorseller: p.images || [],
+      fiyatAraligi: p.price_range || "",
+      kisaAciklama: p.description || "",
+      detayAciklama: p.description || "",
+      minimumAdet: p.min_order || 100,
+      aktif: p.is_active === 1,
+    }))
+
     if (filtered.length === 0) {
+      const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
       filtered = fallbackProducts.filter(p => normalize(p.koleksiyonSlug) === normalize(params.slug))
     }
   } catch (error) {
+    console.error("Error fetching products from SQLite:", error)
+    const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
     filtered = fallbackProducts.filter(p => normalize(p.koleksiyonSlug) === normalize(params.slug))
   }
 

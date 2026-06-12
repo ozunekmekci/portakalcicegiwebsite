@@ -4,13 +4,73 @@
 ---
 
 ## 🔴 Mevcut Durum
-**Son güncelleme:** 20 Mayıs 2026  
-**Aktif sprint:** Hafta 5  
-**Sonraki görev:** PROJE TAMAMLANDI 🎉
+**Son güncelleme:** 12 Haziran 2026  
+**Aktif sprint:** V2 Migrasyonu Tamamlandı 🎉  
+**Sonraki görev:** Yok (Proje Dağıtıma Hazır)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **GÖREV 9.3** — Son testler ve deploy doğrulaması
+  - Hem SQLite hem de Postgres için veritabanı boş olduğunda otomatik tohumlama (seeding) yapacak ürün verileri modüle entegre edildi.
+  - Yerel veritabanı resetlenerek sıfırdan oluşturma ve tohumlama süreci test edildi.
+  - `npm run build` derlemesinin yeni eklenen seeder verileriyle statik sayfaları (koleksiyonlar ve ürün detay sayfaları) başarıyla ürettiği doğrulandı.
+- [x] **GÖREV 9.1 & 9.2** — Vercel Postgres kurulumu ve env değişkenleri
+  - `better-sqlite3` modülü production'da yüklenmeyecek şekilde dynamic require ile `lib/db.ts` dosyasına dahil edildi.
+  - Canlı Postgres veritabanının otomatik şema kurulumunu ve veri tohumlamasını (seeding) yapan `lib/db-init.ts` modülü geliştirildi.
+  - Veritabanı sorguları 150 satır sınırını aşmamak için `lib/db-categories.ts`, `lib/db-products-read.ts` ve `lib/db-products-write.ts` olarak ayrıştırıldı ve `lib/db-queries.ts` çatısında birleştirildi.
+  - `@vercel/postgres` kütüphanesi kuruldu, runtime SQL parametreleri Postgres syntax'ine göre dinamik olarak `$1, $2` formatında uyarlandı.
+  - API rotaları `force-dynamic` ilan edilerek build esnasında DB bağlantı string'i eksikliği hatası vermesi engellendi.
+- [x] **GÖREV 8.1 & 8.2** — Notion'dan SQLite'a geçiş ve Görsel Optimizasyonu
+  - Ortak `Product` ve `Collection` tipleri `@/lib/types` dosyasına taşındı ve notion SDK bağımlılığı `@notionhq/client` kaldırıldı.
+  - `components/sections/Collections.tsx` kategorileri SQLite'dan çekecek şekilde güncellendi.
+  - `app/koleksiyonlar/[slug]/page.tsx` ve `app/urunler/[slug]/page.tsx` sayfaları SQLite'dan veri çekecek ve `@/lib/types` yapısına uygun map edecek şekilde güncellendi.
+  - `app/sitemap.ts` site haritası üreticisi verileri SQLite kategorileri ve ürünlerinden okuyacak şekilde güncellendi.
+  - `.env.local` dosyasındaki Notion ortam değişkenleri temizlendi.
+- [x] **GÖREV 7.4** — Ürün ekleme/düzenleme formu ve sayfaları
+  - `app/api/admin/products/[id]/route.ts` API rotasına `GET` metodu desteği eklenerek düzenleme formuna ürün detayları sağlandı.
+  - Ürün adı, kategori, minimum sipariş adedi, fiyat aralığı, açıklama, sıralama önceliği, görseller (CloudinaryUpload) ve aktiflik durumunu yöneten `components/admin/ProductForm.tsx` formu kodlandı.
+  - Yeni ürün ekleme işlevini gerçekleştiren `app/admin/urun-ekle/page.tsx` client sayfası oluşturuldu.
+  - Mevcut ürünü düzenleyen ve güncelleyen `app/admin/urun-duzenle/[id]/page.tsx` client sayfası oluşturuldu.
+  - Proje `npm run build` ile hatasız bir şekilde derlendi.
+- [x] **GÖREV 7.3** — Cloudinary Upload bileşeni
+  - Cloudinary Upload Widget script'i `app/admin/layout.tsx` dosyasına `next/script` ile entegre edildi.
+  - Görsel yükleme, listeleme, sıralama ve güvenli silme işlevlerini gerçekleştiren `components/admin/CloudinaryUpload.tsx` bileşeni geliştirildi.
+- [x] **GÖREV 7.2** — Admin dashboard
+  - Tüm ürünleri (taslak dahil) listeleyen (GET) ve yeni ürün ekleyen (POST) `app/api/admin/products/route.ts` API rotası oluşturuldu.
+  - Ürün güncelleme (PUT) ve silme (DELETE) işlemlerini yöneten `app/api/admin/products/[id]/route.ts` API rotası oluşturuldu.
+  - Ürün eklenirken veya güncellenirken çakışmaları önlemek için otomatik benzersiz slug oluşturma mantığı entegre edildi.
+  - Kategorileri listelemek için `app/api/admin/categories/route.ts` API rotası yazıldı.
+  - Kategorilere göre filtreleme yapılabilen, ürünleri anlık olarak taslağa alma/yayına alma ve silme aksiyonları içeren `components/admin/ProductTable.tsx` tablosu kodlandı.
+  - Admin dashboard'unun istatistik kartlarını (Toplam ürün, yayındaki ürün, kategori sayısı) içeren ve ProductTable ile bütünleşen `app/admin/page.tsx` sayfası güncellendi.
+  - `npm run build` ile yerel derleme testi başarıyla gerçekleştirildi.
+- [x] **GÖREV 7.1** — Admin güvenliği
+  - `ADMIN_PASSWORD` ve `ADMIN_SECRET` değişkenleri yerel geliştirme için `.env.local` dosyasına tanımlandı.
+  - `lib/auth.ts` modülü oluşturularak Web Crypto API tabanlı token imzalama ve doğrulama mantığı yazıldı.
+  - `/admin` sayfalarını ve alt sayfalarını koruyan ve yetkisiz kişileri giriş sayfasına yönlendiren `middleware.ts` oluşturuldu.
+  - Oturum açma ve oturum sonlandırma işlemlerini yöneterek HttpOnly cookie set eden `app/api/admin/auth/route.ts` API rotası yazıldı.
+  - Dashboard sayfalarında kullanılacak olan `components/admin/AdminNav.tsx` navigasyon bileşeni ve `app/admin/layout.tsx` şablonu oluşturuldu.
+  - Giriş ekranı arayüzü `app/admin/giris/page.tsx` marka renklerine göre kodlandı.
+  - Dashboard 404/derleme hatasını önlemek için `app/admin/page.tsx` yer tutucu sayfası eklendi.
+  - Projenin Next.js derleme testi (`npm run build`) başarıyla tamamlandı.
+- [x] **GÖREV 6.3** — SQLite altyapısı
+  - `better-sqlite3` ve `@types/better-sqlite3` paketleri projeye kuruldu.
+  - `portakalcicegi.db` veritabanı dosyasının repoya commit edilmemesi için `.gitignore` dosyası güncellendi.
+  - `lib/db.ts` modülü oluşturularak singleton bağlantı havuzu ve `categories` & `products` tablo şemaları kuruldu.
+  - Veritabanı boşsa başlangıç kategorilerini otomatik yerleştiren tohumlama (seeding) mantığı entegre edildi.
+  - `lib/db-queries.ts` modülü oluşturularak gelecekteki asenkron DB geçişleri için tüm CRUD sorguları asenkron (`async`/Promise) olarak yazıldı.
+  - Yerel CRUD işlemlerinin doğruluğu hazırlanan test betiği (`test-db.ts`) ile test edildi ve doğrulandı.
+  - Projenin Next.js derleme testi (`npm run build`) başarıyla tamamlandı.
+- [x] **GÖREV 6.2** — Cloudinary kurulumu
+  - Cloudinary entegrasyonu için gerekli ortam değişkenleri yerel geliştirme ortamına `.env.local` olarak eklendi.
+  - URL optimizasyonu ve transformasyonu yapan `lib/cloudinary.ts` modülü oluşturuldu.
+  - Güvenli görsel işlemleri (silme vb.) için sunucu tarafında imza üreten `app/api/cloudinary/signature/route.ts` API endpoint'i yazıldı.
+  - `next.config.mjs` dosyasına `res.cloudinary.com` remote pattern olarak eklenerek test derlemesi (`npm run build`) başarıyla tamamlandı.
+- [x] **GÖREV 6.1** — Kritik fixler
+  - `NEXT_PUBLIC_WHATSAPP_NUMBER` ortam değişkeni yerel testler için `.env.local` dosyasına tanımlandı.
+  - `components/sections/Hero.tsx` içerisindeki sabit WhatsApp linki `process.env.NEXT_PUBLIC_WHATSAPP_NUMBER` kullanacak şekilde dinamikleştirildi.
+  - `app/layout.tsx` dosyasındaki `og:url` metadata adresi aktif Vercel domaini olan `https://portakalcicegiwebsite.vercel.app` ile güncellendi.
+  - Bağımlılıklar kurularak yerel derleme testi (`npm run build`) başarıyla tamamlandı.
 - [x] **GÖREV 5.5** — Son test ve WhatsApp numarası entegrasyonu
   - `NEXT_PUBLIC_WHATSAPP_NUMBER` ortam değişkeni üzerinden gelen numaranın temizlenerek (rakam dışı karakterlerden arındırılarak) tüm WhatsApp deeplink'lerine (`Navbar`, `Footer`, `Contact`, `CollectionCard`, `UrunDetay` vb.) dinamik entegrasyonu tamamlandı.
   - `lib/utils.ts` içindeki `driveUrlToDirectUrl` metodu Google Drive doğrudan görsel paylaşımı için `lh3.googleusercontent.com` direkt link formatı ile güncellenerek görsel yüklenme sorunu çözüldü.
@@ -241,6 +301,69 @@
 - `app/sitemap.ts` Notion API bağlantısıyla dinamik sitemap.xml rotalarını üretecek şekilde güncellendi.
 - Canlı Notion databases sorguları bağımsız script ile test edilip doğrulandı.
 - `npm run build` ile Next.js üretim derlemesi sıfır hata ile tamamlandı.
+
+### Oturum 19 — Görev 6.1 (Kritik Fixler ve WhatsApp Entegrasyonu)
+- Yerel geliştirme ortamına `.env.local` şablonu ve `NEXT_PUBLIC_WHATSAPP_NUMBER` değişkeni kuruldu.
+- Hero bileşenindeki sabit WhatsApp numarası dinamik hale getirildi.
+- Sitenin OpenGraph url (`og:url`) adresi aktif Vercel domaini (`https://portakalcicegiwebsite.vercel.app`) ile güncellendi.
+- Bağımlılıklar kuruldu ve projenin yerel derlemesi (`npm run build`) başarıyla test edildi.
+
+### Oturum 20 — Görev 6.2 (Cloudinary Kurulumu)
+- Cloudinary entegrasyonu için gerekli ortam değişkenleri yerel geliştirme ortamına `.env.local` olarak eklendi.
+- URL optimizasyonu ve transformasyonu yapan `lib/cloudinary.ts` modülü oluşturuldu.
+- Güvenli görsel işlemleri (silme vb.) için sunucu tarafında imza üreten `app/api/cloudinary/signature/route.ts` API endpoint'i yazıldı.
+- `next.config.mjs` dosyasına `res.cloudinary.com` remote pattern olarak eklenerek projenin hatasız derlendiği (`npm run build`) doğrulandı.
+
+### Oturum 21 — Görev 6.3 (SQLite Altyapısı)
+- SQLite veritabanı bağlantı kütüphanesi `better-sqlite3` projeye kuruldu.
+- Singleton desenli veritabanı bağlantı havuzu ve tablo oluşturma şeması `lib/db.ts` olarak yazıldı.
+- Veritabanı CRUD operasyonlarını asenkron olarak yürüten `lib/db-queries.ts` modülü tip tanımlarıyla birlikte kodlandı.
+- Projede veritabanı dosyasının repoya sızmaması için `.gitignore` dosyası güncellendi.
+- Yazılan SQL sorgularının ve tablo yapısının doğruluğunu teyit eden `test-db.ts` test betiği başarıyla çalıştırıldı.
+- ESLint uyumluluğu düzeltilerek projenin Next.js derlemesi (`npm run build`) başarıyla tamamlandı.
+
+### Oturum 22 — Görev 7.1 (Admin Güvenliği)
+- Admin şifresi (`ADMIN_PASSWORD`) ve oturum imzalama anahtarı (`ADMIN_SECRET`) yerel `.env.local` dosyasına eklendi.
+- Web Crypto API tabanlı session token imzalama ve doğrulama mantığı `lib/auth.ts` dosyasına yazıldı.
+- Admin sayfalarını yetkisiz erişime kapatan `middleware.ts` dosyası ana dizine kuruldu.
+- Giriş/çıkış API rotası `app/api/admin/auth/route.ts` dosyası ve navigasyon bileşeni `components/admin/AdminNav.tsx` oluşturuldu.
+- Admin layouts şablonu `app/admin/layout.tsx` ve giriş ekranı `app/admin/giris/page.tsx` marka renklerine uygun olarak kodlandı.
+- Projede yönlendirme testlerini kolaylaştırmak adına geçici `app/admin/page.tsx` yer tutucu sayfası yerleştirildi ve projenin hatasız derlendiği (`npm run build`) doğrulandı.
+
+### Oturum 23 — Görev 7.2 (Admin Dashboard ve API'ler)
+- Ürün ve kategori verilerini yönetmek üzere `app/api/admin/products`, `app/api/admin/products/[id]` ve `app/api/admin/categories` Next.js API rotaları yazıldı.
+- Veritabanına kaydedilecek ürünler için otomatik ve çakışmasız Türkçe uyumlu slug üretme mekanizması kuruldu.
+- Yönetici arayüzünde kategorilere göre filtreleme yapabilen, ürün durumunu değiştiren ve silme işlemini yöneten `ProductTable.tsx` bileşeni kodlandı.
+- Admin dashboard'u `app/admin/page.tsx` toplam ürün, yayındaki ürün ve kategori sayılarını gösteren istatistik paneli ve ürün tablosu entegrasyonuyla yenilendi.
+- Eksik ikon hataları standart Lucide `Filter` ikonu kullanılarak çözüldü ve Next.js derleme testi (`npm run build`) başarıyla tamamlandı.
+
+### Oturum 24 — Görev 7.3 (Cloudinary Upload Bileşeni)
+- Cloudinary Upload Widget script'i `app/admin/layout.tsx` dosyasına dahil edildi.
+- 10 görsel sınırıyla Cloudinary sunucularına direkt yükleme yapan, sürükle-bırak destekli, ok butonlarıyla görsel sıralama yapabilen ve secure delete API ile Cloudinary'den görsel silebilen `CloudinaryUpload.tsx` bileşeni kodlandı.
+
+### Oturum 25 — Görev 7.4 (Ürün Ekleme/Düzenleme Formu ve Sayfaları)
+- `/api/admin/products/[id]` uç noktasına düzenleme ekranı için `GET` metodu eklendi.
+- Ürün ekleme ve düzenleme sayfalarının ortak kullanacağı `ProductForm.tsx` bileşeni geliştirildi.
+- `/admin/urun-ekle` ve `/admin/urun-duzenle/[id]` sayfaları kodlandı, form verileri API'ye başarılı şekilde bağlanarak yönlendirmeler ayarlandı.
+- Projenin `npm run build` derlemesi sıfır hata ile doğrulandı.
+
+### Oturum 26 — Görev 8.1 & 8.2 (Notion'dan SQLite'a Geçiş ve Görsel Optimizasyonu)
+- `lib/types.ts` dosyası oluşturuldu; public sayfaların ve bileşenlerin kullandığı `Product` ve `Collection` veri tipleri buraya taşındı.
+- `lib/notion.ts` dosyasındaki tüm Notion SDK kodları, API anahtarı ve veritabanı ID'leri temizlendi.
+- `components/sections/Collections.tsx`, `app/koleksiyonlar/[slug]/page.tsx`, `app/urunler/[slug]/page.tsx` ve `app/sitemap.ts` SQLite veritabanından veri çekecek şekilde güncellendi.
+- Notion ortam değişkenleri `.env.local` dosyasından temizlendi ve projenin hatasız derlendiği (`npm run build`) doğrulandı.
+
+### Oturum 27 — Görev 9.1 & 9.2 (Vercel Postgres Entegrasyonu ve Canlı Dağıtım)
+- `lib/db.ts` dosyası `better-sqlite3` modülünü sadece development modunda dinamik `require` ile yükleyecek şekilde güncellendi.
+- Canlıda (Vercel) Postgres tablolarını otomatik oluşturan ve tohumlayan `lib/db-init.ts` modülü oluşturuldu.
+- Veritabanı sorguları modülerleştirilerek `lib/db-categories.ts`, `lib/db-products-read.ts` ve `lib/db-products-write.ts` dosyalarına ayrıldı; `lib/db-queries.ts` üzerinden re-export edildi.
+- `@vercel/postgres` kütüphanesi kuruldu ve SQL sorguları Postgres parametrik formatına ($1, $2) uyarlandı.
+- Admin API uç noktaları `force-dynamic` ilan edildi ve build işleminin hatasız tamamlandığı doğrulandı.
+
+### Oturum 28 — Görev 9.3 (Son Testler ve Deploy)
+- SQLite ve Postgres için başlangıç verilerini ekleyen seeder veritabanı ilklendiricilerine (products tablosu) entegre edildi.
+- Sıfırdan veritabanı üretimi ve tohumlanması test edildi, sitemap'in yeni ürünlerle birlikte hatasız çalıştığı görüldü.
+- `npm run build` komutu çalıştırılarak tüm projenin sıfır hata ile derlendiği ve statik sayfaların hatasız oluşturulduğu doğrulandı.
 
 ---
 

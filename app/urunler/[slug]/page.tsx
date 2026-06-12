@@ -1,4 +1,4 @@
-import { getProductBySlug, getProducts, Product } from "@/lib/notion"
+import { getProductBySlug, getProducts } from "@/lib/db-queries"
 import { fallbackProducts } from "@/content/products"
 import ProductGallery from "@/components/ui/ProductGallery"
 import ProductCard from "@/components/ui/ProductCard"
@@ -6,6 +6,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { MessageCircle } from "lucide-react"
 import Breadcrumb from "@/components/ui/Breadcrumb"
+import { Product } from "@/lib/types"
 
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
@@ -41,12 +42,32 @@ const getEmoji = (slug: string) => {
   }
 }
 
+function mapProduct(p: any): Product {
+  return {
+    id: String(p.id),
+    slug: p.slug,
+    isim: p.name,
+    koleksiyon: p.category_name,
+    koleksiyonSlug: p.category_slug,
+    anaGorsel: p.cover_image || "",
+    ekGorseller: p.images || [],
+    fiyatAraligi: p.price_range || "",
+    kisaAciklama: p.description || "",
+    detayAciklama: p.description || "",
+    minimumAdet: p.min_order || 100,
+    aktif: p.is_active === 1,
+  }
+}
+
 export async function generateMetadata({ params }: Props) {
   const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
   let product: Product | null = null
 
   try {
-    product = await getProductBySlug(params.slug)
+    const dbProd = await getProductBySlug(params.slug)
+    if (dbProd) {
+      product = mapProduct(dbProd)
+    }
   } catch (error) {
     // ignore
   }
@@ -78,8 +99,12 @@ export default async function UrunDetayPage({ params }: Props) {
   let ilgiliUrunler: Product[] = []
 
   try {
-    product = await getProductBySlug(params.slug)
-    ilgiliUrunler = await getProducts()
+    const dbProd = await getProductBySlug(params.slug)
+    if (dbProd) {
+      product = mapProduct(dbProd)
+    }
+    const dbProducts = await getProducts()
+    ilgiliUrunler = dbProducts.map(mapProduct)
   } catch (error) {
     // ignore
   }

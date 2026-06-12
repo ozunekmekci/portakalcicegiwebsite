@@ -1,4 +1,4 @@
-import { getCollections } from "@/lib/notion";
+import { getCategories } from "@/lib/db-queries";
 import { fallbackCollections } from "@/content/collections";
 import CollectionCard from "@/components/ui/CollectionCard";
 import { Suspense } from "react";
@@ -8,8 +8,16 @@ import Link from "next/link";
 async function CollectionsGrid() {
   let collections = [];
   try {
-    collections = await getCollections();
-    if (!collections || collections.length === 0) {
+    const categories = await getCategories();
+    collections = categories.map((cat) => ({
+      id: String(cat.id),
+      isim: cat.name,
+      aciklama: cat.description || "",
+      kategori: cat.name,
+      gorselUrl: "", // SQLite categories do not store images directly, falls back to emoji
+      aktif: true,
+    }));
+    if (collections.length === 0) {
       collections = fallbackCollections;
     }
   } catch (error) {
@@ -61,7 +69,7 @@ export default function Collections() {
             tasarladık.
           </h2>
           <p className="font-sans text-base text-brand-text-mid">
-            Her koleksiyon, Notion&apos;dan anlık güncellenir.
+            Her koleksiyon, yönetim panelinden anlık güncellenir.
           </p>
         </div>
 

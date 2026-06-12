@@ -1,4 +1,4 @@
-import { Product } from "@/lib/notion"
+import { Product } from "@/lib/types"
 
 export const fallbackProducts: Product[] = [
   {

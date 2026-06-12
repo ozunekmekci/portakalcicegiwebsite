@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Product } from "@/lib/notion"
+import { Product } from "@/lib/types"
 
 type Props = {
   product: Product

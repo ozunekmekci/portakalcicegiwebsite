@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    url: "https://portakalcicegi.com.tr",
+    url: "https://portakalcicegiwebsite.vercel.app",
     siteName: "Portakal Çiçeği Atölye",
     title: "Portakal Çiçeği Atölye | Premium Hediyelik Tasarımı",
     description: "Özel günleriniz için tasarlanmış, el yapımı 3D akrilik hediyelikler.",

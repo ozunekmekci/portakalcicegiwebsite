@@ -7,6 +7,8 @@ export default function Hero() {
     document.getElementById("koleksiyonlar")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555").replace(/\D/g, "");
+
   return (
     <section aria-label="Karşılama" className="relative min-h-screen bg-brand-bg-cream flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
       {/* Decorative Blob Right-Bottom */}
@@ -78,7 +80,7 @@ export default function Hero() {
           </button>
           
           <a
-            href="https://wa.me/90XXXXXXXXXXX"
+            href={`https://wa.me/${waNumber}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-8 py-3.5 border-2 border-brand-orange-dark text-brand-orange-dark font-semibold rounded-full hover:bg-brand-orange-dark hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-center"
