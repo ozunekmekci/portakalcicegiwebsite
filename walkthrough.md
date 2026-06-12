@@ -28,6 +28,13 @@ Bu oturumda Görev 6.1 (Kritik Fixler ve WhatsApp Entegrasyonu) kapsamında yap�
 - Yönetici paneli ürün ekleme/düzenleme formuna (`ProductForm.tsx`) her satırı bir madde olacak şekilde `Paket İçeriği` ve `Özellikler` textarea alanları eklendi.
 - Ürün detay sayfasında (`ProductDetailContent.tsx`) bu alanlar satır bazlı ayrıştırılarak dinamik olarak listelendi, boş olması durumunda şık varsayılan değerlere düşmesi sağlandı.
 
+### 8. Bestsellers Kart Redesign & Admin Banner / Görsel Değiştirme
+- Haftanın Yıldız Seçimleri & En Çok Satanlar carousel'indeki ürün kartları (`BestsellersSlider.tsx`) gönderilen 1. görseldeki gibi kalın beyaz çerçeveli (`border-[3px] border-white/90`), full-bleed portre resimli, alt tarafında koyu degrade geçişli ve beyaz yazılı overlay kartlara dönüştürüldü.
+- Kartların alt detayına `lucide-react`'ten `Tag` (Fiyat) ve `Star` (Derecelendirme) simgelerini içeren bilgi satırı entegre edildi.
+- Yönetici paneli içerik ayarları sayfasına (`/admin/ayarlar`) Karşılama (Hero) alanı için arka plan görseli yükleme bileşeni (`hero_image`) eklendi.
+- Yönetici paneli içerik ayarları sayfasına (`/admin/ayarlar`) Yorumlar (Testimonials) alanı için yan taraftaki Akdeniz workshop görselini yükleme bileşeni (`testimonial_image`) eklendi.
+- Ana sayfa Hero (`Hero.tsx`) ve Yorumlar (`Testimonials.tsx`) bileşenleri bu görselleri dinamik olarak veritabanından çekip görüntüleyecek şekilde güncellendi.
+
 ---
 
 ## Doğrulama Sonuçları
