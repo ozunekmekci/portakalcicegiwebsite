@@ -16,6 +16,8 @@ export default function KategoriDuzenlePage({ params }: { params: { id: string }
     description: "",
     display_order: 0,
     banner_image: null as string | null,
+    image_type: "emoji",
+    image_url: null as string | null,
   });
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,6 +35,8 @@ export default function KategoriDuzenlePage({ params }: { params: { id: string }
           description: data.description || "",
           display_order: data.display_order || 0,
           banner_image: data.banner_image || null,
+          image_type: data.image_type || "emoji",
+          image_url: data.image_url || null,
         });
       } catch (err: any) {
         console.error(err);
@@ -125,19 +129,61 @@ export default function KategoriDuzenlePage({ params }: { params: { id: string }
             />
           </div>
 
-          <div>
+          <div className="sm:col-span-2">
             <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2 font-sans">
-              Emoji İkonu
+              Kart Görsel Seçimi
             </label>
-            <input
-              type="text"
-              value={formData.emoji}
-              onChange={(e) => setFormData({ ...formData, emoji: e.target.value })}
-              className="w-full px-4 py-3 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl text-sm font-sans focus:outline-none focus:border-brand-orange text-brand-text-dark"
-              placeholder="Örn: 👶"
-              maxLength={4}
-            />
+            <div className="flex gap-6 p-4 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl">
+              <label className="flex items-center gap-2 font-sans text-sm text-brand-text-dark cursor-pointer">
+                <input
+                  type="radio"
+                  name="image_type"
+                  value="emoji"
+                  checked={formData.image_type === "emoji"}
+                  onChange={() => setFormData({ ...formData, image_type: "emoji" })}
+                  className="text-brand-orange focus:ring-brand-orange"
+                />
+                Emoji Kullan
+              </label>
+              <label className="flex items-center gap-2 font-sans text-sm text-brand-text-dark cursor-pointer">
+                <input
+                  type="radio"
+                  name="image_type"
+                  value="image"
+                  checked={formData.image_type === "image"}
+                  onChange={() => setFormData({ ...formData, image_type: "image" })}
+                  className="text-brand-orange focus:ring-brand-orange"
+                />
+                Fotoğraf Yükle
+              </label>
+            </div>
           </div>
+
+          {formData.image_type === "emoji" ? (
+            <div>
+              <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2 font-sans">
+                Emoji İkonu
+              </label>
+              <input
+                type="text"
+                value={formData.emoji}
+                onChange={(e) => setFormData({ ...formData, emoji: e.target.value })}
+                className="w-full px-4 py-3 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl text-sm font-sans focus:outline-none focus:border-brand-orange text-brand-text-dark"
+                placeholder="Örn: 👶"
+                maxLength={4}
+              />
+            </div>
+          ) : (
+            <div className="sm:col-span-2">
+              <CloudinaryUpload
+                images={formData.image_url ? [formData.image_url] : []}
+                onChange={(newImages) => setFormData({ ...formData, image_url: newImages[0] || null })}
+                maxImages={1}
+                label="Koleksiyon Kart Görseli"
+                folder="categories"
+              />
+            </div>
+          )}
 
           <div>
             <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2 font-sans">

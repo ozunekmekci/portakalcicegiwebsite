@@ -73,6 +73,8 @@ export async function PUT(
     if (body.description !== undefined) updateData.description = body.description || null;
     if (body.display_order !== undefined) updateData.display_order = Number(body.display_order);
     if (body.banner_image !== undefined) updateData.banner_image = body.banner_image || null;
+    if (body.image_type !== undefined) updateData.image_type = body.image_type || "emoji";
+    if (body.image_url !== undefined) updateData.image_url = body.image_url || null;
 
     const success = await updateCategory(id, updateData);
     return NextResponse.json({ success, slug: updateData.slug || currentCategory.slug });

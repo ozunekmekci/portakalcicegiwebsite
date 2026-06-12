@@ -11,6 +11,13 @@
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **DİNAMİK KATEGORİ KARTLARI — EMOJİ VEYA GÖRSEL SEÇİCİ**
+  - `categories` tablosuna `image_type` (TEXT, default 'emoji') ve `image_url` (TEXT, nullable) sütunları SQLite ve Postgres'te veri kaybı olmadan `ALTER TABLE` göçleri ile eklendi.
+  - `lib/db-categories.ts` içerisindeki CRUD fonksiyonları ve API rotaları (`categories` POST/PUT) bu yeni alanları veritabanına yazacak/güncelleyecek şekilde güncellendi.
+  - Kategori ekleme ve düzenleme sayfalarına "Emoji Kullan" veya "Fotoğraf Yükle" seçimini sağlayan Radio/Toggle arayüzü eklendi; fotoğraf yüklemede `CloudinaryUpload` bileşeni tek görsel sınırıyla entegre edildi.
+  - Arayüz tarafında `CollectionCard.tsx` ve `Collections.tsx` bileşenleri optimize edilerek görsel seçildiğinde Cloudinary URL'si ile Next.js `<Image>` bileşenini, emoji seçildiğinde ise mevcut şık emoji yerleşimini gösterecek şekilde refaktör edildi.
+  - Proje `npm run build` ile hatasız derlendi ve statik sayfalar başarıyla oluşturuldu.
+
 - [x] **DASHBOARD, SIRALAMA, TESTIMONIALS & İÇERİK YÖNETİMİ (SPRINT 10)** — Altyapı ve Arayüzler
   - `products` tablosuna `view_count` ve `categories` tablosuna `banner_image` sütunları SQLite ve Postgres'te veri kaybı olmadan `ALTER TABLE` göçleri ile eklendi.
   - Müşteri yorumlarını yönetmek için `testimonials` tablosu ve ana sayfa metin/fotoğraflarını yönetmek için `site_settings` tablosu oluşturularak varsayılan ayarlarla tohumlandı.

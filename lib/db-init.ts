@@ -15,6 +15,8 @@ export async function ensureTables() {
         description TEXT,
         display_order INTEGER DEFAULT 0,
         banner_image TEXT,
+        image_type TEXT DEFAULT 'emoji',
+        image_url TEXT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `;
@@ -69,6 +71,28 @@ export async function ensureTables() {
         console.log("Postgres categories table migrated: added banner_image column.");
       } catch (err) {
         console.error("Migration error Postgres (categories):", err);
+      }
+    }
+
+    try {
+      await sql`SELECT image_type FROM categories LIMIT 1`;
+    } catch (e) {
+      try {
+        await sql`ALTER TABLE categories ADD COLUMN image_type TEXT DEFAULT 'emoji'`;
+        console.log("Postgres categories table migrated: added image_type column.");
+      } catch (err) {
+        console.error("Migration error Postgres (categories image_type):", err);
+      }
+    }
+
+    try {
+      await sql`SELECT image_url FROM categories LIMIT 1`;
+    } catch (e) {
+      try {
+        await sql`ALTER TABLE categories ADD COLUMN image_url TEXT`;
+        console.log("Postgres categories table migrated: added image_url column.");
+      } catch (err) {
+        console.error("Migration error Postgres (categories image_url):", err);
       }
     }
 

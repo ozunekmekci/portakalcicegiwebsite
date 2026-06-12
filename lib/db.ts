@@ -29,6 +29,8 @@ if (process.env.NODE_ENV !== "production") {
         description TEXT,
         display_order INTEGER DEFAULT 0,
         banner_image TEXT,
+        image_type TEXT DEFAULT 'emoji',
+        image_url TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       );
 
@@ -75,6 +77,28 @@ if (process.env.NODE_ENV !== "production") {
         console.log("SQLite categories table migrated: added banner_image column.");
       } catch (err) {
         console.error("Migration error (categories):", err);
+      }
+    }
+
+    try {
+      global.dbInstance.prepare("SELECT image_type FROM categories LIMIT 1").get();
+    } catch (e) {
+      try {
+        global.dbInstance.exec("ALTER TABLE categories ADD COLUMN image_type TEXT DEFAULT 'emoji'");
+        console.log("SQLite categories table migrated: added image_type column.");
+      } catch (err) {
+        console.error("Migration error (categories image_type):", err);
+      }
+    }
+
+    try {
+      global.dbInstance.prepare("SELECT image_url FROM categories LIMIT 1").get();
+    } catch (e) {
+      try {
+        global.dbInstance.exec("ALTER TABLE categories ADD COLUMN image_url TEXT");
+        console.log("SQLite categories table migrated: added image_url column.");
+      } catch (err) {
+        console.error("Migration error (categories image_url):", err);
       }
     }
 

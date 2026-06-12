@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { slugify } from "@/lib/utils";
+import { getOptimizedUrl } from "@/lib/cloudinary";
 
 type Props = {
   isim: string;
   aciklama: string;
   kategori: string;
-  gorselUrl: string;
+  gorselUrl?: string;
+  imageType?: string | null;
+  imageUrl?: string | null;
+  emoji?: string | null;
   index: number;
 };
 
@@ -17,13 +21,14 @@ const getEmoji = (category: string) => {
   const normalized = category.toLowerCase().trim();
   if (normalized.includes("babyshower") || normalized.includes("baby shower")) return "🍼";
   if (normalized.includes("doğum günü") || normalized.includes("dogum gunu")) return "🎂";
-  if (normalized.includes("diş buğdayı") || normalized.includes("dis bugdayi")) return "🌾";
+  if (normalized.includes("diş buğdayı") || normalized.includes("dis bugdaily")) return "🌾";
   if (normalized.includes("düğün") || normalized.includes("nişan") || normalized.includes("dugun") || normalized.includes("nisan")) return "💍";
   return "🎁";
 };
 
-export default function CollectionCard({ isim, aciklama, kategori, gorselUrl, index }: Props) {
-  const emoji = getEmoji(kategori);
+export default function CollectionCard({ isim, aciklama, kategori, gorselUrl, imageType, imageUrl, emoji: dbEmoji, index }: Props) {
+  const showImage = imageType === "image" && !!imageUrl;
+  const displayEmoji = dbEmoji || getEmoji(kategori);
   const fallbackAciklama = aciklama || "Size özel tasarlanmış, el yapımı ve 3D akrilik detaylı hediyelik.";
   const waText = encodeURIComponent(`Merhaba! ${kategori} koleksiyonu hakkında bilgi almak istiyorum.`);
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX";
@@ -44,16 +49,16 @@ export default function CollectionCard({ isim, aciklama, kategori, gorselUrl, in
     >
       {/* Visual Header */}
       <div className="relative aspect-[4/3] w-full bg-brand-bg-cream flex items-center justify-center overflow-hidden border-b border-[#f0f0f0]">
-        {gorselUrl ? (
+        {showImage ? (
           <Image
-            src={gorselUrl}
+            src={getOptimizedUrl(imageUrl!, { width: 400, height: 300, crop: "fill" })}
             alt={isim}
             fill
             sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 hover:scale-105"
           />
         ) : (
-          <span className="text-7xl select-none">{emoji}</span>
+          <span className="text-7xl select-none">{displayEmoji}</span>
         )}
       </div>
 

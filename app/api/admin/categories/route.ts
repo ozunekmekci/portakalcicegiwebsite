@@ -31,7 +31,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, emoji = null, description = null, display_order = 0, banner_image = null } = body;
+    const { name, emoji = null, description = null, display_order = 0, banner_image = null, image_type = "emoji", image_url = null } = body;
 
     if (!name) {
       return NextResponse.json(
@@ -49,6 +49,8 @@ export async function POST(request: Request) {
       description: description || null,
       display_order: Number(display_order) || 0,
       banner_image: banner_image || null,
+      image_type: image_type || "emoji",
+      image_url: image_url || null,
     });
 
     return NextResponse.json({ success: true, id: categoryId, slug });

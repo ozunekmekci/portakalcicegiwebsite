@@ -15,6 +15,9 @@ async function CollectionsGrid() {
       aciklama: cat.description || "",
       kategori: cat.name,
       gorselUrl: cat.banner_image || "",
+      imageType: cat.image_type || "emoji",
+      imageUrl: cat.image_url || "",
+      emoji: cat.emoji || "",
       aktif: true,
     }));
     if (collections.length === 0) {

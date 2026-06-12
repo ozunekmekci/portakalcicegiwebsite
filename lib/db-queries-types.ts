@@ -6,6 +6,8 @@ export interface Category {
   description: string | null;
   display_order: number;
   banner_image: string | null;
+  image_type: string | null;
+  image_url: string | null;
   created_at: string;
 }
 
