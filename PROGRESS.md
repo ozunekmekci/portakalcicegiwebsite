@@ -5,12 +5,17 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** Pazarlama Odaklı Ana Sayfa Refaktörü (Figma Compliant Blueprint) ✅  
+**Aktif sprint:** Pazarlama Odaklı En Çok Satanlar Slider Refaktörü (Dynamic Magnet Row) ✅  
 **Sonraki görev:** Yok (Sistem optimize edildi ve refaktör başarıyla tamamlandı)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **PAZARLAMA ODAKLI EN ÇOK SATANLAR SLIDER REFAKTÖRÜ (DYNAMIC MAGNET ROW)**
+  - **Vitrini Çerçevesi (BestsellersSlider.tsx)**: Hero section'ın hemen altına sitenin genel krem tonundan ayrışan warm clay (`bg-[#f3ece3]`) renginde `py-8 px-4 md:px-12 rounded-2xl mx-4 md:mx-12 my-6 shadow-sm` çerçevesiyle rozet başlığı yerleştirildi: *"✨ Haftanın Yıldız Seçimleri & En Çok Satanlar ✨"*.
+  - **Slider Mekanizması**: Harici kütüphane bağımlılığı olmadan native Tailwind `overflow-x-auto snap-x snap-mandatory` kullanılarak mobilde swipe, masaüstünde kaydırma hissi sağlandı. Sağ tarafa absolute konumlandırılmış "Sağa Git ➔" (`CaretRight` chevron) navigasyon butonu entegre edildi.
+  - **Lüks Etkileşimli Kart Yapısı**: Saf beyaz arka planlı dikey portre oranlı kartlar (`bg-white rounded-xl p-3 shadow-sm`) oluşturuldu. Kartın hover durumunda yumuşak turuncu-krem parlama gölgesi (`shadow-[0_15px_30px_rgba(255,145,75,0.2)]`) ve görsel üzerinde yumuşak geçişle (`opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0`) beliren *"💬 Tasarımı Başlat"* butonu tasarlandı.
+  - **Pazarlama ve Fiyat Rozetleri**: Başlığın altına alternatif olarak `"🔥 En Popüler Butik Tercih"` ve `"📦 Güvenli Kargo Bedava"` etiketleri eklendi. Fiyat alanında eski fiyata dinamik %35 bindirilerek line-through çizgisiyle yazıldı, yeni indirimli fiyat bold ve büyük punttarla vurgulandı.
 - [x] **PAZARLAMA ODAKLI ANA SAYFA REFAKTÖRÜ (FIGMA COMPLIANT BLUEPRINT)**
   - **Giriş Bannerı (Hero.tsx)**: Kompakt 55vh (max-height: 550px) yüksekliğe sahip, veya `h-[55vh]` (max-height: 550px) atölye konsept görseli arka planı yerleştirilip sol padding (`pl-8 md:pl-16 max-w-[632px]`) uyarınca düzenlendi. Başlık krem renginde (`text-[#fbf7f0]`) Playfair Display fontuyla *"Özel günlerinize Akdeniz esintisi. Ömür boyu saklanan premium hatıralar."* olarak yazıldı.
   - **Kategori Şeridi (Collections.tsx)**: Hero'nun altına krem arka planla (`bg-[#fbf7f0]`) 6'lı grid yapısı kuruldu. Masaüstünde her bir kart tam olarak `w-[212px]` ve görsel alanı `h-[263px]` (Mobilde yana kaydırılabilir `overflow-x-auto flex-nowrap` yapıldı). Kategorilerin görsellerinin üst köşelerine `rounded-t-full` verilerek Akdeniz kemeri (arch) formu oluşturuldu.
@@ -421,6 +426,14 @@
 - `ProductGrid.tsx` yeni bileşeni oluşturuldu, ana sayfaya eklendi. "En Çok Beğenilen Atölye Tasarımları" başlığı altında 4'lü grid yapısı kuruldu. Kart boyutları `w-[282px]`, resim alanı `h-[420px]`, görsel üstü `⭐ 4.9` rozeti, alt badge `Min. Sipariş: 100 Adet` ve `flex justify-between items-start text-[14px]` başlık/fiyat satırı eklendi.
 - `Testimonials.tsx` iki kolonlu `flex flex-col lg:flex-row gap-[74px] px-8 md:px-[42px]` düzeniyle refaktör edildi. Sol tarafa 5 siyah yıldız ikonu, 24px şık müşteri yorum metni ve yazar adı; sağ tarafa `w-[530px] h-[695px]` dikey, yüksek kaliteli atölye görsel alanı yerleştirildi.
 - Proje derleme testi (`npm run build`) sıfır hata ile tamamlandı ve tüm sayfalar başarıyla derlendi.
+
+### Oturum 32 — Pazarlama Odaklı En Çok Satanlar Slider Refaktörü (Dynamic Magnet Row)
+- `BestsellersSlider.tsx` yeni slider bileşeni oluşturuldu ve `app/page.tsx` içerisine Hero section'ın hemen altına yerleştirildi.
+- Slider çerçevesi, krem tondan ayrışan warm clay (`bg-[#f3ece3]`) renginde `rounded-2xl` kapsayıcı ve rozet stili Playfair Display başlıkla tasarlandı.
+- Harici kütüphane bağımlılığı olmadan native Tailwind `overflow-x-auto snap-x` kaydırma mekanizması ile sağ tarafa absolute yerleştirilmiş pürüzsüz smooth-scroll tetikleyen "Sağa Git ➔" navigasyon careti kodlandı.
+- Saf beyaz arka planlı dikey portre `bg-white rounded-xl shadow-sm w-[260px]` kartlar oluşturuldu; kart hover edildiğinde yumuşak turuncu-krem gölge parlama efekti (`shadow-[0_15px_30px_rgba(255,145,75,0.2)]`) ve görsel üzerinde opacity/translasyon geçişiyle pürüzsüz belirip WhatsApp deeplink tetikleyen *"💬 Tasarımı Başlat"* butonu entegre edildi.
+- Ürünlerin altına alternatif olarak `"🔥 En Popüler Butik Tercih"` ve `"📦 Güvenli Kargo Bedava"` etiketleri, fiyat alanında ise indirimli fiyatın yanında line-through çizgili dinamik olarak hesaplanan eski fiyatlar (%35 bindirilmiş) eklendi.
+- Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
 
 ---
 
