@@ -459,19 +459,16 @@
 - Server Component `app/urunler/[slug]/page.tsx` wrapper haline getirilip dynamic meta veriler, DB sorguları ve ilgili diğer ürünler listesi korunarak Client Component `ProductDetailContent` ile entegre edildi.
 - Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
 
-### Oturum 35 — V5 Ürün Sayfası Lüks Oran Ayarlaması (Pure Luxury Polish)
-- Sayfanın ana sarmalayıcısına devasa lüks boşluklar eklenerek `px-8 md:px-24 py-12 max-w-[1440px] mx-auto` ile ferahlatıldı.
-- Sol (metin) kolonu `lg:col-span-5` ve sağ (görsel) kolonu `lg:col-span-7` olarak grid-span oranları 12'li sütunda asimetrik dengelendi.
-- Ürün açıklama metinlerinin satır aralıkları ve fontları `text-neutral-600 text-[15px] leading-8 tracking-wide font-light` ile rafine edildi.
-- Malzeme seçici daireler arası boşluklar genişletilip `gap-4` yapıldı ve aktif halkanın çerçeve çizgisi `ring-1 ring-offset-4 ring-[#ff914b]` ile daha zarif hale getirildi.
-- Qty adet seçiciden `Qty` metni sökülerek minimalist `[- 100 +]` formatında `max-w-[120px] h-12` sınırlarına daraltıldı; WhatsApp butonu `h-12 text-[14px] bg-[#ff914b] rounded-none shadow-sm hover:bg-[#e07f3e]` asil çizgisine çekildi.
-- Sağ tarafta `h-[550px]` büyüklüğünde bağımsız bir asimetrik taşıyıcı kurulup arka fonuna krem rengi `rounded-l-[4rem]` dekorasyon bloğu atıldı. Ürün resimleri Next.js `<Image>` ile ortalanıp fonu taşıracak biçimde `max-h-[460px] drop-shadow-md` ile asılı gibi havada konumlandırıldı.
-- Ürün görselinin üst ve alt kısımlarının kesilmesine neden olan Cloudinary `crop: "fill"` parametresi `crop: "limit"` olarak düzeltildi; böylece tüm kürdan setleri ve dikey/yatay ürün fotoğrafları kırpılmadan tam boyutuyla görüntülenebilir hale getirildi.
-- Cover görseli ve ek görseller (galleryImages) benzersiz hale getirilerek (de-duplicated) kopya/çift görsel görünmesi engellendi.
-- Qty seçici ile WhatsApp butonu, Cozy tasarımındaki gibi yan yana (`flex flex-col sm:flex-row items-center gap-4`) konumlandırıldı.
-- Sol panelin en üstüne zarif bir geri dönüş oku (`ArrowLeft`) ve en altına lüks "Seçilenlere Ekle" (Wishlist) butonu ile sosyal paylaşım ikonları yerleştirilerek Cozy tasarımı birebir klonlandı.
-- Fiyat alanı formatı düzeltilerek rakamların başına `₺` sembolü eklendi; fiyat ve değerlendirme satırına dikey boşluklar verilerek bodurluk giderildi.
-- Sayfa genelinde font ailesi **Proxima Nova** (`@import url('https://fonts.cdnfonts.com/css/proxima-nova-2')`) olarak güncellendi.
+### Oturum 35 — Homely Tasarım Şablonuna Geçiş & Oranların Düzeltilmesi (Homely Layout Refactor)
+- Önceki Cozy tasarımı tamamen terk edilerek paylaşılan "Homely" wireframe düzenine ve CSS koordinatlarına geçiş yapıldı.
+- Sayfa arka planında asimetrik bir derinlik oluşturmak üzere `absolute w-[1503px] h-[1503px] left-[338px] top-[-529px]` koordinatlarında dekoratif beyaz bir elips/daire yerleştirildi.
+- Ürün görselleri dizisi (galleryImages) `Set` yapısı ile de-duplicate edilerek galeride aynı görselin ikişer kere çıkması sorunu kalıcı olarak çözüldü.
+- Görsel galerisi dikey yerleşime uyarlandı: Masaüstünde ana görselin solunda `91px x 91px` ölçülerinde, `rounded-[10px]` dikey thumbnail şeridi; sağında ise `535px x 535px` kare ana görsel alanı konumlandırıldı (mobilde thumbnails yatay kaydırma bandına dönüşür).
+- Sağ paneldeki başlık `text-[33px] font-bold leading-[40px]`, fiyat `text-[30px] font-bold text-brand-orange-dark` olarak ayarlanıp fiyata `₺` sembolü eklendi; yıldız değerlendirmesi sadeleştirilip kutusuz olarak fiyata/başlığa paralel hizalandı.
+- Malzeme seçici (Colors) dairesel butonları ve favorilere ekleme (Wishlist) kalp butonu kullanıcı isteğiyle tamamen kaldırıldı.
+- Adet (Qty) seçici (`w-[150px]`) ve WhatsApp butonu (`flex-grow`) wireframe ölçüleri uyarınca `h-[65px] rounded-[10px]` ebatlarıyla yan yana getirilerek lüks bir buton grubu oluşturuldu.
+- Sayfanın alt bölümü iki kolona ayrıldı: Sol kolonda `max-w-[777px]` genişliğinde "Ürün Açıklaması" (`text-[27px] font-semibold mb-4`, body `18px`), sağ kolonda ise "Paket İçeriği" ve "Özellikler" (`text-[20px] font-semibold`) listelendi.
+- Sayfa genelindeki tüm yazılara **Proxima Nova** fontu uygulandı.
 - Proje `npm run build` ile sorunsuz derlendi ve tüm değişiklikler Vercel canlı yayını için GitHub'a pushlandı.
 
 ---
