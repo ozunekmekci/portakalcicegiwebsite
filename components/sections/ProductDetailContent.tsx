@@ -24,8 +24,9 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
   const [qty, setQty] = useState(100);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Setup gallery images: Ana görsel + Ek görseller (No fallbacks!)
-  const galleryImages = [product.anaGorsel, ...(product.ekGorseller || [])].filter(Boolean);
+  // Setup gallery images: Ana görsel + Ek görseller (De-duplicated & No fallbacks!)
+  const initialImages = [product.anaGorsel, ...(product.ekGorseller || [])].filter(Boolean);
+  const galleryImages = Array.from(new Set(initialImages));
   if (galleryImages.length === 0) {
     galleryImages.push(fallbackGallery[0]);
   }
@@ -68,8 +69,20 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
     }
   }
 
+  const formattedNewPrice = product.fiyatAraligi
+    ? (product.fiyatAraligi.includes("₺") || product.fiyatAraligi.includes("TL")
+        ? product.fiyatAraligi
+        : `₺${product.fiyatAraligi}`)
+    : "Fiyat Sorun";
+
   return (
-    <div className="px-8 md:px-24 py-12 max-w-[1440px] mx-auto bg-[#fbf7f0] border-b border-[#eaeaea]">
+    <div className="proxima-page px-8 md:px-24 py-12 max-w-[1440px] mx-auto bg-[#fbf7f0] border-b border-[#eaeaea]">
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+        .proxima-page, .proxima-page * {
+          font-family: 'Proxima Nova', 'Inter', sans-serif !important;
+        }
+      `}} />
       
       {/* Back Arrow (Above main grid columns) */}
       <div className="mb-6 flex justify-start">
@@ -105,15 +118,15 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
               </h1>
               
               {/* Price & Star Rating row (sade, zarif ve kullanışlı hizalama) */}
-              <div className="flex flex-row items-center justify-between pt-2">
+              <div className="flex flex-row items-center justify-between mt-6 mb-4 py-2 border-b border-neutral-200/20">
                 <div className="flex items-baseline gap-3">
                   {oldPriceStr && (
                     <span className="text-sm md:text-base text-neutral-400 line-through font-light">
                       {oldPriceStr}
                     </span>
                   )}
-                  <span className="text-2xl md:text-3xl font-bold text-brand-orange-dark font-sans">
-                    {product.fiyatAraligi || "Fiyat Sorun"}
+                  <span className="text-2xl md:text-3xl lg:text-[32px] font-bold text-brand-orange-dark font-sans">
+                    {formattedNewPrice}
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-xs font-medium text-neutral-700">
