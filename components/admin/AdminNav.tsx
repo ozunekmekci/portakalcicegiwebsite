@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { LogOut, Package, PlusCircle } from "lucide-react";
+import { LogOut, Package, PlusCircle, Folder } from "lucide-react";
 
 export default function AdminNav() {
   const pathname = usePathname();
@@ -35,7 +35,7 @@ export default function AdminNav() {
 
   const navLinks = [
     { href: "/admin", label: "Ürün Yönetimi", icon: Package },
-    { href: "/admin/urun-ekle", label: "Yeni Ürün Ekle", icon: PlusCircle },
+    { href: "/admin/kategoriler", label: "Koleksiyonlar", icon: Folder },
   ];
 
   return (
