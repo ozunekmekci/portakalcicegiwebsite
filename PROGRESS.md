@@ -466,8 +466,10 @@
 - Malzeme seçici daireler arası boşluklar genişletilip `gap-4` yapıldı ve aktif halkanın çerçeve çizgisi `ring-1 ring-offset-4 ring-[#ff914b]` ile daha zarif hale getirildi.
 - Qty adet seçiciden `Qty` metni sökülerek minimalist `[- 100 +]` formatında `max-w-[120px] h-12` sınırlarına daraltıldı; WhatsApp butonu `h-12 text-[14px] bg-[#ff914b] rounded-none shadow-sm hover:bg-[#e07f3e]` asil çizgisine çekildi.
 - Sağ tarafta `h-[550px]` büyüklüğünde bağımsız bir asimetrik taşıyıcı kurulup arka fonuna krem rengi `rounded-l-[4rem]` dekorasyon bloğu atıldı. Ürün resimleri Next.js `<Image>` ile ortalanıp fonu taşıracak biçimde `max-h-[460px] drop-shadow-md` ile asılı gibi havada konumlandırıldı.
-- Sürgülü galeri yön okları (`< >`) ile resim sayacı (`01 / 05`) bitişik mikro butonlar halinde sağ üst köşeye (`absolute top-4 right-4`) sabitlendi.
-- Proje `npm run build` ile sorunsuz derlendi, statik sayfalar başarıyla üretildi.
+- Ürün görselinin üst ve alt kısımlarının kesilmesine neden olan Cloudinary `crop: "fill"` parametresi `crop: "limit"` olarak düzeltildi; böylece tüm kürdan setleri ve dikey/yatay ürün fotoğrafları kırpılmadan tam boyutuyla görüntülenebilir hale getirildi.
+- Qty seçici ile WhatsApp butonu, Cozy tasarımındaki gibi yan yana (`flex flex-col sm:flex-row items-center gap-4`) konumlandırıldı.
+- Sol panelin en üstüne zarif bir geri dönüş oku (`ArrowLeft`) ve en altına lüks "Seçilenlere Ekle" (Wishlist) butonu ile sosyal paylaşım ikonları yerleştirilerek Cozy tasarımı birebir klonlandı.
+- Proje `npm run build` ile sorunsuz derlendi ve tüm değişiklikler Vercel canlı yayını için GitHub'a pushlandı.
 
 ---
 
