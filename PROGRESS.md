@@ -5,8 +5,8 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** Premium Ürün Detay Sayfası Refaktörü (Cozy Split-Screen Blueprint) ✅  
-**Sonraki görev:** Yok (Sistem optimize edildi ve refaktör başarıyla tamamlandı)  
+**Aktif sprint:** V5 Ürün Sayfası Lüks Oran Ayarlaması (Pure Luxury Polish) ✅  
+**Sonraki görev:** Yok (Sistem ve oranlar optimize edildi, refaktör başarıyla tamamlandı)  
 
 ---
 
@@ -458,6 +458,16 @@
 - Sağ Panel: bg-white container ile `aspect-[844/461]` dikey oranına sahip ana görsel alanı, üzerine yerleştirilmiş `01 / 05` resim sayacı ve yön okları, görsel altına ise `w-[104px] h-[104px]` rounded-lg border-2 ölçülerine sahip aktif görsel vurgulu (`border-[#ff914b]`) 5'li thumbnail şeridi kodlandı.
 - Server Component `app/urunler/[slug]/page.tsx` wrapper haline getirilip dynamic meta veriler, DB sorguları ve ilgili diğer ürünler listesi korunarak Client Component `ProductDetailContent` ile entegre edildi.
 - Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
+
+### Oturum 35 — V5 Ürün Sayfası Lüks Oran Ayarlaması (Pure Luxury Polish)
+- Sayfanın ana sarmalayıcısına devasa lüks boşluklar eklenerek `px-8 md:px-24 py-12 max-w-[1440px] mx-auto` ile ferahlatıldı.
+- Sol (metin) kolonu `lg:col-span-5` ve sağ (görsel) kolonu `lg:col-span-7` olarak grid-span oranları 12'li sütunda asimetrik dengelendi.
+- Ürün açıklama metinlerinin satır aralıkları ve fontları `text-neutral-600 text-[15px] leading-8 tracking-wide font-light` ile rafine edildi.
+- Malzeme seçici daireler arası boşluklar genişletilip `gap-4` yapıldı ve aktif halkanın çerçeve çizgisi `ring-1 ring-offset-4 ring-[#ff914b]` ile daha zarif hale getirildi.
+- Qty adet seçiciden `Qty` metni sökülerek minimalist `[- 100 +]` formatında `max-w-[120px] h-12` sınırlarına daraltıldı; WhatsApp butonu `h-12 text-[14px] bg-[#ff914b] rounded-none shadow-sm hover:bg-[#e07f3e]` asil çizgisine çekildi.
+- Sağ tarafta `h-[550px]` büyüklüğünde bağımsız bir asimetrik taşıyıcı kurulup arka fonuna krem rengi `rounded-l-[4rem]` dekorasyon bloğu atıldı. Ürün resimleri Next.js `<Image>` ile ortalanıp fonu taşıracak biçimde `max-h-[460px] drop-shadow-md` ile asılı gibi havada konumlandırıldı.
+- Sürgülü galeri yön okları (`< >`) ile resim sayacı (`01 / 05`) bitişik mikro butonlar halinde sağ üst köşeye (`absolute top-4 right-4`) sabitlendi.
+- Proje `npm run build` ile sorunsuz derlendi, statik sayfalar başarıyla üretildi.
 
 ---
 
