@@ -4,13 +4,22 @@
 ---
 
 ## 🔴 Mevcut Durum
-**Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** V5 Ürün Sayfası Lüks Oran Ayarlaması (Pure Luxury Polish) ✅  
-**Sonraki görev:** Yok (Sistem ve oranlar optimize edildi, refaktör başarıyla tamamlandı)  
+**Son güncelleme:** 13 Haziran 2026  
+**Aktif sprint:** Görsel Büyütme, Dinamik Özellikler ve Arayüz İyileştirmeleri (Pure Luxury Polish V2) ✅  
+**Sonraki görev:** Yok (Tüm kullanıcı talepleri ve sistem geliştirmeleri başarıyla tamamlandı)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **BESTSELLERS KART REDESIGN & DİNAMİK BANNER GÖRSELLERİ**
+  - **Bestsellers Arayüz Yenilemesi (BestsellersSlider.tsx)**: Ürün kartları kalın beyaz çerçeveli (`border-[3px] border-white/90`), tam kaplama portre resimli, alt kısmında koyu degrade geçişli ve beyaz yazılı şık overlay kartlara dönüştürüldü. Alt bilgi satırına `lucide-react`'ten `Tag` (Fiyat) ve `Star` (Derecelendirme) simgeleri eklendi.
+  - **Admin Giriş Banner Görseli (Hero.tsx)**: Karşılama alanı arka plan görseli (`hero_image`) yönetici panelindeki Ayarlar sayfasına yükleyici widget ile eklenerek dinamikleştirildi.
+  - **Admin Yorum Alanı Görseli (Testimonials.tsx)**: Müşteri referansları kısmındaki sağ taraf Akdeniz konsept görseli (`testimonial_image`) Ayarlar sayfasına yükleyici olarak eklenerek tamamen dinamik hale getirildi.
+- [x] **DİNAMİK PAKET İÇERİĞİ VE ÖZELLİKLER (ProductDetailContent.tsx)**
+  - **Veritabanı ve API Genişletmesi**: SQLite ve Postgres veritabanlarındaki `products` tablosuna `package_content` ve `features` kolonları göç sorgularıyla eklendi. API endpoint'leri (`POST`, `PUT`) güncellendi.
+  - **Form Entegrasyonu (ProductForm.tsx)**: Ürün ekleme ve düzenleme formlarına Paket İçeriği ve Özellikler çok satırlı (`textarea`) alanları eklendi. Her satır bir liste elemanı olacak şekilde ön yüzde dinamik render edildi. Boş bırakılması halinde şık varsayılan değerlere düşme mantığı uygulandı.
+- [x] **FOTOĞRAF BÜYÜTME EKLENTİSİ (LIGHTBOX MODAL)**
+  - **Premium Lightbox**: Ana ürün fotoğrafına tıklandığında açılan, sayfa kaydırmasını kilitleyen, klavyeden `Escape` ile kapanan, `Sol`/`Sağ` yön tuşları ve alt küçük noktalar (thumbnail indicators) ile galeri resimleri arasında geçiş sunan vanilla CSS animasyonlu premium bir modal bileşeni entegre edildi.
 - [x] **PREMİUM ÜRÜN DETAY SAYFASI REFAKTÖRÜ (COZY SPLIT-SCREEN BLUEPRINT)**
   - **Mimarî Entegrasyon (page.tsx & ProductDetailContent.tsx)**: Dinamik detay sayfası (`app/urunler/[slug]/page.tsx`) Server Component wrapper olarak korunurken, lüks asimetrik Cozy Split-Screen yerleşimi `'use client'` tabanlı bir bileşene taşındı.
   - **Sol Panel - Bilgi, Malzeme & Akıllı Sipariş**: Playfair Display fontuyla asil ürün başlığı, net ve indirimli fiyat alanı, `⭐ 4.9 (48 Değerlendirme)` sosyal kanıtı, Aynalı Gold, Gümüş, Şeffaf Akrilik ve Ahşap malzeme seçeneklerini sunan akıllı aktiflik ringli daire seçicileri eklendi. Başlangıç değeri 100 olan ve 10'arlı artan Qty adet seçicisi ile seçilen malzeme, adet ve ürün adını otomatik WhatsApp deeplink'ine bağlayan sıcak turuncu (`bg-[#ff914b] text-white`) *"💬 WhatsApp ile Tasarımı Başlat ➔"* butonu yerleştirildi. Altına da lüks değer rozetleri enjekte edildi.
