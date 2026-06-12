@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, MessageCircle, Heart, Facebook, Twitter, Instagram, ArrowLeft } from "lucide-react";
 import { Product } from "@/lib/types";
 import { getOptimizedUrl } from "@/lib/cloudinary";
 
@@ -83,6 +83,18 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
 
   return (
     <div className="px-8 md:px-24 py-12 max-w-[1440px] mx-auto bg-[#fbf7f0] border-b border-[#eaeaea]">
+      
+      {/* Back Arrow (Above main grid columns) */}
+      <div className="mb-6 flex justify-start">
+        <Link 
+          href={`/koleksiyonlar/${product.koleksiyonSlug}`} 
+          className="inline-flex items-center text-neutral-500 hover:text-[#ff914b] transition-colors"
+          aria-label="Koleksiyona Geri Dön"
+        >
+          <ArrowLeft size={24} strokeWidth={1.5} className="text-neutral-700" />
+        </Link>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         
         {/* 1. LEFT PANEL: Info, Material and Order Panel */}
@@ -106,19 +118,27 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
               </h1>
               
               {/* Price & Star Rating row */}
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-6 pt-1">
                 <div className="flex items-baseline font-sans">
-                  <span className="text-sm text-neutral-400 line-through mr-2 font-normal">
-                    {oldPriceStr}
-                  </span>
+                  {oldPriceStr && (
+                    <span className="text-sm text-neutral-400 line-through mr-2 font-normal">
+                      {oldPriceStr}
+                    </span>
+                  )}
                   <span className="text-xl font-bold text-brand-orange-dark">
                     {product.fiyatAraligi || "Fiyat Sorun"}
                   </span>
                 </div>
-                <div className="flex items-center gap-1 bg-white px-3 py-1 rounded-full shadow-xs border border-[#eaeaea] text-xs font-medium text-neutral-700">
-                  <Star size={13} fill="currentColor" className="text-yellow-500" />
-                  <span>4.9</span>
-                  <span className="text-neutral-400">(48 Değerlendirme)</span>
+                <div className="flex items-center gap-1.5 bg-white px-3 py-1 rounded-full shadow-xs border border-[#eaeaea] text-xs font-medium text-neutral-700">
+                  <div className="flex items-center text-yellow-500">
+                    <Star size={13} fill="currentColor" className="text-yellow-500" />
+                    <Star size={13} fill="currentColor" className="text-yellow-500" />
+                    <Star size={13} fill="currentColor" className="text-yellow-500" />
+                    <Star size={13} fill="currentColor" className="text-yellow-500" />
+                    <Star size={13} fill="currentColor" className="text-yellow-500" />
+                  </div>
+                  <span className="font-bold ml-1">4.9 / 5.0</span>
+                  <span className="text-neutral-400 font-normal">(48 Değerlendirme)</span>
                 </div>
               </div>
             </div>
@@ -169,11 +189,11 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
 
             <hr className="border-t border-neutral-200/60" />
 
-            {/* Qty & WhatsApp Action */}
+            {/* Qty & WhatsApp Action Side-by-Side */}
             <div className="space-y-4 pt-2">
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center gap-4">
                 {/* Qty Selector */}
-                <div className="flex items-center justify-between border border-neutral-300 rounded-none bg-white w-full max-w-[120px] h-12 px-3">
+                <div className="flex items-center justify-between border border-neutral-300 rounded-none bg-white w-full sm:max-w-[120px] h-12 px-3 flex-shrink-0">
                   <button
                     onClick={() => handleQtyChange(qty - 10)}
                     disabled={qty <= 100}
@@ -191,27 +211,40 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                     +
                   </button>
                 </div>
-              </div>
 
-              {/* WhatsApp CTA button */}
-              <a
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full h-12 text-[14px] tracking-wider uppercase bg-[#ff914b] text-white rounded-none shadow-sm hover:bg-[#e07f3e] transition-colors flex items-center justify-center gap-2 cursor-pointer font-sans text-center font-bold"
-              >
-                <MessageCircle size={18} className="fill-white text-[#ff914b]" />
-                <span>WhatsApp ile Tasarımı Başlat ➔</span>
-              </a>
+                {/* WhatsApp CTA button */}
+                <a
+                  href={waHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 w-full h-12 text-[14px] tracking-wider uppercase bg-[#ff914b] text-white rounded-none shadow-sm hover:bg-[#e07f3e] transition-colors flex items-center justify-center gap-2 cursor-pointer font-sans text-center font-bold"
+                >
+                  <MessageCircle size={18} className="fill-white text-[#ff914b]" />
+                  <span>WhatsApp ile Tasarımı Başlat ➔</span>
+                </a>
+              </div>
             </div>
 
           </div>
 
-          {/* Bottom Value Badges */}
-          <div className="pt-6 border-t border-neutral-200/60">
+          {/* Bottom Value Badges & Actions */}
+          <div className="pt-6 border-t border-neutral-200/60 space-y-4">
             <p className="text-[10px] md:text-xs text-neutral-500 font-sans tracking-wide text-center lg:text-left leading-relaxed">
               ✨ Kişiye Özel 3D Tasarım &bull; 📦 Hasarsız Kargo Garantisi &bull; 💬 WhatsApp Canlı Taslak Onayı
             </p>
+            
+            <div className="flex items-center justify-between pt-4 border-t border-neutral-200/40">
+              <button className="flex items-center gap-2 text-sm text-neutral-600 hover:text-[#ff914b] transition-colors font-sans font-medium">
+                <Heart size={18} className="text-neutral-500" />
+                <span>Seçilenlere Ekle</span>
+              </button>
+              
+              <div className="flex items-center gap-4 text-neutral-400">
+                <a href="#" className="hover:text-[#ff914b] transition-colors" aria-label="Facebook'ta Paylaş"><Facebook size={16} /></a>
+                <a href="#" className="hover:text-[#ff914b] transition-colors" aria-label="Twitter'da Paylaş"><Twitter size={16} /></a>
+                <a href="#" className="hover:text-[#ff914b] transition-colors" aria-label="Instagram'da Paylaş"><Instagram size={16} /></a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -225,10 +258,10 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
             {/* Asimetrik Arka Plan Bloğu */}
             <div className="absolute right-0 top-20 w-[80%] h-[350px] bg-neutral-200/40 rounded-l-[4rem] -z-10" />
 
-            {/* Özgür Görsel */}
+            {/* Özgür Görsel (c_limit ensures entire aspect ratio fits inside max-h-[460px] box) */}
             <div className="relative w-full h-[460px] flex items-center justify-center z-10">
               <Image
-                src={getOptimizedUrl(galleryImages[activeImageIndex], { width: 850, height: 465, crop: "fill" })}
+                src={getOptimizedUrl(galleryImages[activeImageIndex], { width: 1000, height: 1000, crop: "limit" })}
                 alt={`${product.isim} - Görsel`}
                 width={600}
                 height={460}
@@ -282,7 +315,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                   }`}
                 >
                   <Image
-                    src={getOptimizedUrl(imgUrl, { width: 150, height: 150, crop: "fill" })}
+                    src={getOptimizedUrl(imgUrl, { width: 200, height: 200, crop: "limit" })}
                     alt={`${product.isim} - Thumbnail ${i + 1}`}
                     fill
                     sizes="104px"
