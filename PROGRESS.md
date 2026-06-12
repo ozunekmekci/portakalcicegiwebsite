@@ -434,6 +434,7 @@
 - Saf beyaz arka planlı dikey portre `bg-white rounded-xl shadow-sm w-[260px]` kartlar oluşturuldu; kart hover edildiğinde yumuşak turuncu-krem gölge parlama efekti (`shadow-[0_15px_30px_rgba(255,145,75,0.2)]`) ve görsel üzerinde opacity/translasyon geçişiyle pürüzsüz belirip WhatsApp deeplink tetikleyen *"💬 Tasarımı Başlat"* butonu entegre edildi.
 - Ürünlerin altına alternatif olarak `"🔥 En Popüler Butik Tercih"` ve `"📦 Güvenli Kargo Bedava"` etiketleri, fiyat alanında ise indirimli fiyatın yanında line-through çizgili dinamik olarak hesaplanan eski fiyatlar (%35 bindirilmiş) eklendi.
 - Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
+- Kullanıcı talebi doğrultusunda, "En Çok Beğenilen Atölye Tasarımları" (ProductGrid) bölümü geçici olarak yorum satırına alınarak devre dışı bırakıldı.
 
 ---
 

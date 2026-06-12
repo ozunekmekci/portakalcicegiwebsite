@@ -39,7 +39,7 @@ export default async function Home() {
       <Hero settings={settings} />
       <BestsellersSlider products={bestsellers} />
       <Collections />
-      <ProductGrid products={products} />
+      {/* <ProductGrid products={products} /> */}
       <About settings={settings} />
       <HowItWorks />
       <Gallery />
