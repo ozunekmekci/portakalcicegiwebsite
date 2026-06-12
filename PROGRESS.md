@@ -5,12 +5,16 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** Pazarlama Odaklı En Çok Satanlar Refaktörü (Glassmorphism Carousel V4) ✅  
+**Aktif sprint:** Premium Ürün Detay Sayfası Refaktörü (Cozy Split-Screen Blueprint) ✅  
 **Sonraki görev:** Yok (Sistem optimize edildi ve refaktör başarıyla tamamlandı)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **PREMİUM ÜRÜN DETAY SAYFASI REFAKTÖRÜ (COZY SPLIT-SCREEN BLUEPRINT)**
+  - **Mimarî Entegrasyon (page.tsx & ProductDetailContent.tsx)**: Dinamik detay sayfası (`app/urunler/[slug]/page.tsx`) Server Component wrapper olarak korunurken, lüks asimetrik Cozy Split-Screen yerleşimi `'use client'` tabanlı bir bileşene taşındı.
+  - **Sol Panel - Bilgi, Malzeme & Akıllı Sipariş**: Playfair Display fontuyla asil ürün başlığı, net ve indirimli fiyat alanı, `⭐ 4.9 (48 Değerlendirme)` sosyal kanıtı, Aynalı Gold, Gümüş, Şeffaf Akrilik ve Ahşap malzeme seçeneklerini sunan akıllı aktiflik ringli daire seçicileri eklendi. Başlangıç değeri 100 olan ve 10'arlı artan Qty adet seçicisi ile seçilen malzeme, adet ve ürün adını otomatik WhatsApp deeplink'ine bağlayan sıcak turuncu (`bg-[#ff914b] text-white`) *"💬 WhatsApp ile Tasarımı Başlat ➔"* butonu yerleştirildi. Altına da lüks değer rozetleri enjekte edildi.
+  - **Sağ Panel - Medya Galerisi & Thumbnail Grid**: `aspect-[844/461]` dikey oranına sahip büyük kapak görsel alanı oluşturulup sağ üst köşesine `01 / 05` imaj sayacı ve yön okları yerleştirildi. Görselin tam altına `w-[104px] h-[104px]` ölçülerinde, aktif görsele özel turuncu border (`border-[#ff914b]`) tanımlanan 5'li kare resim thumbnail şeridi eklendi.
 - [x] **PAZARLAMA ODAKLI EN ÇOK SATANLAR REFAKTÖRÜ (GLASSMORPHISM CAROUSEL V4)**
   - **Üst Başlık ve Navigasyon (BestsellersSlider.tsx)**: Sol tarafa Playfair Display fontuyla *"✨ Haftanın Yıldız Seçimleri & En Çok Satanlar ✨"* başlığı ve zarif açıklaması eklendi; sağ tarafa ise yan yana duran minimalist, yuvarlak sol (`<`) ve sağ (`>`) ok butonları yerleştirilerek dengeli bir navigasyon düzeni sağlandı.
   - **Ultra-Kavisli Full-Bleed Kartlar**: Masaüstünde `w-[320px] h-[440px]` boyutlarında, `rounded-[2.5rem] overflow-hidden shadow-sm` sınırlarına sahip, Next.js `<Image>` bileşeniyle full-bleed render edilen ürün kartları yapıldı. Kartın sağ üst köşesine absolute olarak yerleştirilen ince beyaz dairesel badge içindeki `↗` diagonal ok ikonu, hover durumunda sağ üste ivmelenecek şekilde (`group-hover:translate-x-1 group-hover:-translate-y-1`) animasyonlandırıldı.
@@ -446,6 +450,13 @@
 - Kart boyutları masaüstünde `w-[320px] h-[440px]` olarak ayarlandı; `rounded-[2.5rem] overflow-hidden` kavisli köşelere sahip full-bleed dikey Next.js `<Image>` yerleşimi yapıldı.
 - Kartların sağ üst köşelerine absolute konumlandırılmış `↗` (diagonal arrow) beyaz buton badge'i yerleştirilerek, kart hover edildiğinde `group-hover:translate-x-1 group-hover:-translate-y-1` animasyonuyla ivmelenmesi sağlandı.
 - Kartların alt kısımlarına `bg-[#fbf7f0]/60 backdrop-blur-md border-t border-white/20` buzlu cam overlay katmanı enjekte edildi; camın içine 5 adet parıldayan yıldız (`⭐`) ikonu, Playfair Display ürün adı, indirimli yeni fiyat, line-through çizgili dinamik eski fiyat ve "Min: 100 Adet" rozeti yerleştirildi.
+- Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
+
+### Oturum 34 — Premium Ürün Detay Sayfası Refaktörü (Cozy Split-Screen Blueprint)
+- `ProductDetailContent.tsx` Client Component bileşeni Cozy Split-Screen tasarım şablonuna göre sıfırdan oluşturuldu.
+- Sol Panel: Breadcrumbs, Playfair Display `text-4xl` ürün adı, indirimli fiyat ve slashed eski fiyat (%35 bindirilmiş), `⭐ 4.9 (48 Değerlendirme)` sosyal kanıtı, Aynalı Gold, Gümüş, Şeffaf Akrilik ve Ahşap seçeneklerine sahip border ringli malzeme daire seçicileri eklendi. Başlangıç değeri 100 olan ve 10'arlı değişen Qty adet seçicisi ile seçilen tüm parametreleri dinamik WhatsApp linkine bağlayan sıcak turuncu (`bg-[#ff914b] text-white`) *"💬 WhatsApp ile Tasarımı Başlat ➔"* butonu ve altına lüks değer rozetleri yerleştirildi.
+- Sağ Panel: bg-white container ile `aspect-[844/461]` dikey oranına sahip ana görsel alanı, üzerine yerleştirilmiş `01 / 05` resim sayacı ve yön okları, görsel altına ise `w-[104px] h-[104px]` rounded-lg border-2 ölçülerine sahip aktif görsel vurgulu (`border-[#ff914b]`) 5'li thumbnail şeridi kodlandı.
+- Server Component `app/urunler/[slug]/page.tsx` wrapper haline getirilip dynamic meta veriler, DB sorguları ve ilgili diğer ürünler listesi korunarak Client Component `ProductDetailContent` ile entegre edildi.
 - Proje derleme testi (`npm run build`) sıfır hata ile başarıyla tamamlandı.
 
 ---
