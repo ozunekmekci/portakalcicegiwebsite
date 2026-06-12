@@ -69,61 +69,7 @@ if (process.env.NODE_ENV !== "production") {
       console.log("Başlangıç kategorileri SQLite veritabanına eklendi.");
     }
 
-    // Başlangıç ürünlerini ekle (eğer veritabanı boşsa)
-    const productCount = global.dbInstance.prepare("SELECT COUNT(*) as count FROM products").get() as { count: number };
-    
-    if (productCount.count === 0) {
-      const insertProduct = global.dbInstance.prepare(`
-        INSERT INTO products (
-          name, slug, category_id, description, min_order, 
-          price_range, images, cover_image, is_active, display_order
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `);
 
-      const insertInitialProducts = global.dbInstance.transaction(() => {
-        // Kategori id'leri: Düğün & Nişan = 1, Babyshower = 2, Diş Buğdayı = 3, Doğum Günü = 4
-        insertProduct.run(
-          'Bulut Bebek Seti', 
-          'bulut-bebek-seti', 
-          2, 
-          'Pastel tonlarda 3D akrilik bulut figürlü baby shower seti.', 
-          100, 
-          '₺850 - ₺1.200', 
-          '[]', 
-          null, 
-          1, 
-          1
-        );
-        insertProduct.run(
-          'Çiçek Bebek Seti', 
-          'cicek-bebek-seti', 
-          2, 
-          'Portakal çiçeği motifli, modern tasarım baby shower hediyeliği.', 
-          100, 
-          '₺950 - ₺1.400', 
-          '[]', 
-          null, 
-          1, 
-          2
-        );
-        insertProduct.run(
-          'Zarif Çiçekler Seti', 
-          'zarif-cicekler-seti', 
-          1, 
-          'Düğün ve nişan için zarif çiçek detaylı akrilik hediyelikler. Modern çiftler için özel tasarlanmış, isim ve tarih işlemeli premium nikah hatırası.', 
-          100, 
-          '₺1.100 - ₺1.600', 
-          '[]', 
-          null, 
-          1, 
-          1
-        );
-      });
-
-      insertInitialProducts();
-      console.log("Başlangıç ürünleri SQLite veritabanına eklendi.");
-    }
   }
   db = global.dbInstance;
 }
