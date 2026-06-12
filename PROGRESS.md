@@ -467,8 +467,11 @@
 - Qty adet seçiciden `Qty` metni sökülerek minimalist `[- 100 +]` formatında `max-w-[120px] h-12` sınırlarına daraltıldı; WhatsApp butonu `h-12 text-[14px] bg-[#ff914b] rounded-none shadow-sm hover:bg-[#e07f3e]` asil çizgisine çekildi.
 - Sağ tarafta `h-[550px]` büyüklüğünde bağımsız bir asimetrik taşıyıcı kurulup arka fonuna krem rengi `rounded-l-[4rem]` dekorasyon bloğu atıldı. Ürün resimleri Next.js `<Image>` ile ortalanıp fonu taşıracak biçimde `max-h-[460px] drop-shadow-md` ile asılı gibi havada konumlandırıldı.
 - Ürün görselinin üst ve alt kısımlarının kesilmesine neden olan Cloudinary `crop: "fill"` parametresi `crop: "limit"` olarak düzeltildi; böylece tüm kürdan setleri ve dikey/yatay ürün fotoğrafları kırpılmadan tam boyutuyla görüntülenebilir hale getirildi.
+- Cover görseli ve ek görseller (galleryImages) benzersiz hale getirilerek (de-duplicated) kopya/çift görsel görünmesi engellendi.
 - Qty seçici ile WhatsApp butonu, Cozy tasarımındaki gibi yan yana (`flex flex-col sm:flex-row items-center gap-4`) konumlandırıldı.
 - Sol panelin en üstüne zarif bir geri dönüş oku (`ArrowLeft`) ve en altına lüks "Seçilenlere Ekle" (Wishlist) butonu ile sosyal paylaşım ikonları yerleştirilerek Cozy tasarımı birebir klonlandı.
+- Fiyat alanı formatı düzeltilerek rakamların başına `₺` sembolü eklendi; fiyat ve değerlendirme satırına dikey boşluklar verilerek bodurluk giderildi.
+- Sayfa genelinde font ailesi **Proxima Nova** (`@import url('https://fonts.cdnfonts.com/css/proxima-nova-2')`) olarak güncellendi.
 - Proje `npm run build` ile sorunsuz derlendi ve tüm değişiklikler Vercel canlı yayını için GitHub'a pushlandı.
 
 ---
