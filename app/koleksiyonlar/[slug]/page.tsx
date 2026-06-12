@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { getProducts } from "@/lib/db-queries"
+import { getProducts, getCategoryBySlug } from "@/lib/db-queries"
 import { fallbackProducts } from "@/content/products"
 import ProductCard from "@/components/ui/ProductCard"
 import { Product } from "@/lib/types"
@@ -37,8 +37,8 @@ export function generateStaticParams() {
 }
 
 export default async function KoleksiyonPage({ params }: Props) {
-  const isim = slugToIsim[params.slug] ?? params.slug
   let filtered: Product[] = []
+  let categoryObj = null;
 
   let searchSlug = params.slug;
   if (searchSlug === "baby-shower") {
@@ -46,6 +46,7 @@ export default async function KoleksiyonPage({ params }: Props) {
   }
 
   try {
+    categoryObj = await getCategoryBySlug(searchSlug);
     const dbProducts = await getProducts({ categorySlug: searchSlug, onlyActive: true })
     filtered = dbProducts.map((p) => ({
       id: String(p.id),
@@ -72,6 +73,9 @@ export default async function KoleksiyonPage({ params }: Props) {
     filtered = fallbackProducts.filter(p => normalize(p.koleksiyonSlug) === normalize(params.slug))
   }
 
+  const isim = categoryObj?.name || slugToIsim[params.slug] || params.slug;
+  const description = categoryObj?.description || `Özel günleriniz için tasarlanan ${isim.toLowerCase()} koleksiyonu.`;
+  const bannerImage = categoryObj?.banner_image;
 
   const waText = encodeURIComponent(`Merhaba! ${isim} koleksiyonu için özel sipariş vermek istiyorum.`)
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"
@@ -81,8 +85,16 @@ export default async function KoleksiyonPage({ params }: Props) {
   return (
     <main className="bg-[#fbf7f0] min-h-screen">
       {/* Upper Banner */}
-      <section className="bg-[#dcdcd9] py-16 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section 
+        className="relative py-20 px-6 bg-cover bg-center overflow-hidden bg-[#dcdcd9]"
+        style={bannerImage ? { backgroundImage: `url(${bannerImage})` } : {}}
+      >
+        {/* Soft elegant overlay to ensure high contrast/readability */}
+        {bannerImage && (
+          <div className="absolute inset-0 bg-[#fbf7f0]/85 backdrop-blur-[1px] z-0" />
+        )}
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <div className="mb-4">
             <Breadcrumb
@@ -98,7 +110,7 @@ export default async function KoleksiyonPage({ params }: Props) {
             {isim} Koleksiyonu
           </h1>
           <p className="text-sm md:text-base text-brand-text-mid mt-3 font-sans max-w-2xl">
-            Özel günleriniz için tasarlanan {isim.toLowerCase()} koleksiyonu.
+            {description}
           </p>
 
           <span className="inline-block mt-4 text-xs font-semibold bg-white/60 text-brand-text-dark px-3 py-1 rounded-full border border-black/5">

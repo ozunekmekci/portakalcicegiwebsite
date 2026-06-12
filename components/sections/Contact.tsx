@@ -4,8 +4,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, Instagram } from "lucide-react";
 
-export default function Contact() {
-  const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX").replace(/\D/g, "");
+interface ContactProps {
+  settings?: Record<string, string>;
+}
+
+export default function Contact({ settings = {} }: ContactProps) {
+  const dbNumber = settings.contact_phone;
+  const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX";
+  const waNumber = rawNumber.replace(/\D/g, "");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

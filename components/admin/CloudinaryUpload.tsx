@@ -8,6 +8,9 @@ import { getOptimizedUrl } from "@/lib/cloudinary";
 interface CloudinaryUploadProps {
   images: string[];
   onChange: (newImages: string[]) => void;
+  maxImages?: number;
+  label?: string;
+  folder?: string;
 }
 
 declare global {
@@ -41,7 +44,13 @@ function getPublicIdFromUrl(url: string): string | null {
   return publicIdWithExt;
 }
 
-export default function CloudinaryUpload({ images, onChange }: CloudinaryUploadProps) {
+export default function CloudinaryUpload({
+  images,
+  onChange,
+  maxImages = 10,
+  label = "Ürün Görselleri",
+  folder = "products",
+}: CloudinaryUploadProps) {
   const [isDeleting, setIsDeleting] = useState<string | null>(null);
 
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
@@ -63,10 +72,10 @@ export default function CloudinaryUpload({ images, onChange }: CloudinaryUploadP
         cloudName,
         uploadPreset,
         sources: ["local", "url", "camera"],
-        multiple: true,
-        maxFiles: 10 - images.length, // Toplam 10 dosya sınırı
+        multiple: maxImages > 1,
+        maxFiles: maxImages - images.length,
         clientAllowedFormats: ["png", "jpg", "jpeg", "webp"],
-        folder: "products",
+        folder,
       },
       (error: any, result: any) => {
         if (!error && result && result.event === "success") {
@@ -143,10 +152,10 @@ export default function CloudinaryUpload({ images, onChange }: CloudinaryUploadP
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider font-sans">
-          Ürün Görselleri ({images.length}/10)
+          {label} ({images.length}/{maxImages})
         </label>
         
-        {images.length < 10 && (
+        {images.length < maxImages && (
           <button
             type="button"
             onClick={handleOpenWidget}
@@ -174,13 +183,13 @@ export default function CloudinaryUpload({ images, onChange }: CloudinaryUploadP
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-gray-100 mb-2">
                   <Image
                     src={optimizedThumb}
-                    alt={`Ürün görseli ${idx + 1}`}
+                    alt={`${label} görseli ${idx + 1}`}
                     fill
                     sizes="(max-width: 640px) 50vw, 20vw"
                     className="object-cover"
                     unoptimized
                   />
-                  {isFirst && (
+                  {isFirst && maxImages > 1 && (
                     <span className="absolute top-1 left-1 bg-brand-orange text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow font-sans">
                       Kapak
                     </span>
@@ -189,29 +198,33 @@ export default function CloudinaryUpload({ images, onChange }: CloudinaryUploadP
 
                 {/* Shifting and Delete Actions */}
                 <div className="flex items-center justify-between w-full px-1 gap-1">
-                  <div className="flex items-center gap-0.5">
-                    {/* Move Left */}
-                    <button
-                      type="button"
-                      onClick={() => handleMove(idx, "left")}
-                      disabled={isFirst}
-                      className="p-1.5 text-brand-text-mid hover:text-brand-orange hover:bg-gray-100 rounded-full transition-all disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
-                      title="Sola Taşı"
-                    >
-                      <ArrowLeft size={14} />
-                    </button>
-                    
-                    {/* Move Right */}
-                    <button
-                      type="button"
-                      onClick={() => handleMove(idx, "right")}
-                      disabled={isLast}
-                      className="p-1.5 text-brand-text-mid hover:text-brand-orange hover:bg-gray-100 rounded-full transition-all disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
-                      title="Sağa Taşı"
-                    >
-                      <ArrowRight size={14} />
-                    </button>
-                  </div>
+                  {maxImages > 1 ? (
+                    <div className="flex items-center gap-0.5">
+                      {/* Move Left */}
+                      <button
+                        type="button"
+                        onClick={() => handleMove(idx, "left")}
+                        disabled={isFirst}
+                        className="p-1.5 text-brand-text-mid hover:text-brand-orange hover:bg-gray-100 rounded-full transition-all disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
+                        title="Sola Taşı"
+                      >
+                        <ArrowLeft size={14} />
+                      </button>
+                      
+                      {/* Move Right */}
+                      <button
+                        type="button"
+                        onClick={() => handleMove(idx, "right")}
+                        disabled={isLast}
+                        className="p-1.5 text-brand-text-mid hover:text-brand-orange hover:bg-gray-100 rounded-full transition-all disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
+                        title="Sağa Taşı"
+                      >
+                        <ArrowRight size={14} />
+                      </button>
+                    </div>
+                  ) : (
+                    <div />
+                  )}
 
                   {/* Delete Button */}
                   <button
@@ -232,7 +245,7 @@ export default function CloudinaryUpload({ images, onChange }: CloudinaryUploadP
         <div className="border-2 border-dashed border-[#dcdcd9] rounded-2xl p-8 flex flex-col items-center justify-center text-brand-text-mid">
           <ImageIcon size={36} className="text-[#dcdcd9] mb-2" />
           <p className="text-xs font-semibold font-sans mb-3 text-center">
-            Henüz fotoğraf yüklenmedi. En fazla 10 adet görsel ekleyebilirsiniz.
+            Henüz fotoğraf yüklenmedi. En fazla {maxImages} adet görsel ekleyebilirsiniz.
           </p>
           <button
             type="button"

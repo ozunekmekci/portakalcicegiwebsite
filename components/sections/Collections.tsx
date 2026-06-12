@@ -14,7 +14,7 @@ async function CollectionsGrid() {
       isim: cat.name,
       aciklama: cat.description || "",
       kategori: cat.name,
-      gorselUrl: "", // SQLite categories do not store images directly, falls back to emoji
+      gorselUrl: cat.banner_image || "",
       aktif: true,
     }));
     if (collections.length === 0) {

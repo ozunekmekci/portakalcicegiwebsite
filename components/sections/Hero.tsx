@@ -2,12 +2,54 @@
 
 import { motion } from "framer-motion";
 
-export default function Hero() {
+interface HeroProps {
+  settings?: Record<string, string>;
+}
+
+export default function Hero({ settings = {} }: HeroProps) {
   const handleScrollToCollections = () => {
     document.getElementById("koleksiyonlar")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555").replace(/\D/g, "");
+  const dbNumber = settings.contact_phone;
+  const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
+  const waNumber = rawNumber.replace(/\D/g, "");
+
+  const badgeText = settings.hero_badge || "ÖZEL TASARIM • EL YAPIMI • HATIRLIK";
+  const rawTitle = settings.hero_title || "Her Kutlama,\nBir [Sanat Eseri]";
+  const descriptionText = settings.hero_description || "Doğum, baby shower, düğün ve nişanlarınız için\nözel tasarım, 3D akrilik hediyelikler.";
+
+  const renderTitle = (text: string) => {
+    if (text.includes("[") && text.includes("]")) {
+      const parts = text.split(/\[(.*?)\]/g);
+      return parts.map((part, index) => {
+        if (index % 2 === 1) {
+          return (
+            <span key={index} className="text-[#fa3500] relative inline-block">
+              {part}
+              <span className="absolute bottom-1 left-0 w-full h-[6px] bg-brand-orange/20 rounded-full -z-10"></span>
+            </span>
+          );
+        }
+        return part;
+      });
+    }
+    // Fallback highlight
+    if (text.includes("Sanat Eseri")) {
+      const parts = text.split("Sanat Eseri");
+      return (
+        <>
+          {parts[0]}
+          <span className="text-[#fa3500] relative inline-block">
+            Sanat Eseri
+            <span className="absolute bottom-1 left-0 w-full h-[6px] bg-[#ff914b]/20 rounded-full -z-10"></span>
+          </span>
+          {parts[1]}
+        </>
+      );
+    }
+    return text;
+  };
 
   return (
     <section aria-label="Karşılama" className="relative min-h-screen bg-brand-bg-cream flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
@@ -35,7 +77,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0 }}
           className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase"
         >
-          ÖZEL TASARIM • EL YAPIMI • HATIRLIK
+          {badgeText}
         </motion.span>
 
         {/* Main Title */}
@@ -46,11 +88,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-brand-text-dark leading-tight font-bold whitespace-pre-line"
         >
-          Her Kutlama,<br />
-          Bir <span className="text-brand-orange-dark relative inline-block">
-            Sanat Eseri
-            <span className="absolute bottom-1 left-0 w-full h-[6px] bg-brand-orange/20 rounded-full -z-10"></span>
-          </span>
+          {renderTitle(rawTitle)}
         </motion.h1>
 
         {/* Description */}
@@ -61,7 +99,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="font-sans text-base md:text-lg lg:text-xl text-[#555555] max-w-xl mx-auto leading-relaxed whitespace-pre-line"
         >
-          Doğum, baby shower, düğün ve nişanlarınız için{"\n"}özel tasarım, 3D akrilik hediyelikler.
+          {descriptionText}
         </motion.p>
 
         {/* CTA Buttons */}

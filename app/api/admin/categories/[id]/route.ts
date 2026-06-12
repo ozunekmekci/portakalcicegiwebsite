@@ -72,6 +72,7 @@ export async function PUT(
     if (body.emoji !== undefined) updateData.emoji = body.emoji || null;
     if (body.description !== undefined) updateData.description = body.description || null;
     if (body.display_order !== undefined) updateData.display_order = Number(body.display_order);
+    if (body.banner_image !== undefined) updateData.banner_image = body.banner_image || null;
 
     const success = await updateCategory(id, updateData);
     return NextResponse.json({ success, slug: updateData.slug || currentCategory.slug });

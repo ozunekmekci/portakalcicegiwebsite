@@ -285,6 +285,44 @@ DATABASE_URL=                          # Vercel Postgres veya Turso URL (ileride
 5. **SQLite sync API kullan** — `better-sqlite3` sync'tir, `await` kullanma. Next.js Server Actions veya Route Handlers içinde çalışır.
 6. **Production'da Vercel Postgres** — `lib/db.ts` env'e göre doğru DB'yi seçmeli.
 
+### 🔵 SPRINT 10 — Dashboard Genişletme, Sıralama (Drag & Drop), Referans Yönetimi ve İçerik Yönetimi
+> Tahmini süre: 3–4 oturum
+
+#### GÖREV 10.1 — Veritabanı Schema Güncellemeleri & Göç İşlemleri
+- [ ] `lib/db.ts` (SQLite) ve `lib/db-init.ts` (Postgres) dosyalarında `ALTER TABLE` göç kontrolü ekle:
+  - `products` tablosuna `view_count INTEGER DEFAULT 0` sütununu ekle.
+  - `categories` tablosuna `banner_image TEXT` sütununu ekle.
+- [ ] SQLite ve Postgres üzerinde `testimonials` ve `site_settings` tablolarını oluştur.
+- [ ] `site_settings` tablosunu varsayılan Hero, Hakkımızda ve İletişim içerikleriyle dolduran seeder (tohumlama) kodunu yaz.
+- [ ] `lib/db-queries-types.ts` dosyasına `Testimonial` arayüzünü tanımla, `Product` ve `Category` arayüzlerini güncelle.
+- [ ] `lib/db-testimonials.ts` ve `lib/db-settings.ts` sorgu modüllerini yaz ve `db-queries.ts` üzerinden dışa aktar.
+
+#### GÖREV 10.2 — İstatistik Dashboard ve Görüntüleme Sayacı
+- [ ] `app/admin/page.tsx` sayfasını genişlet:
+  - "Boş Görsel Uyarısı" veren ürünlerin sayısını hesaplayan kart ekle.
+  - "En Çok Görüntülenen 5 Ürün" tablosunu ekle.
+  - "Son Eklenen 5 Ürün" tablosunu ekle.
+  - Tailwind ile sıfırdan "Kategoriye Göre Ürün Dağılımı" yatay bar grafiği (horizontal bar chart) tasarla.
+- [ ] `app/urunler/[slug]/page.tsx` sayfasında ürün yüklendiğinde `incrementProductViewCount` fonksiyonunu tetikleyerek veritabanındaki `view_count` sayacını asenkron olarak 1 artır.
+
+#### GÖREV 10.3 — Ürün Sıralama (Drag & Drop) Sayfası
+- [ ] Harici kütüphane kullanmadan HTML5 Drag & Drop API'si ile `app/admin/sirala/page.tsx` sıralama ekranını oluştur.
+- [ ] Kullanıcının kategori seçebileceği ve o kategorideki ürünleri sürükle-bırak yöntemiyle sıralayabileceği React state tabanlı arayüzü kodla.
+- [ ] `/api/admin/products/reorder` API rotasını yaz; bulk update transaction çalıştırarak ürün önceliklerini (`display_order`) toplu güncelle.
+
+#### GÖREV 10.4 — Referans/Yorum Yönetimi (CRUD) ve Vitrini
+- [ ] Müşteri yorumlarını listeyen, silen ve durumunu değiştiren `/admin/yorumlar` yönetim arayüzünü tasarla.
+- [ ] Yeni yorum ekleyen `/admin/yorumlar/ekle` ve düzenleyen `/admin/yorumlar/duzenle/[id]` sayfalarını ve formlarını oluştur. Avatar resmi için CloudinaryUpload bileşenini entegre et.
+- [ ] Ana sayfa için `components/sections/Testimonials.tsx` (Müşteri Referansları) bileşenini modern, minimalist ve Framer Motion animasyonlu olarak tasarla.
+- [ ] `app/page.tsx` sayfasına Müşteri Referansları bölümünü `<Testimonials>` olarak ekle.
+
+#### GÖREV 10.5 — Ana Sayfa İçerik & Koleksiyon Banner Yönetimi
+- [ ] Admin panelinde Hero ve Hakkımızda bölümlerini yönetmeyi sağlayan `/admin/ayarlar` sayfasını oluştur.
+- [ ] `app/page.tsx` sayfasında DB settings verilerini server tarafında çekip `Hero` ve `About` bileşenlerine prop olarak besle; statik fallbacks ekle.
+- [ ] Kategori ekleme ve düzenleme sayfalarında CloudinaryUpload kullanarak `banner_image` yükleme özelliği ekle; API rotalarını ve CRUD sorgularını güncelle.
+- [ ] `/koleksiyonlar/[slug]` sayfasında `banner_image` alanını dinamik banner arka plan görseli olarak kullan; boş ise mevcut `#dcdcd9` yapısını koru.
+- [ ] Ana sayfa Collections bileşeninde kategori resmini emoji yerine dinamik cover fotoğrafı olarak ata.
+
 ---
 
 ## 🔗 Referanslar
@@ -293,3 +331,4 @@ DATABASE_URL=                          # Vercel Postgres veya Turso URL (ileride
 - better-sqlite3: https://github.com/WiseLibs/better-sqlite3
 - Vercel Postgres: https://vercel.com/docs/storage/vercel-postgres
 - Next.js Middleware: https://nextjs.org/docs/app/building-your-application/routing/middleware
+- HTML5 Drag and Drop API: https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API

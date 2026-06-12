@@ -1,4 +1,4 @@
-import { getProductBySlug, getProducts } from "@/lib/db-queries"
+import { getProductBySlug, getProducts, incrementProductViewCount } from "@/lib/db-queries"
 import { fallbackProducts } from "@/content/products"
 import ProductGallery from "@/components/ui/ProductGallery"
 import ProductCard from "@/components/ui/ProductCard"
@@ -102,6 +102,10 @@ export default async function UrunDetayPage({ params }: Props) {
     const dbProd = await getProductBySlug(params.slug)
     if (dbProd) {
       product = mapProduct(dbProd)
+      // Sayfa her yüklendiğinde görüntüleme sayısını artır
+      incrementProductViewCount(params.slug).catch(err => {
+        console.error("View count increment error:", err);
+      });
     }
     const dbProducts = await getProducts()
     ilgiliUrunler = dbProducts.map(mapProduct)

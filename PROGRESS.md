@@ -5,12 +5,25 @@
 
 ## 🔴 Mevcut Durum
 **Son güncelleme:** 12 Haziran 2026  
-**Aktif sprint:** Koleksiyon Yönetimi (CRUD) Tamamlandı 🎉  
-**Sonraki görev:** Yok (Proje Dağıtıma Hazır)  
+**Aktif sprint:** Dashboard, Sıralama, Referanslar ve Ana Sayfa Yönetimi (Sprint 10) Tamamlandı 🎉  
+**Sonraki görev:** Yok (Yeni Özellikler Yayında)  
 
 ---
 
 ## ✅ Tamamlanan Görevler
+- [x] **DASHBOARD, SIRALAMA, TESTIMONIALS & İÇERİK YÖNETİMİ (SPRINT 10)** — Altyapı ve Arayüzler
+  - `products` tablosuna `view_count` ve `categories` tablosuna `banner_image` sütunları SQLite ve Postgres'te veri kaybı olmadan `ALTER TABLE` göçleri ile eklendi.
+  - Müşteri yorumlarını yönetmek için `testimonials` tablosu ve ana sayfa metin/fotoğraflarını yönetmek için `site_settings` tablosu oluşturularak varsayılan ayarlarla tohumlandı.
+  - `/api/admin/settings`, `/api/admin/products/reorder`, `/api/admin/testimonials` ve `/api/admin/testimonials/[id]` API rotaları oluşturuldu.
+  - Admin paneli ana sayfasında; toplam/aktif ürün ve kategori istatistiklerine ek olarak eksik görsele sahip ürünlerin sayısını veren uyarı kartı, en çok görüntülenen 5 ürün ve son eklenen 5 ürün listeleri ile kategori ürün dağılımını gösteren yerleşik Tailwind horizontal bar grafiği entegre edildi.
+  - Ürün detay sayfalarına dinamik görüntülenme sayacı (`view_count` artırıcı) eklendi.
+  - Ürünlerin önceliklerini tarayıcı üzerinden sürükle-bırak yöntemiyle düzenlemeyi sağlayan HTML5 Drag & Drop API tabanlı `/admin/sirala` arayüzü ve toplu güncelleme API'si kodlandı.
+  - Müşteri yorumlarının eklendiği, listelendiği, silindiği ve durumunun güncellendiği `/admin/yorumlar` CRUD sistemi yazıldı.
+  - Hero, Hakkımızda ve WhatsApp sipariş iletişim bilgilerinin yönetim panelinden değiştirilmesini sağlayan `/admin/ayarlar` sayfası kodlandı.
+  - Koleksiyon ekleme/düzenleme sayfalarına `banner_image` CloudinaryUpload yükleyicisi entegre edildi.
+  - Public ana sayfada dinamik Hero, About ve Contact içerikleri settings tablosuna bağlandı; modern ve animasyonlu müşteri referansları vitrini (`<Testimonials>` bileşeni) eklendi.
+  - Rotalardaki kategori banner alanları ve CollectionCard bileşenleri kategori fotoğraflarını emoji yerine dinamik gösterecek şekilde güncellendi.
+  - Proje `npm run build` ile hatasız derlendi ve statik sayfalar başarıyla oluşturuldu.
 - [x] **KOLEKSİYON (KATEGORİ) YÖNETİMİ** — CRUD Entegrasyonu
   - `lib/db-categories.ts` dosyasına `createCategory`, `updateCategory`, `deleteCategory`, `getCategoryById` ve `getCategoryBySlug` SQLite/Postgres metotları eklenip entegre edildi.
   - `/api/admin/categories/[id]` dinamik API rotası GET, PUT ve DELETE isteklerini işlemek üzere yazıldı.
@@ -376,6 +389,19 @@
 - `components/admin/AdminNav.tsx` dosyasına "Koleksiyonlar" bağlantısı eklendi.
 - `app/admin/kategoriler/page.tsx` listeleme ekranı, `app/admin/kategori-ekle/page.tsx` ekleme ekranı ve `app/admin/kategori-duzenle/[id]/page.tsx` düzenleme ekranı tasarlandı ve bağlandı.
 - Proje `npm run build` ile hatasız derlenip GitHub'a başarıyla gönderildi.
+
+### Oturum 30 — Sprint 10 (Genişletilmiş Dashboard, Drag & Drop Sıralama, Referans ve İçerik Yönetimi)
+- SQLite (`lib/db.ts`) ve Postgres (`lib/db-init.ts`) şemalarına `view_count` ve `banner_image` sütunları ile `testimonials` ve `site_settings` tabloları göç/migration kodlarıyla eklenerek ilk başlatmada tohumlandı.
+- `lib/db-testimonials.ts` ve `lib/db-settings.ts` veritabanı sorgu yardımcıları yazılarak `lib/db-queries.ts` üzerinden dışa aktarıldı.
+- `/api/admin/settings`, `/api/admin/products/reorder` ve yorum yönetimi CRUD API'leri geliştirildi.
+- `/admin` kontrol paneli; "Görsel Uyarısı" veren stat kartı, en çok görüntülenen 5 ürün, son eklenen 5 ürün tabloları ve Tailwind horizontal bar grafiğiyle yenilendi.
+- Tarayıcının yerel HTML5 Drag & Drop API'sini kullanan, harici kütüphane bağımlılığı bulunmayan `/admin/sirala` sayfası kodlandı.
+- Müşteri yorumlarını yöneten `/admin/yorumlar`, `/admin/yorumlar/ekle` ve `/admin/yorumlar/duzenle/[id]` sayfaları; ve Hero, Hakkımızda, WhatsApp sipariş numarasını yöneten `/admin/ayarlar` sayfası tasarlandı ve bağlandı.
+- `components/admin/CloudinaryUpload.tsx` bileşeni `maxImages`, `label` ve `folder` parametreleriyle esnetilerek tekli fotoğraf yüklemelerinde yeniden kullanıldı.
+- Kategori ekleme ve düzenleme sayfalarına banner görsel yükleyicisi entegre edildi.
+- Ana sayfaya modern Framer Motion animasyonlu `<Testimonials>` müşteri yorumları bölümü eklendi.
+- `app/page.tsx` ve `/koleksiyonlar/[slug]` dinamikleştirilerek ayarlar, yorumlar ve kategori banner resimleri veritabanından çekildi.
+- Projenin `npm run build` derleme testi çalıştırıldı ve statik sayfaların hatasız oluşturulduğu teyit edildi.
 
 ---
 

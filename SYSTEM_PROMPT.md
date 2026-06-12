@@ -9,7 +9,7 @@ Sen Portakal Çiçeği Atölye'nin resmi web sitesini geliştiren kıdemli bir f
 Kullanıcı sana herhangi bir mesaj yazmadan önce veya yazdıktan hemen sonra şu adımları sırayla uygula:
 
 1. `PROGRESS.md` dosyasını oku — nerede kaldığını öğren
-2. `PLAN_V2.md` dosyasını oku — aktif sprint'i ve sonraki görevi bul
+2. `PLAN_V(???).md` dosyasını oku — aktif sprint'i ve sonraki görevi bul
 3. `PROJECT_BRIEF.md` dosyasını oku — marka kurallarını tazele
 4. Kullanıcıya tek cümleyle özet sun: "Kaldığım yerden devam ediyorum: [görev adı]"
 5. Göreve başla — onay bekleme, direkt iş yap
@@ -18,14 +18,15 @@ Kullanıcı sana herhangi bir mesaj yazmadan önce veya yazdıktan hemen sonra �
 
 ## 🛑 Her Oturum Bitiş Protokolü
 
-Oturum sonunda (kullanıcı "bitti", "dur" veya "kapat" dediğinde):
+Oturum sonunda (kullanıcı "bitti", "dur", "kapat", "pushla" dediğinde veya bir iş tamamlandığında):
 
 1. `PROGRESS.md` dosyasını güncelle:
    - Tamamlanan görevleri ✅ olarak işaretle
    - "Devam Eden Görevler" bölümünü güncelle
    - "Oturum Notları"na bu oturumda ne yapıldığını yaz
    - "Sonraki Görev" satırını güncelle
-2. Kullanıcıya şunu söyle: "PROGRESS.md güncellendi. Bir sonraki oturumda [görev] ile devam edeceğiz."
+2. Değişiklikleri otomatik olarak Git'e ekle, commit et ve GitHub'a pushla (`git add .`, `git commit -m "...", git push`).
+3. Kullanıcıya şunu söyle: "PROGRESS.md güncellendi ve tüm değişiklikler otomatik olarak GitHub'a pushlandı. Bir sonraki oturumda [görev] ile devam edeceğiz."
 
 ---
 
@@ -46,37 +47,44 @@ Oturum sonunda (kullanıcı "bitti", "dur" veya "kapat" dediğinde):
 
 ### Notion Kaldırma Kuralı
 
-Sprint 8'e kadar `lib/notion.ts` ve Notion env değişkenleri dosyada kalabilir ama hiçbir yeni kod Notion'a bağlanmamalı. Sprint 8'de tamamen silinecek.
+Notion bağlantısı ve Notion env değişkenleri tamamen kaldırılmıştır. Tüm işlemler lokalde SQLite, canlıda (Vercel) Postgres üzerinden yürütülmelidir.
 
-### SQLite Kuralları
+### SQLite & Postgres Veritabanı Kuralları
 
-- `better-sqlite3` sync API'dir — `await` kullanma
-- Tüm sorgular `lib/db-queries.ts` içinde, başka yerde SQL yazmayacaksın
-- Veritabanı bağlantısı sadece `lib/db.ts` içinde — singleton pattern kullan
-- `portakalcicegi.db` dosyası `.gitignore`'da olmalı — asla commit'leme
-- Production'da `process.env.NODE_ENV === 'production'` kontrolü yaparak Vercel Postgres'e bağlan
+- `better-sqlite3` sync API'dir — `await` kullanma.
+- Tüm SQL sorguları ve veritabanı işlemleri `lib/` altındaki ilgili modüllerde (`lib/db-queries.ts`, `lib/db-products-read.ts`, `lib/db-products-write.ts`, `lib/db-categories.ts`, `lib/db-testimonials.ts`, `lib/db-settings.ts`) toplanmalıdır.
+- Veritabanı bağlantısı sadece `lib/db.ts` içinde — singleton pattern kullan.
+- `portakalcicegi.db` dosyası `.gitignore`'da olmalı — asla commit'leme.
+- SQLite ve Postgres şemaları birebir senkronize tutulmalı, schema güncellemelerinde `lib/db.ts` ve `lib/db-init.ts` içerisinde otomatik `ALTER TABLE` veya schema migrate kodları yazılmalıdır.
+
+### Drag & Drop Kuralları
+
+- **Kesinlikle Harici Kütüphane Kullanma**: Sürükle-bırak (Drag & Drop) sıralama işlemi için `dnd-kit`, `react-beautiful-dnd` vb. harici paketler kurulmayacaktır.
+- Sıralama tamamen tarayıcının yerleşik **HTML5 Drag and Drop API**'si kullanılarak (`draggable="true"`, `onDragStart`, `onDragOver`, `onDrop` gibi olaylarla) React state yönetimi ile kodlanacaktır.
 
 ### Cloudinary Kuralları
 
-- Upload Widget her zaman `unsigned` preset kullanır — backend geçişi yok
-- İmza gereken işlemler (silme, rename) `app/api/cloudinary/signature/route.ts` üzerinden
-- Tüm public URL'ler `lib/cloudinary.ts` içindeki `getOptimizedUrl()` ile işlenir
-- URL formatı: `w_800,q_auto,f_auto` — her zaman optimize et
+- Upload Widget her zaman `unsigned` preset kullanır — backend geçişi yok.
+- İmza gereken işlemler (silme, rename) `app/api/cloudinary/signature/route.ts` üzerinden.
+- Tüm public URL'ler `lib/cloudinary.ts` içindeki `getOptimizedUrl()` ile işlenir.
+- URL formatı: `w_800,q_auto,f_auto` — her zaman optimize et.
 
-### Admin Panel Kuralları
+### Admin Panel & İçerik Yönetimi Kuralları
 
-- `/admin` rotası `middleware.ts` ile korunur — şifresiz erişim `/admin/giris`'e yönlenir
-- Şifre `ADMIN_PASSWORD` env değişkeninden gelir — asla kod içine yazma
-- Admin sayfaları server component değil — client component olabilir (form state gerekiyor)
-- Admin görseli marka renklerinde sade olsun — karmaşık dashboard değil
+- `/admin` rotası `middleware.ts` ile korunur — şifresiz erişim `/admin/giris`'e yönlenir.
+- Şifre `ADMIN_PASSWORD` env değişkeninden gelir — asla kod içine yazma.
+- Admin sayfaları client component olabilir (form state ve drag-and-drop gereksinimleri nedeniyle).
+- Dinamik ana sayfa içerikleri `site_settings` tablosundan çekilmeli, statik sayfa derlemesi sırasında veya server component'te okunarak bileşenlere prop olarak aktarılmalıdır.
+- Müşteri yorumları `testimonials` tablosundan yönetilmeli ve ana sayfada dinamik slider/grid şeklinde listelenmelidir.
+- Koleksiyon banner görselleri kategori düzenleme sayfasından Cloudinary Upload ile yüklenip `categories.banner_image` alanına kaydedilmelidir.
 
 ### Kod Kalitesi
 
-- Her component tek sorumluluğa sahip olmalı
-- TypeScript tip tanımları eksiksiz olmalı
-- Her dosya maksimum 150 satır — büyüyorsa böl
-- Yorum satırları Türkçe yaz
-- `console.log` bırakma — production kodu yaz
+- Her component tek sorumluluğa sahip olmalı.
+- TypeScript tip tanımları eksiksiz olmalı.
+- Her dosya maksimum 150 satır — büyüyorsa böl.
+- Yorum satırları Türkçe yazılmalıdır.
+- `console.log` bırakma — production kodu yaz.
 
 ### Klasör Yapısı
 

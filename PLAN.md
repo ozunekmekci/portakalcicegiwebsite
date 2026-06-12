@@ -1,5 +1,5 @@
 # PLAN.md — 1 Aylık Geliştirme Yol Haritası
-> Bu dosya değişmez. Tamamlanan görevler PROGRESS.md'ye işlenir.
+> **ÖNEMLİ:** Bu planın devamı ve güncel versiyonu [PLAN_V2.md](file:///home/abc/Masa%C3%BCst%C3%BC/PortakalCicegiWebsite/PLAN_V2.md) dosyasındadır. Yeni geliştirme aşamaları (Sprint 6-10) oradan takip edilmelidir.
 
 ---
 

@@ -3,7 +3,7 @@ import { Product } from "./db-queries-types";
 import { ensureTables } from "./db-init";
 
 export async function createProduct(
-  product: Omit<Product, "id" | "created_at" | "updated_at">
+  product: Omit<Product, "id" | "created_at" | "updated_at" | "view_count">
 ): Promise<number> {
   if (process.env.NODE_ENV === "production") {
     await ensureTables();
@@ -50,7 +50,7 @@ export async function createProduct(
 
 export async function updateProduct(
   id: number,
-  product: Partial<Omit<Product, "id" | "created_at" | "updated_at">>
+  product: Partial<Omit<Product, "id" | "created_at" | "updated_at" | "view_count">>
 ): Promise<boolean> {
   if (process.env.NODE_ENV === "production") {
     await ensureTables();
@@ -118,3 +118,38 @@ export async function deleteProduct(id: number): Promise<boolean> {
   const result = stmt.run(id);
   return result.changes > 0;
 }
+
+export async function incrementProductViewCount(slug: string): Promise<boolean> {
+  if (process.env.NODE_ENV === "production") {
+    await ensureTables();
+    const { sql } = await import("@vercel/postgres");
+    const result = await sql`
+      UPDATE products
+      SET view_count = view_count + 1
+      WHERE slug = ${slug}
+    `;
+    return (result.rowCount ?? 0) > 0;
+  }
+
+  const stmt = db.prepare("UPDATE products SET view_count = view_count + 1 WHERE slug = ?");
+  const result = stmt.run(slug);
+  return result.changes > 0;
+}
+
+export async function updateProductOrder(id: number, order: number): Promise<boolean> {
+  if (process.env.NODE_ENV === "production") {
+    await ensureTables();
+    const { sql } = await import("@vercel/postgres");
+    const result = await sql`
+      UPDATE products
+      SET display_order = ${order}
+      WHERE id = ${id}
+    `;
+    return (result.rowCount ?? 0) > 0;
+  }
+
+  const stmt = db.prepare("UPDATE products SET display_order = ? WHERE id = ?");
+  const result = stmt.run(order, id);
+  return result.changes > 0;
+}
+

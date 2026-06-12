@@ -50,23 +50,24 @@ export async function createCategory(
     await ensureTables();
     const { sql } = await import("@vercel/postgres");
     const result = await sql`
-      INSERT INTO categories (name, slug, emoji, description, display_order)
-      VALUES (${category.name}, ${category.slug}, ${category.emoji}, ${category.description}, ${category.display_order})
+      INSERT INTO categories (name, slug, emoji, description, display_order, banner_image)
+      VALUES (${category.name}, ${category.slug}, ${category.emoji}, ${category.description}, ${category.display_order}, ${category.banner_image})
       RETURNING id
     `;
     return result.rows[0].id as number;
   }
 
   const stmt = db.prepare(`
-    INSERT INTO categories (name, slug, emoji, description, display_order)
-    VALUES (?, ?, ?, ?, ?)
+    INSERT INTO categories (name, slug, emoji, description, display_order, banner_image)
+    VALUES (?, ?, ?, ?, ?, ?)
   `);
   const result = stmt.run(
     category.name,
     category.slug,
     category.emoji,
     category.description,
-    category.display_order
+    category.display_order,
+    category.banner_image
   );
   return result.lastInsertRowid as number;
 }
