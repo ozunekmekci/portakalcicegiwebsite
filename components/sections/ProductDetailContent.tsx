@@ -153,7 +153,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
       <div className="mb-6 flex justify-start z-10 relative">
         <Link 
           href={`/koleksiyonlar/${product.koleksiyonSlug}`} 
-          className="inline-flex items-center text-neutral-500 hover:text-[#ff914b] transition-colors"
+          className="inline-flex items-center text-neutral-500 hover:text-[#D95A2B] transition-colors"
           aria-label="Koleksiyona Geri Dön"
         >
           <ArrowLeft size={24} strokeWidth={1.5} className="text-neutral-700" />
@@ -176,7 +176,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                     key={i}
                     onClick={() => setActiveImageIndex(i)}
                     className={`relative w-[70px] h-[70px] md:w-[91px] md:h-[91px] rounded-[10px] overflow-hidden border-2 cursor-pointer flex-shrink-0 transition-all ${
-                      isActive ? "border-[#ff914b] scale-[1.02]" : "border-neutral-200 hover:border-[#ff914b]/40"
+                      isActive ? "border-[#D95A2B] scale-[1.02]" : "border-neutral-200 hover:border-[#D95A2B]/40"
                     }`}
                   >
                     <Image
@@ -217,7 +217,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                 <button
                   onClick={handlePrevImage}
                   aria-label="Önceki resim"
-                  className="hover:text-[#ff914b] transition-colors cursor-pointer"
+                  className="hover:text-[#D95A2B] transition-colors cursor-pointer"
                 >
                   <ChevronLeft size={18} strokeWidth={2} />
                 </button>
@@ -227,7 +227,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                 <button
                   onClick={handleNextImage}
                   aria-label="Sonraki resim"
-                  className="hover:text-[#ff914b] transition-colors cursor-pointer"
+                  className="hover:text-[#D95A2B] transition-colors cursor-pointer"
                 >
                   <ChevronRight size={18} strokeWidth={2} />
                 </button>
@@ -291,7 +291,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                   <button
                     onClick={() => handleQtyChange(qty - 10)}
                     disabled={qty <= 100}
-                    className="text-neutral-500 hover:text-[#ff914b] disabled:opacity-30 disabled:hover:text-neutral-500 cursor-pointer font-bold select-none text-xl"
+                    className="text-neutral-500 hover:text-[#D95A2B] disabled:opacity-30 disabled:hover:text-neutral-500 cursor-pointer font-bold select-none text-xl"
                   >
                     -
                   </button>
@@ -300,7 +300,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                   </span>
                   <button
                     onClick={() => handleQtyChange(qty + 10)}
-                    className="text-neutral-500 hover:text-[#ff914b] cursor-pointer font-bold select-none text-xl"
+                    className="text-neutral-500 hover:text-[#D95A2B] cursor-pointer font-bold select-none text-xl"
                   >
                     +
                   </button>
@@ -311,9 +311,9 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                   href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 w-full h-[65px] text-[15px] tracking-wider uppercase bg-[#ff914b] text-white rounded-[10px] shadow-sm hover:bg-[#e07f3e] transition-colors flex items-center justify-center gap-2 cursor-pointer font-sans text-center font-bold"
+                  className="flex-1 w-full h-[65px] text-[15px] tracking-wider uppercase bg-[#D95A2B] text-white rounded-[10px] shadow-sm hover:bg-[#B8471D] transition-colors flex items-center justify-center gap-2 cursor-pointer font-sans text-center font-bold"
                 >
-                  <MessageCircle size={20} className="fill-white text-[#ff914b]" />
+                  <MessageCircle size={20} className="fill-white text-[#D95A2B]" />
                   <span>WhatsApp ile Sipariş Ver ➔</span>
                 </a>
 
@@ -326,9 +326,9 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
           <div className="pt-6 border-t border-neutral-200/40 flex items-center justify-between">
             <span className="text-xs text-neutral-400 font-sans tracking-wide">Ürünü Sosyal Medyada Paylaş:</span>
             <div className="flex items-center gap-4 text-neutral-400">
-              <a href="#" className="hover:text-[#ff914b] transition-colors" aria-label="Facebook'ta Paylaş"><Facebook size={18} /></a>
-              <a href="#" className="hover:text-[#ff914b] transition-colors" aria-label="Twitter'da Paylaş"><Twitter size={18} /></a>
-              <a href="#" className="hover:text-[#ff914b] transition-colors" aria-label="Instagram'da Paylaş"><Instagram size={18} /></a>
+              <a href="#" className="hover:text-[#D95A2B] transition-colors" aria-label="Facebook'ta Paylaş"><Facebook size={18} /></a>
+              <a href="#" className="hover:text-[#D95A2B] transition-colors" aria-label="Twitter'da Paylaş"><Twitter size={18} /></a>
+              <a href="#" className="hover:text-[#D95A2B] transition-colors" aria-label="Instagram'da Paylaş"><Instagram size={18} /></a>
             </div>
           </div>
 
@@ -462,7 +462,7 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
                     key={i}
                     onClick={() => setActiveImageIndex(i)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      activeImageIndex === i ? "bg-[#ff914b] w-6" : "bg-white/40 hover:bg-white/70"
+                      activeImageIndex === i ? "bg-[#D95A2B] w-6" : "bg-white/40 hover:bg-white/70"
                     }`}
                     aria-label={`Görsel ${i + 1}`}
                   />

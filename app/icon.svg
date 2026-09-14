@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="petalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FDFBF7" />
+    </linearGradient>
+    <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9E44" />
+      <stop offset="100%" stop-color="#D95A2B" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6E7E69" />
+      <stop offset="100%" stop-color="#5A6855" />
+    </linearGradient>
+  </defs>
+
+  <!-- Arka Plan Yuvarlağı -->
+  <circle cx="32" cy="32" r="30" fill="#F5EFEB" stroke="#EDE6DF" stroke-width="2" />
+
+  <!-- Narenciye Yaprağı -->
+  <path d="M42 16 C48 18 52 24 50 32 C42 32 36 26 42 16 Z" fill="url(#leafGrad)" />
+
+  <!-- 5 Taç Yaprak (Portakal Çiçeği) -->
+  <!-- Üst -->
+  <ellipse cx="32" cy="20" rx="7" ry="11" fill="url(#petalGrad)" stroke="#EDE6DF" stroke-width="1" />
+  <!-- Sağ Üst -->
+  <ellipse cx="43" cy="28" rx="7" ry="11" transform="rotate(72 43 28)" fill="url(#petalGrad)" stroke="#EDE6DF" stroke-width="1" />
+  <!-- Sağ Alt -->
+  <ellipse cx="39" cy="42" rx="7" ry="11" transform="rotate(144 39 42)" fill="url(#petalGrad)" stroke="#EDE6DF" stroke-width="1" />
+  <!-- Sol Alt -->
+  <ellipse cx="25" cy="42" rx="7" ry="11" transform="rotate(216 25 42)" fill="url(#petalGrad)" stroke="#EDE6DF" stroke-width="1" />
+  <!-- Sol Üst -->
+  <ellipse cx="21" cy="28" rx="7" ry="11" transform="rotate(288 21 28)" fill="url(#petalGrad)" stroke="#EDE6DF" stroke-width="1" />
+
+  <!-- Çiçek Göbeği (Narenciye Özü) -->
+  <circle cx="32" cy="32" r="7" fill="url(#centerGrad)" />
+  <circle cx="32" cy="32" r="4.5" fill="#E8B038" />
+  
+  <!-- Minik tohum noktaları -->
+  <circle cx="32" cy="30" r="0.9" fill="#FFFFFF" />
+  <circle cx="34" cy="32" r="0.9" fill="#FFFFFF" />
+  <circle cx="32" cy="34" r="0.9" fill="#FFFFFF" />
+  <circle cx="30" cy="32" r="0.9" fill="#FFFFFF" />
+</svg>

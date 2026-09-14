@@ -1,9 +1,11 @@
-import { getProductBySlug, getProducts, incrementProductViewCount } from "@/lib/db-queries"
-import { fallbackProducts } from "@/content/products"
-import ProductCard from "@/components/ui/ProductCard"
-import ProductDetailContent from "@/components/sections/ProductDetailContent"
-import { notFound } from "next/navigation"
-import { Product } from "@/lib/types"
+import { Metadata } from "next";
+import { getProductBySlug, getProducts, incrementProductViewCount } from "@/lib/db-queries";
+import { fallbackProducts } from "@/content/products";
+import ProductCard from "@/components/ui/ProductCard";
+import ProductDetailContent from "@/components/sections/ProductDetailContent";
+import JsonLd from "@/components/seo/JsonLd";
+import { notFound } from "next/navigation";
+import { Product } from "@/lib/types";
 
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
@@ -11,9 +13,9 @@ export const fetchCache = "force-no-store";
 
 type Props = {
   params: {
-    slug: string
-  }
-}
+    slug: string;
+  };
+};
 
 function mapProduct(p: any): Product {
   return {
@@ -31,92 +33,126 @@ function mapProduct(p: any): Product {
     aktif: p.is_active === 1,
     paketIcerigi: p.package_content || "",
     ozellikler: p.features || "",
-  }
+  };
 }
 
-export async function generateMetadata({ params }: Props) {
-  const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
-  let product: Product | null = null
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const normalize = (s: string) => s.toLowerCase().replace(/-/g, "");
+  let product: Product | null = null;
+  const baseUrl = "https://portakalcicegiwebsite.vercel.app";
 
   try {
-    const dbProd = await getProductBySlug(params.slug)
+    const dbProd = await getProductBySlug(params.slug);
     if (dbProd) {
-      product = mapProduct(dbProd)
+      product = mapProduct(dbProd);
     }
-  } catch (error) {
+  } catch {
     // ignore
   }
 
   if (!product) {
-    product = fallbackProducts.find(p => normalize(p.slug) === normalize(params.slug)) ?? null
+    product = fallbackProducts.find((p) => normalize(p.slug) === normalize(params.slug)) ?? null;
   }
 
-  if (!product) return { title: "Ürün Bulunamadı" }
+  if (!product) return { title: "Ürün Bulunamadı | Portakal Çiçeği Atölye" };
+
+  const desc = product.kisaAciklama || `${product.isim} — Doğum, baby shower, düğün ve nişan kutlamaları için özel tasarım 3D akrilik hatıralık. 100+ adet siparişlerde özel fiyat.`;
 
   return {
     title: `${product.isim} | Portakal Çiçeği Atölye`,
-    description: product.kisaAciklama,
-  }
+    description: desc,
+    alternates: {
+      canonical: `${baseUrl}/urunler/${product.slug}`,
+    },
+    openGraph: {
+      title: `${product.isim} | Portakal Çiçeği Atölye`,
+      description: desc,
+      url: `${baseUrl}/urunler/${product.slug}`,
+      type: "website",
+      images: product.anaGorsel ? [{ url: product.anaGorsel, alt: product.isim }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.isim} | Portakal Çiçeği Atölye`,
+      description: desc,
+      images: product.anaGorsel ? [product.anaGorsel] : [],
+    },
+  };
 }
 
 export async function generateStaticParams() {
   try {
-    const products = await getProducts()
-    return products.map(p => ({ slug: p.slug }))
+    const products = await getProducts();
+    return products.map((p) => ({ slug: p.slug }));
   } catch {
-    return fallbackProducts.map(p => ({ slug: p.slug }))
+    return fallbackProducts.map((p) => ({ slug: p.slug }));
   }
 }
 
 export default async function UrunDetayPage({ params }: Props) {
-  const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
-  let product: Product | null = null
-  let ilgiliUrunler: Product[] = []
+  const normalize = (s: string) => s.toLowerCase().replace(/-/g, "");
+  let product: Product | null = null;
+  let ilgiliUrunler: Product[] = [];
 
   try {
-    const dbProd = await getProductBySlug(params.slug)
+    const dbProd = await getProductBySlug(params.slug);
     if (dbProd) {
-      product = mapProduct(dbProd)
-      // Sayfa her yüklendiğinde görüntüleme sayısını artır
-      incrementProductViewCount(params.slug).catch(err => {
+      product = mapProduct(dbProd);
+      incrementProductViewCount(params.slug).catch((err) => {
         console.error("View count increment error:", err);
       });
     }
-    const dbProducts = await getProducts()
-    ilgiliUrunler = dbProducts.map(mapProduct)
-  } catch (error) {
+    const dbProducts = await getProducts();
+    ilgiliUrunler = dbProducts.map(mapProduct);
+  } catch {
     // ignore
   }
 
   if (!product) {
-    product = fallbackProducts.find(p => normalize(p.slug) === normalize(params.slug)) ?? null
+    product = fallbackProducts.find((p) => normalize(p.slug) === normalize(params.slug)) ?? null;
     if (ilgiliUrunler.length === 0) {
-      ilgiliUrunler = fallbackProducts
+      ilgiliUrunler = fallbackProducts;
     }
   }
 
   if (!product) {
-    notFound()
+    notFound();
   }
 
-  // Aynı koleksiyondaki diğer aktif ürünler (maksimum 4 adet, mevcut ürün hariç)
   const otherProducts = ilgiliUrunler
-    .filter(p => normalize(p.koleksiyonSlug) === normalize(product!.koleksiyonSlug) && p.id !== product!.id)
-    .slice(0, 4)
+    .filter((p) => normalize(p.koleksiyonSlug) === normalize(product!.koleksiyonSlug) && p.id !== product!.id)
+    .slice(0, 4);
 
   return (
-    <main className="bg-[#fbf7f0] min-h-screen flex flex-col justify-between">
-      {/* Cozy Split-Screen Product Panel */}
+    <div className="bg-[#FDFBF7] min-h-screen flex flex-col justify-between">
+      <JsonLd
+        type="product"
+        productData={{
+          name: product.isim,
+          description: product.kisaAciklama || product.detayAciklama,
+          image: product.anaGorsel || "/images/gallery-5.webp",
+          price: product.fiyatAraligi || "50",
+          slug: product.slug,
+        }}
+      />
+
+      {/* Product Detail Main Content */}
       <ProductDetailContent product={product} ilgiliUrunler={ilgiliUrunler} />
 
-      {/* Related Products Slider Section */}
+      {/* Related Products Section (Warm Background) */}
       {otherProducts.length > 0 && (
-        <section className="bg-[#dcdcd9] py-16 px-6 border-t border-neutral-300/40">
-          <div className="max-w-[1400px] mx-auto">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-brand-text-dark mb-8 text-center lg:text-left">
-              Bu Koleksiyonun Diğer Ürünleri
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+        <section className="bg-[#F5EFEB] py-16 px-4 sm:px-6 lg:px-8 border-t border-[#EDE6DF]">
+          <div className="max-w-7xl mx-auto space-y-8">
+            <div className="space-y-2 text-left">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1E1C1A] tracking-tight">
+                Bu Koleksiyondan İlginizi Çekebilecek Diğer Tasarımlar
+              </h2>
+              <p className="font-sans text-sm text-[#696159]">
+                Aynı zevk ve zarafetle hazırlanan tamamlayıcı hatıra modelleri.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {otherProducts.map((p, idx) => (
                 <ProductCard key={p.id} product={p} index={idx} />
               ))}
@@ -124,6 +160,6 @@ export default async function UrunDetayPage({ params }: Props) {
           </div>
         </section>
       )}
-    </main>
-  )
+    </div>
+  );
 }

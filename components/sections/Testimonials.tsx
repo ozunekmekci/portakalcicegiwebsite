@@ -20,7 +20,7 @@ export default function Testimonials({ testimonials = [], settings = {} }: Testi
           text: "Düğün hatıralarımız için pleksi magnet siparişi verdik. Tasarımın inceliği, detaylardaki Akdeniz esintisi ve 3D akrilik işçilik gerçekten olağanüstüydü. Misafirlerimizden aldığımız geri dönüşler harikaydı; hediyelikler kelimenin tam anlamıyla saklanmalık birer sanat eseri oldu.",
         };
 
-  const sideImage = settings.testimonial_image || "/images/testimonial_side.png";
+  const sideImage = settings.testimonial_image || "/images/testimonial_side.webp";
 
   return (
     <section id="referanslar" aria-label="Müşteri Hatıraları" className="bg-[#F5EFEB] py-24 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF] overflow-hidden">

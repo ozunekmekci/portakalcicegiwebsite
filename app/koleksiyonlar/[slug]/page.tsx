@@ -1,9 +1,12 @@
-import Link from "next/link"
-import { getProducts, getCategoryBySlug } from "@/lib/db-queries"
-import { fallbackProducts } from "@/content/products"
-import ProductCard from "@/components/ui/ProductCard"
-import { Product } from "@/lib/types"
-import Breadcrumb from "@/components/ui/Breadcrumb"
+import { Metadata } from "next";
+import Link from "next/link";
+import { getProducts, getCategoryBySlug } from "@/lib/db-queries";
+import { fallbackProducts } from "@/content/products";
+import ProductCard from "@/components/ui/ProductCard";
+import { Product } from "@/lib/types";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import JsonLd from "@/components/seo/JsonLd";
+import { MessageCircle } from "lucide-react";
 
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
@@ -11,33 +14,43 @@ export const fetchCache = "force-no-store";
 
 type Props = {
   params: {
-    slug: string
-  }
-}
+    slug: string;
+  };
+};
 
-// Slug → koleksiyon isim eşleşmesi
 const slugToIsim: Record<string, string> = {
-  "babyshower": "Babyshower",
-  "baby-shower": "Babyshower",
-  "dogum-gunu": "Doğum Günü",
+  babyshower: "Baby Shower & Doğum",
+  "baby-shower": "Baby Shower & Doğum",
+  "dogum-gunu": "İlk Yaş & Doğum Günü",
   "dis-bugdayi": "Diş Buğdayı",
   "dugun-nisan": "Düğün & Nişan",
-}
+};
 
-export async function generateMetadata({ params }: Props) {
-  const isim = slugToIsim[params.slug] ?? params.slug
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const isim = slugToIsim[params.slug] ?? params.slug;
+  const baseUrl = "https://portakalcicegiwebsite.vercel.app";
+
   return {
     title: `${isim} Koleksiyonu | Portakal Çiçeği Atölye`,
-    description: `${isim} için özel tasarım 3D akrilik hediyelikler. 100+ adet toplu siparişlerde özel fiyat.`,
-  }
+    description: `${isim} için el yapımı özel tasarım 3D akrilik ve pleksi hatıralıklar. 100+ adet toplu siparişlerde atölye indirimi.`,
+    alternates: {
+      canonical: `${baseUrl}/koleksiyonlar/${params.slug}`,
+    },
+    openGraph: {
+      title: `${isim} Koleksiyonu | Portakal Çiçeği Atölye`,
+      description: `${isim} kutlamalarına özel tasarım 3D pleksi hatıralar.`,
+      url: `${baseUrl}/koleksiyonlar/${params.slug}`,
+      type: "website",
+    },
+  };
 }
 
 export function generateStaticParams() {
-  return Object.keys(slugToIsim).map(slug => ({ slug }))
+  return Object.keys(slugToIsim).map((slug) => ({ slug }));
 }
 
 export default async function KoleksiyonPage({ params }: Props) {
-  let filtered: Product[] = []
+  let filtered: Product[] = [];
   let categoryObj = null;
 
   let searchSlug = params.slug;
@@ -47,7 +60,7 @@ export default async function KoleksiyonPage({ params }: Props) {
 
   try {
     categoryObj = await getCategoryBySlug(searchSlug);
-    const dbProducts = await getProducts({ categorySlug: searchSlug, onlyActive: true })
+    const dbProducts = await getProducts({ categorySlug: searchSlug, onlyActive: true });
     filtered = dbProducts.map((p) => ({
       id: String(p.id),
       slug: p.slug,
@@ -61,88 +74,100 @@ export default async function KoleksiyonPage({ params }: Props) {
       detayAciklama: p.description || "",
       minimumAdet: p.min_order || 100,
       aktif: p.is_active === 1,
-    }))
+    }));
 
     if (filtered.length === 0) {
-      const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
-      filtered = fallbackProducts.filter(p => normalize(p.koleksiyonSlug) === normalize(params.slug))
+      const normalize = (s: string) => s.toLowerCase().replace(/-/g, "");
+      filtered = fallbackProducts.filter((p) => normalize(p.koleksiyonSlug) === normalize(params.slug));
     }
-  } catch (error) {
-    console.error("Error fetching products from SQLite:", error)
-    const normalize = (s: string) => s.toLowerCase().replace(/-/g, "")
-    filtered = fallbackProducts.filter(p => normalize(p.koleksiyonSlug) === normalize(params.slug))
+  } catch {
+    const normalize = (s: string) => s.toLowerCase().replace(/-/g, "");
+    filtered = fallbackProducts.filter((p) => normalize(p.koleksiyonSlug) === normalize(params.slug));
   }
 
   const isim = categoryObj?.name || slugToIsim[params.slug] || params.slug;
-  const description = categoryObj?.description || `Özel günleriniz için tasarlanan ${isim.toLowerCase()} koleksiyonu.`;
+  const description = categoryObj?.description || `Özel günleriniz için atölyemizde özenle tasarlanan ${isim.toLowerCase()} modelleri.`;
   const bannerImage = categoryObj?.banner_image;
 
-  const waText = encodeURIComponent(`Merhaba! ${isim} koleksiyonu için özel sipariş vermek istiyorum.`)
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX"
-  const waNumber = rawNumber.replace(/\D/g, "")
-  const waHref = `https://wa.me/${waNumber}?text=${waText}`
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
+  const waNumber = rawNumber.replace(/\D/g, "");
+  const waText = encodeURIComponent(`Merhaba! ${isim} koleksiyonu modelleriniz için özel fiyat ve sipariş bilgisi almak istiyorum.`);
+  const waHref = `https://wa.me/${waNumber}?text=${waText}`;
 
   return (
-    <main className="bg-[#fbf7f0] min-h-screen">
+    <div className="bg-[#FDFBF7] min-h-screen">
+      <JsonLd
+        type="collection"
+        collectionData={{
+          name: isim,
+          description,
+          slug: params.slug,
+        }}
+      />
+
       {/* Upper Banner */}
       <section 
-        className="relative py-20 px-6 bg-cover bg-center overflow-hidden bg-[#dcdcd9]"
-        style={bannerImage ? { backgroundImage: `url(${bannerImage})` } : {}}
+        className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#F5EFEB] border-b border-[#EDE6DF] overflow-hidden"
+        style={bannerImage ? { backgroundImage: `url(${bannerImage})`, backgroundSize: "cover", backgroundPosition: "center" } : {}}
       >
-        {/* Soft elegant overlay to ensure high contrast/readability */}
         {bannerImage && (
-          <div className="absolute inset-0 bg-[#fbf7f0]/85 backdrop-blur-[1px] z-0" />
+          <div className="absolute inset-0 bg-[#FDFBF7]/90 backdrop-blur-[1px] z-0" />
         )}
         
-        <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Breadcrumb */}
-          <div className="mb-4">
-            <Breadcrumb
-              items={[
-                { label: "Ana Sayfa", href: "/" },
-                { label: isim },
-              ]}
-            />
+        <div className="relative z-10 max-w-7xl mx-auto space-y-4">
+          <Breadcrumb
+            items={[
+              { label: "Ana Sayfa", href: "/" },
+              { label: "Koleksiyonlar", href: "/#koleksiyonlar" },
+              { label: isim },
+            ]}
+          />
+
+          <div className="max-w-2xl space-y-2 text-left">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1C1A] tracking-tight">
+              {isim} Koleksiyonu
+            </h1>
+            <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
+              {description}
+            </p>
           </div>
 
-          {/* Title and details */}
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-brand-text-dark leading-tight">
-            {isim} Koleksiyonu
-          </h1>
-          <p className="text-sm md:text-base text-brand-text-mid mt-3 font-sans max-w-2xl">
-            {description}
-          </p>
-
-          <span className="inline-block mt-4 text-xs font-semibold bg-white/60 text-brand-text-dark px-3 py-1 rounded-full border border-black/5">
-            {filtered.length} ürün
-          </span>
+          <div className="flex items-center gap-3 pt-1">
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1E1C1A] bg-white px-3 py-1 rounded-full border border-[#EDE6DF] shadow-soft-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D95A2B]" />
+              <span>{filtered.length} Tasarım Modeli</span>
+            </span>
+            <span className="text-xs text-[#696159]">✦ 100+ Adet Özel Üretim</span>
+          </div>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="py-12 px-6 max-w-7xl mx-auto">
+      <section aria-label="Koleksiyon Ürünleri" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className="sr-only">{isim} Koleksiyonu Modelleri</h2>
         {filtered.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {filtered.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 px-4">
-            <p className="text-brand-text-mid text-lg mb-6 font-sans">
-              Bu koleksiyona henüz ürün eklenmedi. Yakında!
+          <div className="text-center py-20 px-4 space-y-6">
+            <p className="text-[#696159] text-base font-sans">
+              Bu koleksiyon için yeni tasarımlar atölye masasında hazırlanıyor.
             </p>
             <a
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-[#25D366] text-white hover:bg-[#20ba59] transition-all duration-300 rounded-full px-8 py-3.5 text-base font-semibold shadow-md"
+              className="inline-flex items-center justify-center gap-2 bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] transition-all rounded-full px-8 py-3.5 text-sm font-semibold shadow-md"
             >
-              Özel sipariş için yazın
+              <MessageCircle size={16} />
+              <span>Özel Tasarım Talebi İletin</span>
             </a>
           </div>
         )}
       </section>
-    </main>
-  )
+    </div>
+  );
 }
