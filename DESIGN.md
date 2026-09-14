@@ -5,6 +5,7 @@
 - Sıcak kemik/keten dokular, doğal kireçtaşı ve terakota tonları.
 - Sanatsal gravür zarafeti, nefes alan ferah editoryal tipografi.
 - Katmanlı 3D pleksi/akrilik malzemenin ışık ve derinliğini ön plana çıkaran doğal ışık kurgusu.
+- Evde el yapımı, samimi ve güven veren bir zanaatkâr atölyesi hissi.
 
 ## 2. Renk Paleti (Tokens)
 ```css
@@ -34,3 +35,11 @@
 - ❌ Fotoğrafların üzerine zifiri karanlık perde (`bg-black/40`) ve neon ışıklı gölgeler (`shadow-[...rgba(255,145,75,...)]`) atılamaz.
 - ❌ Soğuk sanayi grisi (`#dcdcd9`) kullanılamaz; tüm nötrler sıcak krem/sepya ailesinden türetilir.
 - ✅ Tarayıcı yüzeyleri (`::selection`, `:focus-visible`, kaydırma çubuğu) sisteme özel stilize edilir.
+
+## 5. Dönüşüm ve Teklif Standartları (MarketingSkills & CRO)
+- **Net İkili Odak:** Sayfada hem **Kişiye Özel Pasta Süsleri (1 adet tekil)** hem de **Baby Shower & Özel Gün Magnetleri (25-100+ adet)** eşit zarafetle yer alır.
+- **Kutlama Kombini Teklifi:** Pasta süsü ile uyumlu konsept magnetlerin birlikte sunulduğu paketler görünür kılınır.
+- **Risk Giderme (Risk Reversal):**
+  - "Önce WhatsApp'tan dijital taslak onayı, sonra el işçiliği."
+  - "Kargoda hasara karşı %100 anında ücretsiz yeniden üretim."
+- **Eyleme Geçiren Butonlar (Concrete CTAs):** "Tıklayın" veya "Devam Et" gibi genel butonlar yerine "WhatsApp ile Tasarım Konuşalım", "Kombin Set Fiyatı Al", "Pasta Süsü Taslağı İste" gibi somut eylemler kullanılır.
