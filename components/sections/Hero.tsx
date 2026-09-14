@@ -17,10 +17,10 @@ export default function Hero({ settings = {} }: HeroProps) {
   const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
 
-  const titleText = settings.hero_title || "Hayatın en narin anları için, akrilikten ömürlük hatıralar.";
+  const titleText = settings.hero_title || "Evimizde, ellerimizle, kutlamanıza özel tasarlıyoruz.";
   const descriptionText =
     settings.hero_description ||
-    "Doğum, baby shower, düğün ve ilk yaş kutlamaları için Akdeniz zarafetiyle tek tek üretilen, 3D katmanlı pleksi hatıralar. 100+ adet toplu siparişlerde etkinliğinize özel kişiselleştirme.";
+    "Doğum, baby shower, ilk yaş ve nişan kutlamaları için 3D akrilik pasta süsleri ve kişiye özel magnet hatıralıkları. Önce WhatsApp'ta taslağınızı görün, içinize sinsin; sonra sevgiyle üretelim.";
   const heroImage = settings.hero_image || "/images/gallery-5.webp";
 
   return (
@@ -65,23 +65,23 @@ export default function Hero({ settings = {} }: HeroProps) {
               transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto"
             >
-              <button
-                onClick={handleScrollToCollections}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D95A2B] text-[#FDFBF7] rounded-full font-medium text-sm sm:text-base shadow-[0_6px_20px_rgba(217,90,43,0.22)] hover:bg-[#B8471D] hover:shadow-[0_8px_25px_rgba(217,90,43,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
-              >
-                <span>Koleksiyonları Keşfet</span>
-                <ArrowRight size={16} />
-              </button>
-
               <a
-                href={`https://wa.me/${waNumber}`}
+                href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba! Bebeğimin/etkinliğimin kutlaması için pasta süsü ve magnet tasarımlarınızı konuşmak, taslak hazırlatmak istiyorum.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#EDE6DF] bg-white/70 hover:bg-white text-[#1E1C1A] font-medium rounded-full hover:border-[#D95A2B]/40 hover:text-[#D95A2B] transition-all duration-300 text-sm sm:text-base shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D95A2B] text-[#FDFBF7] rounded-full font-medium text-sm sm:text-base shadow-[0_6px_20px_rgba(217,90,43,0.22)] hover:bg-[#B8471D] hover:shadow-[0_8px_25px_rgba(217,90,43,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <MessageCircle size={17} className="text-[#25D366]" />
-                <span>WhatsApp ile Fikir Al</span>
+                <MessageCircle size={18} />
+                <span>WhatsApp&apos;ta Taslak İste</span>
               </a>
+
+              <button
+                onClick={handleScrollToCollections}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#EDE6DF] bg-white/70 hover:bg-white text-[#1E1C1A] font-medium rounded-full hover:border-[#D95A2B]/40 hover:text-[#D95A2B] transition-all duration-300 text-sm sm:text-base shadow-sm cursor-pointer"
+              >
+                <span>Koleksiyonları İncele</span>
+                <ArrowRight size={16} />
+              </button>
             </motion.div>
 
             {/* Micro Pillars / Social Proof Footnote */}
@@ -93,15 +93,15 @@ export default function Hero({ settings = {} }: HeroProps) {
             >
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D95A2B]" />
-                <span>100+ Adet Toplu Sipariş</span>
+                <span>1 Adet Pasta Süsü / 25+ Magnet</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#5A6855]" />
-                <span>Çok Katmanlı 3D Akrilik</span>
+                <span>WhatsApp&apos;ta Birebir Taslak Onayı</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D49B35]" />
-                <span>Kişiye Özel İsim & Konsept</span>
+                <span>Kargoda %100 Hasar Garantisi</span>
               </div>
             </motion.div>
 
@@ -131,14 +131,14 @@ export default function Hero({ settings = {} }: HeroProps) {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-serif text-sm font-semibold text-[#1E1C1A]">
-                      Atölye Koleksiyonu
+                      Özgün El Yapımı • Kadıköy
                     </p>
                     <p className="font-sans text-xs text-[#696159] mt-0.5">
-                      3D Katmanlı Pleksi & Doğal Çiçek İşçiliği
+                      3D Pleksi Pasta Süsü &amp; Baby Shower Magneti
                     </p>
                   </div>
                   <span className="text-[11px] font-sans font-medium text-[#D95A2B] bg-[#D95A2B]/10 px-2.5 py-1 rounded-full">
-                    Özel Üretim
+                    Özel Tasarım
                   </span>
                 </div>
               </div>

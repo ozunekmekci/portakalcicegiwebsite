@@ -63,10 +63,10 @@ export default function Collections() {
         {/* Editorial Header (No eyebrow label) */}
         <div className="max-w-2xl text-left space-y-3">
           <h2 className="font-serif text-3xl sm:text-4xl text-[#1E1C1A] font-bold tracking-tight">
-            Özel Günleriniz İçin Akdeniz Dokunuşları
+            Kutlamanıza Özel Tasarımlar &amp; Hatıralıklar
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
-            Her biri atölyemizde özenle tasarlanan, kişiselleştirilebilir hatıra koleksiyonlarımız.
+            İster pastanız için 1 adet özel tasarım pasta süsü, ister davetlileriniz için 25+ adet hediyelik magnet. Ev atölyemizde özenle tek tek üretiyoruz.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export default function Collections() {
         {/* View All Collections Link */}
         <div className="pt-2 text-left">
           <Link
-            href="/koleksiyonlar/babyshower"
+            href="/koleksiyonlar/pasta-susleri"
             className="inline-flex items-center gap-2 text-sm font-sans font-medium text-[#D95A2B] hover:text-[#B8471D] transition-colors group"
           >
             <span>Tüm koleksiyonları ve ürün detaylarını inceleyin</span>

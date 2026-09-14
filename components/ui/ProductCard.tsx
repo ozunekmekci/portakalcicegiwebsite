@@ -12,7 +12,9 @@ type Props = {
 };
 
 const slugToIsim: Record<string, string> = {
+  "pasta-susleri": "Pasta Süsleri",
   babyshower: "Baby Shower & Doğum",
+  "kombin-setler": "Kombin Setler",
   "dogum-gunu": "İlk Yaş & Doğum Günü",
   "dis-bugdayi": "Diş Buğdayı",
   "dugun-nisan": "Düğün & Nişan",
@@ -71,7 +73,7 @@ export default function ProductCard({ product, index }: Props) {
               {product.fiyatAraligi || "Fiyat Sorun"}
             </span>
             <span className="text-[11px] font-sans text-[#5A6855] bg-[#5A6855]/10 px-2 py-0.5 rounded-full font-medium">
-              Min. {product.minimumAdet || 100} Adet
+              {product.minimumAdet === 1 ? "1 Adet Özel Üretim" : `Min. ${product.minimumAdet || 25} Adet`}
             </span>
           </div>
         </div>

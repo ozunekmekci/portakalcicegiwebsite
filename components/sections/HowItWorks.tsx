@@ -7,23 +7,23 @@ const steps = [
   {
     stepNumber: "01",
     icon: Sparkles,
-    title: "Model & Konsept Seçimi",
-    description: "Kataloğumuzdan veya Instagram seçkilerimizden etkinliğinizin ruhuna uyan pleksi formunu ve renk paletini seçin.",
-    detail: "100+ adetlik toplu siparişlerinizde özel adet indirimi uygulanır.",
+    title: "Hayalinizi & Modelinizi Seçin",
+    description: "Pasta süsü veya baby shower magnetleri için beğendiğiniz konsepti, bebeğinizin/çiftin ismini ve kutlama temanızı WhatsApp'tan iletin.",
+    detail: "Tekil pasta süsü veya 25+ adetlik hediyelikler için uygundur.",
   },
   {
     stepNumber: "02",
     icon: Layers,
-    title: "Kişiye Özel Tasarım & Onay",
-    description: "İsim, tarih, yazı tipi ve akrilik katman tercihlerini WhatsApp üzerinden doğrudan atölye tasarımcımızla netleştirin.",
-    detail: "Üretime geçilmeden önce dijital yerleşim onayı alınır.",
+    title: "WhatsApp'ta 1'e 1 Taslak Onayı",
+    description: "Yazı tipi, renk katmanları ve ölçüleri içeren dijital tasarım görselini WhatsApp'tan onayınıza sunalım. Siz 'tamam' demeden üretime geçmiyoruz.",
+    detail: "Tüm kişiselleştirme ve taslak revizeleri ücretsizdir.",
   },
   {
     stepNumber: "03",
     icon: PackageCheck,
-    title: "El İşçiliği & Özenli Teslimat",
-    description: "Her bir hatıralık atölyemizde tek tek incelenir, montajı yapılır ve özel korumalı kutularda adresinize ulaştırılır.",
-    detail: "Etkinlik tarihinize tam zamanında yetişecek şekilde kargolanır.",
+    title: "Ev Atölyemizde Üretim & Kargo",
+    description: "Onayınızın ardından her parçayı lazerle kesip tek tek elde monte ediyoruz. Kırılmaya karşı korumalı şık kutularda kapınıza gönderiyoruz.",
+    detail: "Kargoda olası en ufak hasarda ücretsiz anında telafi.",
   },
 ];
 

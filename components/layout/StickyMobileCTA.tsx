@@ -23,13 +23,13 @@ export default function StickyMobileCTA() {
         </Link>
 
         <a
-          href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, hediyelik modelleriniz hakkında bilgi almak ve sipariş vermek istiyorum.")}`}
+          href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, pasta süsü ve magnet modelleriniz için ücretsiz taslak ve fiyat bilgisi almak istiyorum.")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-[1.5] inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] text-xs font-sans font-semibold shadow-[0_4px_12px_rgba(217,90,43,0.3)] transition-all"
         >
           <MessageCircle size={16} />
-          <span>WhatsApp Sipariş</span>
+          <span>WhatsApp&apos;ta Taslak İste</span>
         </a>
       </div>
     </div>

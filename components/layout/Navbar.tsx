@@ -20,10 +20,10 @@ const navLinks: NavLink[] = [
 ];
 
 const koleksiyonlar = [
-  { isim: "Baby Shower & Doğum", slug: "babyshower" },
-  { isim: "Düğün & Nişan", slug: "dugun-nisan" },
-  { isim: "İlk Yaş & Doğum Günü", slug: "dogum-gunu" },
-  { isim: "Diş Buğdayı & Mevlit", slug: "dis-bugdayi" },
+  { isim: "Kişiye Özel Pasta Süsleri", slug: "pasta-susleri" },
+  { isim: "Baby Shower & Doğum Magnetleri", slug: "babyshower" },
+  { isim: "Kutlama Kombin Setleri", slug: "kombin-setler" },
+  { isim: "Düğün & Nişan Hatıraları", slug: "dugun-nisan" },
 ];
 
 export default function Navbar() {
@@ -56,8 +56,8 @@ export default function Navbar() {
             <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#1E1C1A] group-hover:text-[#D95A2B] transition-colors">
               Portakal Çiçeği Atölye
             </span>
-            <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-[#696159]">
-              Akdeniz Hatıra Tasarımları
+            <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#696159]">
+              Ev Atölyesi • Pasta Süsü &amp; Magnet
             </span>
           </Link>
 
@@ -65,7 +65,7 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center space-x-7">
             {navLinks.map((link) => {
               if (link.label === "Koleksiyonlar") {
-                const koleksiyonlarHref = pathname === "/" ? "#koleksiyonlar" : "/koleksiyonlar/babyshower";
+                const koleksiyonlarHref = pathname === "/" ? "#koleksiyonlar" : "/koleksiyonlar/pasta-susleri";
                 return (
                   <div
                     key={link.label}
@@ -123,13 +123,13 @@ export default function Navbar() {
 
             {/* Direct Primary Action */}
             <a
-              href={`https://wa.me/${waNumber}`}
+              href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, pasta süsü ve baby shower magnet modelleriniz için tasarım taslağı hazırlatmak istiyorum.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] font-sans text-xs sm:text-sm font-medium px-5 py-2.5 rounded-full shadow-[0_4px_14px_rgba(217,90,43,0.22)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <MessageCircle size={15} />
-              <span>Özel Sipariş Oluştur</span>
+              <span>WhatsApp&apos;ta Taslak İste</span>
             </a>
           </nav>
 
@@ -202,14 +202,14 @@ export default function Navbar() {
               })}
               <div className="pt-3">
                 <a
-                  href={`https://wa.me/${waNumber}`}
+                  href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, pasta süsü ve baby shower magnet modelleriniz için tasarım taslağı hazırlatmak istiyorum.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-center gap-2 text-center bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] font-sans text-sm font-medium py-3 rounded-full shadow-md transition-colors"
                 >
                   <MessageCircle size={16} />
-                  Özel Sipariş Oluştur
+                  WhatsApp&apos;ta Taslak İste
                 </a>
               </div>
             </div>

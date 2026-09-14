@@ -17,12 +17,13 @@ export default function Contact({ settings = {} }: ContactProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    productType: "Pasta Süsü (1 Adet)",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -74,20 +75,20 @@ export default function Contact({ settings = {} }: ContactProps) {
                 Hayalinizdeki Kutlamayı Birlikte Tasarlayalım
               </h2>
               <p className="font-sans text-base sm:text-lg text-[#A89F95] leading-relaxed">
-                100 adetten fazla toplu siparişleriniz ve size özel tasarım talepleriniz için doğrudan atölye tasarımcımızla iletişime geçin.
+                Kişiye özel pasta süsü, baby shower magnetleri veya avantajlı kombin setleriniz için doğrudan ev atölyemizle iletişime geçin.
               </p>
             </div>
 
             {/* Quick Action Channels */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <a
-                href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, 100+ adetlik hatıra hediyelik siparişi için fiyat teklifi almak istiyorum.")}`}
+                href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba! Pasta süsü ve baby shower magnet tasarımlarınızı konuşmak, etkinliğimin detaylarını paylaşmak istiyorum.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] rounded-full px-7 py-3.5 text-sm sm:text-base font-semibold shadow-[0_4px_16px_rgba(217,90,43,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 <MessageCircle size={18} />
-                <span>WhatsApp ile Doğrudan Yaz</span>
+                <span>WhatsApp&apos;ta Tasarım Konuşalım</span>
               </a>
 
               <a
@@ -105,11 +106,11 @@ export default function Contact({ settings = {} }: ContactProps) {
             <div className="pt-6 border-t border-white/10 space-y-3.5 text-xs sm:text-sm text-[#D8D0C5]">
               <div className="flex items-start gap-3">
                 <MapPin size={17} className="text-[#D95A2B] flex-shrink-0 mt-0.5" />
-                <span><strong>Atölye Adresi:</strong> Caferağa Mah. Moda Cad. No:42/A, Kadıköy / İstanbul</span>
+                <span><strong>Atölye:</strong> Caferağa Mah. Moda Cad. No:42/A, Kadıköy / İstanbul</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-[#D95A2B] flex-shrink-0" />
-                <span><strong>Telefon / WhatsApp:</strong> +90 (555) 555 55 55</span>
+                <span><strong>WhatsApp Destek:</strong> +90 (555) 555 55 55</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={16} className="text-[#D95A2B] flex-shrink-0" />
@@ -125,10 +126,10 @@ export default function Contact({ settings = {} }: ContactProps) {
           {/* Right Column: Clean Inquiry Form */}
           <div className="lg:col-span-6 bg-white/[0.04] p-8 sm:p-10 rounded-3xl border border-white/10 shadow-soft-md text-left">
             <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#FDFBF7] mb-2">
-              Hızlı Teklif Formu
+              Hızlı Tasarım &amp; Teklif Formu
             </h3>
             <p className="font-sans text-xs sm:text-sm text-[#A89F95] mb-6">
-              Bilgilerinizi bırakın, etkinlik detaylarınıza özel fiyat teklifinizi gün içinde iletelim:
+              Etkinlik bilgilerinizi bırakın, dijital taslağınızı ve özel fiyat teklifinizi gün içinde WhatsApp&apos;tan iletelim:
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -165,14 +166,32 @@ export default function Contact({ settings = {} }: ContactProps) {
               </div>
 
               <div>
+                <label htmlFor="contact-type" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
+                  İlgilendiğiniz Tasarım Türü
+                </label>
+                <select
+                  id="contact-type"
+                  name="productType"
+                  value={formData.productType}
+                  onChange={handleChange}
+                  className="w-full bg-[#2C2926] border border-white/15 text-[#FDFBF7] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans"
+                >
+                  <option value="Pasta Süsü (1 Adet)">Kişiye Özel Pasta Süsü (1 Adet)</option>
+                  <option value="Baby Shower Magneti">Baby Shower &amp; Doğum Magneti (25+ Adet)</option>
+                  <option value="Kutlama Kombin Seti">Kutlama Kombin Seti (Pasta Süsü + Magnet)</option>
+                  <option value="Düğün & Nişan">Düğün &amp; Nişan Hatırası</option>
+                  <option value="Özel Tasarım">Farklı / Özel Konsept Fikir</option>
+                </select>
+              </div>
+
+              <div>
                 <label htmlFor="contact-message" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  Etkinlik Türü & Tahmini Adet / Notunuz
+                  Etkinlik Tarihi, İsim &amp; Konsept Notunuz
                 </label>
                 <textarea
                   id="contact-message"
                   name="message"
-                  placeholder="Örn. 150 adet baby shower pleksi magnet, Nisan teslim..."
-                  required
+                  placeholder="Örn. 1 Yaş için 'Can' isimli gold ayna pasta süsü ve 25 adet uyumlu bulut magnet..."
                   rows={3}
                   value={formData.message}
                   onChange={handleChange}

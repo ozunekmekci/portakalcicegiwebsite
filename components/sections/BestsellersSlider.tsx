@@ -14,57 +14,57 @@ interface BestsellersSliderProps {
 const mockBestsellers = [
   {
     id: 1,
-    name: "Akrilik Bulut Baby Shower Magnet",
-    slug: "akrilik-bulut-baby-shower-magnet",
-    category_name: "Baby Shower",
-    cover_image: "/images/gallery-1.webp",
-    price_range: "₺45 - ₺65",
-    min_order: 100,
+    name: "Aynalı Pleksi Özel İsimli Pasta Süsü",
+    slug: "aynali-pleksi-ozel-isimli-pasta-susu",
+    category_name: "Pasta Süsü",
+    cover_image: "/images/gallery-5.webp",
+    price_range: "₺180 - ₺240",
+    min_order: 1,
   },
   {
     id: 2,
-    name: "Kurutulmuş Çiçekli Nişan Hatırası",
-    slug: "kurutulmus-cicekli-nisan-davetiyesi",
-    category_name: "Düğün & Nişan",
+    name: "3D Katmanlı Akrilik Bulut Baby Shower Magneti",
+    slug: "3d-katmanli-akrilik-bulut-baby-shower-magneti",
+    category_name: "Baby Shower",
     cover_image: "/images/gallery-2.webp",
-    price_range: "₺75 - ₺95",
-    min_order: 100,
+    price_range: "₺45 - ₺65 / adet",
+    min_order: 25,
   },
   {
     id: 3,
-    name: "Kelebek Figürlü Doğum Günü Pleksisi",
-    slug: "kelebek-figurlu-dogum-gunu-pleksisi",
-    category_name: "Doğum Günü",
-    cover_image: "/images/gallery-3.webp",
-    price_range: "₺50 - ₺70",
-    min_order: 100,
+    name: "Safari Konsept Pasta Süsü & 30 Magnet Paketi",
+    slug: "safari-konsept-pasta-susu-ve-30-adet-magnet-paketi",
+    category_name: "Kombin Set",
+    cover_image: "/images/gallery-4.webp",
+    price_range: "₺1.450 - ₺1.850",
+    min_order: 1,
   },
   {
     id: 4,
-    name: "Deniz Yıldızı Pleksi Düğün Magneti",
-    slug: "deniz-yildizi-pleksi-dugun-magneti",
-    category_name: "Düğün & Nişan",
-    cover_image: "/images/gallery-4.webp",
-    price_range: "₺40 - ₺60",
-    min_order: 100,
+    name: "İlk Yaş 'One' Akrilik Pasta Süsü",
+    slug: "ilk-yas-one-akrilik-pasta-susu",
+    category_name: "Pasta Süsü",
+    cover_image: "/images/gallery-3.webp",
+    price_range: "₺190 - ₺260",
+    min_order: 1,
   },
   {
     id: 5,
-    name: "Bulut Figürlü Aynalı Pleksi Bebek Hatırası",
-    slug: "bulut-figurlu-bebek-anisi-aynali-pleksi",
+    name: "Ay Dede & Yıldız Aynalı Pleksi Bebek Hatırası",
+    slug: "ay-dede-yildiz-aynali-pleksi-bebek-hatirasi",
     category_name: "Baby Shower",
     cover_image: "/images/gallery-5.webp",
-    price_range: "₺48 - ₺68",
-    min_order: 100,
+    price_range: "₺48 - ₺68 / adet",
+    min_order: 25,
   },
   {
     id: 6,
-    name: "Zarif Çiçek Desenli Aynalı Söz Hatırası",
-    slug: "zarif-cicek-desenli-aynali-soz-hatirasi",
-    category_name: "Düğün & Nişan",
-    cover_image: "/images/gallery-6.webp",
-    price_range: "₺65 - ₺85",
-    min_order: 100,
+    name: "Zarif Çift İsimli Düğün & Nişan Pasta Süsü",
+    slug: "zarif-cift-isimli-dugun-nisan-pasta-susu",
+    category_name: "Pasta Süsü",
+    cover_image: "/images/gallery-1.webp",
+    price_range: "₺210 - ₺280",
+    min_order: 1,
   }
 ];
 
@@ -92,10 +92,10 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div className="space-y-2 max-w-xl text-left">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1C1A] tracking-tight">
-              Atölyeden Yeni Çıkanlar & Çok Sevilenler
+              Atölyeden Yeni Çıkanlar &amp; Çok Sevilenler
             </h2>
             <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
-              Özel gün kutlamaları için en çok tercih edilen çok katmanlı akrilik ve pleksi hatıra tasarımlarımız.
+              Kutlamanız için tekil özel pasta süsleri, uyumlu hatıra magnetleri ve avantajlı kutlama kombinlerimiz.
             </p>
           </div>
           
@@ -132,6 +132,7 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
 
             const categoryName = product.category_name || "Özel Koleksiyon";
             const price = product.price_range || "Fiyat Sorun";
+            const minOrder = product.min_order ?? 1;
 
             return (
               <div
@@ -173,8 +174,8 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
                       <span className="font-semibold text-[#1E1C1A] text-sm font-sans">
                         {price}
                       </span>
-                      <span className="text-[#696159] text-[11px]">
-                        100+ Adet Özel Üretim
+                      <span className="text-[#5A6855] bg-[#5A6855]/10 px-2 py-0.5 rounded-full text-[11px] font-medium">
+                        {minOrder === 1 ? "1 Adet Özel Üretim" : `Min. ${minOrder} Adet`}
                       </span>
                     </div>
                   </div>

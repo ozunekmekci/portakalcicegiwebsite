@@ -31,18 +31,18 @@ export default function AnnouncementBar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         <div className="flex-1 flex items-center justify-center text-center flex-wrap gap-x-3 gap-y-1">
-          <span className="font-semibold text-[#D95A2B]">✦ Özel Atölye Fırsatı:</span>
+          <span className="font-semibold text-[#D95A2B]">✦ Butik Ev Atölyesi:</span>
           <span className="text-[#E6DFD5]">
-            100+ adet toplu siparişlerde ücretsiz kargo & birebir tasarım danışmanlığı.
+            Pasta süsleri ve baby shower magnetlerinde üretime geçmeden önce WhatsApp&apos;ta 1&apos;e 1 taslak onayı &amp; kırılma garantisi.
           </span>
           <a
-            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, 100+ adetlik toplu sipariş fırsatı hakkında bilgi almak istiyorum.")}`}
+            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, pasta süsü ve magnet modelleriniz hakkında bilgi almak ve özel taslak hazırlatmak istiyorum.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 font-medium text-[#D95A2B] hover:text-[#FFA07A] underline underline-offset-2 transition-colors ml-1"
           >
             <MessageCircle size={12} />
-            <span>Hızlı Sipariş Hattı →</span>
+            <span>Taslak İste →</span>
           </a>
         </div>
 

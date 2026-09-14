@@ -8,16 +8,16 @@ interface AboutProps {
 }
 
 export default function About({ settings = {} }: AboutProps) {
-  const titleText = settings.about_title || "Detaylar önemlidir.\nBiz buna inanıyoruz.";
+  const titleText = settings.about_title || "Ev atölyemizde, sevgiyle.\nHer kutlama özel bir hatıradır.";
   const text1 =
     settings.about_text_1 ||
-    "Portakal Çiçeği Atölye olarak her hediyeliği, kutlamanın ertesi günü unutulmayacak ve bir ömür saklanmaya değer bir hatıraya dönüştürmek için tasarlıyoruz. Jenerik, seri üretim seçeneklerin aksine, her tasarımımız özgün illüstrasyonlar ve çok katmanlı 3D akrilik işçilikle hayat buluyor.";
+    "Portakal Çiçeği Atölye olarak bir fabrika değiliz; evimizdeki atölye masasında her tasarımı tek tek ellerimizle hayata geçiren butik bir üreticiyiz. İster pastanızın üzerinde parlayacak 1 adet özel isimli pasta süsü olsun, ister davetlilerinizin yıllarca buzdolaplarında saklayacağı 25+ adet baby shower magneti... Seri üretimin tekdüzeliğinden uzak, özgün çizimler ve çok katmanlı 3D akrilik işçilikle üretiyoruz.";
   const text2 =
     settings.about_text_2 ||
-    "Doğum, baby shower, düğün ve nişan gibi hayatın en özel anları için 100 adetten fazla siparişleri sanatsal kaliteden ödün vermeden, tek tek elde kontrol ederek teslim ediyoruz.";
+    "Instagram sayfamızda (@portakalcicegi.atolye) başlayan tasarım sohbetimiz, WhatsApp'ta birebir dijital taslağın onaylanmasıyla şekillenir. İçinize sinmeyen hiçbir detayı üretmiyoruz; kargoda en ufak bir kırılma olması durumunda da anında ücretsiz yenisini gönderiyoruz.";
   const quoteText =
     settings.about_quote ||
-    "Detaylar önemlidir. Hediyeliklerimiz kutlamanın ertesi günü unutulmaz — bir ömür saklanır.";
+    "Evimizde, ellerimizle, kutlamanızın en tatlı anılarına eşlik ediyoruz.";
   const imageSrc = settings.about_image || "/images/about.webp";
 
   return (

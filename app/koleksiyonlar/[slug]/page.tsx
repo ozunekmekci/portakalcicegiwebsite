@@ -19,8 +19,10 @@ type Props = {
 };
 
 const slugToIsim: Record<string, string> = {
+  "pasta-susleri": "Kişiye Özel Pasta Süsleri",
   babyshower: "Baby Shower & Doğum",
   "baby-shower": "Baby Shower & Doğum",
+  "kombin-setler": "Kutlama Kombin Setleri",
   "dogum-gunu": "İlk Yaş & Doğum Günü",
   "dis-bugdayi": "Diş Buğdayı",
   "dugun-nisan": "Düğün & Nişan",

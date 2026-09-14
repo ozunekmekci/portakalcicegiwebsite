@@ -124,27 +124,8 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
       ];
 
   return (
-    <div className="proxima-page px-8 md:px-24 py-12 max-w-[1512px] mx-auto bg-[#fbf7f0] border-b border-[#eaeaea] relative overflow-hidden">
-      <style dangerouslySetInnerHTML={{__html: `
-        @import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
-        .proxima-page, .proxima-page * {
-          font-family: 'Proxima Nova', 'Inter', sans-serif !important;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes scaleUp {
-          from { transform: scale(0.95); opacity: 0; }
-          to { transform: scale(1); opacity: 1; }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.2s ease-out forwards;
-        }
-        .animate-scaleUp {
-          animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-      `}} />
+    <div className="px-8 md:px-24 py-12 max-w-[1512px] mx-auto bg-[#fbf7f0] border-b border-[#eaeaea] relative overflow-hidden">
+
       
       {/* Asymmetric Ellipse Background decoration */}
       <div className="absolute w-[1503px] h-[1503px] left-[338px] top-[-529px] rounded-full bg-white -z-10 pointer-events-none hidden lg:block" />

@@ -28,7 +28,7 @@ export default function JsonLd({ type = "home", productData, collectionData }: J
     url: baseUrl,
     logo: `${baseUrl}/icon.svg`,
     image: `${baseUrl}/images/about.webp`,
-    description: "Doğum, baby shower, düğün ve nişan kutlamaları için özel tasarım 3D akrilik ve pleksi hatıra hediyelikleri atölyesi.",
+    description: "Kişiye özel pasta süsleri, baby shower magnetleri ve kutlama hediyelikleri tasarlayan butik ev atölyesi.",
     telephone: "+905555555555",
     email: "iletisim@portakalcicegiatolye.com",
     priceRange: "₺₺",
@@ -64,7 +64,7 @@ export default function JsonLd({ type = "home", productData, collectionData }: J
     "@id": `${baseUrl}/#website`,
     url: baseUrl,
     name: "Portakal Çiçeği Atölye",
-    description: "Akdeniz Esintili 3D Akrilik Hatıra Hediyelikleri",
+    description: "Kişiye Özel Pasta Süsleri & Baby Shower Magnetleri Butik Ev Atölyesi",
     publisher: {
       "@id": `${baseUrl}/#organization`,
     },

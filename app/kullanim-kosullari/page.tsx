@@ -36,7 +36,7 @@ export default function TermsOfServicePage() {
           <section className="space-y-3">
             <h2 className="font-serif text-xl font-bold text-[#1E1C1A]">1. Hizmet ve Sipariş Modeli</h2>
             <p className="text-[#696159]">
-              Portakal Çiçeği Atölye, müşterinin talebine özel olarak tasarlanan ve üretilen 3D katmanlı akrilik, aynalı pleksi ve kurutulmuş çiçek detaylı hatıra hediyelikleri üretmektedir. Siparişler genellikle 100 adet ve üzeri toplu organizasyonlar için hazırlanır.
+              Portakal Çiçeği Atölye, müşterinin talebine özel olarak tasarlanan ve üretilen 3D katmanlı akrilik, aynalı pleksi ve ahşap detaylı pasta süsleri ile baby shower, doğum ve nişan hatıra magnetleri üretmektedir. Kişiye özel pasta süsleri 1 adet tekil olarak üretilirken, hatıralık magnet siparişleri 25 adet ve üzeri veya avantajlı kombin setler halinde hazırlanır.
             </p>
           </section>
 
