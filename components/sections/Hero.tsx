@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { MessageCircle, ArrowRight, Sparkles } from "lucide-react";
 
 interface HeroProps {
   settings?: Record<string, string>;
@@ -15,68 +17,134 @@ export default function Hero({ settings = {} }: HeroProps) {
   const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
 
-  const titleText = settings.hero_title || "Özel günlerinize Akdeniz esintisi. Ömür boyu saklanan premium hatıralar.";
-  const descriptionText = settings.hero_description || "Doğum, baby shower, düğün ve nişanlarınız için atölyemizde özenle tasarlanan, çok katmanlı 3D akrilik ve pleksi hatıra hediyelikler.";
-  const heroImage = settings.hero_image || "/images/hero_bg.png";
+  const titleText = settings.hero_title || "Hayatın en narin anları için, akrilikten ömürlük hatıralar.";
+  const descriptionText =
+    settings.hero_description ||
+    "Doğum, baby shower, düğün ve ilk yaş kutlamaları için Akdeniz zarafetiyle tek tek üretilen, 3D katmanlı pleksi hatıralar. 100+ adet toplu siparişlerde etkinliğinize özel kişiselleştirme.";
+  const heroImage = settings.hero_image || "/images/gallery-5.webp";
 
   return (
-    <section 
-      aria-label="Karşılama" 
-      className="relative w-full h-[60vh] md:h-[55vh] md:max-h-[550px] flex items-center overflow-hidden bg-brand-text-dark"
+    <section
+      aria-label="Karşılama"
+      className="relative w-full min-h-[82vh] lg:min-h-[88vh] flex items-center bg-[#FDFBF7] py-12 md:py-20 overflow-hidden border-b border-[#EDE6DF]"
     >
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${heroImage}')` }}
-      />
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+      {/* Delicate background ambient tint */}
+      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#D95A2B]/4 rounded-full blur-3xl pointer-events-none -mr-32 -mt-32" />
+      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-[#5A6855]/4 rounded-full blur-3xl pointer-events-none -ml-24 -mb-24" />
 
-      {/* Content Container (1400px container logic) */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-8">
-        <div className="pl-4 md:pl-16 max-w-[632px] text-left flex flex-col justify-center items-start space-y-4 md:space-y-6">
-          {/* Main Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[42px] text-[#fbf7f0] leading-tight font-bold tracking-tight"
-          >
-            {titleText}
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="font-sans text-sm sm:text-base text-[#fbf7f0]/85 leading-relaxed"
-          >
-            {descriptionText}
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-row items-center gap-4 pt-2 w-full sm:w-auto"
-          >
-            <button
-              onClick={handleScrollToCollections}
-              className="px-6 py-3 bg-brand-orange text-[#fbf7f0] rounded-full font-semibold shadow-md shadow-brand-orange/20 hover:bg-brand-orange/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer text-sm font-sans"
-            >
-              Koleksiyonları Keşfet
-            </button>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Editorial Manifesto & CTAs */}
+          <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-6 md:space-y-8">
             
-            <a
-              href={`https://wa.me/${waNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 border-2 border-[#fbf7f0] text-[#fbf7f0] font-semibold rounded-full hover:bg-[#fbf7f0] hover:text-brand-text-dark hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-sm font-sans text-center"
+            {/* Direct Headline (No eyebrow tag) */}
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#1E1C1A] leading-[1.12] font-bold tracking-tight"
             >
-              Sipariş Ver
-            </a>
-          </motion.div>
+              {titleText}
+            </motion.h1>
+
+            {/* Narrative / Atelier Story */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="font-sans text-base sm:text-lg text-[#696159] leading-relaxed max-w-2xl font-normal"
+            >
+              {descriptionText}
+            </motion.p>
+
+            {/* Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto"
+            >
+              <button
+                onClick={handleScrollToCollections}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D95A2B] text-[#FDFBF7] rounded-full font-medium text-sm sm:text-base shadow-[0_6px_20px_rgba(217,90,43,0.22)] hover:bg-[#B8471D] hover:shadow-[0_8px_25px_rgba(217,90,43,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              >
+                <span>Koleksiyonları Keşfet</span>
+                <ArrowRight size={16} />
+              </button>
+
+              <a
+                href={`https://wa.me/${waNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#EDE6DF] bg-white/70 hover:bg-white text-[#1E1C1A] font-medium rounded-full hover:border-[#D95A2B]/40 hover:text-[#D95A2B] transition-all duration-300 text-sm sm:text-base shadow-sm"
+              >
+                <MessageCircle size={17} className="text-[#25D366]" />
+                <span>WhatsApp ile Fikir Al</span>
+              </a>
+            </motion.div>
+
+            {/* Micro Pillars / Social Proof Footnote */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.42 }}
+              className="pt-4 border-t border-[#EDE6DF]/80 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#696159]"
+            >
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D95A2B]" />
+                <span>100+ Adet Toplu Sipariş</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5A6855]" />
+                <span>Çok Katmanlı 3D Akrilik</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D49B35]" />
+                <span>Kişiye Özel İsim & Konsept</span>
+              </div>
+            </motion.div>
+
+          </div>
+
+          {/* Right Column: Visual Showcase (Natural light atelier photo) */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[460px] aspect-[4/5] rounded-[32px] overflow-hidden bg-[#F5EFEB] border border-[#EDE6DF] shadow-[0_20px_45px_-12px_rgba(30,28,26,0.12)] p-2"
+            >
+              <div className="relative w-full h-full rounded-[26px] overflow-hidden">
+                <Image
+                  src={heroImage}
+                  alt="Portakal Çiçeği Atölyesi el yapımı 3D akrilik hatıra tasarımı"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 460px"
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Floating Material Footnote */}
+              <div className="absolute bottom-5 left-5 right-5 z-20 bg-[#FDFBF7]/90 backdrop-blur-md rounded-2xl p-4 border border-[#EDE6DF] shadow-soft-md">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-serif text-sm font-semibold text-[#1E1C1A]">
+                      Atölye Koleksiyonu
+                    </p>
+                    <p className="font-sans text-xs text-[#696159] mt-0.5">
+                      3D Katmanlı Pleksi & Doğal Çiçek İşçiliği
+                    </p>
+                  </div>
+                  <span className="text-[11px] font-sans font-medium text-[#D95A2B] bg-[#D95A2B]/10 px-2.5 py-1 rounded-full">
+                    Özel Üretim
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

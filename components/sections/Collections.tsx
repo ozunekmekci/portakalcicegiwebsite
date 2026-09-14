@@ -3,8 +3,8 @@ import { fallbackCollections } from "@/content/collections";
 import CollectionCard from "@/components/ui/CollectionCard";
 import { Suspense } from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-// 1. Grid renderer that fetches data asynchronously and pads up to 6 items
 async function CollectionsGrid() {
   let collections: any[] = [];
   try {
@@ -15,24 +15,25 @@ async function CollectionsGrid() {
       aciklama: cat.description || "",
       kategori: cat.name,
       gorselUrl: cat.banner_image || "",
-      imageType: cat.image_type || "emoji",
+      imageType: cat.image_type || "image",
       imageUrl: cat.image_url || "",
-      emoji: cat.emoji || "",
       aktif: true,
     }));
   } catch (error) {
     console.error("Error fetching categories:", error);
   }
 
-  // Pad to exactly 6 items using fallback collections
-  if (collections.length < 6) {
+  // Ensure 4 high quality categories
+  if (collections.length < 4) {
     const existingNames = new Set(collections.map(c => c.isim.toLowerCase()));
     const padItems = fallbackCollections.filter(f => !existingNames.has(f.isim.toLowerCase()));
-    collections = [...collections, ...padItems].slice(0, 6);
+    collections = [...collections, ...padItems].slice(0, 4);
+  } else {
+    collections = collections.slice(0, 4);
   }
 
   return (
-    <div className="flex flex-row md:grid md:grid-cols-6 gap-6 overflow-x-auto md:overflow-visible flex-nowrap md:flex-wrap pb-4 md:pb-0 justify-start md:justify-center w-full scrollbar-hide">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {collections.map((col, i) => (
         <CollectionCard key={col.id} {...col} index={i} />
       ))}
@@ -40,52 +41,51 @@ async function CollectionsGrid() {
   );
 }
 
-// 2. Pulse loading skeleton matching the 6-column layout
 export function CollectionsGridSkeleton() {
   return (
-    <div className="flex flex-row md:grid md:grid-cols-6 gap-6 overflow-x-auto md:overflow-visible flex-nowrap md:flex-wrap pb-4 md:pb-0 justify-start md:justify-center w-full scrollbar-hide">
-      {Array.from({ length: 6 }).map((_, i) => (
-        <div key={i} className="w-[212px] flex-shrink-0 flex flex-col items-center animate-pulse">
-          <div className="w-full h-[263px] bg-white border border-[#eaeaea] rounded-t-full" />
-          <div className="mt-3 w-3/4 h-4 bg-brand-bg-cream/80 rounded" />
-          <div className="mt-1.5 w-1/2 h-3 bg-brand-bg-cream/80 rounded" />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {Array.from({ length: 4 }).map((_, i) => (
+        <div key={i} className="flex flex-col animate-pulse space-y-4">
+          <div className="w-full aspect-[4/5] bg-[#F5EFEB] rounded-t-[72px] rounded-b-2xl" />
+          <div className="w-3/4 h-5 bg-[#F5EFEB] rounded" />
+          <div className="w-1/2 h-4 bg-[#F5EFEB] rounded" />
         </div>
       ))}
     </div>
   );
 }
 
-// 3. Main wrapper
 export default function Collections() {
   return (
-    <section id="koleksiyonlar" aria-label="Koleksiyonlar" className="bg-[#fbf7f0] py-16 px-4 md:px-8 overflow-hidden border-b border-[#eaeaea]">
-      <div className="max-w-[1400px] mx-auto space-y-12">
-        {/* Header Block */}
-        <div className="text-center space-y-3 max-w-xl mx-auto">
-          <span className="text-xs md:text-sm font-sans tracking-widest text-[#fa3500] font-bold uppercase">
-            KOLEKSİYONLAR
-          </span>
-          <h2 className="font-serif text-3xl md:text-4xl text-brand-text-dark leading-tight font-bold">
+    <section id="koleksiyonlar" aria-label="Koleksiyonlar" className="bg-[#FDFBF7] py-20 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF]">
+      <div className="max-w-7xl mx-auto space-y-12">
+        
+        {/* Editorial Header (No eyebrow label) */}
+        <div className="max-w-2xl text-left space-y-3">
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#1E1C1A] font-bold tracking-tight">
             Özel Günleriniz İçin Akdeniz Dokunuşları
           </h2>
-          <p className="font-sans text-xs md:text-sm text-brand-text-mid">
-            Her biri atölyemizde özenle tasarlanan, kişiselleştirilebilir premium koleksiyonlar.
+          <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
+            Her biri atölyemizde özenle tasarlanan, kişiselleştirilebilir hatıra koleksiyonlarımız.
           </p>
         </div>
 
-        {/* Suspense wrapper with 6-item skeleton fallback */}
+        {/* 4-Item Balanced Grid */}
         <Suspense fallback={<CollectionsGridSkeleton />}>
           <CollectionsGrid />
         </Suspense>
 
-        <div className="text-center pt-4">
+        {/* View All Collections Link */}
+        <div className="pt-2 text-left">
           <Link
             href="/koleksiyonlar/babyshower"
-            className="inline-block text-[#ff914b] hover:text-[#fa3500] font-semibold font-sans text-sm transition-all duration-300 hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-sans font-medium text-[#D95A2B] hover:text-[#B8471D] transition-colors group"
           >
-            Tüm koleksiyonları keşfet →
+            <span>Tüm koleksiyonları ve ürün detaylarını inceleyin</span>
+            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
+
       </div>
     </section>
   );

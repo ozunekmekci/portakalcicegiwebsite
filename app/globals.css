@@ -3,23 +3,74 @@
 @tailwind utilities;
 
 :root {
-  --color-orange: #ff914b;
-  --color-orange-dark: #fa3500;
-  --color-yellow: #e7b72f;
-  --color-bg-cream: #fbf7f0;
-  --color-bg-gray: #dcdcd9;
-  --color-text-dark: #1a1a1a;
-  --color-text-mid: #555555;
+  /* Modern Akdeniz Atölyesi Paleti */
+  --color-bg-cream: #FDFBF7;
+  --color-bg-warm: #F5EFEB;
+  --color-text-ink: #1E1C1A;
+  --color-text-sepia: #696159;
+  --color-terracotta: #D95A2B;
+  --color-terracotta-dark: #B8471D;
+  --color-olive: #5A6855;
+  --color-amber: #D49B35;
+  --color-border: #EDE6DF;
+
+  /* Geriye dönük uyumluluk eşlemeleri */
+  --color-orange: #D95A2B;
+  --color-orange-dark: #B8471D;
+  --color-yellow: #D49B35;
+  --color-bg-gray: #F5EFEB;
+  --color-text-dark: #1E1C1A;
+  --color-text-mid: #696159;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  color: var(--color-text-dark);
+  color: var(--color-text-ink);
   background-color: var(--color-bg-cream);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
+/* Tipografik başlık ritmi */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair), serif;
+  font-family: var(--font-playfair), Georgia, serif;
+  text-wrap: balance;
+  color: var(--color-text-ink);
 }
 
+/* Tarayıcı Yüzeyleri (Micro-Craft) */
+::selection {
+  background-color: #F7E5DB;
+  color: #1E1C1A;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
+}
+
+/* İnce, sayfa zeminine uyumlu özel kaydırma çubuğu */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E3D9D0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9BEB5;
+}

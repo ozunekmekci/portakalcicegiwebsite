@@ -1,118 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Palette, Pencil, Package } from "lucide-react";
+import { Sparkles, Layers, PackageCheck } from "lucide-react";
 
 const steps = [
   {
-    number: "01",
-    icon: Palette,
-    title: "Koleksiyonu Seç",
-    description: "Tasarım kataloğumuza göz atın, beğendiğiniz koleksiyonu seçin.",
+    stepNumber: "01",
+    icon: Sparkles,
+    title: "Model & Konsept Seçimi",
+    description: "Kataloğumuzdan veya Instagram seçkilerimizden etkinliğinizin ruhuna uyan pleksi formunu ve renk paletini seçin.",
+    detail: "100+ adetlik toplu siparişlerinizde özel adet indirimi uygulanır.",
   },
   {
-    number: "02",
-    icon: Pencil,
-    title: "Kişiselleştir",
-    description: "İsim, tarih ve özel notlarınızı bizimle paylaşın. Her detay özenle işlenir.",
+    stepNumber: "02",
+    icon: Layers,
+    title: "Kişiye Özel Tasarım & Onay",
+    description: "İsim, tarih, yazı tipi ve akrilik katman tercihlerini WhatsApp üzerinden doğrudan atölye tasarımcımızla netleştirin.",
+    detail: "Üretime geçilmeden önce dijital yerleşim onayı alınır.",
   },
   {
-    number: "03",
-    icon: Package,
-    title: "Teslim Alın",
-    description: "Özenle paketlenmiş siparişiniz kapınıza gelir. 100+ adet siparişlerde özel fiyat.",
+    stepNumber: "03",
+    icon: PackageCheck,
+    title: "El İşçiliği & Özenli Teslimat",
+    description: "Her bir hatıralık atölyemizde tek tek incelenir, montajı yapılır ve özel korumalı kutularda adresinize ulaştırılır.",
+    detail: "Etkinlik tarihinize tam zamanında yetişecek şekilde kargolanır.",
   },
 ];
 
 export default function HowItWorks() {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
-
   return (
-    <section id="nasil-calisir" aria-label="Nasıl Çalışır" className="bg-brand-bg-cream py-24 px-6 overflow-hidden">
-      <div className="max-w-5xl mx-auto space-y-16">
-        {/* Header Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-4 max-w-xl mx-auto"
-        >
-          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase">
-            NASIL ÇALIŞIR
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-text-dark leading-tight font-bold whitespace-pre-line">
-            Siparişten teslimata<br />
-            üç adım.
+    <section id="nasil-calisir" aria-label="Nasıl Çalışır" className="bg-[#F5EFEB] py-20 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF] overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-16">
+        
+        {/* Editorial Header (No eyebrow label) */}
+        <div className="max-w-2xl text-left space-y-3">
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#1E1C1A] font-bold tracking-tight">
+            Siparişten Teslimata Üç Aşamalı Atölye Süreci
           </h2>
-          <p className="font-sans text-base text-brand-text-mid">
-            Hızlı, şeffaf ve sanatsal bir süreç.
+          <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
+            Kutlamanızın konseptine en uygun tasarımı birlikte belirleyip, şeffaf ve özenli bir süreçle hazırlıyoruz.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Steps Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {steps.map((step, index) => {
+        {/* Linear Journey Architecture */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative">
+          {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <motion.div
-                key={index}
-                variants={cardVariants}
-                whileHover={{ 
-                  y: -4, 
-                  boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)" 
-                }}
-                className="relative bg-white rounded-2xl p-8 shadow-sm transition-shadow duration-300 flex flex-col items-start space-y-6 overflow-hidden border border-[#eaeaea]"
+                key={step.stepNumber}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                className="relative flex flex-col justify-between p-8 rounded-2xl bg-[#FDFBF7] border border-[#EDE6DF] shadow-soft-sm hover:shadow-soft-md transition-all duration-300 space-y-6"
               >
-                {/* Back Number */}
-                <span className="absolute top-4 right-4 text-7xl font-serif text-brand-orange opacity-20 select-none font-bold">
-                  {step.number}
-                </span>
-
-                {/* Icon Container */}
-                <div className="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange">
-                  <Icon className="w-6 h-6" />
+                {/* Step Indicator & Icon Header */}
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-xl bg-[#D95A2B]/10 border border-[#D95A2B]/20 flex items-center justify-center text-[#D95A2B]">
+                    <Icon size={22} strokeWidth={1.8} />
+                  </div>
+                  <span className="font-serif text-2xl font-bold text-[#696159]/40 tracking-wider">
+                    {step.stepNumber}
+                  </span>
                 </div>
 
                 {/* Content */}
-                <div className="space-y-2 relative z-10">
-                  <h3 className="font-serif text-xl font-bold text-brand-text-dark">
+                <div className="space-y-2.5 flex-grow">
+                  <h3 className="font-serif text-xl font-bold text-[#1E1C1A]">
                     {step.title}
                   </h3>
-                  <p className="font-sans text-sm text-brand-text-mid leading-relaxed">
+                  <p className="font-sans text-sm text-[#696159] leading-relaxed">
                     {step.description}
                   </p>
+                </div>
+
+                {/* Subtle Pillar Highlight */}
+                <div className="pt-4 border-t border-[#EDE6DF] text-xs font-sans font-medium text-[#5A6855]">
+                  ✦ {step.detail}
                 </div>
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );

@@ -10,6 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
+          cream: "var(--color-bg-cream)",
+          warm: "var(--color-bg-warm)",
+          ink: "var(--color-text-ink)",
+          sepia: "var(--color-text-sepia)",
+          terracotta: "var(--color-terracotta)",
+          "terracotta-dark": "var(--color-terracotta-dark)",
+          olive: "var(--color-olive)",
+          amber: "var(--color-amber)",
+          border: "var(--color-border)",
+          // Geriye dönük uyumluluk
           orange: "var(--color-orange)",
           "orange-dark": "var(--color-orange-dark)",
           yellow: "var(--color-yellow)",
@@ -23,14 +33,14 @@ const config: Config = {
         sans: ["var(--font-inter)", "sans-serif"],
         serif: ["var(--font-playfair)", "serif"],
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      boxShadow: {
+        "soft-sm": "0 2px 8px -2px rgba(30, 28, 26, 0.04)",
+        "soft-md": "0 8px 24px -4px rgba(30, 28, 26, 0.06)",
+        "soft-lg": "0 16px 36px -6px rgba(30, 28, 26, 0.08)",
       },
     },
   },
   plugins: [],
 };
-export default config;
 
+export default config;

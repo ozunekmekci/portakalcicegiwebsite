@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, Instagram } from "lucide-react";
+import { MessageCircle, Instagram, Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 interface ContactProps {
   settings?: Record<string, string>;
@@ -10,8 +10,9 @@ interface ContactProps {
 
 export default function Contact({ settings = {} }: ContactProps) {
   const dbNumber = settings.contact_phone;
-  const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "90XXXXXXXXXXX";
+  const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
+  
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -51,135 +52,151 @@ export default function Contact({ settings = {} }: ContactProps) {
   };
 
   return (
-    <section id="iletisim" aria-label="İletişim" className="bg-[#1a1a1a] py-24 px-6 overflow-hidden text-white">
-      <div className="max-w-4xl mx-auto space-y-16 text-center">
-        {/* Header Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="space-y-4 max-w-xl mx-auto"
-        >
-          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase">
-            İLETİŞİM
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#fbf7f0] leading-tight font-bold whitespace-pre-line">
-            Hayalinizdeki kutlamayı<br />
-            birlikte tasarlayalım.
-          </h2>
-          <p className="font-sans text-base text-[#dcdcd9]">
-            100 adetten fazla siparişlerde özel fiyat teklifi alın.
-          </p>
-        </motion.div>
+    <section id="iletisim" aria-label="İletişim ve Fiyat Teklifi" className="bg-[#1E1C1A] py-24 px-4 sm:px-6 lg:px-8 text-[#FDFBF7] overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Direct Outreach & WhatsApp */}
+          <div className="lg:col-span-6 space-y-8 text-left">
+            <div className="space-y-4">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FDFBF7] leading-tight">
+                Hayalinizdeki Kutlamayı Birlikte Tasarlayalım
+              </h2>
+              <p className="font-sans text-base sm:text-lg text-[#A89F95] leading-relaxed">
+                100 adetten fazla toplu siparişleriniz ve size özel tasarım talepleriniz için doğrudan atölye tasarımcımızla iletişime geçin.
+              </p>
+            </div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap"
-        >
-          <motion.a
-            href={`https://wa.me/${waNumber}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#25D366] text-white rounded-full px-8 py-4 text-lg font-medium shadow-lg hover:shadow-[#25D366]/20 transition-all duration-300"
-          >
-            <MessageCircle className="w-6 h-6" />
-            WhatsApp&apos;tan Yaz
-          </motion.a>
-
-          {/* Instagram Button */}
-          <motion.a
-            href="https://www.instagram.com/portakalcicegi.atolye/"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent border-2 border-[#fbf7f0] text-[#fbf7f0] rounded-full px-8 py-4 text-lg font-medium transition-all duration-300"
-          >
-            <Instagram className="w-6 h-6" />
-            Instagram&apos;da Takip Et
-          </motion.a>
-        </motion.div>
-
-        {/* Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="space-y-6 pt-8 border-t border-white/10"
-        >
-          <p className="text-sm text-[#dcdcd9]">
-            veya formu doldurun, sizi arayalım:
-          </p>
-
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-lg mx-auto w-full">
-            <input
-              type="text"
-              name="name"
-              placeholder="Adınız Soyadınız"
-              aria-label="Adınız Soyadınız"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans"
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Telefon Numaranız"
-              aria-label="Telefon Numaranız"
-              required
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans"
-            />
-            <textarea
-              name="message"
-              placeholder="Mesajınız veya İstediğiniz Tasarım/Adet"
-              aria-label="Mesajınız veya İstediğiniz Tasarım/Adet"
-              required
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full bg-white/10 border border-white/20 text-white placeholder-white/40 rounded-xl px-4 py-3 focus:outline-none focus:border-brand-orange transition-colors duration-300 font-sans resize-none"
-            />
-
-            <button
-              type="submit"
-              disabled={status === "submitting"}
-              className="bg-brand-orange hover:bg-brand-orange/90 disabled:bg-brand-orange/50 text-white font-semibold rounded-full px-8 py-3.5 w-full shadow-md shadow-brand-orange/10 hover:shadow-brand-orange/20 transition-all duration-300 active:scale-[0.98]"
-            >
-              {status === "submitting" ? "Gönderiliyor..." : "Teklif İste"}
-            </button>
-
-            {status === "success" && (
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-emerald-400 font-medium font-sans text-sm mt-2"
+            {/* Quick Action Channels */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <a
+                href={`https://wa.me/${waNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] rounded-full px-7 py-3.5 text-sm sm:text-base font-medium shadow-[0_4px_16px_rgba(217,90,43,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                ✅ Mesajınız iletildi! En kısa sürede dönüş yapacağız.
-              </motion.p>
-            )}
+                <MessageCircle size={18} />
+                <span>WhatsApp ile Doğrudan Yaz</span>
+              </a>
 
-            {status === "error" && (
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-rose-400 font-medium font-sans text-sm mt-2"
+              <a
+                href="https://www.instagram.com/portakalcicegi.atolye/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 bg-white/5 hover:bg-white/10 text-[#FDFBF7] border border-white/15 rounded-full px-6 py-3.5 text-sm sm:text-base font-medium transition-all duration-300"
               >
-                ❌ Gönderim sırasında bir hata oluştu. Lütfen doğrudan WhatsApp veya Instagram üzerinden bizimle iletişime geçin.
-              </motion.p>
-            )}
-          </form>
-        </motion.div>
+                <Instagram size={17} />
+                <span>Instagram DM</span>
+              </a>
+            </div>
+
+            {/* Atelier Guarantees */}
+            <div className="pt-6 border-t border-white/10 space-y-3 text-xs sm:text-sm text-[#A89F95]">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D95A2B]" />
+                <span>Toplu siparişlerde (100+ adet) özel fiyatlandırma ve indirim</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5A6855]" />
+                <span>Türkiye&apos;nin her yerine korunaklı, sigortalı kargo</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D49B35]" />
+                <span>Tasarım ve üretim sürecinde birebir iletişim</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Clean Inquiry Form */}
+          <div className="lg:col-span-6 bg-white/[0.04] p-8 sm:p-10 rounded-3xl border border-white/10 shadow-soft-md text-left">
+            <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#FDFBF7] mb-2">
+              Hızlı Teklif Formu
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-[#A89F95] mb-6">
+              Bilgilerinizi bırakın, etkinlik detaylarınıza özel fiyat teklifinizi gün içinde iletelim:
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="contact-name" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
+                  Adınız Soyadınız
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="name"
+                  placeholder="Örn. Ayşe Yılmaz"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-phone" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
+                  Telefon Numaranız (WhatsApp)
+                </label>
+                <input
+                  id="contact-phone"
+                  type="tel"
+                  name="phone"
+                  placeholder="05XX XXX XX XX"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-message" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
+                  Etkinlik Türü & Tahmini Adet / Notunuz
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="Örn. 150 adet baby shower pleksi magnet, Nisan teslim..."
+                  required
+                  rows={3}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#D95A2B] hover:bg-[#B8471D] disabled:opacity-50 text-[#FDFBF7] font-medium rounded-xl px-6 py-3.5 text-sm transition-all duration-300 shadow-md cursor-pointer"
+              >
+                {status === "submitting" ? (
+                  <span>İletiliyor...</span>
+                ) : (
+                  <>
+                    <Send size={15} />
+                    <span>Fiyat Teklifi İste</span>
+                  </>
+                )}
+              </button>
+
+              {status === "success" && (
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-[#5A6855]/20 border border-[#5A6855]/40 text-emerald-300 text-xs font-sans">
+                  <CheckCircle2 size={16} className="flex-shrink-0" />
+                  <span>Talebiniz atölyemize ulaştı. En kısa sürede WhatsApp üzerinden teklifinizi ileteceğiz.</span>
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="flex items-start gap-2 p-3 rounded-xl bg-[#B8471D]/20 border border-[#B8471D]/40 text-rose-300 text-xs font-sans">
+                  <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
+                  <span>Gönderim sırasında bir aksaklık oluştu. Lütfen doğrudan yukarıdaki WhatsApp butonuyla bize yazın.</span>
+                </div>
+              )}
+            </form>
+          </div>
+
+        </div>
       </div>
     </section>
   );

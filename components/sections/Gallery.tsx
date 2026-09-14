@@ -1,106 +1,61 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram } from "lucide-react";
+import { Instagram, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 export default function Gallery() {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut" as const,
-      },
-    },
-  };
-
   return (
-    <section id="galeri" aria-label="Galeri" className="bg-brand-bg-cream py-24 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto space-y-16">
-        {/* Header Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-4 max-w-xl mx-auto"
-        >
-          <span className="text-xs md:text-sm font-sans tracking-widest text-brand-orange-dark font-bold uppercase">
-            GALERİ
-          </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-text-dark leading-tight font-bold whitespace-pre-line">
-            Ellerimizden çıkan<br />
-            her detay.
-          </h2>
-          <p className="font-sans text-base text-brand-text-mid">
-            Gerçek siparişlerden kareler.
-          </p>
-        </motion.div>
+    <section id="galeri" aria-label="Atölye Galerisi" className="bg-[#FDFBF7] py-24 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF] overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-12">
+        
+        {/* Editorial Header (No eyebrow) */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
+          <div className="max-w-xl text-left space-y-2">
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#1E1C1A] font-bold tracking-tight">
+              Ellerimizden Çıkan Her Detay
+            </h2>
+            <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
+              Gerçek siparişlerden, atölye masasından ve kutlama sofralarından objektifimize yansıyan hatıralar.
+            </p>
+          </div>
 
-        {/* Grid Container */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-        >
-          {Array.from({ length: 8 }).map((_, index) => {
-            const isEven = index % 2 === 0;
-            const bgClass = isEven ? "bg-[#dcdcd9]" : "bg-[#e8e0d4]";
-            return (
-              <motion.div
-                key={index}
-                variants={cardVariants}
-                whileHover={{ scale: 1.03 }}
-                className={`${bgClass} aspect-square rounded-2xl relative overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300`}
-              >
-                <Image
-                  src={`/images/gallery-${index + 1}.webp`}
-                  alt={`Portakal Çiçeği Atölyesi el yapımı tasarım detayları ${index + 1}`}
-                  fill
-                  sizes="(max-w-768px) 50vw, (max-w-1200px) 33vw, 250px"
-                  loading="lazy"
-                  className="object-cover"
-                />
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Footer Link */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center pt-4 space-y-4 flex flex-col items-center"
-        >
-          <p className="font-sans text-sm text-brand-text-mid">
-            Daha fazlası için Instagram&apos;ı takip edin
-          </p>
           <a
             href="https://www.instagram.com/portakalcicegi.atolye/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white transition-all duration-300 rounded-full px-6 py-2.5 text-sm font-medium font-sans shadow-sm"
+            className="inline-flex items-center gap-2 border border-[#EDE6DF] bg-white hover:border-[#D95A2B]/40 hover:text-[#D95A2B] text-[#1E1C1A] transition-all duration-300 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium font-sans shadow-soft-sm self-start sm:self-auto"
           >
-            <Instagram className="w-4 h-4" />
-            Instagram&apos;da Takip Et
+            <Instagram size={15} className="text-[#D95A2B]" />
+            <span>Instagram&apos;da Takip Et</span>
+            <ArrowUpRight size={14} />
           </a>
-        </motion.div>
+        </div>
+
+        {/* Gallery Grid (8 Items, balanced, subtle borders) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="relative aspect-square rounded-2xl overflow-hidden bg-[#F5EFEB] border border-[#EDE6DF] shadow-soft-sm group cursor-pointer"
+            >
+              <Image
+                src={`/images/gallery-${index + 1}.webp`}
+                alt={`Portakal Çiçeği Atölyesi el yapımı tasarım detayları ${index + 1}`}
+                fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                loading="lazy"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

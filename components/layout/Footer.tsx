@@ -1,4 +1,5 @@
 import { Instagram, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 interface FooterLink {
   label: string;
@@ -6,40 +7,44 @@ interface FooterLink {
 }
 
 const footerLinks: FooterLink[] = [
-  { label: "Hakkında", href: "#hakkinda" },
   { label: "Koleksiyonlar", href: "#koleksiyonlar" },
-  { label: "Nasıl Çalışır", href: "#nasil-calisir" },
-  { label: "İletişim", href: "#iletisim" },
+  { label: "Öne Çıkanlar", href: "#one-cikanlar" },
+  { label: "Atölye Hikayesi", href: "#hakkinda" },
+  { label: "Nasıl Çalışır?", href: "#nasil-calisir" },
+  { label: "İletişim & Teklif", href: "#iletisim" },
 ];
 
 export default function Footer() {
   const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555").replace(/\D/g, "");
 
   return (
-    <footer className="bg-brand-text-dark text-brand-bg-cream font-sans border-t border-brand-text-mid/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-start text-center md:text-left">
-          {/* Left Column: Brand & Slogan */}
-          <div className="space-y-4 flex flex-col items-center md:items-start">
-            <h3 className="font-serif text-xl md:text-2xl font-semibold text-brand-orange">
-              Portakal Çiçeği Atölye
-            </h3>
-            <p className="text-sm text-brand-bg-cream/80 max-w-sm leading-relaxed">
-              Detaylar önemlidir. Her hediyelik, bir hatıra.
+    <footer className="bg-[#1E1C1A] text-[#FDFBF7] font-sans border-t border-[#2C2926]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+          
+          {/* Brand & Manifesto */}
+          <div className="space-y-4 text-left">
+            <Link href="/" className="inline-block">
+              <span className="font-serif text-2xl font-bold tracking-tight text-[#FDFBF7]">
+                Portakal Çiçeği Atölye
+              </span>
+            </Link>
+            <p className="text-sm text-[#A89F95] max-w-sm leading-relaxed">
+              Detaylar önemlidir. Doğum, baby shower, düğün ve nişan kutlamaları için Akdeniz zarafetiyle tasarlanan ömürlük 3D akrilik hatıralar.
             </p>
           </div>
 
-          {/* Middle Column: Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold text-brand-yellow uppercase tracking-wider">
-              Hızlı Bağlantılar
-            </h4>
-            <ul className="space-y-2">
+          {/* Quick Links */}
+          <div className="space-y-4 text-left">
+            <h3 className="font-serif text-base font-semibold text-[#FDFBF7]">
+              Atölye Gezintisi
+            </h3>
+            <ul className="space-y-2.5">
               {footerLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-brand-bg-cream/70 hover:text-brand-orange transition-colors"
+                    className="text-sm text-[#A89F95] hover:text-[#D95A2B] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -48,44 +53,41 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Right Column: Social Links */}
-          <div className="space-y-4 flex flex-col items-center md:items-start w-full">
-            <h4 className="text-sm font-semibold text-brand-yellow uppercase tracking-wider">
-              İletişim & Sosyal Medya
-            </h4>
-            <div className="flex space-x-4 justify-center md:justify-start">
+          {/* Direct Channels */}
+          <div className="space-y-4 text-left">
+            <h3 className="font-serif text-base font-semibold text-[#FDFBF7]">
+              Bize Ulaşın
+            </h3>
+            <div className="flex space-x-3">
               <a
                 href="https://www.instagram.com/portakalcicegi.atolye/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-brand-bg-cream/10 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300"
+                className="p-3 bg-white/5 hover:bg-[#D95A2B] text-[#FDFBF7] rounded-full transition-all duration-300 border border-white/10"
                 aria-label="Instagram sayfamızı ziyaret edin"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-4 w-4" />
               </a>
               <a
                 href={`https://wa.me/${waNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 bg-brand-bg-cream/10 rounded-full hover:bg-brand-orange hover:text-white transition-all duration-300"
-                aria-label="WhatsApp üzerinden sipariş verin"
+                className="p-3 bg-white/5 hover:bg-[#D95A2B] text-[#FDFBF7] rounded-full transition-all duration-300 border border-white/10"
+                aria-label="WhatsApp üzerinden doğrudan yazın"
               >
-                <MessageCircle className="h-5 w-5" />
+                <MessageCircle className="h-4 w-4" />
               </a>
             </div>
-            <p className="text-xs text-brand-bg-cream/50 leading-relaxed max-w-xs">
-              Bize Instagram DM veya WhatsApp üzerinden ulaşabilirsiniz.
+            <p className="text-xs text-[#A89F95] leading-relaxed max-w-xs">
+              100+ adet toplu siparişler ve özel tasarım talepleri için Instagram DM ve WhatsApp üzerinden doğrudan tasarımcımızla görüşebilirsiniz.
             </p>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-brand-bg-cream/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs text-brand-bg-cream/55">
-          <p>© 2025 Portakal Çiçeği Atölye. Tüm hakları saklıdır.</p>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-brand-orange transition-colors">Kullanım Koşulları</a>
-            <a href="#" className="hover:text-brand-orange transition-colors">Gizlilik Politikası</a>
-          </div>
+        {/* Bottom copyright */}
+        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#8E857B]">
+          <p>© {new Date().getFullYear()} Portakal Çiçeği Atölye. Tüm hakları saklıdır.</p>
+          <p className="text-[#6E665D]">Modern Akdeniz & Sıcak Minimalizm</p>
         </div>
       </div>
     </footer>

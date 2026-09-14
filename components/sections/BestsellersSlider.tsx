@@ -1,10 +1,9 @@
 "use client";
 
 import { useRef } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Tag, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { ProductWithCategory } from "@/lib/db-queries-types";
 import { getOptimizedUrl } from "@/lib/cloudinary";
 
@@ -17,14 +16,14 @@ const mockBestsellers = [
     id: 1,
     name: "Akrilik Bulut Baby Shower Magnet",
     slug: "akrilik-bulut-baby-shower-magnet",
-    category_name: "Babyshower",
+    category_name: "Baby Shower",
     cover_image: "/images/gallery-1.webp",
     price_range: "₺45 - ₺65",
     min_order: 100,
   },
   {
     id: 2,
-    name: "Kurutulmuş Çiçekli Nişan Davetiyesi",
+    name: "Kurutulmuş Çiçekli Nişan Hatırası",
     slug: "kurutulmus-cicekli-nisan-davetiyesi",
     category_name: "Düğün & Nişan",
     cover_image: "/images/gallery-2.webp",
@@ -51,9 +50,9 @@ const mockBestsellers = [
   },
   {
     id: 5,
-    name: "Bulut Figürlü Bebek Anısı Aynalı Pleksi",
+    name: "Bulut Figürlü Aynalı Pleksi Bebek Hatırası",
     slug: "bulut-figurlu-bebek-anisi-aynali-pleksi",
-    category_name: "Babyshower",
+    category_name: "Baby Shower",
     cover_image: "/images/gallery-5.webp",
     price_range: "₺48 - ₺68",
     min_order: 100,
@@ -69,158 +68,121 @@ const mockBestsellers = [
   }
 ];
 
-function getOldPrice(priceRange: string) {
-  if (!priceRange) return "₺75";
-  const numbers = priceRange.match(/\d+/g);
-  if (numbers && numbers.length > 0) {
-    if (numbers.length === 2) {
-      const min = parseInt(numbers[0]);
-      const max = parseInt(numbers[1]);
-      const oldMin = Math.round(min * 1.35);
-      const oldMax = Math.round(max * 1.35);
-      return `₺${oldMin} - ₺${oldMax}`;
-    } else {
-      const val = parseInt(numbers[0]);
-      const oldVal = Math.round(val * 1.35);
-      return `₺${oldVal}`;
-    }
-  }
-  return "₺85";
-}
-
 export default function BestsellersSlider({ products = [] }: BestsellersSliderProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  
-  // Use mock products if DB has no products
   const displayProducts = products.length > 0 ? products : mockBestsellers;
 
   const handleScrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -344, behavior: "smooth" });
+      scrollRef.current.scrollBy({ left: -360, behavior: "smooth" });
     }
   };
 
   const handleScrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 344, behavior: "smooth" });
+      scrollRef.current.scrollBy({ left: 360, behavior: "smooth" });
     }
   };
 
   return (
-    <section aria-label="En Çok Satanlar" className="w-full bg-[#fbf7f0] py-4 overflow-hidden">
-      {/* Hide Scrollbars CSS */}
-      <style dangerouslySetInnerHTML={{__html: `
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}} />
-
-      {/* High Contrast Showcase container bg-[#f3ece3] */}
-      <div className="bg-[#f3ece3] py-8 px-4 md:px-12 rounded-2xl mx-4 md:mx-12 my-6 shadow-sm max-w-[1400px] lg:mx-auto relative">
+    <section id="one-cikanlar" aria-label="Öne Çıkan Tasarımlar" className="w-full bg-[#F5EFEB] py-20 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF]">
+      <div className="max-w-7xl mx-auto space-y-10">
         
-        {/* Header Ribbon Section - Playfair Display title with arrows on the right */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
-          <div className="text-left space-y-1">
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-800">
-              ✨ Haftanın Yıldız Seçimleri & En Çok Satanlar ✨
+        {/* Editorial Section Header with Navigation Controls */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
+          <div className="space-y-2 max-w-xl text-left">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1C1A] tracking-tight">
+              Atölyeden Yeni Çıkanlar & Çok Sevilenler
             </h2>
-            <p className="font-sans text-xs md:text-sm text-neutral-600">
-              Sizin için özenle seçilen en popüler Akdeniz esintili el yapımı tasarımlarımız.
+            <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
+              Özel gün kutlamaları için en çok tercih edilen çok katmanlı akrilik ve pleksi hatıra tasarımlarımız.
             </p>
           </div>
           
-          {/* Navigation Sol (<) and Sağ (>) Ok Buttons */}
-          <div className="flex items-center gap-2 flex-shrink-0 self-end sm:self-auto">
+          {/* Navigation Controls */}
+          <div className="flex items-center gap-2.5 self-end sm:self-auto flex-shrink-0">
             <button
               onClick={handleScrollLeft}
-              aria-label="Sola kaydır"
-              className="w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-800 bg-white/80 hover:bg-[#ff914b] hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer shadow-xs active:scale-95"
+              aria-label="Önceki ürünleri göster"
+              className="w-11 h-11 rounded-full border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] bg-[#FDFBF7] hover:bg-[#D95A2B] hover:text-white hover:border-transparent transition-all duration-300 shadow-soft-sm active:scale-95 cursor-pointer"
             >
-              <ChevronLeft size={18} strokeWidth={2.5} />
+              <ChevronLeft size={19} />
             </button>
             <button
               onClick={handleScrollRight}
-              aria-label="Sağa kaydır"
-              className="w-10 h-10 rounded-full border border-neutral-300 flex items-center justify-center text-neutral-800 bg-white/80 hover:bg-[#ff914b] hover:text-white hover:border-transparent transition-all duration-300 cursor-pointer shadow-xs active:scale-95"
+              aria-label="Sonraki ürünleri göster"
+              className="w-11 h-11 rounded-full border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] bg-[#FDFBF7] hover:bg-[#D95A2B] hover:text-white hover:border-transparent transition-all duration-300 shadow-soft-sm active:scale-95 cursor-pointer"
             >
-              <ChevronRight size={18} strokeWidth={2.5} />
+              <ChevronRight size={19} />
             </button>
           </div>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative w-full">
-          
-          {/* Scroll List container */}
-          <div 
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 w-full"
-          >
-            {displayProducts.map((product: any, idx: number) => {
-              const coverImage = product.cover_image || "/images/gallery-5.webp";
-              const imageUrl = coverImage.includes("res.cloudinary.com")
-                ? getOptimizedUrl(coverImage, { width: 350, height: 480, crop: "fill" })
-                : coverImage;
+        {/* Showcase Carousel Container */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-none w-full scroll-smooth"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {displayProducts.map((product: any) => {
+            const coverImage = product.cover_image || "/images/gallery-5.webp";
+            const imageUrl = coverImage.includes("res.cloudinary.com")
+              ? getOptimizedUrl(coverImage, { width: 380, height: 460, crop: "fill" })
+              : coverImage;
 
-              const oldPrice = getOldPrice(product.price_range);
-              const newPrice = product.price_range || "Fiyat Sorun";
+            const categoryName = product.category_name || "Özel Koleksiyon";
+            const price = product.price_range || "Fiyat Sorun";
 
-              return (
-                <div
-                  key={product.id}
-                  className="w-[320px] h-[440px] flex-shrink-0 relative group rounded-[32px] overflow-hidden snap-start transition-all duration-300 shadow-[0_15px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_25px_50px_rgba(255,145,75,0.25)] border-[3px] border-white/90 hover:border-[#ff914b] cursor-pointer bg-neutral-900"
-                >
-                  <Link href={`/urunler/${product.slug}`} className="block w-full h-full">
-                    {/* Full-bleed Portrait Image */}
+            return (
+              <div
+                key={product.id}
+                className="w-[300px] sm:w-[340px] flex-shrink-0 relative group rounded-2xl overflow-hidden snap-start transition-all duration-300 bg-[#FDFBF7] border border-[#EDE6DF] shadow-soft-sm hover:shadow-soft-md"
+              >
+                <Link href={`/urunler/${product.slug}`} className="block h-full flex flex-col">
+                  
+                  {/* Image Container with Natural Light */}
+                  <div className="relative w-full h-[360px] overflow-hidden bg-[#F5EFEB]">
                     <Image
                       src={imageUrl}
                       alt={product.name}
                       fill
-                      sizes="320px"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 300px, 340px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
-
-                    {/* Dark gradient overlay covering the bottom portion for readability */}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent pt-32 pb-6 px-6 flex flex-col justify-end z-10">
-                      
-                      {/* Product Title (sans-serif, white, bold, text-[19px], tracking-wide) */}
-                      <h3 className="font-sans text-[19px] font-bold text-white leading-tight mb-3 transition-colors line-clamp-2 drop-shadow-md">
-                        {product.name}
-                      </h3>
-
-                      {/* Info Row (Price & Rating) */}
-                      <div className="flex items-center gap-4 text-white/90 text-sm font-sans font-medium">
-                        {/* Price with tag icon */}
-                        <div className="flex items-center gap-1.5 drop-shadow-sm">
-                          <Tag size={14} className="text-[#ff914b]" />
-                          <span>{newPrice}</span>
-                        </div>
-
-                        {/* Rating with star icon */}
-                        <div className="flex items-center gap-1.5 drop-shadow-sm ml-auto">
-                          <Star size={14} fill="#eab308" className="text-[#eab308]" />
-                          <span>4.9/5</span>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    {/* Top-Right Diagonal Arrow Badge ↗ */}
-                    <div className="absolute top-6 right-6 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/25 flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#ff914b] group-hover:border-transparent shadow-xs">
-                      <span className="text-lg font-sans font-medium transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                        ↗
+                    
+                    {/* Subtle Category Tag */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span className="text-[11px] font-sans font-medium uppercase tracking-wider px-3 py-1 rounded-full bg-[#FDFBF7]/90 backdrop-blur-sm text-[#1E1C1A] border border-[#EDE6DF] shadow-soft-sm">
+                        {categoryName}
                       </span>
                     </div>
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
 
+                    {/* Corner Detail Arrow */}
+                    <div className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-[#FDFBF7]/90 backdrop-blur-sm border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] group-hover:bg-[#D95A2B] group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-soft-sm">
+                      <ArrowUpRight size={16} />
+                    </div>
+                  </div>
+
+                  {/* Editorial Content Below Image */}
+                  <div className="p-5 flex flex-col justify-between flex-grow space-y-3">
+                    <h3 className="font-serif text-lg font-semibold text-[#1E1C1A] group-hover:text-[#D95A2B] transition-colors line-clamp-1">
+                      {product.name}
+                    </h3>
+
+                    <div className="flex items-center justify-between pt-2 border-t border-[#EDE6DF]/80 text-xs font-sans text-[#696159]">
+                      <span className="font-semibold text-[#1E1C1A] text-sm font-sans">
+                        {price}
+                      </span>
+                      <span className="text-[#696159] text-[11px]">
+                        100+ Adet Özel Üretim
+                      </span>
+                    </div>
+                  </div>
+
+                </Link>
+              </div>
+            );
+          })}
         </div>
 
       </div>
