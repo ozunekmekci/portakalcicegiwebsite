@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
         {/* Top Breadcrumb Link */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs font-sans font-medium text-[#696159] hover:text-[#D95A2B] transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-sans font-medium text-[#696159] hover:text-[#C86D51] transition-colors"
         >
           <ArrowLeft size={14} />
           <span>Ana Sayfaya Dön</span>

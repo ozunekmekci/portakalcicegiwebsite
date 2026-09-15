@@ -30,12 +30,12 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-[#A89F95] max-w-sm leading-relaxed">
-              Detaylar önemlidir. Doğum, baby shower, düğün ve nişan kutlamaları için Akdeniz zarafetiyle tasarlanan ömürlük 3D akrilik hatıralar.
+              Detaylar önemlidir. Doğum günü, baby shower ve kutlamalarınız için Akdeniz zarafetiyle tasarlanan magnetler, cake topper süsleri ve kapı panoları.
             </p>
             
             <div className="space-y-2 pt-2 text-xs text-[#D8D0C5]">
               <div className="flex items-start gap-2">
-                <MapPin size={14} className="text-[#D95A2B] flex-shrink-0 mt-0.5" />
+                <MapPin size={14} className="text-[#C86D51] flex-shrink-0 mt-0.5" />
                 <span>Caferağa Mah. Moda Cad. No:42/A, Kadıköy / İstanbul</span>
               </div>
               <div className="flex items-center gap-2">
@@ -55,7 +55,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#A89F95] hover:text-[#D95A2B] transition-colors"
+                    className="text-sm text-[#A89F95] hover:text-[#C86D51] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -64,17 +64,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Direct Channels & Legal */}
+          {/* Direct Channels & Legal - Straight Edges */}
           <div className="md:col-span-4 space-y-4 text-left">
             <h3 className="font-serif text-base font-semibold text-[#FDFBF7]">
-              Bize Ulaşın & Sipariş
+              Bize Ulaşın &amp; Sipariş
             </h3>
             <div className="flex space-x-3">
               <a
                 href="https://www.instagram.com/portakalcicegi.atolye/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white/5 hover:bg-[#D95A2B] text-[#FDFBF7] rounded-full transition-all duration-300 border border-white/10"
+                className="p-3 bg-white/5 hover:bg-[#C86D51] text-[#FDFBF7] rounded-none transition-all duration-200 border border-white/10"
                 aria-label="Instagram sayfamızı ziyaret edin"
               >
                 <Instagram className="h-4 w-4" />
@@ -83,14 +83,14 @@ export default function Footer() {
                 href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, atölyenizden bilgi almak istiyorum.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 bg-white/5 hover:bg-[#D95A2B] text-[#FDFBF7] rounded-full transition-all duration-300 border border-white/10"
+                className="p-3 bg-white/5 hover:bg-[#C86D51] text-[#FDFBF7] rounded-none transition-all duration-200 border border-white/10"
                 aria-label="WhatsApp üzerinden doğrudan yazın"
               >
                 <MessageCircle className="h-4 w-4" />
               </a>
             </div>
             <p className="text-xs text-[#A89F95] leading-relaxed max-w-xs">
-              100+ adet toplu siparişler ve özel tasarım talepleri için Instagram DM ve WhatsApp üzerinden doğrudan atölye tasarımcımızla görüşebilirsiniz.
+              Kişiye özel cake topper, magnet ve kapı panosu siparişleri için Instagram DM ve WhatsApp üzerinden doğrudan atölye tasarımcımızla görüşebilirsiniz.
             </p>
           </div>
         </div>
@@ -99,11 +99,11 @@ export default function Footer() {
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#8E857B]">
           <p>© {new Date().getFullYear()} Portakal Çiçeği Atölye. Tüm hakları saklıdır.</p>
           <div className="flex flex-wrap items-center gap-5">
-            <Link href="/gizlilik-politikasi" className="hover:text-[#D95A2B] transition-colors">
+            <Link href="/gizlilik-politikasi" className="hover:text-[#C86D51] transition-colors">
               Gizlilik Politikası (KVKK)
             </Link>
             <span>•</span>
-            <Link href="/kullanim-kosullari" className="hover:text-[#D95A2B] transition-colors">
+            <Link href="/kullanim-kosullari" className="hover:text-[#C86D51] transition-colors">
               Kullanım ve Sipariş Koşulları
             </Link>
           </div>

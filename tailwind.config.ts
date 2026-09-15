@@ -16,6 +16,8 @@ const config: Config = {
           sepia: "var(--color-text-sepia)",
           terracotta: "var(--color-terracotta)",
           "terracotta-dark": "var(--color-terracotta-dark)",
+          "terracotta-light": "var(--color-terracotta-light)",
+          pastel: "var(--color-bg-pastel)",
           olive: "var(--color-olive)",
           amber: "var(--color-amber)",
           border: "var(--color-border)",

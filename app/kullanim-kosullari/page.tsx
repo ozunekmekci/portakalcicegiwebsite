@@ -14,7 +14,7 @@ export default function TermsOfServicePage() {
         {/* Top Breadcrumb Link */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-xs font-sans font-medium text-[#696159] hover:text-[#D95A2B] transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-sans font-medium text-[#696159] hover:text-[#C86D51] transition-colors"
         >
           <ArrowLeft size={14} />
           <span>Ana Sayfaya Dön</span>
@@ -26,7 +26,7 @@ export default function TermsOfServicePage() {
             Kullanım ve Sipariş Koşulları
           </h1>
           <p className="font-sans text-sm text-[#696159]">
-            Son güncelleme: 14 Eylül 2026 • Portakal Çiçeği Atölye (Kadıköy / İstanbul)
+            Son güncelleme: 15 Eylül 2026 • Portakal Çiçeği Atölye (Kadıköy / İstanbul)
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export default function TermsOfServicePage() {
           <section className="space-y-3">
             <h2 className="font-serif text-xl font-bold text-[#1E1C1A]">1. Hizmet ve Sipariş Modeli</h2>
             <p className="text-[#696159]">
-              Portakal Çiçeği Atölye, müşterinin talebine özel olarak tasarlanan ve üretilen 3D katmanlı akrilik, aynalı pleksi ve ahşap detaylı pasta süsleri ile baby shower, doğum ve nişan hatıra magnetleri üretmektedir. Kişiye özel pasta süsleri 1 adet tekil olarak üretilirken, hatıralık magnet siparişleri 25 adet ve üzeri veya avantajlı kombin setler halinde hazırlanır.
+              Portakal Çiçeği Atölye, müşterinin talebine özel olarak tasarlanan ve üretilen 3D katmanlı akrilik, aynalı pleksi ve ahşap detaylı cake topper (pasta süsü), hatıra magnetleri ve kapı süsleri üretmektedir. Kişiye özel cake topper ve kapı süsleri 1 adet tekil olarak üretilirken, hatıralık magnet siparişleri 25 adet ve üzeri veya avantajlı kombin setler halinde hazırlanır.
             </p>
           </section>
 

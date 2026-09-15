@@ -31,15 +31,15 @@ export default function AnnouncementBar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         <div className="flex-1 flex items-center justify-center text-center flex-wrap gap-x-3 gap-y-1">
-          <span className="font-semibold text-[#D95A2B]">✦ Butik Ev Atölyesi:</span>
+          <span className="font-semibold text-[#C86D51]">✦ Butik Ev Atölyesi:</span>
           <span className="text-[#E6DFD5]">
-            Pasta süsleri ve baby shower magnetlerinde üretime geçmeden önce WhatsApp&apos;ta 1&apos;e 1 taslak onayı &amp; kırılma garantisi.
+            Magnet, Cake Topper ve Kapı Süslerinde üretime geçmeden önce WhatsApp&apos;ta birebir taslak onayı &amp; hasar garantisi.
           </span>
           <a
-            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, pasta süsü ve magnet modelleriniz hakkında bilgi almak ve özel taslak hazırlatmak istiyorum.")}`}
+            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, magnet, pasta süsü ve kapı süsü modelleriniz hakkında bilgi almak ve özel taslak hazırlatmak istiyorum.")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 font-medium text-[#D95A2B] hover:text-[#FFA07A] underline underline-offset-2 transition-colors ml-1"
+            className="inline-flex items-center gap-1 font-medium text-[#C86D51] hover:text-[#E29B85] underline underline-offset-2 transition-colors ml-1"
           >
             <MessageCircle size={12} />
             <span>Taslak İste →</span>
@@ -50,7 +50,7 @@ export default function AnnouncementBar() {
           onClick={handleDismiss}
           type="button"
           aria-label="Duyuruyu gizle"
-          className="text-[#8E857B] hover:text-[#FDFBF7] p-1 rounded-full hover:bg-white/10 transition-colors flex-shrink-0"
+          className="text-[#8E857B] hover:text-[#FDFBF7] p-1 rounded-none hover:bg-white/10 transition-colors flex-shrink-0"
         >
           <X size={14} />
         </button>

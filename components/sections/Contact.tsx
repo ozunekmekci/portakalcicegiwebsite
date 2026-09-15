@@ -17,7 +17,7 @@ export default function Contact({ settings = {} }: ContactProps) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    productType: "Pasta Süsü (1 Adet)",
+    productType: "Magnet (Min. 25 Adet)",
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
@@ -51,7 +51,6 @@ export default function Contact({ settings = {} }: ContactProps) {
       });
 
       if (response.ok) {
-        // Redirect to bespoke Thank You page
         router.push("/tesekkur-ederiz");
       } else {
         setStatus("error");
@@ -64,7 +63,7 @@ export default function Contact({ settings = {} }: ContactProps) {
   };
 
   return (
-    <section id="iletisim" aria-label="İletişim ve Fiyat Teklifi" className="bg-[#1E1C1A] py-24 px-4 sm:px-6 lg:px-8 text-[#FDFBF7] overflow-hidden">
+    <section id="iletisim" aria-label="İletişim ve Fiyat Teklifi" className="bg-[#1E1C1A] py-20 px-4 sm:px-6 lg:px-8 text-[#FDFBF7] overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
@@ -74,20 +73,20 @@ export default function Contact({ settings = {} }: ContactProps) {
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FDFBF7] leading-tight">
                 Hayalinizdeki Kutlamayı Birlikte Tasarlayalım
               </h2>
-              <p className="font-sans text-base sm:text-lg text-[#A89F95] leading-relaxed">
-                Kişiye özel pasta süsü, baby shower magnetleri veya avantajlı kombin setleriniz için doğrudan ev atölyemizle iletişime geçin.
+              <p className="font-sans text-sm sm:text-base text-[#A89F95] leading-relaxed">
+                Magnetler, kişiye özel cake topper süsleri ve kapı panoları için doğrudan ev atölyemizle iletişime geçin.
               </p>
             </div>
 
-            {/* Quick Action Channels */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            {/* Quick Action Channels - Straight Edges */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <a
-                href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba! Pasta süsü ve baby shower magnet tasarımlarınızı konuşmak, etkinliğimin detaylarını paylaşmak istiyorum.")}`}
+                href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba! Magnet, pasta süsü ve kapı süsü tasarımlarınızı konuşmak, etkinliğimin detaylarını paylaşmak istiyorum.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] rounded-full px-7 py-3.5 text-sm sm:text-base font-semibold shadow-[0_4px_16px_rgba(217,90,43,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center justify-center gap-2 bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] rounded-none px-6 py-3.5 text-xs font-sans font-semibold uppercase tracking-wider shadow-sm transition-all duration-200"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={16} />
                 <span>WhatsApp&apos;ta Tasarım Konuşalım</span>
               </a>
 
@@ -95,9 +94,9 @@ export default function Contact({ settings = {} }: ContactProps) {
                 href="https://www.instagram.com/portakalcicegi.atolye/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 bg-white/5 hover:bg-white/10 text-[#FDFBF7] border border-white/15 rounded-full px-6 py-3.5 text-sm sm:text-base font-medium transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-[#FDFBF7] border border-white/15 rounded-none px-6 py-3.5 text-xs font-sans font-semibold uppercase tracking-wider transition-all duration-200"
               >
-                <Instagram size={17} />
+                <Instagram size={15} />
                 <span>Instagram DM</span>
               </a>
             </div>
@@ -105,15 +104,15 @@ export default function Contact({ settings = {} }: ContactProps) {
             {/* Real Physical Atelier Address & Details */}
             <div className="pt-6 border-t border-white/10 space-y-3.5 text-xs sm:text-sm text-[#D8D0C5]">
               <div className="flex items-start gap-3">
-                <MapPin size={17} className="text-[#D95A2B] flex-shrink-0 mt-0.5" />
+                <MapPin size={17} className="text-[#C86D51] flex-shrink-0 mt-0.5" />
                 <span><strong>Atölye:</strong> Caferağa Mah. Moda Cad. No:42/A, Kadıköy / İstanbul</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone size={16} className="text-[#D95A2B] flex-shrink-0" />
+                <Phone size={16} className="text-[#C86D51] flex-shrink-0" />
                 <span><strong>WhatsApp Destek:</strong> +90 (555) 555 55 55</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail size={16} className="text-[#D95A2B] flex-shrink-0" />
+                <Mail size={16} className="text-[#C86D51] flex-shrink-0" />
                 <span><strong>E-posta:</strong> iletisim@portakalcicegiatolye.com</span>
               </div>
               <div className="flex items-center gap-3">
@@ -123,8 +122,8 @@ export default function Contact({ settings = {} }: ContactProps) {
             </div>
           </div>
 
-          {/* Right Column: Clean Inquiry Form */}
-          <div className="lg:col-span-6 bg-white/[0.04] p-8 sm:p-10 rounded-3xl border border-white/10 shadow-soft-md text-left">
+          {/* Right Column: Clean Inquiry Form - Straight Edges */}
+          <div className="lg:col-span-6 bg-white/[0.04] p-6 sm:p-8 rounded-none border border-white/10 shadow-soft-md text-left">
             <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#FDFBF7] mb-2">
               Hızlı Tasarım &amp; Teklif Formu
             </h3>
@@ -135,7 +134,7 @@ export default function Contact({ settings = {} }: ContactProps) {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="contact-name" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  Adınız Soyadınız <span className="text-[#D95A2B]">*</span>
+                  Adınız Soyadınız <span className="text-[#C86D51]">*</span>
                 </label>
                 <input
                   id="contact-name"
@@ -145,13 +144,13 @@ export default function Contact({ settings = {} }: ContactProps) {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans"
+                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#C86D51] transition-colors font-sans"
                 />
               </div>
 
               <div>
                 <label htmlFor="contact-phone" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  Telefon Numaranız (WhatsApp) <span className="text-[#D95A2B]">*</span>
+                  Telefon Numaranız (WhatsApp) <span className="text-[#C86D51]">*</span>
                 </label>
                 <input
                   id="contact-phone"
@@ -161,25 +160,25 @@ export default function Contact({ settings = {} }: ContactProps) {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans"
+                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#C86D51] transition-colors font-sans"
                 />
               </div>
 
               <div>
                 <label htmlFor="contact-type" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  İlgilendiğiniz Tasarım Türü
+                  İlgilendiğiniz Ürün Kategorisi
                 </label>
                 <select
                   id="contact-type"
                   name="productType"
                   value={formData.productType}
                   onChange={handleChange}
-                  className="w-full bg-[#2C2926] border border-white/15 text-[#FDFBF7] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans"
+                  className="w-full bg-[#2C2926] border border-white/15 text-[#FDFBF7] rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#C86D51] transition-colors font-sans"
                 >
-                  <option value="Pasta Süsü (1 Adet)">Kişiye Özel Pasta Süsü (1 Adet)</option>
-                  <option value="Baby Shower Magneti">Baby Shower &amp; Doğum Magneti (25+ Adet)</option>
-                  <option value="Kutlama Kombin Seti">Kutlama Kombin Seti (Pasta Süsü + Magnet)</option>
-                  <option value="Düğün & Nişan">Düğün &amp; Nişan Hatırası</option>
+                  <option value="Magnet (Min. 25 Adet)">Magnet &amp; Hediyelik (Min. 25 Adet)</option>
+                  <option value="Cake Topper (1 Adet)">Cake Topper / Pasta Süsü (1 Adet Özel Üretim)</option>
+                  <option value="Kapı Süsü (1 Adet)">Kapı Süsü &amp; Pano (1 Adet Özel Üretim)</option>
+                  <option value="Kutlama Kombin Seti">Kutlama Kombin Seti</option>
                   <option value="Özel Tasarım">Farklı / Özel Konsept Fikir</option>
                 </select>
               </div>
@@ -195,27 +194,27 @@ export default function Contact({ settings = {} }: ContactProps) {
                   rows={3}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D95A2B] transition-colors font-sans resize-none"
+                  className="w-full bg-white/[0.06] border border-white/15 text-[#FDFBF7] placeholder-[#8E857B] rounded-none px-4 py-3 text-sm focus:outline-none focus:border-[#C86D51] transition-colors font-sans resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="w-full inline-flex items-center justify-center gap-2 bg-[#D95A2B] hover:bg-[#B8471D] disabled:opacity-50 text-[#FDFBF7] font-medium rounded-xl px-6 py-3.5 text-sm transition-all duration-300 shadow-md cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#C86D51] hover:bg-[#A85338] disabled:opacity-50 text-[#FDFBF7] font-sans font-semibold text-xs uppercase tracking-wider rounded-none px-6 py-3.5 transition-all duration-200 shadow-sm cursor-pointer"
               >
                 {status === "submitting" ? (
                   <span>İletiliyor...</span>
                 ) : (
                   <>
-                    <Send size={15} />
+                    <Send size={14} />
                     <span>Fiyat Teklifi İste</span>
                   </>
                 )}
               </button>
 
               {status === "error" && (
-                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-[#B8471D]/20 border border-[#B8471D]/40 text-rose-300 text-xs font-sans">
+                <div className="flex items-start gap-2.5 p-3 rounded-none bg-[#A85338]/20 border border-[#A85338]/40 text-rose-300 text-xs font-sans">
                   <AlertCircle size={16} className="flex-shrink-0 mt-0.5 text-rose-300" />
                   <span>{errorMessage}</span>
                 </div>

@@ -19,13 +19,17 @@ type Props = {
 };
 
 const slugToIsim: Record<string, string> = {
-  "pasta-susleri": "Kişiye Özel Pasta Süsleri",
-  babyshower: "Baby Shower & Doğum",
-  "baby-shower": "Baby Shower & Doğum",
+  magnet: "Magnet & Hediyelik",
+  "cake-topper": "Cake Topper (Pasta Süsleri)",
+  "kapi-susu": "Kapı Süsü & Pano",
+  // Geriye dönük uyumluluk eşlemeleri
+  "pasta-susleri": "Cake Topper (Pasta Süsleri)",
+  babyshower: "Magnet & Hediyelik",
+  "baby-shower": "Magnet & Hediyelik",
   "kombin-setler": "Kutlama Kombin Setleri",
+  "dugun-nisan": "Düğün & Nişan Hatıraları",
   "dogum-gunu": "İlk Yaş & Doğum Günü",
   "dis-bugdayi": "Diş Buğdayı",
-  "dugun-nisan": "Düğün & Nişan",
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -79,12 +83,30 @@ export default async function KoleksiyonPage({ params }: Props) {
     }));
 
     if (filtered.length === 0) {
+      const target = params.slug.toLowerCase();
+      if (target === "magnet" || target === "babyshower" || target === "baby-shower") {
+        filtered = fallbackProducts.filter((p) => p.koleksiyonSlug === "magnet" || p.koleksiyonSlug === "babyshower" || p.koleksiyonSlug === "dugun-nisan");
+      } else if (target === "cake-topper" || target === "pasta-susleri") {
+        filtered = fallbackProducts.filter((p) => p.koleksiyonSlug === "cake-topper" || p.koleksiyonSlug === "pasta-susleri");
+      } else if (target === "kapi-susu") {
+        filtered = fallbackProducts.filter((p) => p.koleksiyonSlug === "kapi-susu");
+      } else {
+        const normalize = (s: string) => s.toLowerCase().replace(/-/g, "");
+        filtered = fallbackProducts.filter((p) => normalize(p.koleksiyonSlug) === normalize(params.slug));
+      }
+    }
+  } catch {
+    const target = params.slug.toLowerCase();
+    if (target === "magnet" || target === "babyshower" || target === "baby-shower") {
+      filtered = fallbackProducts.filter((p) => p.koleksiyonSlug === "magnet" || p.koleksiyonSlug === "babyshower" || p.koleksiyonSlug === "dugun-nisan");
+    } else if (target === "cake-topper" || target === "pasta-susleri") {
+      filtered = fallbackProducts.filter((p) => p.koleksiyonSlug === "cake-topper" || p.koleksiyonSlug === "pasta-susleri");
+    } else if (target === "kapi-susu") {
+      filtered = fallbackProducts.filter((p) => p.koleksiyonSlug === "kapi-susu");
+    } else {
       const normalize = (s: string) => s.toLowerCase().replace(/-/g, "");
       filtered = fallbackProducts.filter((p) => normalize(p.koleksiyonSlug) === normalize(params.slug));
     }
-  } catch {
-    const normalize = (s: string) => s.toLowerCase().replace(/-/g, "");
-    filtered = fallbackProducts.filter((p) => normalize(p.koleksiyonSlug) === normalize(params.slug));
   }
 
   const isim = categoryObj?.name || slugToIsim[params.slug] || params.slug;
@@ -135,11 +157,11 @@ export default async function KoleksiyonPage({ params }: Props) {
           </div>
 
           <div className="flex items-center gap-3 pt-1">
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1E1C1A] bg-white px-3 py-1 rounded-full border border-[#EDE6DF] shadow-soft-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D95A2B]" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#1E1C1A] bg-white px-3 py-1 rounded-none border border-[#EDE6DF] shadow-soft-sm">
+              <span className="w-1.5 h-1.5 rounded-none bg-[#C86D51]" />
               <span>{filtered.length} Tasarım Modeli</span>
             </span>
-            <span className="text-xs text-[#696159]">✦ 100+ Adet Özel Üretim</span>
+            <span className="text-xs text-[#696159]">✦ Kişiye Özel Atölye Üretimi</span>
           </div>
         </div>
       </section>
@@ -162,7 +184,7 @@ export default async function KoleksiyonPage({ params }: Props) {
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] transition-all rounded-full px-8 py-3.5 text-sm font-semibold shadow-md"
+              className="inline-flex items-center justify-center gap-2 bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] transition-all rounded-none px-8 py-3.5 text-sm font-semibold shadow-sm"
             >
               <MessageCircle size={16} />
               <span>Özel Tasarım Talebi İletin</span>

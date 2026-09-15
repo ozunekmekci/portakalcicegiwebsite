@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Star, ChevronLeft, ChevronRight, MessageCircle, Heart, Facebook, Twitter, Instagram, ArrowLeft, X } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight, MessageCircle, Facebook, Twitter, Instagram, ArrowLeft, X } from "lucide-react";
 import { Product } from "@/lib/types";
 import { getOptimizedUrl } from "@/lib/cloudinary";
 
@@ -20,12 +20,12 @@ const fallbackGallery = [
   "/images/gallery-5.webp"
 ];
 
-export default function ProductDetailContent({ product, ilgiliUrunler = [] }: ProductDetailContentProps) {
-  const [qty, setQty] = useState(100);
+export default function ProductDetailContent({ product }: ProductDetailContentProps) {
+  const minQty = product.minimumAdet || (product.koleksiyonSlug === "magnet" ? 25 : 1);
+  const [qty, setQty] = useState(minQty);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
-  // Setup gallery images: Ana görsel + Ek görseller (De-duplicated & No fallbacks!)
   const initialImages = [product.anaGorsel, ...(product.ekGorseller || [])].filter(Boolean);
   const galleryImages = Array.from(new Set(initialImages));
   if (galleryImages.length === 0) {
@@ -40,13 +40,13 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
     setActiveImageIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
   }, [galleryImages.length]);
 
+  const step = minQty === 1 ? 1 : 10;
   const handleQtyChange = (val: number) => {
-    if (val >= 100) {
+    if (val >= minQty) {
       setQty(val);
     }
   };
 
-  // Prevent scroll when lightbox is open
   useEffect(() => {
     if (isLightboxOpen) {
       document.body.style.overflow = "hidden";
@@ -58,7 +58,6 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
     };
   }, [isLightboxOpen]);
 
-  // Handle keyboard events for lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isLightboxOpen) return;
@@ -75,27 +74,25 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isLightboxOpen, galleryImages.length, handlePrevImage, handleNextImage]);
 
-  // WhatsApp Deep Link configuration
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
   const waText = encodeURIComponent(
-    `Merhaba! "${product.isim}" ürününden ${qty} adet sipariş vermek istiyorum. Fiyat ve detaylar konusunda bilgi alabilir miyim?`
+    `Merhaba! "${product.isim}" ürününden ${qty} adet için tasarım taslağı ve sipariş bilgisi almak istiyorum.`
   );
   const waHref = `https://wa.me/${waNumber}?text=${waText}`;
 
-  // Struck-through price calculation (Original Price is roughly 35% higher)
   const formatPrice = (p: string) => p || "₺50";
   const parsedPriceStr = formatPrice(product.fiyatAraligi);
   const numbers = parsedPriceStr.match(/\d+/g);
-  let oldPriceStr = "₺75";
+  let oldPriceStr = "";
   if (numbers && numbers.length > 0) {
     if (numbers.length === 2) {
       const min = parseInt(numbers[0]);
       const max = parseInt(numbers[1]);
-      oldPriceStr = `₺${Math.round(min * 1.35)} - ₺${Math.round(max * 1.35)}`;
+      oldPriceStr = `₺${Math.round(min * 1.3)} - ₺${Math.round(max * 1.3)}`;
     } else {
       const val = parseInt(numbers[0]);
-      oldPriceStr = `₺${Math.round(val * 1.35)}`;
+      oldPriceStr = `₺${Math.round(val * 1.3)}`;
     }
   }
 
@@ -105,7 +102,6 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
         : `₺${product.fiyatAraligi}`)
     : "Fiyat Sorun";
 
-  // Split package content by newlines
   const packageItems = product.paketIcerigi
     ? product.paketIcerigi.split("\n").map(item => item.trim()).filter(Boolean)
     : [
@@ -114,57 +110,52 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
         "✓ Canlı WhatsApp Taslak ve Tasarım Onayı"
       ];
 
-  // Split features by newlines
   const featureItems = product.ozellikler
     ? product.ozellikler.split("\n").map(item => item.trim()).filter(Boolean)
     : [
         "• Malzeme: Premium Akrilik ve Aynalı Pleksi",
-        `• Minimum Sipariş Adedi: ${product.minimumAdet || 100} Adet`,
+        `• Minimum Sipariş: ${minQty === 1 ? "1 Adet Özel Üretim" : `${minQty} Adet`}`,
         "• Teslimat Süresi: 3-5 İş Gününde Kargo"
       ];
 
   return (
-    <div className="px-8 md:px-24 py-12 max-w-[1512px] mx-auto bg-[#fbf7f0] border-b border-[#eaeaea] relative overflow-hidden">
-
-      
-      {/* Asymmetric Ellipse Background decoration */}
-      <div className="absolute w-[1503px] h-[1503px] left-[338px] top-[-529px] rounded-full bg-white -z-10 pointer-events-none hidden lg:block" />
-
-      {/* Back Arrow (Above main grid columns) */}
+    <div className="px-6 md:px-16 py-10 max-w-[1400px] mx-auto bg-[#FDFBF7] border-b border-[#EDE6DF] relative">
+      {/* Back Arrow */}
       <div className="mb-6 flex justify-start z-10 relative">
         <Link 
           href={`/koleksiyonlar/${product.koleksiyonSlug}`} 
-          className="inline-flex items-center text-neutral-500 hover:text-[#D95A2B] transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#696159] hover:text-[#C86D51] transition-colors"
           aria-label="Koleksiyona Geri Dön"
         >
-          <ArrowLeft size={24} strokeWidth={1.5} className="text-neutral-700" />
+          <ArrowLeft size={16} />
+          <span>Koleksiyona Dön</span>
         </Link>
       </div>
 
       {/* Top Product Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start z-10 relative">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start z-10 relative">
         
-        {/* 1. LEFT PANEL: Media Gallery (Vertical Thumbnails on left + Square Main Image) */}
-        <div className="lg:col-span-7 flex flex-col md:flex-row items-start gap-5 w-full">
+        {/* LEFT PANEL: Media Gallery */}
+        <div className="lg:col-span-7 flex flex-col md:flex-row items-start gap-4 w-full">
           
-          {/* Vertical/Horizontal Thumbnails */}
+          {/* Thumbnails - Straight Edges */}
           {galleryImages.length > 1 && (
-            <div className="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-x-visible w-full md:w-[91px] md:flex-shrink-0 order-2 md:order-1 pb-2 md:pb-0">
+            <div className="flex flex-row md:flex-col gap-3 overflow-x-auto md:overflow-x-visible w-full md:w-[84px] md:flex-shrink-0 order-2 md:order-1 pb-2 md:pb-0">
               {galleryImages.map((imgUrl, i) => {
                 const isActive = activeImageIndex === i;
                 return (
                   <button
                     key={i}
                     onClick={() => setActiveImageIndex(i)}
-                    className={`relative w-[70px] h-[70px] md:w-[91px] md:h-[91px] rounded-[10px] overflow-hidden border-2 cursor-pointer flex-shrink-0 transition-all ${
-                      isActive ? "border-[#D95A2B] scale-[1.02]" : "border-neutral-200 hover:border-[#D95A2B]/40"
+                    className={`relative w-[64px] h-[64px] md:w-[84px] md:h-[84px] rounded-none overflow-hidden border cursor-pointer flex-shrink-0 transition-all ${
+                      isActive ? "border-[#C86D51]" : "border-[#EDE6DF] hover:border-[#C86D51]/50"
                     }`}
                   >
                     <Image
-                      src={getOptimizedUrl(imgUrl, { width: 200, height: 200, crop: "limit" })}
+                      src={getOptimizedUrl(imgUrl, { width: 180, height: 180, crop: "limit" })}
                       alt={`${product.isim} - Thumbnail ${i + 1}`}
                       fill
-                      sizes="91px"
+                      sizes="84px"
                       className="object-cover"
                       unoptimized
                     />
@@ -174,43 +165,44 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
             </div>
           )}
 
-          {/* Main Image Box */}
+          {/* Main Image Box - Straight Edges */}
           <div 
             onClick={() => setIsLightboxOpen(true)}
-            className="w-full md:w-[535px] h-[535px] rounded-[10px] overflow-hidden bg-neutral-200/20 relative flex items-center justify-center order-1 md:order-2 flex-shrink-0 shadow-sm border border-neutral-200/30 cursor-zoom-in group"
+            className="w-full md:flex-1 aspect-square rounded-none overflow-hidden bg-white border border-[#EDE6DF] relative flex items-center justify-center order-1 md:order-2 flex-shrink-0 shadow-sm cursor-zoom-in group p-4"
           >
-            <Image
-              src={getOptimizedUrl(galleryImages[activeImageIndex], { width: 1000, height: 1000, crop: "limit" })}
-              alt={`${product.isim} - Görsel`}
-              width={535}
-              height={535}
-              className="object-contain max-h-[500px] w-auto h-auto drop-shadow-md z-10 transition-transform duration-300 group-hover:scale-[1.02]"
-              priority
-              unoptimized
-            />
+            <div className="relative w-full h-full bg-[#F5EFEB] rounded-none overflow-hidden flex items-center justify-center">
+              <Image
+                src={getOptimizedUrl(galleryImages[activeImageIndex], { width: 1000, height: 1000, crop: "limit" })}
+                alt={`${product.isim} - Görsel`}
+                fill
+                className="object-contain p-4 transition-transform duration-300 group-hover:scale-[1.02]"
+                priority
+                unoptimized
+              />
+            </div>
 
-            {/* Navigation Arrows overlay for multi-image gallery */}
+            {/* Navigation Arrows for multi-image */}
             {galleryImages.length > 1 && (
               <div 
                 onClick={(e) => e.stopPropagation()}
-                className="absolute top-4 right-4 z-20 flex items-center gap-2 bg-white/80 backdrop-blur-xs px-2.5 py-1.5 rounded-full shadow-xs border border-neutral-200/40 text-neutral-600"
+                className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-[#FDFBF7]/95 backdrop-blur-xs px-2.5 py-1 rounded-none border border-[#EDE6DF] text-[#1E1C1A]"
               >
                 <button
                   onClick={handlePrevImage}
                   aria-label="Önceki resim"
-                  className="hover:text-[#D95A2B] transition-colors cursor-pointer"
+                  className="hover:text-[#C86D51] transition-colors cursor-pointer"
                 >
-                  <ChevronLeft size={18} strokeWidth={2} />
+                  <ChevronLeft size={16} />
                 </button>
-                <span className="text-xs font-bold font-sans">
+                <span className="text-xs font-semibold font-sans">
                   {activeImageIndex + 1} / {galleryImages.length}
                 </span>
                 <button
                   onClick={handleNextImage}
                   aria-label="Sonraki resim"
-                  className="hover:text-[#D95A2B] transition-colors cursor-pointer"
+                  className="hover:text-[#C86D51] transition-colors cursor-pointer"
                 >
-                  <ChevronRight size={18} strokeWidth={2} />
+                  <ChevronRight size={16} />
                 </button>
               </div>
             )}
@@ -218,98 +210,99 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
 
         </div>
 
-        {/* 2. RIGHT PANEL: Product Info & CTA Buttons */}
-        <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
+        {/* RIGHT PANEL: Product Info & CTA Buttons */}
+        <div className="lg:col-span-5 space-y-6 flex flex-col justify-between text-left">
           
           <div className="space-y-6">
             {/* Breadcrumbs */}
-            <nav aria-label="Breadcrumb" className="text-xs md:text-sm font-light text-neutral-500 font-sans tracking-wide">
-              <Link href="/" className="hover:text-brand-orange transition-colors">Ana Sayfa</Link>
+            <nav aria-label="Breadcrumb" className="text-xs font-sans text-[#696159] tracking-wide">
+              <Link href="/" className="hover:text-[#C86D51] transition-colors">Ana Sayfa</Link>
               <span className="mx-2">/</span>
-              <Link href={`/koleksiyonlar/${product.koleksiyonSlug}`} className="hover:text-brand-orange transition-colors">{product.koleksiyon || "Koleksiyon"}</Link>
+              <Link href={`/koleksiyonlar/${product.koleksiyonSlug}`} className="hover:text-[#C86D51] transition-colors">{product.koleksiyon || "Koleksiyon"}</Link>
               <span className="mx-2">/</span>
-              <span className="text-neutral-800 font-medium">{product.isim}</span>
+              <span className="text-[#1E1C1A] font-semibold">{product.isim}</span>
             </nav>
 
-            {/* Title & Reviews Row */}
-            <div className="space-y-3">
-              <h1 className="font-sans text-[33px] font-bold text-neutral-800 leading-[40px] tracking-tight">
+            {/* Title & Reviews */}
+            <div className="space-y-2">
+              <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#1E1C1A] leading-tight">
                 {product.isim}
               </h1>
               
-              {/* Star Rating row */}
-              <div className="flex items-center gap-2 text-xs font-sans text-neutral-500 pt-1">
-                <div className="flex items-center text-yellow-500 gap-0.5">
-                  <Star size={14} fill="currentColor" className="text-yellow-500" />
-                  <Star size={14} fill="currentColor" className="text-yellow-500" />
-                  <Star size={14} fill="currentColor" className="text-yellow-500" />
-                  <Star size={14} fill="currentColor" className="text-yellow-500" />
-                  <Star size={14} fill="currentColor" className="text-yellow-500" />
+              <div className="flex items-center gap-2 text-xs font-sans text-[#696159] pt-1">
+                <div className="flex items-center text-[#D49B35] gap-0.5">
+                  <Star size={13} fill="currentColor" />
+                  <Star size={13} fill="currentColor" />
+                  <Star size={13} fill="currentColor" />
+                  <Star size={13} fill="currentColor" />
+                  <Star size={13} fill="currentColor" />
                 </div>
-                <span className="font-bold ml-1 text-neutral-700">4.9 / 5.0</span>
-                <span className="text-neutral-400 font-light">({product.id ? parseInt(product.id) % 30 + 20 : 48} Değerlendirme)</span>
+                <span className="font-semibold text-[#1E1C1A]">4.9 / 5.0</span>
+                <span>(Atölye Yorumları)</span>
               </div>
             </div>
 
             {/* Price section */}
-            <div className="flex items-baseline gap-3 pt-2">
+            <div className="flex items-baseline gap-3 pt-1">
               {oldPriceStr && (
-                <span className="text-base md:text-lg text-neutral-400 line-through font-light">
+                <span className="text-sm sm:text-base text-[#696159] line-through font-light">
                   {oldPriceStr}
                 </span>
               )}
-              <span className="text-[30px] font-bold text-brand-orange-dark font-sans leading-[41px]">
+              <span className="text-2xl sm:text-3xl font-bold text-[#C86D51] font-sans">
                 {formattedNewPrice}
               </span>
             </div>
 
-            {/* Qty & WhatsApp CTA Buttons - Auto layout elements (65px Height) */}
-            <div className="pt-6">
-              <div className="flex flex-col sm:flex-row items-center gap-4">
-                
-                {/* Qty Selector (65px Height) */}
-                <div className="flex items-center justify-between border border-neutral-300 rounded-[10px] bg-white w-full sm:w-[150px] h-[65px] px-4 flex-shrink-0">
+            {/* Qty & WhatsApp CTA */}
+            <div className="pt-4 space-y-3">
+              <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-[#696159]">
+                Sipariş Adedi ({minQty === 1 ? "1 Adet Özel Üretim" : `Asgari ${minQty} Adet`})
+              </label>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                {/* Qty Selector - Straight Edges */}
+                <div className="flex items-center justify-between border border-[#EDE6DF] bg-white rounded-none w-full sm:w-[130px] h-[52px] px-4">
                   <button
-                    onClick={() => handleQtyChange(qty - 10)}
-                    disabled={qty <= 100}
-                    className="text-neutral-500 hover:text-[#D95A2B] disabled:opacity-30 disabled:hover:text-neutral-500 cursor-pointer font-bold select-none text-xl"
+                    onClick={() => handleQtyChange(qty - step)}
+                    disabled={qty <= minQty}
+                    className="text-[#696159] hover:text-[#C86D51] disabled:opacity-30 cursor-pointer font-bold select-none text-lg"
                   >
                     -
                   </button>
-                  <span className="font-sans font-bold text-neutral-800 select-none text-[16px]">
+                  <span className="font-sans font-bold text-[#1E1C1A] select-none text-base">
                     {qty}
                   </span>
                   <button
-                    onClick={() => handleQtyChange(qty + 10)}
-                    className="text-neutral-500 hover:text-[#D95A2B] cursor-pointer font-bold select-none text-xl"
+                    onClick={() => handleQtyChange(qty + step)}
+                    className="text-[#696159] hover:text-[#C86D51] cursor-pointer font-bold select-none text-lg"
                   >
                     +
                   </button>
                 </div>
 
-                {/* WhatsApp Direct Buy button (65px Height) */}
+                {/* WhatsApp Direct Buy button - Straight Edges */}
                 <a
                   href={waHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 w-full h-[65px] text-[15px] tracking-wider uppercase bg-[#D95A2B] text-white rounded-[10px] shadow-sm hover:bg-[#B8471D] transition-colors flex items-center justify-center gap-2 cursor-pointer font-sans text-center font-bold"
+                  className="flex-1 h-[52px] text-xs font-sans font-semibold uppercase tracking-wider bg-[#C86D51] hover:bg-[#A85338] text-white rounded-none shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer text-center"
                 >
-                  <MessageCircle size={20} className="fill-white text-[#D95A2B]" />
+                  <MessageCircle size={16} />
                   <span>WhatsApp ile Sipariş Ver ➔</span>
                 </a>
-
               </div>
             </div>
 
           </div>
 
           {/* Social shares */}
-          <div className="pt-6 border-t border-neutral-200/40 flex items-center justify-between">
-            <span className="text-xs text-neutral-400 font-sans tracking-wide">Ürünü Sosyal Medyada Paylaş:</span>
-            <div className="flex items-center gap-4 text-neutral-400">
-              <a href="#" className="hover:text-[#D95A2B] transition-colors" aria-label="Facebook'ta Paylaş"><Facebook size={18} /></a>
-              <a href="#" className="hover:text-[#D95A2B] transition-colors" aria-label="Twitter'da Paylaş"><Twitter size={18} /></a>
-              <a href="#" className="hover:text-[#D95A2B] transition-colors" aria-label="Instagram'da Paylaş"><Instagram size={18} /></a>
+          <div className="pt-6 border-t border-[#EDE6DF] flex items-center justify-between">
+            <span className="text-xs text-[#696159] font-sans">Paylaş:</span>
+            <div className="flex items-center gap-4 text-[#696159]">
+              <a href="#" className="hover:text-[#C86D51] transition-colors" aria-label="Facebook"><Facebook size={16} /></a>
+              <a href="#" className="hover:text-[#C86D51] transition-colors" aria-label="Twitter"><Twitter size={16} /></a>
+              <a href="#" className="hover:text-[#C86D51] transition-colors" aria-label="Instagram"><Instagram size={16} /></a>
             </div>
           </div>
 
@@ -317,87 +310,80 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
 
       </div>
 
-      {/* Bottom Detail Section (Description & Specifications Columns) */}
-      <div className="mt-16 pt-12 border-t border-neutral-200/30 z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      {/* Bottom Detail Section */}
+      <div className="mt-16 pt-12 border-t border-[#EDE6DF] z-10 relative text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Left Column: Description heading and text */}
-          <div className="lg:col-span-7 space-y-4 max-w-[777px]">
-            <h2 className="text-[27px] font-semibold text-neutral-800 tracking-wide font-sans">
+          {/* Description */}
+          <div className="lg:col-span-7 space-y-3">
+            <h2 className="font-serif text-xl sm:text-2xl font-bold text-[#1E1C1A]">
               Ürün Açıklaması
             </h2>
-            <div className="text-[18px] leading-[28px] text-neutral-600 font-light font-sans whitespace-pre-line">
+            <div className="text-sm leading-relaxed text-[#696159] font-sans whitespace-pre-line space-y-3">
               <p>{product.kisaAciklama}</p>
               {product.detayAciklama && product.detayAciklama !== product.kisaAciklama && (
-                <p className="mt-4 border-l-2 border-brand-orange/40 pl-4 italic text-neutral-500 text-[16px]">
+                <p className="border-l-2 border-[#C86D51]/50 pl-3 italic text-[#1E1C1A]">
                   {product.detayAciklama}
                 </p>
               )}
             </div>
           </div>
 
-          {/* Right Column: What's Included & Features */}
-          <div className="lg:col-span-5 space-y-8 lg:pl-6">
-            
-            {/* What's Included */}
-            <div className="space-y-3">
-              <h3 className="text-[20px] font-semibold text-neutral-800 tracking-wide font-sans">
+          {/* Included & Features */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="space-y-2">
+              <h3 className="font-serif text-lg font-bold text-[#1E1C1A]">
                 Paket İçeriği
               </h3>
-              <ul className="text-[16px] leading-[26px] text-neutral-600 font-light font-sans space-y-2">
+              <ul className="text-xs sm:text-sm text-[#696159] font-sans space-y-1.5">
                 {packageItems.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
             </div>
 
-            {/* Features */}
-            <div className="space-y-3">
-              <h3 className="text-[20px] font-semibold text-neutral-800 tracking-wide font-sans">
+            <div className="space-y-2">
+              <h3 className="font-serif text-lg font-bold text-[#1E1C1A]">
                 Özellikler
               </h3>
-              <ul className="text-[16px] leading-[26px] text-neutral-600 font-light font-sans space-y-2">
+              <ul className="text-xs sm:text-sm text-[#696159] font-sans space-y-1.5">
                 {featureItems.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
             </div>
-
           </div>
 
         </div>
       </div>
 
-      {/* Premium Lightbox Modal */}
+      {/* Lightbox Modal - Straight Edges */}
       {isLightboxOpen && (
         <div 
           onClick={() => setIsLightboxOpen(false)}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black/95 backdrop-blur-md transition-opacity duration-300 animate-fadeIn"
         >
-          {/* Close Button */}
           <button
             onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-6 right-6 z-[10000] text-white/70 hover:text-white transition-colors cursor-pointer p-2.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10"
+            className="absolute top-6 right-6 z-[10000] text-white/70 hover:text-white transition-colors cursor-pointer p-2 rounded-none bg-white/10 hover:bg-white/20 border border-white/20"
             aria-label="Kapat"
           >
-            <X size={28} />
+            <X size={24} />
           </button>
 
-          {/* Left Arrow */}
           {galleryImages.length > 1 && (
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevImage();
               }}
-              className="absolute left-4 md:left-8 z-[10000] text-white/70 hover:text-white transition-colors cursor-pointer p-3.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10"
+              className="absolute left-4 md:left-8 z-[10000] text-white/70 hover:text-white transition-colors cursor-pointer p-3 rounded-none bg-white/10 hover:bg-white/20 border border-white/20"
               aria-label="Önceki Resim"
             >
-              <ChevronLeft size={32} />
+              <ChevronLeft size={28} />
             </button>
           )}
 
-          {/* Main Zoomed Image */}
           <div 
             onClick={(e) => e.stopPropagation()} 
             className="relative max-w-[90vw] max-h-[80vh] flex items-center justify-center select-none"
@@ -407,49 +393,31 @@ export default function ProductDetailContent({ product, ilgiliUrunler = [] }: Pr
               alt={`${product.isim} - Büyütülmüş Görsel`}
               width={1200}
               height={1200}
-              className="object-contain max-h-[80vh] w-auto h-auto rounded-lg shadow-2xl animate-scaleUp"
+              className="object-contain max-h-[80vh] w-auto h-auto rounded-none shadow-2xl animate-scaleUp"
               unoptimized
             />
           </div>
 
-          {/* Right Arrow */}
           {galleryImages.length > 1 && (
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 handleNextImage();
               }}
-              className="absolute right-4 md:right-8 z-[10000] text-white/70 hover:text-white transition-colors cursor-pointer p-3.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10"
+              className="absolute right-4 md:right-8 z-[10000] text-white/70 hover:text-white transition-colors cursor-pointer p-3 rounded-none bg-white/10 hover:bg-white/20 border border-white/20"
               aria-label="Sonraki Resim"
             >
-              <ChevronRight size={32} />
+              <ChevronRight size={28} />
             </button>
           )}
 
-          {/* Bottom Info Bar / Thumbnail Indicators */}
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="absolute bottom-6 flex flex-col items-center gap-3 z-[10000]"
+            className="absolute bottom-6 flex flex-col items-center gap-2 z-[10000]"
           >
-            <span className="text-white/60 text-[14px] font-sans tracking-wide">
+            <span className="text-white/70 text-xs font-sans">
               {product.isim} ({activeImageIndex + 1} / {galleryImages.length})
             </span>
-            
-            {/* Small thumbnail indicators */}
-            {galleryImages.length > 1 && (
-              <div className="flex gap-2 bg-white/5 backdrop-blur-xs p-2 rounded-full border border-white/10">
-                {galleryImages.map((imgUrl, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveImageIndex(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      activeImageIndex === i ? "bg-[#D95A2B] w-6" : "bg-white/40 hover:bg-white/70"
-                    }`}
-                    aria-label={`Görsel ${i + 1}`}
-                  />
-                ))}
-              </div>
-            )}
           </div>
         </div>
       )}

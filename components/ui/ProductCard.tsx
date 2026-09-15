@@ -12,11 +12,12 @@ type Props = {
 };
 
 const slugToIsim: Record<string, string> = {
-  "pasta-susleri": "Pasta Süsleri",
-  babyshower: "Baby Shower & Doğum",
-  "kombin-setler": "Kombin Setler",
-  "dogum-gunu": "İlk Yaş & Doğum Günü",
-  "dis-bugdayi": "Diş Buğdayı",
+  magnet: "Magnet & Hediyelik",
+  "cake-topper": "Cake Topper",
+  "kapi-susu": "Kapı Süsü",
+  "pasta-susleri": "Cake Topper",
+  babyshower: "Magnet",
+  "kombin-setler": "Kombin Set",
   "dugun-nisan": "Düğün & Nişan",
 };
 
@@ -32,7 +33,7 @@ export default function ProductCard({ product, index }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
-        className="bg-[#FDFBF7] rounded-2xl overflow-hidden shadow-soft-sm hover:shadow-soft-md border border-[#EDE6DF] transition-all duration-300 flex flex-col h-full"
+        className="bg-white rounded-none overflow-hidden border border-[#EDE6DF] hover:border-[#C86D51] transition-all duration-300 flex flex-col h-full"
       >
         {/* Visual Area */}
         <div className="relative aspect-[3/4] w-full bg-[#F5EFEB] overflow-hidden">
@@ -46,21 +47,21 @@ export default function ProductCard({ product, index }: Props) {
 
           {/* Top Category Badge */}
           <div className="absolute top-3 left-3 z-10">
-            <span className="text-[10px] font-sans font-medium uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#FDFBF7]/90 backdrop-blur-sm text-[#1E1C1A] border border-[#EDE6DF] shadow-soft-sm">
+            <span className="text-[10px] font-sans font-semibold uppercase tracking-wider px-2 py-0.5 rounded-none bg-[#FDFBF7]/95 backdrop-blur-sm text-[#1E1C1A] border border-[#EDE6DF]">
               {categoryName}
             </span>
           </div>
 
           {/* Corner Detail Arrow */}
-          <div className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-[#FDFBF7]/90 backdrop-blur-sm border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] group-hover:bg-[#D95A2B] group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-soft-sm">
-            <ArrowUpRight size={15} />
+          <div className="absolute top-3 right-3 z-10 w-7 h-7 rounded-none bg-[#FDFBF7]/95 backdrop-blur-sm border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] group-hover:bg-[#C86D51] group-hover:text-white group-hover:border-transparent transition-all duration-300">
+            <ArrowUpRight size={14} />
           </div>
         </div>
 
         {/* Content Area */}
         <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow space-y-3 text-left">
           <div className="space-y-1">
-            <h3 className="font-serif text-base sm:text-lg font-bold text-[#1E1C1A] group-hover:text-[#D95A2B] transition-colors line-clamp-1">
+            <h3 className="font-serif text-base sm:text-lg font-bold text-[#1E1C1A] group-hover:text-[#C86D51] transition-colors line-clamp-1">
               {product.isim}
             </h3>
             <p className="text-xs text-[#696159] line-clamp-1">
@@ -72,7 +73,7 @@ export default function ProductCard({ product, index }: Props) {
             <span className="text-sm font-semibold text-[#1E1C1A] font-sans">
               {product.fiyatAraligi || "Fiyat Sorun"}
             </span>
-            <span className="text-[11px] font-sans text-[#5A6855] bg-[#5A6855]/10 px-2 py-0.5 rounded-full font-medium">
+            <span className="text-[10px] font-sans uppercase tracking-wider text-[#5A6855] bg-[#5A6855]/10 px-2 py-0.5 rounded-none font-semibold">
               {product.minimumAdet === 1 ? "1 Adet Özel Üretim" : `Min. ${product.minimumAdet || 25} Adet`}
             </span>
           </div>

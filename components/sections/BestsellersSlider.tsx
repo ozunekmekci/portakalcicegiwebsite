@@ -8,7 +8,7 @@ import { ProductWithCategory } from "@/lib/db-queries-types";
 import { getOptimizedUrl } from "@/lib/cloudinary";
 
 interface BestsellersSliderProps {
-  products: ProductWithCategory[];
+  products?: ProductWithCategory[];
 }
 
 const mockBestsellers = [
@@ -16,7 +16,7 @@ const mockBestsellers = [
     id: 1,
     name: "Aynalı Pleksi Özel İsimli Pasta Süsü",
     slug: "aynali-pleksi-ozel-isimli-pasta-susu",
-    category_name: "Pasta Süsü",
+    category_name: "Cake Topper",
     cover_image: "/images/gallery-5.webp",
     price_range: "₺180 - ₺240",
     min_order: 1,
@@ -25,46 +25,46 @@ const mockBestsellers = [
     id: 2,
     name: "3D Katmanlı Akrilik Bulut Baby Shower Magneti",
     slug: "3d-katmanli-akrilik-bulut-baby-shower-magneti",
-    category_name: "Baby Shower",
+    category_name: "Magnet",
     cover_image: "/images/gallery-2.webp",
     price_range: "₺45 - ₺65 / adet",
     min_order: 25,
   },
   {
     id: 3,
-    name: "Safari Konsept Pasta Süsü & 30 Magnet Paketi",
-    slug: "safari-konsept-pasta-susu-ve-30-adet-magnet-paketi",
-    category_name: "Kombin Set",
-    cover_image: "/images/gallery-4.webp",
-    price_range: "₺1.450 - ₺1.850",
+    name: "Gold Aynalı Pleksi Bebek Odası Kapı Süsü",
+    slug: "gold-aynali-pleksi-bebek-kapi-susu",
+    category_name: "Kapı Süsü",
+    cover_image: "/images/gallery-3.webp",
+    price_range: "₺550 - ₺750",
     min_order: 1,
   },
   {
     id: 4,
     name: "İlk Yaş 'One' Akrilik Pasta Süsü",
     slug: "ilk-yas-one-akrilik-pasta-susu",
-    category_name: "Pasta Süsü",
-    cover_image: "/images/gallery-3.webp",
+    category_name: "Cake Topper",
+    cover_image: "/images/gallery-4.webp",
     price_range: "₺190 - ₺260",
     min_order: 1,
   },
   {
     id: 5,
-    name: "Ay Dede & Yıldız Aynalı Pleksi Bebek Hatırası",
-    slug: "ay-dede-yildiz-aynali-pleksi-bebek-hatirasi",
-    category_name: "Baby Shower",
-    cover_image: "/images/gallery-5.webp",
-    price_range: "₺48 - ₺68 / adet",
-    min_order: 25,
+    name: "Doğal Ahşap Kasnak & Kuru Çiçekli Kapı Süsü",
+    slug: "ahsap-kasnak-kuru-cicekli-kapi-susu",
+    category_name: "Kapı Süsü",
+    cover_image: "/images/gallery-7.webp",
+    price_range: "₺650 - ₺850",
+    min_order: 1,
   },
   {
     id: 6,
-    name: "Zarif Çift İsimli Düğün & Nişan Pasta Süsü",
-    slug: "zarif-cift-isimli-dugun-nisan-pasta-susu",
-    category_name: "Pasta Süsü",
+    name: "Ay Dede & Yıldız Aynalı Pleksi Bebek Hatırası",
+    slug: "ay-dede-yildiz-aynali-pleksi-bebek-hatirasi",
+    category_name: "Magnet",
     cover_image: "/images/gallery-1.webp",
-    price_range: "₺210 - ₺280",
-    min_order: 1,
+    price_range: "₺48 - ₺68 / adet",
+    min_order: 25,
   }
 ];
 
@@ -85,7 +85,7 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
   };
 
   return (
-    <section id="one-cikanlar" aria-label="Öne Çıkan Tasarımlar" className="w-full bg-[#F5EFEB] py-20 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF]">
+    <section id="one-cikanlar" aria-label="Öne Çıkan Tasarımlar" className="w-full bg-[#F5EFEB] py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF]">
       <div className="max-w-7xl mx-auto space-y-10">
         
         {/* Editorial Section Header with Navigation Controls */}
@@ -95,25 +95,25 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
               Atölyeden Yeni Çıkanlar &amp; Çok Sevilenler
             </h2>
             <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
-              Kutlamanız için tekil özel pasta süsleri, uyumlu hatıra magnetleri ve avantajlı kutlama kombinlerimiz.
+              Kişiye özel cake topper süsleri, hatıra magnetleri ve bebek odası kapı panoları.
             </p>
           </div>
           
-          {/* Navigation Controls */}
-          <div className="flex items-center gap-2.5 self-end sm:self-auto flex-shrink-0">
+          {/* Navigation Controls (Straight edge) */}
+          <div className="flex items-center gap-2 self-end sm:self-auto flex-shrink-0">
             <button
               onClick={handleScrollLeft}
               aria-label="Önceki ürünleri göster"
-              className="w-11 h-11 rounded-full border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] bg-[#FDFBF7] hover:bg-[#D95A2B] hover:text-white hover:border-transparent transition-all duration-300 shadow-soft-sm active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-none border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] bg-white hover:bg-[#C86D51] hover:text-white hover:border-transparent transition-all duration-200 shadow-sm active:scale-95 cursor-pointer"
             >
-              <ChevronLeft size={19} />
+              <ChevronLeft size={18} />
             </button>
             <button
               onClick={handleScrollRight}
               aria-label="Sonraki ürünleri göster"
-              className="w-11 h-11 rounded-full border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] bg-[#FDFBF7] hover:bg-[#D95A2B] hover:text-white hover:border-transparent transition-all duration-300 shadow-soft-sm active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-none border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] bg-white hover:bg-[#C86D51] hover:text-white hover:border-transparent transition-all duration-200 shadow-sm active:scale-95 cursor-pointer"
             >
-              <ChevronRight size={19} />
+              <ChevronRight size={18} />
             </button>
           </div>
         </div>
@@ -137,44 +137,44 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
             return (
               <div
                 key={product.id}
-                className="w-[300px] sm:w-[340px] flex-shrink-0 relative group rounded-2xl overflow-hidden snap-start transition-all duration-300 bg-[#FDFBF7] border border-[#EDE6DF] shadow-soft-sm hover:shadow-soft-md"
+                className="w-[280px] sm:w-[320px] flex-shrink-0 relative group rounded-none overflow-hidden snap-start transition-all duration-200 bg-white border border-[#EDE6DF] hover:border-[#C86D51]"
               >
                 <Link href={`/urunler/${product.slug}`} className="block h-full flex flex-col">
                   
                   {/* Image Container with Natural Light */}
-                  <div className="relative w-full h-[360px] overflow-hidden bg-[#F5EFEB]">
+                  <div className="relative w-full h-[320px] sm:h-[350px] overflow-hidden bg-[#F5EFEB]">
                     <Image
                       src={imageUrl}
                       alt={product.name}
                       fill
-                      sizes="(max-width: 768px) 300px, 340px"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 280px, 320px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                     
                     {/* Subtle Category Tag */}
-                    <div className="absolute top-4 left-4 z-10">
-                      <span className="text-[11px] font-sans font-medium uppercase tracking-wider px-3 py-1 rounded-full bg-[#FDFBF7]/90 backdrop-blur-sm text-[#1E1C1A] border border-[#EDE6DF] shadow-soft-sm">
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="text-[10px] font-sans font-semibold uppercase tracking-wider px-2 py-0.5 rounded-none bg-[#FDFBF7]/95 backdrop-blur-sm text-[#1E1C1A] border border-[#EDE6DF]">
                         {categoryName}
                       </span>
                     </div>
 
                     {/* Corner Detail Arrow */}
-                    <div className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-[#FDFBF7]/90 backdrop-blur-sm border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] group-hover:bg-[#D95A2B] group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-soft-sm">
-                      <ArrowUpRight size={16} />
+                    <div className="absolute top-3 right-3 z-10 w-7 h-7 rounded-none bg-[#FDFBF7]/95 backdrop-blur-sm border border-[#EDE6DF] flex items-center justify-center text-[#1E1C1A] group-hover:bg-[#C86D51] group-hover:text-white group-hover:border-transparent transition-all duration-200">
+                      <ArrowUpRight size={14} />
                     </div>
                   </div>
 
                   {/* Editorial Content Below Image */}
-                  <div className="p-5 flex flex-col justify-between flex-grow space-y-3">
-                    <h3 className="font-serif text-lg font-semibold text-[#1E1C1A] group-hover:text-[#D95A2B] transition-colors line-clamp-1">
+                  <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow space-y-3 text-left">
+                    <h3 className="font-serif text-base sm:text-lg font-bold text-[#1E1C1A] group-hover:text-[#C86D51] transition-colors line-clamp-1">
                       {product.name}
                     </h3>
 
-                    <div className="flex items-center justify-between pt-2 border-t border-[#EDE6DF]/80 text-xs font-sans text-[#696159]">
+                    <div className="flex items-center justify-between pt-2 border-t border-[#EDE6DF] text-xs font-sans text-[#696159]">
                       <span className="font-semibold text-[#1E1C1A] text-sm font-sans">
                         {price}
                       </span>
-                      <span className="text-[#5A6855] bg-[#5A6855]/10 px-2 py-0.5 rounded-full text-[11px] font-medium">
+                      <span className="text-[10px] font-sans uppercase tracking-wider text-[#5A6855] bg-[#5A6855]/10 px-2 py-0.5 rounded-none font-semibold">
                         {minOrder === 1 ? "1 Adet Özel Üretim" : `Min. ${minOrder} Adet`}
                       </span>
                     </div>

@@ -8,15 +8,17 @@
   --color-bg-warm: #F5EFEB;
   --color-text-ink: #1E1C1A;
   --color-text-sepia: #696159;
-  --color-terracotta: #D95A2B;
-  --color-terracotta-dark: #B8471D;
+  --color-terracotta: #C86D51;
+  --color-terracotta-dark: #A85338;
+  --color-terracotta-light: #F7EDE8;
+  --color-bg-pastel: #F7EDE8;
   --color-olive: #5A6855;
   --color-amber: #D49B35;
   --color-border: #EDE6DF;
 
   /* Geriye dönük uyumluluk eşlemeleri */
-  --color-orange: #D95A2B;
-  --color-orange-dark: #B8471D;
+  --color-orange: #C86D51;
+  --color-orange-dark: #A85338;
   --color-yellow: #D49B35;
   --color-bg-gray: #F5EFEB;
   --color-text-dark: #1E1C1A;
@@ -47,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Tarayıcı Yüzeyleri (Micro-Craft) */
 ::selection {
-  background-color: #F7E5DB;
+  background-color: #F2DDD3;
   color: #1E1C1A;
 }
 

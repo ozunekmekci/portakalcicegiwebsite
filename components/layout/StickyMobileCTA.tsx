@@ -16,17 +16,17 @@ export default function StickyMobileCTA() {
       <div className="flex items-center gap-3 max-w-md mx-auto">
         <Link
           href="/#koleksiyonlar"
-          className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full border border-[#EDE6DF] bg-white text-[#1E1C1A] text-xs font-sans font-medium hover:bg-[#F5EFEB] transition-colors"
+          className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-none border border-[#EDE6DF] bg-white text-[#1E1C1A] text-xs font-sans font-semibold uppercase tracking-wider hover:bg-[#F5EFEB] transition-colors"
         >
           <ShoppingBag size={15} className="text-[#696159]" />
           <span>Koleksiyonlar</span>
         </Link>
 
         <a
-          href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, pasta süsü ve magnet modelleriniz için ücretsiz taslak ve fiyat bilgisi almak istiyorum.")}`}
+          href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, magnet, pasta süsü ve kapı süsü modelleriniz için ücretsiz taslak ve fiyat bilgisi almak istiyorum.")}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-[1.5] inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#D95A2B] hover:bg-[#B8471D] text-[#FDFBF7] text-xs font-sans font-semibold shadow-[0_4px_12px_rgba(217,90,43,0.3)] transition-all"
+          className="flex-[1.5] inline-flex items-center justify-center gap-2 py-3 px-4 rounded-none bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] text-xs font-sans font-semibold uppercase tracking-wider shadow-sm transition-all"
         >
           <MessageCircle size={16} />
           <span>WhatsApp&apos;ta Taslak İste</span>

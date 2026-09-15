@@ -2,17 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { MessageCircle, ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { MessageCircle, ArrowRight } from "lucide-react";
 
 interface HeroProps {
   settings?: Record<string, string>;
 }
 
 export default function Hero({ settings = {} }: HeroProps) {
-  const handleScrollToCollections = () => {
-    document.getElementById("koleksiyonlar")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const dbNumber = settings.contact_phone;
   const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
@@ -20,102 +17,127 @@ export default function Hero({ settings = {} }: HeroProps) {
   const titleText = settings.hero_title || "Evimizde, ellerimizle, kutlamanıza özel tasarlıyoruz.";
   const descriptionText =
     settings.hero_description ||
-    "Doğum, baby shower, ilk yaş ve nişan kutlamaları için 3D akrilik pasta süsleri ve kişiye özel magnet hatıralıkları. Önce WhatsApp'ta taslağınızı görün, içinize sinsin; sonra sevgiyle üretelim.";
+    "Doğum günü, baby shower ve özel günleriniz için kişiye özel magnetler, 3D akrilik cake topper süsleri ve kapı panoları. Önce WhatsApp'ta taslağınızı görün, içinize sinsin; sonra sevgiyle üretelim.";
   const heroImage = settings.hero_image || "/images/gallery-5.webp";
+
+  const categories = [
+    { label: "Magnetler", count: "Min. 25 Adet", href: "/koleksiyonlar/magnet" },
+    { label: "Cake Topper", count: "1 Adet Kişiye Özel", href: "/koleksiyonlar/cake-topper" },
+    { label: "Kapı Süsleri", count: "1 Adet Kişiye Özel", href: "/koleksiyonlar/kapi-susu" },
+  ];
 
   return (
     <section
-      aria-label="Karşılama"
-      className="relative w-full min-h-[82vh] lg:min-h-[88vh] flex items-center bg-[#FDFBF7] py-12 md:py-20 overflow-hidden border-b border-[#EDE6DF]"
+      aria-label="Karşılama ve Ürün Vitrini"
+      className="relative w-full min-h-[80vh] flex items-center bg-[#FDFBF7] py-10 md:py-16 overflow-hidden border-b border-[#EDE6DF]"
     >
-      {/* Delicate background ambient tint */}
-      <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-[#D95A2B]/4 rounded-full blur-3xl pointer-events-none -mr-32 -mt-32" />
-      <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-[#5A6855]/4 rounded-full blur-3xl pointer-events-none -ml-24 -mb-24" />
-
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Editorial Manifesto & CTAs */}
-          <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-6 md:space-y-8">
+          {/* Left Column: Product-First Editorial & CTAs */}
+          <div className="lg:col-span-7 flex flex-col justify-center text-left space-y-6">
             
-            {/* Direct Headline (No eyebrow tag) */}
+            {/* Direct Headline */}
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#1E1C1A] leading-[1.12] font-bold tracking-tight"
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1E1C1A] leading-[1.15] font-bold tracking-tight"
             >
               {titleText}
             </motion.h1>
 
-            {/* Narrative / Atelier Story */}
+            {/* Narrative */}
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="font-sans text-base sm:text-lg text-[#696159] leading-relaxed max-w-2xl font-normal"
+              transition={{ duration: 0.6, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed max-w-2xl font-normal"
             >
               {descriptionText}
             </motion.p>
 
-            {/* Action Buttons */}
+            {/* E-Commerce 3-Category Direct Tabs */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full sm:w-auto"
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="grid grid-cols-3 gap-3 pt-2"
+            >
+              {categories.map((cat) => (
+                <Link
+                  key={cat.label}
+                  href={cat.href}
+                  className="group p-3 border border-[#EDE6DF] bg-white hover:border-[#C86D51] transition-all duration-200 text-left rounded-none flex flex-col justify-between"
+                >
+                  <span className="font-serif text-sm font-bold text-[#1E1C1A] group-hover:text-[#C86D51] transition-colors">
+                    {cat.label}
+                  </span>
+                  <span className="text-[11px] font-sans text-[#696159] mt-1">
+                    {cat.count}
+                  </span>
+                </Link>
+              ))}
+            </motion.div>
+
+            {/* Primary Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto"
             >
               <a
-                href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba! Bebeğimin/etkinliğimin kutlaması için pasta süsü ve magnet tasarımlarınızı konuşmak, taslak hazırlatmak istiyorum.")}`}
+                href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba! Bebeğimin/etkinliğimin kutlaması için magnet, cake topper veya kapı süsü tasarlatmak istiyorum.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#D95A2B] text-[#FDFBF7] rounded-full font-medium text-sm sm:text-base shadow-[0_6px_20px_rgba(217,90,43,0.22)] hover:bg-[#B8471D] hover:shadow-[0_8px_25px_rgba(217,90,43,0.3)] transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#C86D51] text-[#FDFBF7] rounded-none font-sans font-semibold text-xs uppercase tracking-wider shadow-sm hover:bg-[#A85338] transition-all duration-200 cursor-pointer"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={16} />
                 <span>WhatsApp&apos;ta Taslak İste</span>
               </a>
 
-              <button
-                onClick={handleScrollToCollections}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-[#EDE6DF] bg-white/70 hover:bg-white text-[#1E1C1A] font-medium rounded-full hover:border-[#D95A2B]/40 hover:text-[#D95A2B] transition-all duration-300 text-sm sm:text-base shadow-sm cursor-pointer"
+              <Link
+                href="/#koleksiyonlar"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-[#EDE6DF] bg-white hover:bg-[#F5EFEB] text-[#1E1C1A] font-sans font-semibold text-xs uppercase tracking-wider rounded-none hover:border-[#C86D51] hover:text-[#C86D51] transition-all duration-200 shadow-sm cursor-pointer"
               >
-                <span>Koleksiyonları İncele</span>
-                <ArrowRight size={16} />
-              </button>
+                <span>Ürünleri İncele</span>
+                <ArrowRight size={14} />
+              </Link>
             </motion.div>
 
-            {/* Micro Pillars / Social Proof Footnote */}
+            {/* Micro Pillars / Value Guarantee */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.42 }}
-              className="pt-4 border-t border-[#EDE6DF]/80 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#696159]"
+              transition={{ duration: 0.6, delay: 0.38 }}
+              className="pt-4 border-t border-[#EDE6DF] flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#696159]"
             >
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D95A2B]" />
-                <span>1 Adet Pasta Süsü / 25+ Magnet</span>
+                <span className="w-1.5 h-1.5 bg-[#C86D51]" />
+                <span>1 Adet Cake Topper / Kapı Süsü</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5A6855]" />
-                <span>WhatsApp&apos;ta Birebir Taslak Onayı</span>
+                <span className="w-1.5 h-1.5 bg-[#5A6855]" />
+                <span>25+ Adet Magnet Siparişi</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D49B35]" />
-                <span>Kargoda %100 Hasar Garantisi</span>
+                <span className="w-1.5 h-1.5 bg-[#D49B35]" />
+                <span>WhatsApp Taslak Onayı &amp; Kırılma Garantisi</span>
               </div>
             </motion.div>
 
           </div>
 
-          {/* Right Column: Visual Showcase (Natural light atelier photo) */}
+          {/* Right Column: Architectural Visual Framing (Straight-edge) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[460px] aspect-[4/5] rounded-[32px] overflow-hidden bg-[#F5EFEB] border border-[#EDE6DF] shadow-[0_20px_45px_-12px_rgba(30,28,26,0.12)] p-2"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[460px] aspect-[4/5] rounded-none overflow-hidden bg-white border border-[#EDE6DF] shadow-soft-md p-2"
             >
-              <div className="relative w-full h-full rounded-[26px] overflow-hidden">
+              <div className="relative w-full h-full rounded-none overflow-hidden bg-[#F5EFEB]">
                 <Image
                   src={heroImage}
                   alt="Portakal Çiçeği Atölyesi el yapımı 3D akrilik hatıra tasarımı"
@@ -126,19 +148,19 @@ export default function Hero({ settings = {} }: HeroProps) {
                 />
               </div>
 
-              {/* Floating Material Footnote */}
-              <div className="absolute bottom-5 left-5 right-5 z-20 bg-[#FDFBF7]/90 backdrop-blur-md rounded-2xl p-4 border border-[#EDE6DF] shadow-soft-md">
+              {/* Material Detail Overlay - Straight Edge */}
+              <div className="absolute bottom-4 left-4 right-4 z-20 bg-[#FDFBF7]/95 backdrop-blur-md rounded-none p-3.5 border border-[#EDE6DF]">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-serif text-sm font-semibold text-[#1E1C1A]">
-                      Özgün El Yapımı • Kadıköy
+                    <p className="font-serif text-xs font-bold text-[#1E1C1A]">
+                      Butik Ev Atölyesi
                     </p>
-                    <p className="font-sans text-xs text-[#696159] mt-0.5">
-                      3D Pleksi Pasta Süsü &amp; Baby Shower Magneti
+                    <p className="font-sans text-[11px] text-[#696159] mt-0.5">
+                      Magnet • Cake Topper • Kapı Süsü
                     </p>
                   </div>
-                  <span className="text-[11px] font-sans font-medium text-[#D95A2B] bg-[#D95A2B]/10 px-2.5 py-1 rounded-full">
-                    Özel Tasarım
+                  <span className="text-[10px] font-sans font-semibold uppercase tracking-wider text-[#C86D51] bg-[#C86D51]/10 px-2 py-0.5 rounded-none">
+                    Kişiye Özel
                   </span>
                 </div>
               </div>

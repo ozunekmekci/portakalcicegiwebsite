@@ -1,13 +1,13 @@
 import { Product } from "@/lib/types";
 
 export const fallbackProducts: Product[] = [
-  // 1. KİŞİYE ÖZEL PASTA SÜSLERİ (CAKE TOPPERS) - 1 ADET TEKİL
+  // 1. CAKE TOPPER (PASTA SÜSLERİ) - 1 ADET TEKİL
   {
     id: "ps-1",
     slug: "aynali-pleksi-ozel-isimli-pasta-susu",
     isim: "Aynalı Pleksi Özel İsimli Pasta Süsü",
-    koleksiyon: "Kişiye Özel Pasta Süsleri",
-    koleksiyonSlug: "pasta-susleri",
+    koleksiyon: "Cake Topper (Pasta Süsleri)",
+    koleksiyonSlug: "cake-topper",
     anaGorsel: "/images/gallery-5.webp",
     ekGorseller: ["/images/gallery-5.webp", "/images/gallery-1.webp"],
     fiyatAraligi: "₺180 - ₺240",
@@ -22,8 +22,8 @@ export const fallbackProducts: Product[] = [
     id: "ps-2",
     slug: "ilk-yas-one-akrilik-pasta-susu",
     isim: "İlk Yaş 'One' Akrilik Pasta Süsü",
-    koleksiyon: "Kişiye Özel Pasta Süsleri",
-    koleksiyonSlug: "pasta-susleri",
+    koleksiyon: "Cake Topper (Pasta Süsleri)",
+    koleksiyonSlug: "cake-topper",
     anaGorsel: "/images/gallery-3.webp",
     ekGorseller: ["/images/gallery-3.webp", "/images/gallery-2.webp"],
     fiyatAraligi: "₺190 - ₺260",
@@ -38,8 +38,8 @@ export const fallbackProducts: Product[] = [
     id: "ps-3",
     slug: "safari-temali-3d-ahsap-pleksi-pasta-susu",
     isim: "Safari Temalı 3D Ahşap & Pleksi Pasta Süsü",
-    koleksiyon: "Kişiye Özel Pasta Süsleri",
-    koleksiyonSlug: "pasta-susleri",
+    koleksiyon: "Cake Topper (Pasta Süsleri)",
+    koleksiyonSlug: "cake-topper",
     anaGorsel: "/images/gallery-4.webp",
     ekGorseller: ["/images/gallery-4.webp", "/images/gallery-5.webp"],
     fiyatAraligi: "₺220 - ₺290",
@@ -54,8 +54,8 @@ export const fallbackProducts: Product[] = [
     id: "ps-4",
     slug: "zarif-cift-isimli-dugun-nisan-pasta-susu",
     isim: "Zarif Çift İsimli Düğün & Nişan Pasta Süsü",
-    koleksiyon: "Kişiye Özel Pasta Süsleri",
-    koleksiyonSlug: "pasta-susleri",
+    koleksiyon: "Cake Topper (Pasta Süsleri)",
+    koleksiyonSlug: "cake-topper",
     anaGorsel: "/images/gallery-1.webp",
     ekGorseller: ["/images/gallery-1.webp", "/images/gallery-7.webp"],
     fiyatAraligi: "₺210 - ₺280",
@@ -67,13 +67,13 @@ export const fallbackProducts: Product[] = [
     ozellikler: "Özel Tasarım Kaligrafi, 3mm Aynalı Pleksi"
   },
 
-  // 2. BABY SHOWER & DOĞUM MAGNETLERİ (25-100+ ADET)
+  // 2. MAGNETLER & HATIRALIKLAR (MİN. 25 ADET)
   {
     id: "bm-1",
     slug: "3d-katmanli-akrilik-bulut-baby-shower-magneti",
     isim: "3D Katmanlı Akrilik Bulut Baby Shower Magneti",
-    koleksiyon: "Baby Shower & Doğum",
-    koleksiyonSlug: "babyshower",
+    koleksiyon: "Magnet & Hediyelik",
+    koleksiyonSlug: "magnet",
     anaGorsel: "/images/gallery-5.webp",
     ekGorseller: ["/images/gallery-5.webp", "/images/gallery-2.webp"],
     fiyatAraligi: "₺45 - ₺65 / adet",
@@ -88,8 +88,8 @@ export const fallbackProducts: Product[] = [
     id: "bm-2",
     slug: "ay-dede-yildiz-aynali-pleksi-bebek-hatirasi",
     isim: "Ay Dede & Yıldız Aynalı Pleksi Bebek Hatırası",
-    koleksiyon: "Baby Shower & Doğum",
-    koleksiyonSlug: "babyshower",
+    koleksiyon: "Magnet & Hediyelik",
+    koleksiyonSlug: "magnet",
     anaGorsel: "/images/gallery-2.webp",
     ekGorseller: ["/images/gallery-2.webp", "/images/gallery-5.webp"],
     fiyatAraligi: "₺48 - ₺68 / adet",
@@ -104,8 +104,8 @@ export const fallbackProducts: Product[] = [
     id: "bm-3",
     slug: "kurutulmus-cicekli-seffaf-pleksi-dogum-hediyeligi",
     isim: "Kurutulmuş Çiçekli Şeffaf Pleksi Doğum Hediyeliği",
-    koleksiyon: "Baby Shower & Doğum",
-    koleksiyonSlug: "babyshower",
+    koleksiyon: "Magnet & Hediyelik",
+    koleksiyonSlug: "magnet",
     anaGorsel: "/images/gallery-7.webp",
     ekGorseller: ["/images/gallery-7.webp", "/images/gallery-1.webp"],
     fiyatAraligi: "₺55 - ₺75 / adet",
@@ -116,13 +116,79 @@ export const fallbackProducts: Product[] = [
     paketIcerigi: "Seçilen Adette Çiçekli Şeffaf Pleksi Magnet",
     ozellikler: "Gerçek Kurutulmuş Çiçek Buketi, 3mm Şeffaf Pleksi"
   },
+  {
+    id: "dn-1",
+    slug: "kurutulmus-cicekli-aynali-pleksi-nisan-magneti",
+    isim: "Kurutulmuş Çiçekli & Aynalı Pleksi Nişan Magneti",
+    koleksiyon: "Magnet & Hediyelik",
+    koleksiyonSlug: "magnet",
+    anaGorsel: "/images/gallery-1.webp",
+    ekGorseller: ["/images/gallery-1.webp", "/images/gallery-7.webp"],
+    fiyatAraligi: "₺60 - ₺85 / adet",
+    kisaAciklama: "Akdeniz zarafetiyle tasarlanmış, aynalı pleksi ve doğal çiçek detaylı nişan hatırası.",
+    detayAciklama: "Çiftlerin isimleri ve nişan tarihinin aynalı pleksi üzerine incelikle işlendiği, buzdolabında sanat eseri gibi duran davetli hediyeliği.",
+    minimumAdet: 25,
+    aktif: true,
+    paketIcerigi: "Seçilen Adette Çiçekli Nişan Magneti",
+    ozellikler: "Gold/Gümüş Ayna Pleksi, Gerçek Kurutulmuş Çiçek, Güçlü Mıknatıs"
+  },
 
-  // 3. KUTLAMA KOMBİN SETLERİ (PASTA SÜSÜ + UYUMLU MAGNETLER)
+  // 3. KAPI SÜSÜ & PANO - 1 ADET TEKİL
+  {
+    id: "ks-pano-1",
+    slug: "gold-aynali-pleksi-bebek-kapi-susu",
+    isim: "Gold Aynalı Pleksi Bebek Odası Kapı Süsü",
+    koleksiyon: "Kapı Süsü & Pano",
+    koleksiyonSlug: "kapi-susu",
+    anaGorsel: "/images/gallery-3.webp",
+    ekGorseller: ["/images/gallery-3.webp", "/images/gallery-2.webp"],
+    fiyatAraligi: "₺550 - ₺750",
+    kisaAciklama: "Hastane ve bebek odası için 30cm çapında, özel isimli aynalı pleksi ve tül süslemeli kapı süsü.",
+    detayAciklama: "Doğum anında hastane kapısını, sonrasında ise bebeğinizin odasını süsleyecek kişiye özel isimli kapı süsü. 1. sınıf gold veya gümüş aynalı pleksi harflerle işlenir. Asma kurdelesi ve tül detaylarıyla hazır gönderilir.",
+    minimumAdet: 1,
+    aktif: true,
+    paketIcerigi: "1 Adet 30cm Özel İsimli Kapı Süsü, Asma Kurdelesi, Korumalı Ahşap Kutu",
+    ozellikler: "30 cm Çap, 3mm Aynalı Pleksi + Mat Pleksi Alt Kaide, Darbeye Dayanıklı Paketleme"
+  },
+  {
+    id: "ks-pano-2",
+    slug: "ahsap-kasnak-kuru-cicekli-kapi-susu",
+    isim: "Doğal Ahşap Kasnak & Kuru Çiçekli İsimli Kapı Süsü",
+    koleksiyon: "Kapı Süsü & Pano",
+    koleksiyonSlug: "kapi-susu",
+    anaGorsel: "/images/gallery-7.webp",
+    ekGorseller: ["/images/gallery-7.webp", "/images/gallery-4.webp"],
+    fiyatAraligi: "₺650 - ₺850",
+    kisaAciklama: "Doğal ahşap kasnak, okaliptüs & şoklanmış cipso çiçekler ve kabartma ahşap isimlik.",
+    detayAciklama: "Doğal bohem ve Akdeniz tarzını sevenler için el emeğiyle hazırlanan kasnak kapı süsü. Gerçek şoklanmış kuru çiçekler dökülme yapmaz, yıllarca ilk günkü zarafetini korur.",
+    minimumAdet: 1,
+    aktif: true,
+    paketIcerigi: "1 Adet 32cm Çiçekli Ahşap Kasnak Kapı Süsü, Kadife Asma Askısı",
+    ozellikler: "Doğal Masif Huş Kasnak, Gerçek Şoklanmış Kuru Çiçekler, Lazer Kesim İsim"
+  },
+  {
+    id: "ks-pano-3",
+    slug: "safari-temali-3d-cocuk-odasi-kapi-panosu",
+    isim: "Safari Temalı 3D Pleksi Çocuk Odası Kapı Panosu",
+    koleksiyon: "Kapı Süsü & Pano",
+    koleksiyonSlug: "kapi-susu",
+    anaGorsel: "/images/gallery-4.webp",
+    ekGorseller: ["/images/gallery-4.webp", "/images/gallery-3.webp"],
+    fiyatAraligi: "₺590 - ₺790",
+    kisaAciklama: "Sevimli safari hayvan figürleri ve kabartma renkli akrilik harflerle 3D isim panosu.",
+    detayAciklama: "Çocuk ve bebek odalarına neşe katan safari konseptli kapı panosu. Zürafa, aslan ve yaprak figürleri katman katman elde birleştirilir.",
+    minimumAdet: 1,
+    aktif: true,
+    paketIcerigi: "1 Adet Safari 3D Kapı Panosu, Duvar & Kapı Sabitleme Aparatları",
+    ozellikler: "Çok Katmanlı Renkli Akrilik & Ahşap, 28x35 cm Boyut"
+  },
+
+  // 4. KUTLAMA KOMBİN SETLERİ (PASTA SÜSÜ + UYUMLU MAGNETLER)
   {
     id: "ks-1",
     slug: "bulut-temali-pasta-susu-ve-25-adet-magnet-seti",
     isim: "Bulut Temalı Pasta Süsü & 25 Adet Magnet Baby Shower Seti",
-    koleksiyon: "Kutlama Kombin Setleri",
+    koleksiyon: "Kombin Setler",
     koleksiyonSlug: "kombin-setler",
     anaGorsel: "/images/gallery-5.webp",
     ekGorseller: ["/images/gallery-5.webp", "/images/gallery-2.webp"],
@@ -138,7 +204,7 @@ export const fallbackProducts: Product[] = [
     id: "ks-2",
     slug: "safari-konsept-pasta-susu-ve-30-adet-magnet-paketi",
     isim: "Safari Konsept Pasta Süsü & 30 Adet Magnet Paketi",
-    koleksiyon: "Kutlama Kombin Setleri",
+    koleksiyon: "Kombin Setler",
     koleksiyonSlug: "kombin-setler",
     anaGorsel: "/images/gallery-4.webp",
     ekGorseller: ["/images/gallery-4.webp", "/images/gallery-3.webp"],
@@ -149,39 +215,5 @@ export const fallbackProducts: Product[] = [
     aktif: true,
     paketIcerigi: "1 Adet Ahşap-Pleksi Safari Pasta Süsü + 30 Adet Safari Magnet",
     ozellikler: "Huş Ahşap & Akrilik, Birebir Konsept Bütünlüğü"
-  },
-  {
-    id: "ks-3",
-    slug: "ilk-yas-one-pasta-susu-ve-25-adet-hatira-magnet-seti",
-    isim: "İlk Yaş 'One' Pasta Süsü & 25 Adet Hatıra Magnet Seti",
-    koleksiyon: "Kutlama Kombin Setleri",
-    koleksiyonSlug: "kombin-setler",
-    anaGorsel: "/images/gallery-3.webp",
-    ekGorseller: ["/images/gallery-3.webp", "/images/gallery-5.webp"],
-    fiyatAraligi: "₺1.300 - ₺1.650",
-    kisaAciklama: "1 yaş pastasına özel 'One' süs ve davetlilere hediye edilecek 25 adet ilk yaş hatıra magneti.",
-    detayAciklama: "Miniklerin ilk doğum gününü ölümsüzleştiren pasta süsü ve magnet ikilisi. Renk ve isim tasarımı WhatsApp'tan onaylatılır.",
-    minimumAdet: 1,
-    aktif: true,
-    paketIcerigi: "1 Adet 'One' Pasta Süsü + 25 Adet İlk Yaş Magneti",
-    ozellikler: "Pastel & Aynalı Pleksi Katmanlar, Özel Koruma Ambalajı"
-  },
-
-  // 4. DÜĞÜN & NİŞAN HATIRALARI (25-100+ ADET)
-  {
-    id: "dn-1",
-    slug: "kurutulmus-cicekli-aynali-pleksi-nisan-magneti",
-    isim: "Kurutulmuş Çiçekli & Aynalı Pleksi Nişan Magneti",
-    koleksiyon: "Düğün & Nişan",
-    koleksiyonSlug: "dugun-nisan",
-    anaGorsel: "/images/gallery-1.webp",
-    ekGorseller: ["/images/gallery-1.webp", "/images/gallery-7.webp"],
-    fiyatAraligi: "₺60 - ₺85 / adet",
-    kisaAciklama: "Akdeniz zarafetiyle tasarlanmış, aynalı pleksi ve doğal çiçek detaylı nişan hatırası.",
-    detayAciklama: "Çiftlerin isimleri ve nişan tarihinin aynalı pleksi üzerine incelikle işlendiği, buzdolabında sanat eseri gibi duran davetli hediyeliği.",
-    minimumAdet: 25,
-    aktif: true,
-    paketIcerigi: "Seçilen Adette Çiçekli Nişan Magneti",
-    ozellikler: "Gold/Gümüş Ayna Pleksi, Gerçek Kurutulmuş Çiçek, Güçlü Mıknatıs"
   }
 ];
