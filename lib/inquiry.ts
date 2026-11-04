@@ -1,7 +1,7 @@
 export const groupLabels = {
   magnet: "Magnet",
   "kapi-susu": "Kapı süsü",
-  "pasta-susleri": "Pasta üstü ve kürdan topper",
+  "pasta-susleri": "Pasta ve kürdan süsleri",
 } as const;
 
 export type GroupId = keyof typeof groupLabels;
@@ -31,7 +31,7 @@ export function validateInquiry(draft: InquiryDraft, fields: InquiryFields): Inq
   for (const id of draft.products) {
     const quantity = draft.quantities[id]?.trim();
     if (quantity && (!/^\d+$/.test(quantity) || Number(quantity) < 1 || !Number.isSafeInteger(Number(quantity)))) {
-      errors[id] = "Adedi pozitif bir tam sayı olarak yaz veya boş bırak.";
+      errors[id] = "Adedi 1 veya daha büyük bir tam sayı olarak yaz. Henüz belli değilse boş bırak.";
     }
   }
   return errors;

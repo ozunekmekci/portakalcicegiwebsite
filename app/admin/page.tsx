@@ -117,7 +117,7 @@ export default function AdminDashboard() {
             Kontrol Paneli
           </h1>
           <p className="text-sm text-brand-text-mid mt-0.5 font-sans">
-            Portakal Çiçeği Atölye katalog ve ürün verilerini buradan yönetin.
+            Ürünleri ve koleksiyonları buradan düzenleyebilirsiniz.
           </p>
         </div>
 

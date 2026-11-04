@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 
 export default function SetContentsPage() {
   return <div className={styles.site}><div className={styles.container}>
-    <section className={styles.setIntro}><p className={styles.eyebrow}>Birlikte düşündüğümüz detaylar</p><h1>Kutlamana hangi parçalar eşlik etsin?</h1><p>Magnet ve kapı süsünü aynı isim ve renklerle bir araya getirebilir, fotoğraflı pasta süsleriyle ikram masanı tamamlayabilirsin. İstediğin ürünleri ayrı ayrı seçmen de mümkün.</p></section>
+    <section className={styles.setIntro}><p className={styles.eyebrow}>Kutlama setleri</p><h1>Setinde neler olsun?</h1><p>Magnet ve kapı süsünü aynı isim ve renklerle hazırlayabiliriz. Pasta ve ikramlar için de fotoğraflı süsler seçebilirsin. Her ürünü ayrı ayrı istemen de mümkün.</p></section>
     <ProductGroupCards />
-    <section id="tema-setleri" className={styles.posterSection}><h2>Fotoğraflı pasta süsü setleri</h2><p>Her temanın parçaları ve adetleri afişte yer alıyor. Büyütüp inceleyebilir, beğendiğin seti talebine ekleyebilirsin. İçerikler temaya göre değişir.</p><SetPosterGallery /></section>
-    <section className={styles.experienceEnd}><h2>Aklında başka bir tema mı var?</h2><p>İsmi, kutlamanın tarihini ve düşündüğün renkleri paylaş. Hangi parçaları istediğini birlikte netleştirelim.</p><SelectProductLink products={[]} className={styles.textLink}>Kutlamanı anlat ↗</SelectProductLink></section>
+    <section id="tema-setleri" className={styles.posterSection}><h2>Fotoğraflı pasta süsü setleri</h2><p>Setlerde hangi süsten kaçar adet olduğunu afişlerde görebilirsin. Beğendiğin temayı büyütüp incele, ardından talebine ekle. Her setin içeriği farklı olabilir.</p><SetPosterGallery /></section>
+    <section className={styles.experienceEnd}><h2>Aklında başka bir tema mı var?</h2><p>Kullanılacak ismi, kutlama tarihini ve düşündüğün renkleri yaz. İstediğin süsleri birlikte seçelim.</p><SelectProductLink products={[]} className={styles.textLink}>Kutlamanı anlat ↗</SelectProductLink></section>
     <div className="h-14" />
   </div></div>;
 }

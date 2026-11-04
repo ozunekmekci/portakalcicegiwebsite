@@ -39,7 +39,7 @@ export default function ProductCard({ product, index }: Props) {
         <div className="relative aspect-[3/4] w-full bg-[#F5EFEB] overflow-hidden">
           <Image
             src={displayImage}
-            alt={`${product.isim} — Portakal Çiçeği Atölyesi el yapımı 3D akrilik hatıralık`}
+            alt={`${product.isim}, Portakal Çiçeği Atölye’de hazırlanan 3D akrilik hediyelik`}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
@@ -65,7 +65,7 @@ export default function ProductCard({ product, index }: Props) {
               {product.isim}
             </h3>
             <p className="text-xs text-[#696159] line-clamp-1">
-              {product.kisaAciklama || "3D Katmanlı Pleksi & Özel İsim İşçiliği"}
+              {product.kisaAciklama || "İsimli, 3D katmanlı pleksi tasarım"}
             </p>
           </div>
 

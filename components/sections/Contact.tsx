@@ -71,10 +71,10 @@ export default function Contact({ settings = {} }: ContactProps) {
           <div className="lg:col-span-6 space-y-8 text-left">
             <div className="space-y-4">
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#FDFBF7] leading-tight">
-                Hayalinizdeki Kutlamayı Birlikte Tasarlayalım
+                Kutlaman için neler hazırlayalım?
               </h2>
               <p className="font-sans text-sm sm:text-base text-[#A89F95] leading-relaxed">
-                Magnetler, kişiye özel cake topper süsleri ve kapı panoları için doğrudan ev atölyemizle iletişime geçin.
+                Magnet, isimli pasta süsü veya kapı panosu için bize yazabilirsin.
               </p>
             </div>
 
@@ -117,7 +117,7 @@ export default function Contact({ settings = {} }: ContactProps) {
               </div>
               <div className="flex items-center gap-3">
                 <Clock size={16} className="text-[#5A6855] flex-shrink-0" />
-                <span><strong>Çalışma Saatleri:</strong> Pazartesi – Cumartesi 09:30 – 18:30</span>
+                <span><strong>Çalışma Saatleri:</strong> Pazartesi ile cumartesi, 09:30 ile 18:30 arası</span>
               </div>
             </div>
           </div>
@@ -125,16 +125,16 @@ export default function Contact({ settings = {} }: ContactProps) {
           {/* Right Column: Clean Inquiry Form - Straight Edges */}
           <div className="lg:col-span-6 bg-white/[0.04] p-6 sm:p-8 rounded-none border border-white/10 shadow-soft-md text-left">
             <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#FDFBF7] mb-2">
-              Hızlı Tasarım &amp; Teklif Formu
+              Tasarım ve fiyat bilgisi al
             </h3>
             <p className="font-sans text-xs sm:text-sm text-[#A89F95] mb-6">
-              Etkinlik bilgilerinizi bırakın, dijital taslağınızı ve özel fiyat teklifinizi gün içinde WhatsApp&apos;tan iletelim:
+              Kutlamanın detaylarını yaz. Taslağını ve fiyat teklifini gün içinde WhatsApp&apos;tan gönderelim.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="contact-name" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  Adınız Soyadınız <span className="text-[#C86D51]">*</span>
+                  Adın soyadın <span className="text-[#C86D51]">*</span>
                 </label>
                 <input
                   id="contact-name"
@@ -150,7 +150,7 @@ export default function Contact({ settings = {} }: ContactProps) {
 
               <div>
                 <label htmlFor="contact-phone" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  Telefon Numaranız (WhatsApp) <span className="text-[#C86D51]">*</span>
+                  Telefonun (WhatsApp) <span className="text-[#C86D51]">*</span>
                 </label>
                 <input
                   id="contact-phone"
@@ -166,7 +166,7 @@ export default function Contact({ settings = {} }: ContactProps) {
 
               <div>
                 <label htmlFor="contact-type" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  İlgilendiğiniz Ürün Kategorisi
+                  İstediğin ürün
                 </label>
                 <select
                   id="contact-type"
@@ -185,7 +185,7 @@ export default function Contact({ settings = {} }: ContactProps) {
 
               <div>
                 <label htmlFor="contact-message" className="block text-xs font-sans font-medium text-[#D8D0C5] mb-1.5">
-                  Etkinlik Tarihi, İsim &amp; Konsept Notunuz
+                  Kutlama tarihi, isim ve tema
                 </label>
                 <textarea
                   id="contact-message"
@@ -208,7 +208,7 @@ export default function Contact({ settings = {} }: ContactProps) {
                 ) : (
                   <>
                     <Send size={14} />
-                    <span>Fiyat Teklifi İste</span>
+                    <span>Fiyat teklifi iste</span>
                   </>
                 )}
               </button>

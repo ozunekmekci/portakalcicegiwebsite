@@ -42,7 +42,7 @@ export default function CookieBanner() {
               <Cookie size={16} />
             </div>
             <h3 className="font-serif text-sm font-semibold text-[#1E1C1A]">
-              Çerez Tercihleriniz
+              Çerez tercihlerin
             </h3>
           </div>
           <button
@@ -56,11 +56,11 @@ export default function CookieBanner() {
         </div>
 
         <p className="font-sans text-xs text-[#696159] leading-relaxed">
-          Deneyiminizi iyileştirmek, atölye ziyaretçi istatistiklerini anlamak ve sipariş akışını sorunsuz yürütmek için çerezlerden faydalanıyoruz. Detaylar için{" "}
+          Sitenin çalışması ve ziyaretçi istatistikleri için çerezler kullanıyoruz. Ayrıntıları{" "}
           <Link href="/gizlilik-politikasi" className="underline text-[#C86D51] hover:text-[#A85338]">
-            Gizlilik Politikamızı
+            gizlilik politikamızda
           </Link>{" "}
-          inceleyebilirsiniz.
+          bulabilirsin.
         </p>
 
         <div className="flex items-center gap-2.5 pt-1">
@@ -69,14 +69,14 @@ export default function CookieBanner() {
             type="button"
             className="flex-1 py-2 px-3 rounded-none bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] text-xs font-sans font-semibold uppercase tracking-wider transition-colors cursor-pointer text-center"
           >
-            Tümünü Kabul Et
+            Tümünü kabul et
           </button>
           <button
             onClick={handleAcceptEssential}
             type="button"
             className="flex-1 py-2 px-3 rounded-none border border-[#EDE6DF] bg-[#F5EFEB] hover:bg-[#EDE6DF] text-[#1E1C1A] text-xs font-sans font-semibold uppercase tracking-wider transition-colors cursor-pointer text-center"
           >
-            Yalnızca Zorunlu
+            Yalnızca zorunlu olanlar
           </button>
         </div>
       </div>

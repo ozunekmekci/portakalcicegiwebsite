@@ -3,7 +3,7 @@ import { ArrowLeft, MessageCircle, ShoppingBag } from "lucide-react";
 
 export const metadata = {
   title: "Sayfa Bulunamadı | Portakal Çiçeği Atölye",
-  description: "Aradığınız tasarım veya sayfa mevcut değil ya da taşınmış olabilir.",
+  description: "Aradığın sayfa bulunamadı. Adresi kontrol edebilir veya ürünlere göz atabilirsin.",
 };
 
 export default function NotFound() {
@@ -20,12 +20,12 @@ export default function NotFound() {
 
         {/* Heading */}
         <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#1E1C1A] tracking-tight">
-          Aradığınız Sayfa Atölyemizde Bulunamadı
+          Bu sayfayı bulamadık
         </h1>
 
         {/* Subtitle */}
         <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed max-w-md mx-auto">
-          Aradığınız modelin adı değişmiş, koleksiyon güncellenmiş veya sayfa taşınmış olabilir. Dilerseniz 3 ana koleksiyonumuza göz atabilir veya tasarımcımıza danışabilirsiniz.
+          Sayfanın adresi değişmiş olabilir. Koleksiyonlara göz atabilir veya aradığın ürün için bize yazabilirsin.
         </p>
 
         {/* Action Buttons - Straight Edges */}
@@ -35,7 +35,7 @@ export default function NotFound() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] font-sans text-xs uppercase tracking-wider font-semibold px-6 py-3.5 rounded-none shadow-sm transition-all"
           >
             <ArrowLeft size={15} />
-            <span>Ana Sayfaya Dön</span>
+            <span>Ana sayfaya dön</span>
           </Link>
 
           <Link
@@ -43,7 +43,7 @@ export default function NotFound() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#EDE6DF] bg-white hover:bg-[#F5EFEB] text-[#1E1C1A] font-sans text-xs uppercase tracking-wider font-semibold px-6 py-3.5 rounded-none transition-all"
           >
             <ShoppingBag size={15} className="text-[#696159]" />
-            <span>Koleksiyonları Gez</span>
+            <span>Koleksiyonlara bak</span>
           </Link>
 
           <a
@@ -53,13 +53,13 @@ export default function NotFound() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#EDE6DF] bg-white hover:border-[#C86D51] hover:text-[#C86D51] text-[#1E1C1A] font-sans text-xs uppercase tracking-wider font-semibold px-6 py-3.5 rounded-none transition-all"
           >
             <MessageCircle size={15} className="text-[#25D366]" />
-            <span>WhatsApp Destek</span>
+            <span>WhatsApp’tan yaz</span>
           </a>
         </div>
 
         {/* Quick Collection Shortcuts */}
         <div className="pt-8 border-t border-[#EDE6DF] text-xs font-sans text-[#696159]">
-          <p className="font-medium text-[#1E1C1A] mb-2.5">Ana Koleksiyonlarımız:</p>
+          <p className="font-medium text-[#1E1C1A] mb-2.5">Koleksiyonlarımız:</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link href="/koleksiyonlar/magnet" className="underline hover:text-[#C86D51]">
               Magnet &amp; Hediyelik

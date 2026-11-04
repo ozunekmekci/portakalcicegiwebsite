@@ -78,7 +78,7 @@ export default function UrunEklePage() {
             Yeni Ürün Ekle
           </h1>
           <p className="text-sm text-brand-text-mid mt-0.5 font-sans">
-            Kataloğunuz için yeni bir ürün tanımlayın.
+            Yeni ürünün bilgilerini ve fotoğraflarını ekleyin.
           </p>
         </div>
       </div>

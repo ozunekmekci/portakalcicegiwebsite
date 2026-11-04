@@ -145,13 +145,13 @@ export async function ensureTables() {
     const settingsCount = parseInt(settingsCountRes.rows[0].count);
     if (settingsCount === 0) {
       await sql`INSERT INTO site_settings (key, value) VALUES ('hero_badge', 'ÖZEL TASARIM • EL YAPIMI • HATIRLIK')`;
-      await sql`INSERT INTO site_settings (key, value) VALUES ('hero_title', 'Her Kutlama,\nBir Sanat Eseri')`;
+      await sql`INSERT INTO site_settings (key, value) VALUES ('hero_title', 'Kutlamana özel\nmagnet ve süsler')`;
       await sql`INSERT INTO site_settings (key, value) VALUES ('hero_description', 'Doğum, baby shower, düğün ve nişanlarınız için\nözel tasarım, 3D akrilik hediyelikler.')`;
       await sql`INSERT INTO site_settings (key, value) VALUES ('about_badge', 'HAKKIMIZDA')`;
-      await sql`INSERT INTO site_settings (key, value) VALUES ('about_title', 'Detaylar önemlidir.\nBiz buna inanıyoruz.')`;
-      await sql`INSERT INTO site_settings (key, value) VALUES ('about_text_1', 'Portakal Çiçeği Atölye olarak her hediyeliği, saklanmaya değer bir hatıraya dönüştürmek için tasarlıyoruz. Jenerik, seri üretim seçeneklerin aksine, her tasarımımız özgün illüstrasyonlar ve çok katmanlı 3D akrilik işçilikle hayat buluyor.')`;
-      await sql`INSERT INTO site_settings (key, value) VALUES ('about_text_2', 'Doğum, baby shower, düğün ve nişan gibi hayatın en özel anları için 100 adetten fazla siparişleri sanatsal kaliteden ödün vermeden teslim ediyoruz.')`;
-      await sql`INSERT INTO site_settings (key, value) VALUES ('about_quote', 'Her hediyelik bir sanat eseri, her kutlama bir anı.')`;
+      await sql`INSERT INTO site_settings (key, value) VALUES ('about_title', 'Atölyede nasıl hazırlıyoruz?')`;
+      await sql`INSERT INTO site_settings (key, value) VALUES ('about_text_1', 'Magnet ve süslerimizi kendi çizimlerimizle, çok katmanlı 3D akrilik işçiliğiyle hazırlıyoruz. Her tasarımı kutlamanın ismine ve temasına göre düzenliyoruz.')`;
+      await sql`INSERT INTO site_settings (key, value) VALUES ('about_text_2', 'Doğum, baby shower, düğün ve nişan için 100 adedin üzerindeki siparişleri de aynı işçilikle hazırlayıp teslim ediyoruz.')`;
+      await sql`INSERT INTO site_settings (key, value) VALUES ('about_quote', 'Kutlaman için her parçayı tek tek hazırlıyoruz.')`;
       await sql`INSERT INTO site_settings (key, value) VALUES ('about_image', '')`;
       await sql`INSERT INTO site_settings (key, value) VALUES ('contact_phone', '')`;
       console.log("Başlangıç site ayarları Postgres veritabanına eklendi.");

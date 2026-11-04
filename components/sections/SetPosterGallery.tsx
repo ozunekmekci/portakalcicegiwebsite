@@ -136,7 +136,7 @@ export default function SetPosterGallery() {
                   {selectedPoster.title}
                 </h2>
                 <p className="font-sans text-sm leading-relaxed text-[#696159]">
-                  Bu afişteki tema parçaları ve adetleri:
+                  Bu sette neler var?
                 </p>
               </div>
 
@@ -150,7 +150,7 @@ export default function SetPosterGallery() {
               </ul>
 
               <p className="font-sans text-xs leading-relaxed text-[#696159]">
-                İsim, yaş ve renk detayları kişiye göre düzenlenebilir. İstediğin değişiklikleri sipariş öncesi birlikte netleştiririz.
+                İsim, yaş ve renkleri değiştirebiliriz. Nasıl istediğini sipariş öncesi birlikte konuşalım.
               </p>
 
               <SelectProductLink

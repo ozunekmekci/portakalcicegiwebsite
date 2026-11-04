@@ -5,7 +5,7 @@ import InquiryForm from "@/components/celebration/InquiryForm";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Kutlaman için talep oluştur",
-  description: "Magnet, kapı süsü ve pasta süsü seçimlerini bir araya getir, kutlaman için talep taslağını hazırla.",
+  description: "İstediğin magnet, kapı süsü veya pasta süslerini seç. Kutlamanın detaylarını ekleyip bize göndereceğin mesajı hazırla.",
   alternates: { canonical: "/talep-olustur" },
   robots: { index: false, follow: true },
 };

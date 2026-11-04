@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!product) return { title: "Ürün Bulunamadı | Portakal Çiçeği Atölye" };
 
-  const desc = product.kisaAciklama || `${product.isim} — Doğum, baby shower, düğün ve nişan kutlamaları için özel tasarım 3D akrilik hatıralık. 100+ adet siparişlerde özel fiyat.`;
+  const desc = product.kisaAciklama || `${product.isim}. Doğum, baby shower, düğün ve nişan için kişiye özel 3D akrilik hediyelik. 100 ve üzeri adetlerde özel fiyat.`;
 
   return {
     title: `${product.isim} | Portakal Çiçeği Atölye`,
@@ -145,10 +145,10 @@ export default async function UrunDetayPage({ params }: Props) {
           <div className="max-w-7xl mx-auto space-y-8">
             <div className="space-y-2 text-left">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#1E1C1A] tracking-tight">
-                Bu Koleksiyondan İlginizi Çekebilecek Diğer Tasarımlar
+                Aynı koleksiyondan diğer modeller
               </h2>
               <p className="font-sans text-sm text-[#696159]">
-                Aynı zevk ve zarafetle hazırlanan tamamlayıcı hatıra modelleri.
+                Bu ürünle birlikte seçebileceğin diğer tasarımlar.
               </p>
             </div>
 

@@ -36,28 +36,28 @@ export default function TermsOfServicePage() {
           <section className="space-y-3">
             <h2 className="font-serif text-xl font-bold text-[#1E1C1A]">1. Hizmet ve Sipariş Modeli</h2>
             <p className="text-[#696159]">
-              Portakal Çiçeği Atölye, müşterinin talebine özel olarak tasarlanan ve üretilen 3D katmanlı akrilik, aynalı pleksi ve ahşap detaylı cake topper (pasta süsü), hatıra magnetleri ve kapı süsleri üretmektedir. Kişiye özel cake topper ve kapı süsleri 1 adet tekil olarak üretilirken, hatıralık magnet siparişleri 25 adet ve üzeri veya avantajlı kombin setler halinde hazırlanır.
+              Portakal Çiçeği Atölye’de siparişe göre 3D katmanlı akrilik, aynalı pleksi ve ahşap detaylı pasta süsleri, hatıra magnetleri ve kapı süsleri hazırlıyoruz. Pasta süsü ve kapı süsünü 1 adet sipariş edebilirsiniz. Magnetleri en az 25 adet veya indirimli kombin setleri içinde hazırlıyoruz.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="font-serif text-xl font-bold text-[#1E1C1A]">2. Tasarım ve Dijital Onay Süreci</h2>
             <p className="text-[#696159]">
-              Her sipariş için üretime başlamadan önce isim, tarih, font ve renk katmanlarını içeren dijital bir yerleşim taslağı WhatsApp üzerinden müşterinin onayına sunulur. Müşteri tarafından yazılı onay verilmeden fiziksel kesim ve montaj sürecine geçilmez.
+              Üretime başlamadan önce isim, tarih, yazı tipi ve renk katmanlarını gösteren dijital taslağı WhatsApp üzerinden gönderiyoruz. Yazılı onayınızı aldıktan sonra kesim ve montaja başlıyoruz.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="font-serif text-xl font-bold text-[#1E1C1A]">3. Üretim ve Teslimat Süreleri</h2>
             <p className="text-[#696159]">
-              Onaylanan siparişlerin üretim süresi sipariş adedine ve sezon yoğunluğuna bağlı olarak ortalama 3 ile 7 iş günü arasındadır. Acil teslimat gerektiren etkinlikler için sipariş öncesinde teyit alınması zorunludur. Ürünler darbe emici özel kutularda sigortalı olarak kargoya teslim edilir.
+              Onaylanan siparişleri, adede ve sezon yoğunluğuna göre ortalama 3 ile 7 iş gününde hazırlıyoruz. Acil teslimat gerekiyorsa sipariş vermeden önce süreyi bizden teyit etmeniz gerekir. Ürünleri darbe emici kutularda, sigortalı olarak kargoya veriyoruz.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="font-serif text-xl font-bold text-[#1E1C1A]">4. Cayma Hakkı ve İade Koşulları</h2>
             <p className="text-[#696159]">
-              Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği uyarınca; <strong>tüketicinin istekleri veya kişisel ihtiyaçları doğrultusunda hazırlanan (isim, tarih veya özel tasarım içeren) mallarda cayma hakkı kullanılamaz</strong>. Ancak üretimden veya kargodan kaynaklı herhangi bir hasar veya hata durumunda, ilgili adetler atölyemizce derhal ücretsiz olarak yeniden üretilip gönderilir.
+              Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği uyarınca; <strong>tüketicinin istekleri veya kişisel ihtiyaçları doğrultusunda hazırlanan (isim, tarih veya özel tasarım içeren) mallarda cayma hakkı kullanılamaz</strong>. Üretimden veya kargodan kaynaklanan hasar ya da hata varsa ilgili ürünleri hemen ücretsiz olarak yeniden hazırlayıp gönderiyoruz.
             </p>
           </section>
 

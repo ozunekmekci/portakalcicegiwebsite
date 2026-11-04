@@ -107,7 +107,7 @@ export default function SettingsPage() {
             Ana Sayfa İçerik Yönetimi <Settings className="text-brand-orange-dark" size={24} />
           </h1>
           <p className="text-sm text-brand-text-mid mt-0.5 font-sans">
-            Kodun içindeki sabit metinleri (Hero sloganı, Hakkımızda hikayesi vb.) buradan güncelleyin.
+            Karşılama, hakkımızda ve yorumlar bölümlerinin metinlerini buradan düzenleyebilirsiniz.
           </p>
         </div>
 
@@ -136,13 +136,13 @@ export default function SettingsPage() {
         {/* HERO SECTION SETTINGS */}
         <div className="bg-white border border-[#dcdcd9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
           <h2 className="font-serif text-xl font-bold text-brand-text-dark border-b border-gray-100 pb-3">
-            1. Karşılama (Hero) Alanı
+            1. Karşılama bölümü
           </h2>
           
           <div className="grid grid-cols-1 gap-6">
             <div>
               <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2">
-                Rozet Yazısı (Badge Text)
+                Kısa başlık
               </label>
               <input
                 type="text"
@@ -155,7 +155,7 @@ export default function SettingsPage() {
 
             <div>
               <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2">
-                Ana Başlık (Title)
+                Ana başlık
               </label>
               <textarea
                 value={formData.hero_title}
@@ -168,7 +168,7 @@ export default function SettingsPage() {
 
             <div>
               <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2">
-                Alt Açıklama (Description)
+                Açıklama
               </label>
               <textarea
                 value={formData.hero_description}
@@ -194,13 +194,13 @@ export default function SettingsPage() {
         {/* ABOUT SECTION SETTINGS */}
         <div className="bg-white border border-[#dcdcd9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
           <h2 className="font-serif text-xl font-bold text-brand-text-dark border-b border-gray-100 pb-3">
-            2. Hakkımızda (About) Alanı
+            2. Hakkımızda bölümü
           </h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2">
-                Bölüm Başlığı (Badge)
+                Bölüm başlığı
               </label>
               <input
                 type="text"
@@ -213,14 +213,14 @@ export default function SettingsPage() {
 
             <div>
               <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2">
-                Büyük Slogan Başlık
+                Ana başlık
               </label>
               <input
                 type="text"
                 value={formData.about_title}
                 onChange={(e) => setFormData({ ...formData, about_title: e.target.value })}
                 className="w-full px-4 py-3 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl text-sm focus:outline-none focus:border-brand-orange text-brand-text-dark"
-                placeholder="Örn: Detaylar önemlidir. Biz buna inanıyoruz."
+                placeholder="Örn: Atölyede nasıl hazırlıyoruz?"
               />
             </div>
 
@@ -252,14 +252,14 @@ export default function SettingsPage() {
 
             <div className="sm:col-span-2">
               <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2">
-                Eğik Alıntı Cümlesi (Italic Quote)
+                Alıntı metni
               </label>
               <input
                 type="text"
                 value={formData.about_quote}
                 onChange={(e) => setFormData({ ...formData, about_quote: e.target.value })}
                 className="w-full px-4 py-3 bg-[#fbf7f0] border border-[#dcdcd9] rounded-2xl text-sm focus:outline-none focus:border-brand-orange text-brand-text-dark"
-                placeholder="Örn: Her hediyelik bir sanat eseri, her kutlama bir anı."
+                placeholder="Örn: Kutlaman için her parçayı tek tek hazırlıyoruz."
               />
             </div>
 
@@ -278,7 +278,7 @@ export default function SettingsPage() {
         {/* TESTIMONIALS SECTION SETTINGS */}
         <div className="bg-white border border-[#dcdcd9] rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
           <h2 className="font-serif text-xl font-bold text-brand-text-dark border-b border-gray-100 pb-3">
-            3. Yorumlar (Testimonials) Alanı
+            3. Yorumlar bölümü
           </h2>
           <div className="grid grid-cols-1 gap-6">
             <div className="pt-2">
@@ -302,7 +302,7 @@ export default function SettingsPage() {
           <div className="grid grid-cols-1 gap-6">
             <div>
               <label className="block text-xs font-semibold text-brand-text-dark uppercase tracking-wider mb-2">
-                WhatsApp Sipariş Numarası (Sitedeki Butonları Yönlendirir)
+                WhatsApp iletişim numarası
               </label>
               <input
                 type="text"

@@ -23,7 +23,7 @@ export default function Testimonials({ testimonials = [], settings = {} }: Testi
   const sideImage = settings.testimonial_image || "/images/testimonial_side.webp";
 
   return (
-    <section id="referanslar" aria-label="Müşteri Hatıraları" className="bg-[#F5EFEB] py-24 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF] overflow-hidden">
+    <section id="referanslar" aria-label="Müşterilerimizden" className="bg-[#F5EFEB] py-24 px-4 sm:px-6 lg:px-8 border-b border-[#EDE6DF] overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* Left Column: Review Text & Warm Attribution */}
@@ -40,7 +40,7 @@ export default function Testimonials({ testimonials = [], settings = {} }: Testi
               <Star key={i} size={15} fill="#D49B35" stroke="none" />
             ))}
             <span className="ml-2 text-xs font-sans text-[#696159] font-medium">
-              Özenli İşçilik & Memnuniyet
+              Siparişleri hakkında ne dediler?
             </span>
           </div>
 

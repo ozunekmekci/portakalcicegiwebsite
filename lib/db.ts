@@ -164,13 +164,13 @@ if (process.env.NODE_ENV !== "production") {
       
       const seedSettings = global.dbInstance.transaction(() => {
         insertSetting.run("hero_badge", "ÖZEL TASARIM • EL YAPIMI • HATIRLIK");
-        insertSetting.run("hero_title", "Her Kutlama,\nBir Sanat Eseri");
+        insertSetting.run("hero_title", "Kutlamana özel\nmagnet ve süsler");
         insertSetting.run("hero_description", "Doğum, baby shower, düğün ve nişanlarınız için\nözel tasarım, 3D akrilik hediyelikler.");
         insertSetting.run("about_badge", "HAKKIMIZDA");
-        insertSetting.run("about_title", "Detaylar önemlidir.\nBiz buna inanıyoruz.");
-        insertSetting.run("about_text_1", "Portakal Çiçeği Atölye olarak her hediyeliği, saklanmaya değer bir hatıraya dönüştürmek için tasarlıyoruz. Jenerik, seri üretim seçeneklerin aksine, her tasarımımız özgün illüstrasyonlar ve çok katmanlı 3D akrilik işçilikle hayat buluyor.");
-        insertSetting.run("about_text_2", "Doğum, baby shower, düğün ve nişan gibi hayatın en özel anları için 100 adetten fazla siparişleri sanatsal kaliteden ödün vermeden teslim ediyoruz.");
-        insertSetting.run("about_quote", "Her hediyelik bir sanat eseri, her kutlama bir anı.");
+        insertSetting.run("about_title", "Atölyede nasıl hazırlıyoruz?");
+        insertSetting.run("about_text_1", "Magnet ve süslerimizi kendi çizimlerimizle, çok katmanlı 3D akrilik işçiliğiyle hazırlıyoruz. Her tasarımı kutlamanın ismine ve temasına göre düzenliyoruz.");
+        insertSetting.run("about_text_2", "Doğum, baby shower, düğün ve nişan için 100 adedin üzerindeki siparişleri de aynı işçilikle hazırlayıp teslim ediyoruz.");
+        insertSetting.run("about_quote", "Kutlaman için her parçayı tek tek hazırlıyoruz.");
         insertSetting.run("about_image", "");
         insertSetting.run("contact_phone", "");
       });

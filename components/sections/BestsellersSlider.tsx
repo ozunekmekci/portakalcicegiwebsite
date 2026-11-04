@@ -92,7 +92,7 @@ export default function BestsellersSlider({ products = [] }: BestsellersSliderPr
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div className="space-y-2 max-w-xl text-left">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1E1C1A] tracking-tight">
-              Atölyeden Yeni Çıkanlar &amp; Çok Sevilenler
+              Yeni ve çok sevilen modeller
             </h2>
             <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
               Kişiye özel cake topper süsleri, hatıra magnetleri ve bebek odası kapı panoları.

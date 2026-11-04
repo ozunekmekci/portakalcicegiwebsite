@@ -13,10 +13,10 @@ export default function Gallery() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div className="max-w-xl text-left space-y-2">
             <h2 className="font-serif text-3xl sm:text-4xl text-[#1E1C1A] font-bold tracking-tight">
-              Ellerimizden Çıkan Her Detay
+              Atölyeden ve kutlamalardan
             </h2>
             <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
-              Gerçek siparişlerden, atölye masasından ve kutlama sofralarından objektifimize yansıyan hatıralar.
+              Hazırladığımız siparişlerden, atölyemizden ve kutlama masalarından fotoğraflar.
             </p>
           </div>
 

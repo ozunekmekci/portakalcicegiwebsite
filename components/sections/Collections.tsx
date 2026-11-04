@@ -65,10 +65,10 @@ export default function Collections() {
         {/* Editorial Header */}
         <div className="max-w-2xl text-left space-y-3">
           <h2 className="font-serif text-3xl sm:text-4xl text-[#1E1C1A] font-bold tracking-tight">
-            3 Temel Atölye Koleksiyonumuz
+            Atölyede neler hazırlıyoruz?
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
-            Kutlamanızın her anına dokunan el emeği tasarımlar: Konuklarınıza hatıra magnetler, pastanız için göz alıcı cake topper süsleri ve odanızı taçlandıran kapı panoları.
+            Misafirlerin için magnet, pastan için isimli süs veya odan için kapı panosu seçebilirsin. Hepsini atölyemizde elde hazırlıyoruz.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function Collections() {
             href="/koleksiyonlar/magnet"
             className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-sans font-semibold text-[#C86D51] hover:text-[#A85338] transition-colors group"
           >
-            <span>Tüm koleksiyonları ve modelleri keşfedin</span>
+            <span>Tüm koleksiyonlara bak</span>
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

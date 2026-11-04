@@ -105,15 +105,15 @@ export default function ProductDetailContent({ product }: ProductDetailContentPr
   const packageItems = product.paketIcerigi
     ? product.paketIcerigi.split("\n").map(item => item.trim()).filter(Boolean)
     : [
-        "✓ Kişiye Özel 3D Tasarım Entegrasyonu",
-        "✓ Hasarsız Kargo ve Kırılma Garantisi",
-        "✓ Canlı WhatsApp Taslak ve Tasarım Onayı"
+        "İstediğin isimle 3D tasarım",
+        "Kargoda kırılan parçalar için garanti",
+        "Üretimden önce WhatsApp’tan taslak onayı"
       ];
 
   const featureItems = product.ozellikler
     ? product.ozellikler.split("\n").map(item => item.trim()).filter(Boolean)
     : [
-        "• Malzeme: Premium Akrilik ve Aynalı Pleksi",
+        "Malzeme: Akrilik ve aynalı pleksi",
         `• Minimum Sipariş: ${minQty === 1 ? "1 Adet Özel Üretim" : `${minQty} Adet`}`,
         "• Teslimat Süresi: 3-5 İş Gününde Kargo"
       ];
@@ -289,7 +289,7 @@ export default function ProductDetailContent({ product }: ProductDetailContentPr
                   className="flex-1 h-[52px] text-xs font-sans font-semibold uppercase tracking-wider bg-[#C86D51] hover:bg-[#A85338] text-white rounded-none shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer text-center"
                 >
                   <MessageCircle size={16} />
-                  <span>WhatsApp ile Sipariş Ver ➔</span>
+                  <span>WhatsApp’tan sipariş ver</span>
                 </a>
               </div>
             </div>

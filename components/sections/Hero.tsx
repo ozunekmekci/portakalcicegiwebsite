@@ -14,10 +14,10 @@ export default function Hero({ settings = {} }: HeroProps) {
   const rawNumber = dbNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
   const waNumber = rawNumber.replace(/\D/g, "");
 
-  const titleText = settings.hero_title || "Evimizde, ellerimizle, kutlamanıza özel tasarlıyoruz.";
+  const titleText = settings.hero_title || "Kutlaman için ev atölyemizde hazırlıyoruz.";
   const descriptionText =
     settings.hero_description ||
-    "Doğum günü, baby shower ve özel günleriniz için kişiye özel magnetler, 3D akrilik cake topper süsleri ve kapı panoları. Önce WhatsApp'ta taslağınızı görün, içinize sinsin; sonra sevgiyle üretelim.";
+    "Doğum günü, baby shower ve diğer kutlamalar için isimli magnetler, 3D akrilik pasta süsleri ve kapı panoları hazırlıyoruz. Önce taslağı WhatsApp’tan gönderiyoruz. Onayından sonra üretime başlıyoruz.";
   const heroImage = settings.hero_image || "/images/gallery-5.webp";
 
   const categories = [

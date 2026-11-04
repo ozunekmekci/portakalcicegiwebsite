@@ -66,7 +66,7 @@ export default function KategoriEklePage() {
             Yeni Koleksiyon Ekle
           </h1>
           <p className="text-sm text-brand-text-mid mt-0.5 font-sans">
-            Siteniz için yeni bir ürün koleksiyonu tanımlayın.
+            Yeni koleksiyonun adını, açıklamasını ve görselini ekleyin.
           </p>
         </div>
       </div>

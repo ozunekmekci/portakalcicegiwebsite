@@ -2,8 +2,8 @@ import Link from "next/link";
 import { CheckCircle2, MessageCircle, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Talebiniz Alındı — Teşekkür Ederiz | Portakal Çiçeği Atölye",
-  description: "Özel tasarım hatıralık talebiniz atölyemize ulaştı. Tasarımcımız en kısa sürede sizinle iletişime geçecektir.",
+  title: "Talebin alındı, teşekkür ederiz",
+  description: "Talebin atölyemize ulaştı. Detayları konuşmak için seninle iletişime geçeceğiz.",
 };
 
 export default function ThankYouPage() {
@@ -21,17 +21,17 @@ export default function ThankYouPage() {
         {/* Headline */}
         <div className="space-y-3">
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E1C1A] tracking-tight">
-            Talebiniz Atölyemize Ulaştı
+            Talebin bize ulaştı
           </h1>
           <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed max-w-lg mx-auto">
-            Özel gününüz için ilettiğiniz detaylar inceleniyor. Tasarım ekibimiz gün içinde WhatsApp üzerinden sizinle iletişime geçecektir.
+            Paylaştığın detaylara bakıyoruz. Gün içinde WhatsApp’tan sana yazacağız.
           </p>
         </div>
 
         {/* Process Timeline Card - Straight Edges */}
         <div className="p-6 sm:p-8 rounded-none bg-[#F5EFEB] border border-[#EDE6DF] text-left space-y-6 shadow-sm">
           <h2 className="font-serif text-base sm:text-lg font-semibold text-[#1E1C1A]">
-            Şimdi Ne Olacak?
+            Sırada ne var?
           </h2>
 
           <div className="space-y-4 text-xs sm:text-sm font-sans">
@@ -40,9 +40,9 @@ export default function ThankYouPage() {
                 1
               </div>
               <div>
-                <p className="font-semibold text-[#1E1C1A]">Tasarım &amp; Adet İncelemesi</p>
+                <p className="font-semibold text-[#1E1C1A]">Tasarım ve adetler</p>
                 <p className="text-[#696159] text-xs leading-relaxed mt-0.5">
-                  Etkinlik tarihiniz, istediğiniz adet ve konsept atölye takvimimize göre planlanır.
+                  Kutlama tarihine, istediğin adede ve temaya göre atölye takvimimizi kontrol ediyoruz.
                 </p>
               </div>
             </div>
@@ -52,9 +52,9 @@ export default function ThankYouPage() {
                 2
               </div>
               <div>
-                <p className="font-semibold text-[#1E1C1A]">Birebir WhatsApp Taslak Onayı</p>
+                <p className="font-semibold text-[#1E1C1A]">Taslak onayı</p>
                 <p className="text-[#696159] text-xs leading-relaxed mt-0.5">
-                  İsim, tarih ve renk uyumları dijital görsel taslak olarak WhatsApp üzerinden onayınıza sunulur.
+                  İsim, tarih ve renkleri gösteren taslağı WhatsApp’tan gönderip onayını alıyoruz.
                 </p>
               </div>
             </div>
@@ -64,9 +64,9 @@ export default function ThankYouPage() {
                 3
               </div>
               <div>
-                <p className="font-semibold text-[#1E1C1A]">Özenli El İşçiliği &amp; Kargo</p>
+                <p className="font-semibold text-[#1E1C1A]">Üretim ve kargo</p>
                 <p className="text-[#696159] text-xs leading-relaxed mt-0.5">
-                  Onaylanan pleksiler titizlikle üretilir, tek tek kontrol edilir ve korumalı paketlerde kargolanır.
+                  Onayladığın pleksi tasarımları hazırlıyor, tek tek kontrol edip korumalı paketlerle kargoya veriyoruz.
                 </p>
               </div>
             </div>
@@ -82,14 +82,14 @@ export default function ThankYouPage() {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] font-sans text-xs uppercase tracking-wider font-semibold px-7 py-3.5 rounded-none shadow-sm transition-all"
           >
             <MessageCircle size={16} />
-            <span>WhatsApp ile Hemen Görüş</span>
+            <span>WhatsApp’tan yaz</span>
           </a>
 
           <Link
             href="/"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-[#EDE6DF] bg-white hover:bg-[#F5EFEB] text-[#1E1C1A] font-sans text-xs uppercase tracking-wider font-semibold px-7 py-3.5 rounded-none transition-all"
           >
-            <span>Ana Sayfaya Dön</span>
+            <span>Ana sayfaya dön</span>
             <ArrowRight size={14} />
           </Link>
         </div>

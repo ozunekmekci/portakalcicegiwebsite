@@ -8,16 +8,16 @@ interface AboutProps {
 }
 
 export default function About({ settings = {} }: AboutProps) {
-  const titleText = settings.about_title || "Ev atölyemizde, sevgiyle.\nHer kutlama özel bir hatıradır.";
+  const titleText = settings.about_title || "Kutlaman için\nev atölyemizde hazırlıyoruz.";
   const text1 =
     settings.about_text_1 ||
-    "Portakal Çiçeği Atölye olarak bir fabrika değiliz; evimizdeki atölye masasında her tasarımı tek tek ellerimizle hayata geçiren butik bir üreticiyiz. İster pastanızın üzerinde parlayacak 1 adet özel isimli cake topper süsü, ister davetlilerinizin saklayacağı 25+ adet hatıra magneti, ister hastane ve bebek odasını taçlandıran 1 adet kapı süsü olsun... Seri üretimin tekdüzeliğinden uzak, özgün çizimler ve çok katmanlı 3D akrilik işçilikle üretiyoruz.";
+    "Evimizdeki atölyede kendi çizimlerimizle, çok katmanlı 3D akrilik ürünler hazırlıyoruz. İsimli pasta süsü ve kapı süsünü 1 adet, hatıra magnetlerini 25 adet ve üzeri sipariş edebilirsin. Her parçayı tek tek elde birleştiriyoruz.";
   const text2 =
     settings.about_text_2 ||
-    "Instagram sayfamızda (@portakalcicegi.atolye) başlayan tasarım sohbetimiz, WhatsApp'ta birebir dijital taslağın onaylanmasıyla şekillenir. İçinize sinmeyen hiçbir detayı üretmiyoruz; kargoda en ufak bir kırılma olması durumunda da anında ücretsiz yenisini gönderiyoruz.";
+    "Instagram’dan (@portakalcicegi.atolye) bize yazabilirsin. Taslağı WhatsApp’tan gönderiyor, sen onayladıktan sonra üretime başlıyoruz. Kargoda bir parça kırılırsa yenisini hemen ücretsiz gönderiyoruz.";
   const quoteText =
     settings.about_quote ||
-    "Evimizde, ellerimizle, kutlamanızın en tatlı anılarına eşlik ediyoruz.";
+    "Her parçayı ev atölyemizde ellerimizle hazırlıyoruz.";
   const imageSrc = settings.about_image || "/images/about.webp";
 
   return (
@@ -54,7 +54,7 @@ export default function About({ settings = {} }: AboutProps) {
                 &ldquo;{quoteText}&rdquo;
               </p>
               <span className="font-sans text-[11px] uppercase tracking-widest text-[#C86D51] font-semibold mt-3 block">
-                Portakal Çiçeği Atölye Manifestosu
+                Portakal Çiçeği Atölye
               </span>
             </div>
           )}

@@ -7,23 +7,23 @@ const steps = [
   {
     stepNumber: "01",
     icon: Sparkles,
-    title: "Hayalinizi & Modelinizi Seçin",
-    description: "Magnet, cake topper veya kapı süsü için beğendiğiniz modeli, bebeğinizin/çiftin ismini ve kutlama temanızı WhatsApp'tan iletin.",
+    title: "Beğendiğin modeli seç",
+    description: "Beğendiğin magnet, pasta süsü veya kapı süsünü WhatsApp’tan bize gönder. Kullanılacak ismi ve kutlama temasını da yaz.",
     detail: "Tekil ürünler veya 25+ adetlik toplu magnet siparişleri.",
   },
   {
     stepNumber: "02",
     icon: Layers,
-    title: "WhatsApp'ta 1'e 1 Taslak Onayı",
-    description: "Yazı tipi, renk katmanları ve ölçüleri içeren dijital tasarım görselini WhatsApp'tan onayınıza sunalım. Siz 'tamam' demeden üretime geçmiyoruz.",
-    detail: "Tüm kişiselleştirme ve taslak revizeleri ücretsizdir.",
+    title: "WhatsApp’tan taslağa bak",
+    description: "Yazı tipini, renk katmanlarını ve ölçüleri gösteren taslağı WhatsApp’tan gönderiyoruz. Sen onayladıktan sonra üretime başlıyoruz.",
+    detail: "Kişiselleştirme ve taslak değişiklikleri ücretsizdir.",
   },
   {
     stepNumber: "03",
     icon: PackageCheck,
-    title: "Ev Atölyemizde Üretim & Kargo",
-    description: "Onayınızın ardından her parçayı lazerle kesip tek tek elde monte ediyoruz. Kırılmaya karşı korumalı şık kutularda kapınıza gönderiyoruz.",
-    detail: "Kargoda olası en ufak hasarda ücretsiz anında telafi.",
+    title: "Hazırlayıp kargoya verelim",
+    description: "Onayından sonra parçaları lazerle kesip elde birleştiriyoruz. Kırılmaya karşı korumalı kutularla adresine gönderiyoruz.",
+    detail: "Kargoda hasar gören parçayı hemen ücretsiz yeniliyoruz.",
   },
 ];
 
@@ -35,10 +35,10 @@ export default function HowItWorks() {
         {/* Editorial Header */}
         <div className="max-w-2xl text-left space-y-3">
           <h2 className="font-serif text-3xl sm:text-4xl text-[#1E1C1A] font-bold tracking-tight">
-            Siparişten Teslimata Üç Aşamalı Atölye Süreci
+            Siparişin nasıl hazırlanıyor?
           </h2>
           <p className="font-sans text-sm sm:text-base text-[#696159] leading-relaxed">
-            Kutlamanızın konseptine en uygun tasarımı birlikte belirleyip, şeffaf ve özenli bir süreçle hazırlıyoruz.
+            Önce tasarımı birlikte seçiyoruz. Taslağı onayladığında üretime başlıyoruz.
           </p>
         </div>
 

@@ -10,10 +10,10 @@ import { SelectProductLink } from "@/components/celebration/InquiryContext";
 type Part = "topper" | "picks" | "cupcakes" | "straws";
 type Theme = "pembe" | "mavi";
 const parts: { id: Part; title: string; count: number; location: string; description: string }[] = [
-  { id: "topper", title: "Büyük pasta süsü", count: 1, location: "Pastanın en üstünde", description: "Kutlamanın merkezinde senin fotoğrafın var. Büyük süs, setin bütün renklerini tek bir tasarımda buluşturur." },
-  { id: "picks", title: "Şapkalı süsler", count: 10, location: "Pasta ve ikramlarda", description: "Aynı fotoğraf, birbirinden farklı parti şapkaları. Pastanın çevresinde veya ikramların üzerinde kullanabilirsin." },
-  { id: "cupcakes", title: "Cupcake süsleri", count: 10, location: "Küçük tatlıların üzerinde", description: "Kutlama temasını küçük ikramlara da taşı. Kısa çubuklu süsler cupcake ve diğer küçük tatlıları tamamlar." },
-  { id: "straws", title: "Süslü pipetler", count: 10, location: "İçecek bardaklarında", description: "Masadaki içecekler de kutlamaya katılsın. Fotoğraflı pipet detayları, bütün setle aynı temayı sürdürür." },
+  { id: "topper", title: "Büyük pasta süsü", count: 1, location: "Pastanın en üstünde", description: "Fotoğrafınla hazırlanan büyük süsü pastanın üstüne yerleştirebilirsin. Renkleri setin diğer parçalarıyla uyumludur." },
+  { id: "picks", title: "Şapkalı süsler", count: 10, location: "Pasta ve ikramlarda", description: "Fotoğrafını farklı parti şapkalarıyla hazırlıyoruz. Bu süsleri pastanın çevresinde veya ikramlarda kullanabilirsin." },
+  { id: "cupcakes", title: "Cupcake süsleri", count: 10, location: "Küçük tatlıların üzerinde", description: "Kısa çubuklu süsleri cupcake ve diğer küçük tatlıların üzerine yerleştirebilirsin." },
+  { id: "straws", title: "Süslü pipetler", count: 10, location: "İçecek bardaklarında", description: "Fotoğraflı pipetler de setin diğer süsleriyle aynı temada hazırlanır." },
 ];
 const layers: Record<Theme, Record<Part, number>> = {
   pembe: { topper: 2, picks: 1, cupcakes: 3, straws: 4 },
@@ -52,8 +52,8 @@ export default function SetStudio() {
           <span>Pasta süsü setleri</span>
         </div>
         <div className={styles.heading}>
-          <div><p className={styles.eyebrow}>Sana özel, parça parça.</p><h1>Bir set. <em>Bütün bir kutlama.</em></h1></div>
-          <p>Fotoğrafın, renklerin, kutlaman.<br />Her parçanın masandaki yerini keşfet.</p>
+          <div><p className={styles.eyebrow}>Fotoğraflı pasta süsleri</p><h1>Setin içinde <em>neler var?</em></h1></div>
+          <p>Süsleri kendi fotoğrafınla hazırlıyoruz.<br />Pastada ve ikramlarda nasıl durduğuna bak.</p>
         </div>
 
         <div className={styles.workspace}>
@@ -68,7 +68,7 @@ export default function SetStudio() {
 
             <div className={styles.stage}>
               {mode === "scene" ? <>
-                <span className={styles.sceneCaption}>Kutlama masanda<br /><em>böyle görünür.</em></span>
+                <span className={styles.sceneCaption}>Masada<br /><em>kullanım örneği</em></span>
                 <CakeScene />
                 <button className={`${styles.sceneItem} ${styles.topper}`} data-active={selected === "topper"} data-visible={showAll || selected === "topper"} onClick={() => selectPart("topper")} aria-label="Büyük pasta süsünü incele, 1 adet">
                   <span className={styles.woodStick} />
@@ -101,7 +101,7 @@ export default function SetStudio() {
           </section>
 
           <aside className={styles.details} aria-label="Setin içeriği ve kişiselleştirme">
-            <div className={styles.productTitle}><p className={styles.eyebrow}>Fotoğraflı kutlama koleksiyonu</p><h2>{title}<span>Senin fotoğrafınla.</span></h2><p>Birbirini tamamlayan 4 farklı parça,<br />kutlamana özel tek bir tema.</p></div>
+            <div className={styles.productTitle}><p className={styles.eyebrow}>Fotoğraflı kutlama koleksiyonu</p><h2>{title}<span>Senin fotoğrafınla.</span></h2><p>Aynı temada 4 farklı süs:<br />pasta ve cupcake süsleri, şapkalı süsler, pipetler.</p></div>
             <div className={styles.themePicker} role="group" aria-label="Set temasını seç">
               <button onClick={() => setTheme("pembe")} aria-pressed={theme === "pembe"}><span className={styles.pinkSwatch} />Pembe</button>
               <button onClick={() => setTheme("mavi")} aria-pressed={theme === "mavi"}><span className={styles.blueSwatch} />Mavi</button>
@@ -113,12 +113,12 @@ export default function SetStudio() {
               </button>)}
             </div>
             <div className={styles.partDetail} aria-live="polite" aria-atomic="true"><p>{active.location}</p><h3>{active.title}</h3><span>{active.description}</span></div>
-            <div className={styles.personalization}><span><Check size={14} /> Fotoğrafına göre hazırlanır</span><span><Check size={14} /> İsim ve yaş birlikte netleştirilir</span></div>
-            <SelectProductLink products={["pasta-susleri"]} concept={title} className={styles.orderButton}>Bu seti birlikte tasarlayalım <ArrowRight size={17} /></SelectProductLink>
-            <p className={styles.orderNote}>Fotoğrafını ve kutlama tarihini iletmen yeterli.</p>
+            <div className={styles.personalization}><span><Check size={14} /> Fotoğrafına göre hazırlanır</span><span><Check size={14} /> İsim ve yaşı birlikte belirleyelim</span></div>
+            <SelectProductLink products={["pasta-susleri"]} concept={title} className={styles.orderButton}>Bu set için bilgi al <ArrowRight size={17} /></SelectProductLink>
+            <p className={styles.orderNote}>Fotoğrafını ve kutlama tarihini mesajında paylaşabilirsin.</p>
           </aside>
         </div>
-        <div className={styles.closing}><p>Küçük detaylar.<br /><em>Sana ait bir kutlama.</em></p><span>Pembe ve Mavi setlerin içeriğini inceledin.<br />Diğer temaların parçalarına da göz atabilirsin.</span><Link href="/set-icerikleri">Tüm temaları gör <ArrowRight size={16} /></Link></div>
+        <div className={styles.closing}><p>Başka bir tema<br /><em>ister misin?</em></p><span>Diğer temalardaki süsleri ve<br />set içeriklerini de inceleyebilirsin.</span><Link href="/set-icerikleri">Tüm temaları gör <ArrowRight size={16} /></Link></div>
       </div>
     </div>
   );

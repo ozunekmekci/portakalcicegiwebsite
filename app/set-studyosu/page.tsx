@@ -3,7 +3,7 @@ import SetStudio from "@/components/sections/SetStudio";
 
 export const metadata: Metadata = {
   title: "Kutlama Seti Stüdyosu",
-  description: "Pembe ve Mavi kutlama setlerini kullanım sahnesinde ve parça parça inceleyin.",
+  description: "Pembe ve Mavi setlerdeki süslere, adetlerine ve pasta üzerinde nasıl göründüklerine bak.",
   alternates: { canonical: "/set-studyosu" },
 };
 

@@ -2,7 +2,7 @@ export const fallbackCollections = [
   {
     id: "col-magnet",
     isim: "Magnet & Hediyelik",
-    aciklama: "Min. 25 adet. Baby shower, doğum ve nişan kutlamaları için çok katmanlı 3D akrilik ve aynalı pleksi hatıra magnetleri.",
+    aciklama: "Baby shower, doğum ve nişan için 3D katmanlı akrilik ve aynalı pleksi magnetler. En az 25 adet sipariş verebilirsin.",
     kategori: "magnet",
     gorselUrl: "/images/gallery-2.webp",
     imageUrl: "/images/gallery-2.webp",
@@ -12,7 +12,7 @@ export const fallbackCollections = [
   {
     id: "col-caketopper",
     isim: "Cake Topper (Pasta Süsleri)",
-    aciklama: "1 Adet kişiye özel üretim. Doğum günü, ilk yaş ve nişan pastaları için 3D akrilik ve aynalı pleksi merkez süsleri.",
+    aciklama: "Doğum günü, ilk yaş ve nişan pastaları için 3D akrilik ve aynalı pleksi süsler. İstediğin isimle, 1 adet olarak hazırlıyoruz.",
     kategori: "cake-topper",
     gorselUrl: "/images/gallery-5.webp",
     imageUrl: "/images/gallery-5.webp",
@@ -22,7 +22,7 @@ export const fallbackCollections = [
   {
     id: "col-kapisusu",
     isim: "Kapı Süsü & Pano",
-    aciklama: "1 Adet kişiye özel üretim. Hastane odası, bebek ve çocuk odaları için isimli 3D pleksi ve ahşap kasnak kapı süsleri.",
+    aciklama: "Hastane, bebek ve çocuk odaları için isimli 3D pleksi veya ahşap kasnak kapı süsleri. 1 adet sipariş verebilirsin.",
     kategori: "kapi-susu",
     gorselUrl: "/images/gallery-3.webp",
     imageUrl: "/images/gallery-3.webp",
@@ -33,7 +33,7 @@ export const fallbackCollections = [
   {
     id: "col-pastasusleri",
     isim: "Kişiye Özel Pasta Süsleri",
-    aciklama: "1 Adet özel üretim. Doğum günü, baby shower ve nişan pastaları için 3D akrilik ve aynalı pleksi süsler.",
+    aciklama: "Doğum günü, baby shower ve nişan pastaları için 3D akrilik ve aynalı pleksi süsler. Sana özel, 1 adet olarak hazırlıyoruz.",
     kategori: "pasta-susleri",
     gorselUrl: "/images/gallery-5.webp",
     imageUrl: "/images/gallery-5.webp",
@@ -43,7 +43,7 @@ export const fallbackCollections = [
   {
     id: "col-babyshower",
     isim: "Baby Shower & Doğum Magnetleri",
-    aciklama: "25-100+ Adet hediyelik. Çok katmanlı akrilik bulut, melek ve çiçek detaylı el yapımı magnetler.",
+    aciklama: "Bulut, melek ve çiçek detaylarıyla elde hazırlanan katmanlı akrilik magnetler. 25 adetten başlayıp 100 ve üzeri adetlerde de sipariş verebilirsin.",
     kategori: "babyshower",
     gorselUrl: "/images/gallery-2.webp",
     imageUrl: "/images/gallery-2.webp",
@@ -53,7 +53,7 @@ export const fallbackCollections = [
   {
     id: "col-kombinsetler",
     isim: "Kutlama Kombin Setleri",
-    aciklama: "1 Adet pasta süsü + 25/50 adet uyumlu konsept magnet. Pastanız ve hediyelikleriniz tam uyum içinde.",
+    aciklama: "Aynı temada 1 pasta süsü ve 25 veya 50 magnet. Pasta süsünü ve misafirlerine vereceğin hediyelikleri birlikte seçebilirsin.",
     kategori: "kombin-setler",
     gorselUrl: "/images/gallery-4.webp",
     imageUrl: "/images/gallery-4.webp",

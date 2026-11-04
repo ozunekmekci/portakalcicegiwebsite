@@ -110,7 +110,7 @@ export default async function KoleksiyonPage({ params }: Props) {
   }
 
   const isim = categoryObj?.name || slugToIsim[params.slug] || params.slug;
-  const description = categoryObj?.description || `Özel günleriniz için atölyemizde özenle tasarlanan ${isim.toLowerCase()} modelleri.`;
+  const description = categoryObj?.description || `Kutlaman için atölyemizde hazırladığımız ${isim.toLowerCase()} modelleri.`;
   const bannerImage = categoryObj?.banner_image;
 
   const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555";
@@ -178,7 +178,7 @@ export default async function KoleksiyonPage({ params }: Props) {
         ) : (
           <div className="text-center py-20 px-4 space-y-6">
             <p className="text-[#696159] text-base font-sans">
-              Bu koleksiyon için yeni tasarımlar atölye masasında hazırlanıyor.
+              Bu koleksiyonda henüz ürün listelenmiyor. Aklındaki tasarım için bize yazabilirsin.
             </p>
             <a
               href={waHref}
@@ -187,7 +187,7 @@ export default async function KoleksiyonPage({ params }: Props) {
               className="inline-flex items-center justify-center gap-2 bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] transition-all rounded-none px-8 py-3.5 text-sm font-semibold shadow-sm"
             >
               <MessageCircle size={16} />
-              <span>Özel Tasarım Talebi İletin</span>
+              <span>İstediğin tasarımı anlat</span>
             </a>
           </div>
         )}

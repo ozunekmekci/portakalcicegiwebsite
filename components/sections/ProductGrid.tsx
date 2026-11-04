@@ -67,10 +67,10 @@ export default function ProductGrid({ products = [] }: ProductGridProps) {
             ÖNE ÇIKANLAR
           </span>
           <h2 className="font-serif text-3xl md:text-4xl text-brand-text-dark leading-tight font-bold">
-            En Çok Beğenilen Atölye Tasarımları
+            En çok beğenilen tasarımlar
           </h2>
           <p className="font-sans text-xs md:text-sm text-brand-text-mid">
-            En çok talep gören premium 3D akrilik ve aynalı pleksi tasarımlarımız.
+            En çok istenen 3D akrilik ve aynalı pleksi modellerimiz.
           </p>
         </div>
 
