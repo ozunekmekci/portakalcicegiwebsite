@@ -18,6 +18,25 @@ export interface InquiryFields {
   notes: string;
 }
 
+export type InquiryErrors = Partial<Record<keyof InquiryFields | "products" | GroupId, string>>;
+
+export function validateInquiry(draft: InquiryDraft, fields: InquiryFields): InquiryErrors {
+  const errors: InquiryErrors = {};
+  if (!draft.products.length) errors.products = "En az bir ürün seçer misin?";
+  if (!fields.name.trim()) errors.name = "İsmini yazman gerekiyor.";
+  if (!fields.occasion.trim()) errors.occasion = "Hangi kutlama için hazırlık yapıyorsun?";
+  if (fields.phone.trim() && (!/^[+\d\s().-]+$/.test(fields.phone) || !/^\d{10,15}$/.test(fields.phone.replace(/\D/g, "")))) {
+    errors.phone = "Telefon numaranı ülke veya alan koduyla yazabilir misin?";
+  }
+  for (const id of draft.products) {
+    const quantity = draft.quantities[id]?.trim();
+    if (quantity && (!/^\d+$/.test(quantity) || Number(quantity) < 1 || !Number.isSafeInteger(Number(quantity)))) {
+      errors[id] = "Adedi pozitif bir tam sayı olarak yaz veya boş bırak.";
+    }
+  }
+  return errors;
+}
+
 export function restoreDraft(serialized: string | null): InquiryDraft {
   const empty: InquiryDraft = { products: [], quantities: {}, concept: "" };
   try {

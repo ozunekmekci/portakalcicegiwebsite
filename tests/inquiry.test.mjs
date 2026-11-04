@@ -44,3 +44,27 @@ test("talep mesajı yalnızca seçili ürünleri ve müşterinin belirttiği ade
   assert.ok(!message.includes("topper"));
   assert.ok(!message.includes("Telefon:"));
 });
+
+const fields = { name: "Ayşe", occasion: "Babyshower", date: "", phone: "", notes: "" };
+test("ürün seçimi ve isim veya etkinlik eksikken paylaşılabilir talep oluşmaz", () => {
+  assert.equal(typeof domain.validateInquiry, "function");
+  const errors = domain.validateInquiry({ products: [], quantities: {}, concept: "" }, { ...fields, name: "  ", occasion: "" });
+  assert.ok(errors.products);
+  assert.ok(errors.name);
+  assert.ok(errors.occasion);
+});
+
+test("adet boş bırakılabilir; girildiğinde pozitif tam sayı olmalıdır", () => {
+  for (const quantity of ["0", "-1", "2.5", "abc", "99999999999999999999"]) {
+    assert.ok(domain.validateInquiry({ products: ["magnet"], quantities: { magnet: quantity }, concept: "" }, fields).magnet, quantity);
+  }
+  for (const quantity of ["", "25", "1"]) {
+    assert.deepEqual(domain.validateInquiry({ products: ["magnet"], quantities: { magnet: quantity, "kapi-susu": "-2" }, concept: "" }, fields), {});
+  }
+});
+
+test("isteğe bağlı telefon boş kalabilir; girilirse geçerli uzunlukta olmalıdır", () => {
+  const draft = { products: ["magnet"], quantities: {}, concept: "" };
+  for (const phone of ["123", "abc", "+1234567890123456789"]) assert.ok(domain.validateInquiry(draft, { ...fields, phone }).phone);
+  for (const phone of ["", "+90 (532) 123 45 67"]) assert.deepEqual(domain.validateInquiry(draft, { ...fields, phone }), {});
+});
