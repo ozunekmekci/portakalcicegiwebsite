@@ -27,7 +27,7 @@ export default function CelebrationHome() {
         <div className={styles.heroFootnote}><span className={styles.smallFlower}>✳</span><span>Bir isimle başlar.<br />Kutlamanın detaylarında devam eder.</span></div>
       </div>
       <div className={styles.heroComposition}>
-        <div className={styles.heroPaper}><Image src="/images/celebrations/mihrimah-set.webp" alt="Mihrimah'ın isimli kapı süsü ve sepet içindeki uyumlu magnetleri" fill priority sizes="(max-width: 900px) 80vw, 460px" /><span>Mihrimah’ın babyshower’ından</span></div>
+        <div className={styles.heroPaper}><Image src="/images/celebrations/mihrimah-set.webp" alt="İsimli kapı süsü ve sepet içindeki uyumlu magnetler" fill priority sizes="(max-width: 900px) 80vw, 460px" /><span>İsimli kapı süsü ve magnetler</span></div>
         <Link href="/set-studyosu" className={styles.heroInset}><div><Image src="/images/celebrations/pink-cake.webp" alt="Pasta üzerindeki fotoğraflı büyük süs ve şapkalı kürdan topper kullanım örneği" fill priority sizes="(max-width: 900px) 32vw, 210px" /></div><span>Pasta üzerinde gör <ArrowUpRight size={14} /></span></Link>
         <span className={styles.heroHandwritten}>aynı kutlamanın<br />birbirini bulan parçaları</span>
       </div>
@@ -41,10 +41,10 @@ export default function CelebrationHome() {
 
     <section id="kutlamalar" className={styles.storySection} aria-labelledby="story-title">
       <div className={`${styles.container} ${styles.storyGrid}`}>
-        <div className={styles.storyMedia}><video controls playsInline muted loop preload="none" poster="/images/celebrations/mihrimah-set.webp" aria-label="Mihrimah'ın kapı süsü ve magnetlerinin birlikte videosu"><source src="/videos/celebrations/mihrimah-set.mp4" type="video/mp4" />Tarayıcın videoyu desteklemiyor.</video><span>Bir siparişin hikâyesi / 01</span></div>
-        <div className={styles.storyCopy}><p className={styles.eyebrow}>Gerçek bir kutlamadan</p><h2 id="story-title">Mihrimah’ın<br /><em>babyshower’ı.</em></h2><p>İsmin etrafında toplanan pembe tonları, ay ve güneş detayları. Konuklara ayrılan magnetler ve kutlamayı karşılayan isimli kapı süsü aynı sipariş için hazırlandı.</p><p>Tek bir magneti yakından inceleyebilir, toplu sunumuna bakabilir ve kapı süsüyle birlikte nasıl göründüğünü izleyebilirsin.</p>
+        <div className={styles.storyMedia}><video controls playsInline muted loop preload="none" poster="/images/celebrations/mihrimah-set.webp" aria-label="Kapı süsü ve magnetlerin birlikte sunumu"><source src="/videos/celebrations/mihrimah-set.mp4" type="video/mp4" />Tarayıcın videoyu desteklemiyor.</video><span>Bir arada kullanım</span></div>
+        <div className={styles.storyCopy}><p className={styles.eyebrow}>Magnet ve kapı süsü</p><h2 id="story-title">Aynı tema,<br /><em>uyumlu parçalar.</em></h2><p>Konukların için isimli magnetler, kutlamanın girişine özel bir kapı süsü. İsim, renk ve tema detaylarını birbiriyle uyumlu hazırlayabiliriz.</p><p>Tek bir magneti yakından inceleyebilir, toplu sunumuna bakabilir ve kapı süsüyle birlikte nasıl göründüğünü izleyebilirsin.</p>
           <div className={styles.storyTags}><Link href="/urun-gruplari/magnet">İsimli magnet</Link><Link href="/urun-gruplari/kapi-susu">Kapı süsü</Link></div>
-          <SelectProductLink products={["magnet", "kapi-susu"]} concept="Mihrimah'ın babyshower'ındaki gibi pembe, ay ve güneş detayları" className={styles.primary}>Benzer bir set istiyorum <ArrowRight size={16} /></SelectProductLink>
+          <SelectProductLink products={["magnet", "kapi-susu"]} className={styles.primary}>Magnet ve kapı süsünü seç <ArrowRight size={16} /></SelectProductLink>
         </div>
       </div>
     </section>

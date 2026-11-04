@@ -7,7 +7,7 @@ import { useInquiry } from "@/components/celebration/InquiryContext";
 
 const links = [
   { href: "/#urunler", label: "Ürünler" },
-  { href: "/#kutlamalar", label: "Kutlamalardan" },
+  { href: "/#kutlamalar", label: "Uyumlu parçalar" },
   { href: "/set-icerikleri", label: "Set içerikleri" },
   { href: "/#surec", label: "Nasıl ilerliyoruz?" },
 ];

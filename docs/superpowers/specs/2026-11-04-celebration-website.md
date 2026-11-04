@@ -11,7 +11,7 @@ Gruplar ayrı seçilebilir; üç ürünün birlikte alınması zorunlu değildir
 
 1. Ana sayfada gerçek ürünleri ve üç grubu tanır.
 2. Ürün grubunda kullanım sunumu ile detay görünümü arasında geçiş yapar.
-3. Mihrimah'ın babyshower'ı gibi aynı siparişin uyumlu ürünlerini görür.
+3. Aynı tema ve renklerle bir araya getirilebilen ürünlerin kullanımını görür.
 4. Bir veya birden fazla ürün, konsept ve tahmini adet seçer.
 5. İsim, etkinlik ve isteğe bağlı tarih/iletişim/not bilgisiyle talep taslağını hazırlar.
 6. Taslağı kayıtlı WhatsApp numarasına açar veya Instagram için kopyalar.
@@ -22,7 +22,7 @@ Gruplar ayrı seçilebilir; üç ürünün birlikte alınması zorunlu değildir
 - Editoryal, sıcak krem zeminli playful-premium yön korunur.
 - Pasta stüdyosunun kabul edilen iki görünümü ve Pembe/Mavi seçimi korunur.
 - Magnet ve kapı süsü gerçek fotoğraflar ve sessiz, kullanıcı tarafından oynatılan videolarla anlatılır.
-- Mihrimah görselleri gerçek sipariş olarak sunulabilir. Topper klasöründeki pasta görselleri kullanım örneğidir.
+- Gerçek ürün fotoğrafları kullanım örneği olarak sunulur. Müşteri adları ve belirli bir siparişin hikâyesi genel site metnine taşınmaz. Topper klasöründeki pasta görselleri kullanım örneğidir.
 - Kaynak görseller `assets/` altında korunur; web kopyaları küçültülür.
 - Doğrulanmamış fiyat, asgari adet, üretim malzemesi, teslim süresi, indirim,
   adres, çalışma saati, yorum ve garanti metni yeni ana akışta kullanılmaz.

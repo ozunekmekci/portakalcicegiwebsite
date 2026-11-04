@@ -41,14 +41,15 @@ function CakeScene() {
       {[308, 326, 345, 364, 383].map(y => <path key={y} d={`M285 ${y} Q400 ${y + 43} 515 ${y}`} stroke="#d9cebf" strokeOpacity=".55" strokeWidth="1.8" />)}
       <ellipse cx="400" cy="286" rx="118" ry="31" fill="#fffdf6" stroke="#e7ddcf" strokeWidth="2" />
       <ellipse cx="400" cy="287" rx="108" ry="24" stroke="#eee5d7" strokeWidth="1.5" />
-      {[0, 1].map(i => <g key={i} transform={`translate(${i ? 626 : 151} ${i ? 535 : 568})`}>
+      <g transform="translate(151 568)">
         <ellipse cy="43" rx="64" ry="18" fill="#cab29b" fillOpacity=".2" />
         <path d="M-41 1L-32 56Q0 69 32 56L41 1Z" fill="#ddc5ad" />
         {[-26, -13, 0, 13, 26].map(x => <path key={x} d={`M${x} 8L${x * .78} 55`} stroke="#b49a7c" strokeOpacity=".5" strokeWidth="2" />)}
         <path d="M-48 1Q-51 -17 -29 -23Q-35 -42 -9 -46Q-14 -61 8 -70Q0 -55 23 -46Q43 -37 35 -23Q58 -17 48 1Q0 22 -48 1Z" fill="#fffdf7" stroke="#e6dccc" strokeWidth="2" />
         <path d="M-28 -22Q1 -12 34 -24M-9 -45Q9 -37 23 -44" stroke="#e5d9c9" strokeWidth="2" />
-      </g>)}
-      <g transform="translate(663 345)">
+      </g>
+      <ellipse cx="663" cy="590" rx="45" ry="12" fill="#cab29b" fillOpacity=".2" />
+      <g transform="translate(663 430)">
         <path d="M-37 6L-28 139Q0 161 28 139L37 6Z" fill="url(#studio-glass)" stroke="#cab4a3" strokeWidth="1.5" />
         <ellipse cy="6" rx="37" ry="10" stroke="#c9b2a1" strokeWidth="1.5" />
         <path d="M-28 66Q0 78 28 66L24 132Q0 150 -24 132Z" fill="#efbcac" fillOpacity=".5" />

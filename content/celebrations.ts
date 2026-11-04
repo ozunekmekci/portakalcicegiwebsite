@@ -16,14 +16,14 @@ export interface ProductGroup {
 export const productGroups: ProductGroup[] = [
   {
     id: "magnet", title: groupLabels.magnet, line: "Kutlamadan kalan küçük bir hatıra.",
-    description: "Bebeğinin adı, seçtiğin renkler ve kutlamanın teması bir magnetin üzerinde buluşsun. Tek bir ürünü yakından, siparişin tamamını birlikte incele.",
+    description: "İsim, seçtiğin renkler ve kutlamanın teması bir magnetin üzerinde buluşsun. Ürün detaylarını ve toplu sunumunu incele.",
     image: "/images/celebrations/magnet-detail.webp", detailImage: "/images/celebrations/magnet-detail.webp",
     useImage: "/images/celebrations/magnet-bulk.webp", video: "/videos/celebrations/mihrimah-set.mp4", location: "Konuklarına ayırdığın hatıralarda",
     details: ["İsim ve kutlama temasına göre tasarım", "Tekil ürün ve toplu sunum", "İhtiyacına göre birlikte netleştirilen adet"],
   },
   {
     id: "kapi-susu", title: groupLabels["kapi-susu"], line: "Kutlamanın ilk karşılaması.",
-    description: "İsimli kapı süsünü, kutlamanın renklerine ve diğer parçalarına uyarlayalım. Mihrimah için hazırlanan pembe, ay ve güneş detaylı tasarımı yakından görebilirsin.",
+    description: "İsimli kapı süsünü kutlamanın renklerine ve diğer parçalarına uyarlayalım. İsim, renk ve tema detaylarını yakından inceleyebilirsin.",
     image: "/images/celebrations/door-detail.webp", detailImage: "/images/celebrations/door-detail.webp",
     useImage: "/images/celebrations/mihrimah-set.webp", video: "/videos/celebrations/door.mp4", location: "Kutlamanın girişinde",
     details: ["Kişiye özel isim detayı", "Renk ve tema uyumu", "Magnetlerle birlikte tasarlanabilen görünüm"],

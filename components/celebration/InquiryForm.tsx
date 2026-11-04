@@ -79,7 +79,7 @@ export default function InquiryForm({ contactPhone }: { contactPhone: string }) 
               <div><label htmlFor="date">Kutlama tarihi <span>(isteğe bağlı)</span></label><input type="date" id="date" value={fields.date} onChange={e => updateField("date", e.target.value)} /></div>
               <div><label htmlFor="phone">Telefonun <span>(isteğe bağlı)</span></label><input type="tel" id="phone" autoComplete="tel" maxLength={30} value={fields.phone} onChange={e => updateField("phone", e.target.value)} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? "phone-error" : undefined} />{errors.phone && <p id="phone-error" className={styles.error} role="alert">{errors.phone}</p>}</div>
             </div>
-            <label htmlFor="concept">İsim, renk veya konsept <span>(isteğe bağlı)</span></label><input id="concept" maxLength={160} placeholder="Örneğin: Mihrimah, pembe, ay ve güneş" value={draft.concept} onChange={e => setConcept(e.target.value)} />
+            <label htmlFor="concept">İsim, renk veya konsept <span>(isteğe bağlı)</span></label><input id="concept" maxLength={160} placeholder="Örneğin: pembe tonları, ay ve güneş" value={draft.concept} onChange={e => setConcept(e.target.value)} />
             <label htmlFor="notes">Eklemek istediklerin <span>(isteğe bağlı)</span></label><textarea id="notes" rows={4} maxLength={2000} value={fields.notes} onChange={e => updateField("notes", e.target.value)} placeholder="Beğendiğin bir örnek veya sormak istediğin bir şey var mı?" />
           </fieldset>
           <p className={styles.note}>Sonraki adımda mesajını görebilir, ardından kendin paylaşabilirsin.</p>
