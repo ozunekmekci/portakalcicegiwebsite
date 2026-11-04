@@ -157,6 +157,7 @@
   position: absolute;
   left: 6%;
   top: 9%;
+  max-width: 27%;
   font-family: var(--font-playfair),Georgia,serif;
   font-size: clamp(17px,2vw,26px);
   line-height: 1.3;
@@ -215,17 +216,38 @@
   z-index: 1;
 }
 
+.topper .woodStick {
+  left: 44%;
+  top: 44%;
+}
+
 .picks {
-  left: 29%;
-  top: 39%;
-  width: 11%;
-  height: 25%;
+  left: 25%;
+  top: 20%;
+  width: 50%;
+  height: 35%;
   z-index: 3;
-  transform: rotate(-13deg);
+  pointer-events: none;
 }
 
 .picks:hover {
-  transform: rotate(-13deg) translateY(-3px);
+  transform: none;
+}
+
+.pick {
+  position: absolute;
+  width: 12%;
+  transform-origin: center bottom;
+  pointer-events: auto;
+}
+
+.pickHead {
+  position: absolute;
+  inset: 0 0 28%;
+}
+
+.pickHead .art {
+  object-position: center bottom;
 }
 
 .cupcakes {
@@ -252,11 +274,11 @@
 .woodStick {
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 65%;
   bottom: 0;
   width: 2px;
-  background: #cbb08a;
-  z-index: -1;
+  background: linear-gradient(90deg,#b8935b,#e5d0a6,#bc995f);
+  box-shadow: 1px 0 1px #70544320;
 }
 
 .art {
@@ -731,7 +753,7 @@
   }
 
   .sceneCaption {
-    font-size: clamp(17px,3.5vw,25px);
+    font-size: clamp(12px,3vw,20px);
   }
 
   .visualBottom {

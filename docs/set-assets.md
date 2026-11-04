@@ -1,13 +1,16 @@
 # Set görselleri
 
-`/set-studyosu`, iki sunumu karşılaştıran yerel tasarım önizlemesidir:
+`/set-studyosu`, iki sunumu karşılaştırır:
 
-- Kutlamada gör: sabit bir SVG pasta, cupcake ve bardak sahnesinde gerçek ürün katmanları.
+- Kutlamada gör: fotoğraf gerçekliğinde pasta, cupcake ve içecek sahnesinde gerçek ürün katmanları.
 - Parçaları incele: aynı ürün katmanlarını ayrı ayrı gösteren etkileşimli düzen.
 
 İlk örnekte Pembe ve Mavi setler bulunur. Adetler kaynak Canva afişleriyle aynıdır:
 1 büyük pasta süsü, 10 şapkalı süs, 10 cupcake süsü, 10 pipet.
 Kullanım sahnesi bir yerleşim örneğidir; tüm paket adedini görselde tekrar etmez.
+Büyük süs arkada, yedi farklı şapkalı örnek ise pastanın üst yüzeyinde farklı
+yüksekliklerde durur. Fotoğraflı süsler yapay zekâyla yeniden çizilmez.
+Yiyecek sahnesinin üretim promptları ve dosya bilgileri: [gerçekçi sahne](realistic-scene-asset.md).
 
 ## Kaynaklar
 
@@ -26,6 +29,9 @@ Her katman kendi maskesiyle birleştirilir, boş kenarlar kırpılır, uzun kena
 1000 piksel olan şeffaf WebP olarak kaydedilir. Kullanım sahnesindeki küçük tekil
 örnekler, cupcake ve pipet görsellerinin ilk parçasından kırpılır. Bunlar nihai
 ürün görselleri yerine geçmez; ayrı orijinal parçalar geldikçe değiştirilebilir.
+`pick-head-1.webp`–`pick-head-7.webp` dosyaları, her temanın şapkalı süs
+katmanındaki farklı başlıkların kesimleridir. Betik, bu kesimlerden önce kaynak
+katmanın boyutunu doğrular; yerleşim değişmişse yanlış yüz kesmek yerine durur.
 Kaynak dosyaların eleman sırası değişirse betik eşlemeleri de kontrol edilmelidir.
 
 ## Sonraki temalar için tercih edilen teslim biçimi

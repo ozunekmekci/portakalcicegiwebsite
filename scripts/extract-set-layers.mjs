@@ -50,4 +50,25 @@ for (const [file, theme] of [["1.svg", "pembe"], ["2.svg", "mavi"]]) {
     await sharp(cropped).trim({ threshold: 12 }).resize({ height: 600, withoutEnlargement: true })
       .webp({ quality: 90, alphaQuality: 100 }).toFile(path.join(target, `${name}.webp`));
   }
+
+  // Sahnedeki farklı şapkalar, mevcut Canva katmanının yüzleri değiştirilmeden kesilir.
+  const picksLayer = theme === "pembe" ? 1 : 3;
+  const picksInput = path.join(target, `layer-${picksLayer}.webp`);
+  const picksMetadata = await sharp(picksInput).metadata();
+  const expectedSize = theme === "pembe" ? [763, 1000] : [1000, 999];
+  if (picksMetadata.width !== expectedSize[0] || picksMetadata.height !== expectedSize[1]) {
+    throw new Error(`${theme}: Şapkalı süs yerleşimi değişmiş; kesim bölgelerini kontrol edin.`);
+  }
+  const headCrops = theme === "pembe" ? [
+    [0, 23, 116, 246], [165, 15, 117, 247], [312, 6, 134, 264],
+    [476, 1, 115, 257], [70, 301, 124, 254], [233, 305, 128, 249], [402, 310, 118, 242],
+  ] : [
+    [1, 52, 197, 219], [216, 38, 176, 289], [418, 28, 172, 309],
+    [621, 47, 176, 286], [822, 0, 178, 323], [318, 389, 162, 296], [518, 424, 167, 244],
+  ];
+  for (const [index, [left, top, width, height]] of headCrops.entries()) {
+    await sharp(picksInput).extract({ left, top, width, height })
+      .webp({ quality: 90, alphaQuality: 100 })
+      .toFile(path.join(target, `pick-head-${index + 1}.webp`));
+  }
 }
