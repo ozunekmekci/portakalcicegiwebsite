@@ -1,220 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, MessageCircle } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useRef, useState } from "react";
 import Link from "next/link";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { useInquiry } from "@/components/celebration/InquiryContext";
 
-interface NavLink {
-  label: string;
-  href: string;
-}
-
-const navLinks: NavLink[] = [
-  { label: "Koleksiyonlar", href: "#koleksiyonlar" },
-  { label: "Seçkiler", href: "#one-cikanlar" },
-  { label: "Atölye", href: "#hakkinda" },
-  { label: "Süreç", href: "#nasil-calisir" },
-  { label: "İletişim", href: "#iletisim" },
-];
-
-const koleksiyonlar = [
-  { isim: "Magnet & Hediyelik", slug: "magnet" },
-  { isim: "Cake Topper (Pasta Süsleri)", slug: "cake-topper" },
-  { isim: "Kapı Süsü & Pano", slug: "kapi-susu" },
+const links = [
+  { href: "/#urunler", label: "Ürünler" },
+  { href: "/#kutlamalar", label: "Kutlamalardan" },
+  { href: "/set-icerikleri", label: "Set içerikleri" },
+  { href: "/#surec", label: "Nasıl ilerliyoruz?" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const pathname = usePathname();
-  const waNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905555555555").replace(/\D/g, "");
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
-  return (
-    <motion.header
-      initial={{ y: -16, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="sticky top-0 z-50 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-[#EDE6DF] transition-all"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          
-          {/* Logo & Subtitle */}
-          <Link href="/" className="group flex flex-col justify-center">
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-[#1E1C1A] group-hover:text-[#C86D51] transition-colors">
-              Portakal Çiçeği Atölye
-            </span>
-            <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-[#696159]">
-              Ev Atölyesi • Magnet • Cake Topper • Kapı Süsü
-            </span>
-          </Link>
-
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center space-x-7">
-            {navLinks.map((link) => {
-              if (link.label === "Koleksiyonlar") {
-                const koleksiyonlarHref = pathname === "/" ? "#koleksiyonlar" : "/koleksiyonlar/magnet";
-                return (
-                  <div
-                    key={link.label}
-                    className="relative py-4"
-                    onMouseEnter={() => setIsDropdownOpen(true)}
-                    onMouseLeave={() => setIsDropdownOpen(false)}
-                  >
-                    <a
-                      href={koleksiyonlarHref}
-                      className="font-sans text-sm font-medium text-[#696159] hover:text-[#1E1C1A] transition-colors flex items-center gap-1 cursor-pointer py-1"
-                    >
-                      {link.label}
-                      <ChevronDown
-                        size={14}
-                        className={`transition-transform duration-200 text-[#696159] ${isDropdownOpen ? "rotate-180 text-[#C86D51]" : ""}`}
-                      />
-                    </a>
-                    <AnimatePresence>
-                      {isDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 6 }}
-                          transition={{ duration: 0.18 }}
-                          className="absolute top-full left-0 bg-[#FDFBF7] rounded-none shadow-[0_12px_32px_-4px_rgba(30,28,26,0.08)] py-2 min-w-[220px] z-50 border border-[#EDE6DF]"
-                        >
-                          {koleksiyonlar.map((kol) => (
-                            <Link
-                              key={kol.slug}
-                              href={`/koleksiyonlar/${kol.slug}`}
-                              className="block px-4 py-2.5 text-sm text-[#1E1C1A] hover:bg-[#F5EFEB] hover:text-[#C86D51] transition-colors font-medium"
-                            >
-                              {kol.isim}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              }
-
-              const normHref = pathname === "/" ? link.href : `/${link.href}`;
-
-              return (
-                <a
-                  key={link.label}
-                  href={normHref}
-                  className="font-sans text-sm font-medium text-[#696159] hover:text-[#1E1C1A] transition-colors py-1"
-                >
-                  {link.label}
-                </a>
-              );
-            })}
-
-            {/* Direct Primary Action */}
-            <a
-              href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, magnet, pasta süsü ve kapı süsü modelleriniz için tasarım taslağı hazırlatmak istiyorum.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] font-sans text-xs uppercase tracking-wider font-semibold px-5 py-2.5 rounded-none shadow-sm transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
-            >
-              <MessageCircle size={15} />
-              <span>WhatsApp&apos;ta Taslak İste</span>
-            </a>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
-            <button
-              onClick={toggleMenu}
-              type="button"
-              className="text-[#1E1C1A] hover:text-[#C86D51] p-2 focus:outline-none"
-              aria-expanded={isOpen}
-              aria-label={isOpen ? "Menüyü kapat" : "Menüyü aç"}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Nav Links Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden bg-[#FDFBF7] border-t border-[#EDE6DF] overflow-hidden"
-          >
-            <div className="px-4 pt-3 pb-6 space-y-3">
-              {navLinks.map((link) => {
-                if (link.label === "Koleksiyonlar") {
-                  const koleksiyonlarHref = pathname === "/" ? "#koleksiyonlar" : "/koleksiyonlar/magnet";
-                  return (
-                    <div key={link.label} className="py-2 border-b border-[#EDE6DF]/60">
-                      <a
-                        href={koleksiyonlarHref}
-                        onClick={() => setIsOpen(false)}
-                        className="block font-sans text-base font-medium text-[#1E1C1A] pb-2"
-                      >
-                        {link.label}
-                      </a>
-                      <div className="pl-3 space-y-1.5 pt-1">
-                        {koleksiyonlar.map((kol) => (
-                          <Link
-                            key={kol.slug}
-                            href={`/koleksiyonlar/${kol.slug}`}
-                            onClick={() => setIsOpen(false)}
-                            className="block font-sans text-sm text-[#696159] hover:text-[#C86D51] py-1"
-                          >
-                            {kol.isim}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                }
-
-                const normHref = pathname === "/" ? link.href : `/${link.href}`;
-
-                return (
-                  <a
-                    key={link.label}
-                    href={normHref}
-                    onClick={() => setIsOpen(false)}
-                    className="block font-sans text-base font-medium text-[#1E1C1A] hover:text-[#C86D51] py-2 border-b border-[#EDE6DF]/60 last:border-0"
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
-              <div className="pt-3">
-                <a
-                  href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Merhaba, magnet, pasta süsü ve kapı süsü modelleriniz için tasarım taslağı hazırlatmak istiyorum.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 text-center bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] font-sans text-xs uppercase tracking-wider font-semibold py-3.5 rounded-none shadow-sm transition-colors"
-                >
-                  <MessageCircle size={16} />
-                  WhatsApp&apos;ta Taslak İste
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
-  );
+  const [open, setOpen] = useState(false);
+  const button = useRef<HTMLButtonElement>(null);
+  const { draft } = useInquiry();
+  const requestLabel = draft.products.length ? `Talebim (${draft.products.length})` : "Talep oluştur";
+  return <header className="sticky top-0 z-50 border-b border-[#e7dfd4] bg-[#fdfbf7]/95 backdrop-blur-md" onKeyDown={event => { if (event.key === "Escape") { setOpen(false); button.current?.focus(); } }}>
+    <div className="mx-auto flex h-[82px] max-w-[1344px] items-center justify-between gap-5 px-[18px] sm:px-8">
+      <Link href="/" onClick={() => setOpen(false)} className="shrink-0"><span className="block font-serif text-[22px] font-semibold tracking-tight text-[#302a25] sm:text-[25px]">Portakal Çiçeği Atölye</span><span className="block pt-0.5 text-[9px] tracking-[.13em] text-[#8c7968]">KUTLAMANA ÖZEL TASARIMLAR</span></Link>
+      <nav aria-label="Ana gezinme" className="hidden items-center gap-7 xl:flex">{links.map(link => <Link key={link.href} href={link.href} className="py-3 text-[12px] text-[#756656] transition-colors hover:text-[#a9533d]">{link.label}</Link>)}<Link href="/talep-olustur" className="inline-flex min-h-11 items-center gap-5 bg-[#a9533d] px-5 py-3 text-xs text-white">{requestLabel}<ArrowUpRight size={16} /></Link></nav>
+      <button ref={button} type="button" aria-label={open ? "Menüyü kapat" : "Menüyü aç"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)} className="grid h-11 w-11 shrink-0 place-items-center text-[#6c5545] xl:hidden">{open ? <X size={23} /> : <Menu size={23} />}</button>
+    </div>
+    {open && <nav id="mobile-navigation" aria-label="Mobil gezinme" className="max-h-[calc(100dvh-110px)] overflow-y-auto border-t border-[#e7dfd4] bg-[#fdfbf7] px-6 pb-6 pt-3 xl:hidden">{links.map(link => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className="block border-b border-[#eee5da] py-3.5 text-sm text-[#756656]">{link.label}</Link>)}<Link href="/talep-olustur" onClick={() => setOpen(false)} className="mt-4 flex min-h-12 items-center justify-between bg-[#a9533d] px-4 py-3 text-sm text-white">{requestLabel}<ArrowUpRight size={16} /></Link></nav>}
+  </header>;
 }

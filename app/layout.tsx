@@ -7,6 +7,7 @@ import StickyMobileCTA from "@/components/layout/StickyMobileCTA";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Analytics from "@/components/analytics/Analytics";
 import JsonLd from "@/components/seo/JsonLd";
+import { InquiryProvider } from "@/components/celebration/InquiryContext";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -32,24 +33,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://portakalcicegiwebsite.vercel.app"),
   title: {
-    default: "Portakal Çiçeği Atölye | Akdeniz Esintili 3D Akrilik Hatıra Tasarımları",
+    default: "Portakal Çiçeği Atölye | Kutlamana özel tasarımlar",
     template: "%s | Portakal Çiçeği Atölye",
   },
-  description: "Doğum, baby shower, düğün, nişan ve ilk yaş kutlamaları için özel tasarım 3D akrilik ve pleksi hatıra hediyelikler. 100+ adet toplu siparişlerde özel indirim ve kişiselleştirme. İstanbul.",
-  keywords: [
-    "hediyelik",
-    "baby shower hediyeliği",
-    "düğün hatırası",
-    "doğum hediyesi",
-    "3D akrilik",
-    "pleksi hediyelik",
-    "pleksi magnet",
-    "özel tasarım hediyelik",
-    "toplu sipariş hediyelik",
-    "diş buğdayı hatırası",
-    "nikah şekeri alternatifi",
-    "Akdeniz atölye hediyelik"
-  ],
+  description: "Kişiye özel magnetler, isimli kapı süsleri ve fotoğraflı pasta süsleri. Ürünleri yakından incele ve kutlaman için istediğin parçaları seç.",
+  keywords: ["kişiye özel magnet", "isimli kapı süsü", "pasta süsü", "fotoğraflı topper", "babyshower", "doğum günü süsleri"],
   authors: [{ name: "Portakal Çiçeği Atölye", url: "https://portakalcicegiwebsite.vercel.app" }],
   creator: "Portakal Çiçeği Atölye",
   publisher: "Portakal Çiçeği Atölye",
@@ -74,13 +62,13 @@ export const metadata: Metadata = {
     locale: "tr_TR",
     url: "https://portakalcicegiwebsite.vercel.app",
     siteName: "Portakal Çiçeği Atölye",
-    title: "Portakal Çiçeği Atölye | Akdeniz Esintili 3D Akrilik Hatıra Tasarımları",
-    description: "Doğum, baby shower, düğün ve nişan kutlamaları için özenle tasarlanan çok katmanlı 3D pleksi hatıralar.",
+    title: "Portakal Çiçeği Atölye | Kutlamana özel tasarımlar",
+    description: "Magnet, kapı süsü ve fotoğraflı pasta süsleri. Kutlamanın her parçası sana özel.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portakal Çiçeği Atölye | Premium Hediyelik Tasarımı",
-    description: "Akdeniz zarafetiyle elde üretilen 3D akrilik hatıralar.",
+    title: "Portakal Çiçeği Atölye",
+    description: "Kutlamana özel magnetler, kapı süsleri ve pasta süsleri.",
   },
   robots: {
     index: true,
@@ -107,12 +95,14 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} min-h-screen flex flex-col bg-brand-cream text-brand-ink selection:bg-[#F7E5DB] selection:text-[#1E1C1A]`}>
         <Analytics />
+        <InquiryProvider>
         <AnnouncementBar />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
         <StickyMobileCTA />
         <CookieBanner />
+        </InquiryProvider>
       </body>
     </html>
   );

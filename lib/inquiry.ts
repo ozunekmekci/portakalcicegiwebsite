@@ -23,14 +23,14 @@ export function restoreDraft(serialized: string | null): InquiryDraft {
   try {
     const value = JSON.parse(serialized || "null");
     if (!value || typeof value !== "object" || !Array.isArray(value.products)) return empty;
-    const products = [...new Set(value.products.filter((id: unknown): id is GroupId =>
-      typeof id === "string" && Object.hasOwn(groupLabels, id)))];
+    const products = Array.from(new Set<GroupId>(value.products.filter((id: unknown): id is GroupId =>
+      typeof id === "string" && Object.hasOwn(groupLabels, id))));
     const quantities: InquiryDraft["quantities"] = {};
-    for (const id of products as GroupId[]) {
+    for (const id of products) {
       const quantity = value.quantities?.[id];
       quantities[id] = typeof quantity === "string" ? quantity.slice(0, 12) : "";
     }
-    return { products: products as GroupId[], quantities, concept: typeof value.concept === "string" ? value.concept.slice(0, 160) : "" };
+    return { products, quantities, concept: typeof value.concept === "string" ? value.concept.slice(0, 160) : "" };
   } catch {
     return empty;
   }

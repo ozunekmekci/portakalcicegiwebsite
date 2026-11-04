@@ -21,38 +21,14 @@ export default function JsonLd({ type = "home", productData, collectionData }: J
 
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     "@id": `${baseUrl}/#organization`,
     name: "Portakal Çiçeği Atölye",
     alternateName: "Portakal Çiçeği Hediyelik Tasarım Atölyesi",
     url: baseUrl,
     logo: `${baseUrl}/icon.svg`,
-    image: `${baseUrl}/images/about.webp`,
-    description: "Kişiye özel pasta süsleri, baby shower magnetleri ve kutlama hediyelikleri tasarlayan butik ev atölyesi.",
-    telephone: "+905555555555",
-    email: "iletisim@portakalcicegiatolye.com",
-    priceRange: "₺₺",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Caferağa Mah. Moda Cad. No:42/A",
-      addressLocality: "Kadıköy",
-      addressRegion: "İstanbul",
-      postalCode: "34710",
-      addressCountry: "TR",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 40.9876,
-      longitude: 29.0289,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "09:30",
-        closes: "18:30",
-      },
-    ],
+    image: `${baseUrl}/images/celebrations/mihrimah-set.webp`,
+    description: "Kişiye özel magnet, kapı süsü ve fotoğraflı pasta süsleri.",
     sameAs: [
       "https://www.instagram.com/portakalcicegi.atolye/",
     ],
@@ -64,7 +40,7 @@ export default function JsonLd({ type = "home", productData, collectionData }: J
     "@id": `${baseUrl}/#website`,
     url: baseUrl,
     name: "Portakal Çiçeği Atölye",
-    description: "Kişiye Özel Pasta Süsleri & Baby Shower Magnetleri Butik Ev Atölyesi",
+    description: "Kutlamana özel magnetler, kapı süsleri ve pasta süsleri",
     publisher: {
       "@id": `${baseUrl}/#organization`,
     },
@@ -111,16 +87,16 @@ export default function JsonLd({ type = "home", productData, collectionData }: J
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c") }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c") }}
       />
       {specificSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(specificSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(specificSchema).replace(/</g, "\\u003c") }}
         />
       )}
     </>

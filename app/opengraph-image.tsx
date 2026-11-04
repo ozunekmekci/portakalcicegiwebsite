@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Portakal Çiçeği Atölye | Akdeniz Esintili 3D Akrilik Hatıralıklar";
+export const alt = "Portakal Çiçeği Atölye | Kutlamana özel tasarımlar";
 export const size = {
   width: 1200,
   height: 630,
@@ -60,7 +60,7 @@ export default async function Image() {
                 marginTop: "4px",
               }}
             >
-              Akdeniz Hatıra Tasarımları
+              Kutlamana Özel Tasarımlar
             </span>
           </div>
 
@@ -74,7 +74,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            Özel Üretim Atölyesi
+            Portakal Çiçeği Atölye
           </div>
         </div>
 
@@ -90,7 +90,7 @@ export default async function Image() {
               letterSpacing: "-0.03em",
             }}
           >
-            Hayatın en narin anları için, akrilikten ömürlük hatıralar.
+            Kutlamanın her parçası sana özel.
           </h1>
           <p
             style={{
@@ -100,7 +100,7 @@ export default async function Image() {
               margin: 0,
             }}
           >
-            Doğum, baby shower, düğün ve nişan kutlamaları için özel üretim 3D pleksi tasarımlar.
+            Kişiye özel magnetler, isimli kapı süsleri ve fotoğraflı pasta süsleri.
           </p>
         </div>
 
@@ -117,9 +117,9 @@ export default async function Image() {
           }}
         >
           <div style={{ display: "flex", gap: "32px" }}>
-            <span>✦ 100+ Adet Toplu Sipariş</span>
-            <span>✦ Çok Katmanlı 3D Pleksi</span>
-            <span>✦ İstanbul Atölye Üretimi</span>
+            <span>İsimli magnetler</span>
+            <span>Kapı süsleri</span>
+            <span>Fotoğraflı pasta süsleri</span>
           </div>
           <span style={{ fontWeight: 600, color: "#D95A2B" }}>
             portakalcicegiwebsite.vercel.app
