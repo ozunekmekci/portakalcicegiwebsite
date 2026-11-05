@@ -56,11 +56,11 @@ export default function InquiryForm({ contactPhone }: { contactPhone: string }) 
   return <div className={styles.page}>
     <div className={styles.container}>
       <Link href="/#urunler" className={styles.back}><ArrowLeft size={16} /> Ürünleri incele</Link>
-      <div className={styles.heading}><p className={styles.eyebrow}>BİRLİKTE HAZIRLAYALIM</p><h1>Kutlamanı anlat.</h1><p>İstediğin ürünleri seç, kutlamandan bahset. Hazırladığın mesajı bize gönder; detayları birlikte konuşalım.</p></div>
+      <div className={styles.heading}><p className={styles.eyebrow}>SİPARİŞ BİLGİSİ</p><h1>Sipariş bilgisi al</h1><p>İlgilendiğin ürünleri ve bildiğin detayları yaz. Hazırlanan mesajı kontrol ettikten sonra bize gönderebilirsin.</p></div>
       {!ready ? <p role="status">Ürün seçimlerin yükleniyor…</p> : <div className={styles.layout}>
         <form noValidate onSubmit={prepare} className={styles.form}>
           <fieldset className={styles.productFieldset} aria-describedby={errors.products ? "products-error" : undefined}>
-            <legend><span>01</span> Hangi parçalar olsun?</legend>
+            <legend><span>01</span> Hangi ürünlerle ilgileniyorsun?</legend>
             <p>Birden fazla ürün seçebilirsin. Adetlere karar vermediysen boş bırak.</p>
             {errors.products && <p className={styles.error} id="products-error" role="alert">{errors.products}</p>}
             {groupIds.map(id => <div className={`${styles.product} ${draft.products.includes(id) ? styles.selected : ""}`} key={id}>
@@ -72,7 +72,7 @@ export default function InquiryForm({ contactPhone }: { contactPhone: string }) 
               </div>}
             </div>)}
           </fieldset>
-          <fieldset><legend><span>02</span> Biraz kutlamandan bahset.</legend>
+          <fieldset><legend><span>02</span> Kutlama bilgileri</legend>
             <div className={styles.fields}>
               <div><label htmlFor="name">İsmin <span>(gerekli)</span></label><input id="name" autoComplete="given-name" required maxLength={100} value={fields.name} onChange={e => updateField("name", e.target.value)} aria-invalid={!!errors.name} aria-describedby={errors.name ? "name-error" : undefined} />{errors.name && <p id="name-error" className={styles.error} role="alert">{errors.name}</p>}</div>
               <div><label htmlFor="occasion">Kutlama türü <span>(gerekli)</span></label><input id="occasion" placeholder="Baby shower, doğum günü…" required maxLength={100} value={fields.occasion} onChange={e => updateField("occasion", e.target.value)} aria-invalid={!!errors.occasion} aria-describedby={errors.occasion ? "occasion-error" : undefined} />{errors.occasion && <p id="occasion-error" className={styles.error} role="alert">{errors.occasion}</p>}</div>
@@ -95,7 +95,7 @@ export default function InquiryForm({ contactPhone }: { contactPhone: string }) 
               <a href={contact.href} target="_blank" rel="noopener noreferrer" className={styles.instagram}>Instagram’da mesaj yaz <ArrowUpRight size={16} /></a>
               <p className={styles.note} role="status">{copyStatus === "manual" ? "Mesaj kopyalanamadı. Yukarıdaki seçili metni elle kopyalayıp Instagram mesajına yapıştırabilirsin." : copyStatus === "copied" ? "Instagram’da yeni mesaja yapıştırıp gönderebilirsin." : "Mesajını kopyala, Instagram’da bize göndermek için yapıştır."}</p>
             </>}
-          </section> : <section className={styles.summary}><p className={styles.eyebrow}>SENİN KUTLAMAN</p><h2>Parçaları sen seç.</h2><p>Misafirlerin için magnet, girişe kapı süsü ya da pastan için fotoğraflı süsler seçebilirsin.</p><div className={styles.selectionList}>{groupIds.map(id => <div key={id}><span>{groupLabels[id]}</span><span>{draft.products.includes(id) ? "Seçildi" : "—"}</span></div>)}</div><p className={styles.note}>Bu form bir bilgi talebi içindir. Fiyatı, tasarımı ve adetleri mesajlaşarak kararlaştıracağız; siparişin bu aşamada kesinleşmez.</p></section>}
+          </section> : <section className={styles.summary}><p className={styles.eyebrow}>SEÇTİĞİN ÜRÜNLER</p><h2>Ürün seçimi</h2><p>Misafirlerin için magnet, girişe kapı süsü ya da pastan için fotoğraflı süsler seçebilirsin.</p><div className={styles.selectionList}>{groupIds.map(id => <div key={id}><span>{groupLabels[id]}</span><span>{draft.products.includes(id) ? "Seçildi" : "—"}</span></div>)}</div><p className={styles.note}>Bu form bir bilgi talebi içindir. Fiyatı, tasarımı ve adetleri mesajlaşarak kararlaştıracağız; siparişin bu aşamada kesinleşmez.</p></section>}
         </aside>
       </div>}
     </div>

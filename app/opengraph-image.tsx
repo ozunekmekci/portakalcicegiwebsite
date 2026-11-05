@@ -90,7 +90,7 @@ export default async function Image() {
               letterSpacing: "-0.03em",
             }}
           >
-            Kutlamanın her parçası sana özel.
+            İsimli magnetler ve kutlama süsleri.
           </h1>
           <p
             style={{

@@ -52,8 +52,8 @@ export default function SetStudio() {
           <span>Pasta süsü setleri</span>
         </div>
         <div className={styles.heading}>
-          <div><p className={styles.eyebrow}>Fotoğraflı pasta süsleri</p><h1>Setin içinde <em>neler var?</em></h1></div>
-          <p>Süsleri kendi fotoğrafınla hazırlıyoruz.<br />Pastada ve ikramlarda nasıl durduğuna bak.</p>
+          <div><p className={styles.eyebrow}>Fotoğraflı pasta süsleri</p><h1>Pembe ve mavi <em>pasta süsü setleri</em></h1></div>
+          <p>Setleri fotoğrafınla hazırlıyoruz.<br />Aşağıda parçaları ve adetlerini inceleyebilirsin.</p>
         </div>
 
         <div className={styles.workspace}>
@@ -101,7 +101,7 @@ export default function SetStudio() {
           </section>
 
           <aside className={styles.details} aria-label="Setin içeriği ve kişiselleştirme">
-            <div className={styles.productTitle}><p className={styles.eyebrow}>Fotoğraflı kutlama koleksiyonu</p><h2>{title}<span>Senin fotoğrafınla.</span></h2><p>Aynı temada 4 farklı süs:<br />pasta ve cupcake süsleri, şapkalı süsler, pipetler.</p></div>
+            <div className={styles.productTitle}><p className={styles.eyebrow}>Fotoğraflı kutlama koleksiyonu</p><h2>{title}<span>Fotoğraflı pasta süsleri</span></h2><p>Aynı temada 4 farklı süs:<br />pasta ve cupcake süsleri, şapkalı süsler, pipetler.</p></div>
             <div className={styles.themePicker} role="group" aria-label="Set temasını seç">
               <button onClick={() => setTheme("pembe")} aria-pressed={theme === "pembe"}><span className={styles.pinkSwatch} />Pembe</button>
               <button onClick={() => setTheme("mavi")} aria-pressed={theme === "mavi"}><span className={styles.blueSwatch} />Mavi</button>
@@ -118,7 +118,7 @@ export default function SetStudio() {
             <p className={styles.orderNote}>Fotoğrafını ve kutlama tarihini mesajında paylaşabilirsin.</p>
           </aside>
         </div>
-        <div className={styles.closing}><p>Başka bir tema<br /><em>ister misin?</em></p><span>Diğer temalardaki süsleri ve<br />set içeriklerini de inceleyebilirsin.</span><Link href="/set-icerikleri">Tüm temaları gör <ArrowRight size={16} /></Link></div>
+        <div className={styles.closing}><p>Diğer<br /><em>tema setleri</em></p><span>Diğer temalardaki süsleri ve<br />set içeriklerini de inceleyebilirsin.</span><Link href="/set-icerikleri">Tüm temaları gör <ArrowRight size={16} /></Link></div>
       </div>
     </div>
   );

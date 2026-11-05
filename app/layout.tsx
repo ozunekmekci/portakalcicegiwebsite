@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     url: "https://portakalcicegiwebsite.vercel.app",
     siteName: "Portakal Çiçeği Atölye",
     title: "Portakal Çiçeği Atölye | Kutlamana özel tasarımlar",
-    description: "Magnet, kapı süsü ve fotoğraflı pasta süsleri. Kutlamanın her parçası sana özel.",
+    description: "İsimli magnetler, kapı süsleri ve fotoğraflı pasta süsleri.",
   },
   twitter: {
     card: "summary_large_image",
