@@ -119,7 +119,7 @@ export function cakeSetTotal(set: SetPoster) {
 }
 
 export function cakeSetImage(id: string, image: string) {
-  return `/images/cake-sets/${id}/${image}.webp`;
+  return `/images/cake-sets/${id}/${image}.webp?v=2`;
 }
 
 export const setPosters = posters.map(set => ({

@@ -132,9 +132,10 @@
 .overview img, .panel img { object-fit: cover; user-select: none; }
 .overview button { position: absolute; border-radius: 8px; transition: background .2s; }
 .overview button:hover { background: #fff7ed24; box-shadow: inset 0 0 0 1px #fff7ed95; }
-.cakeHotspot { left: 24%; top: 5%; width: 52%; height: 60%; }
-.cupcakeHotspot { left: 2%; top: 64%; width: 48%; height: 33%; }
-.strawHotspot { left: 51%; top: 64%; width: 47%; height: 33%; }
+.cakeHotspot { left: 24%; top: 2%; width: 52%; height: 66%; }
+.studio:is([data-theme=peri-kizi], [data-theme=pembe-kelebek]) .cakeHotspot { left: 5%; width: 90%; }
+.cupcakeHotspot { left: 2%; top: 68%; width: 48%; height: 31%; }
+.strawHotspot { left: 51%; top: 68%; width: 47%; height: 31%; }
 .collage { display: grid; grid-template-rows: 1fr 1fr; gap: 4px; background: #fcfaf6; }
 .panel { position: relative; min-height: 0; background: #f0e6da; }
 .panel > span {
