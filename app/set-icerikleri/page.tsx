@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SetPosterGallery from "@/components/sections/SetPosterGallery";
-import { ProductGroupCards } from "@/components/celebration/CelebrationHome";
+import Link from "next/link";
+import { PageReveals } from "@/components/celebration/HomeInteractions";
 import { SelectProductLink } from "@/components/celebration/InquiryContext";
 import styles from "@/components/celebration/Celebration.module.css";
 
@@ -12,11 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function SetContentsPage() {
-  return <div className={styles.site}><div className={styles.container}>
-    <section className={styles.setIntro}><p className={styles.eyebrow}>Kutlama setleri</p><h1>Kutlama setleri ve ürünler</h1><p>Magnet ve kapı süsünü aynı isim ve renklerle hazırlayabiliriz. Pasta ve ikramlar için de fotoğraflı süsler seçebilirsin. Her ürünü ayrı ayrı istemen de mümkün.</p></section>
-    <ProductGroupCards />
-    <section id="tema-setleri" className={styles.posterSection}><h2>Fotoğraflı pasta süsü setleri</h2><p>Setlerde hangi süsten kaçar adet olduğunu afişlerde görebilirsin. Beğendiğin temayı büyütüp incele, ardından talebine ekle. Her setin içeriği farklı olabilir.</p><SetPosterGallery /></section>
-    <section className={styles.experienceEnd}><h2>Farklı bir tema mı arıyorsun?</h2><p>Kullanılacak ismi, kutlama tarihini ve düşündüğün renkleri yaz. İstediğin süsleri birlikte seçelim.</p><SelectProductLink products={[]} className={styles.textLink}>Sipariş için bilgi al ↗</SelectProductLink></section>
-    <div className="h-14" />
+  return <div className={styles.site}><PageReveals /><div className={styles.container}>
+    <div className={styles.setIntro}><h1 data-reveal>Set içerikleri</h1><p data-reveal>Fotoğraflı pasta ve ikram süsleri için bir tema seç. Her sette hangi süsten kaçar adet olduğunu inceleyebilirsin.</p></div>
+    <section id="tema-setleri" className={styles.posterSection} aria-labelledby="themes-title"><h2 id="themes-title" data-reveal>Bir tema seç</h2><SetPosterGallery /></section>
+    <section className={styles.experienceEnd}><h2>Farklı bir tema mı arıyorsun?</h2><p>Kullanılacak ismi, kutlama tarihini ve düşündüğün renkleri yaz. İstediğin süsleri birlikte seçelim.</p><SelectProductLink products={[]} className={styles.textLink}>Sipariş için bilgi al ↗</SelectProductLink><Link href="/#urunler" className={styles.textLink}>Magnet ve kapı süslerine de bak ↗</Link></section>
   </div></div>;
 }

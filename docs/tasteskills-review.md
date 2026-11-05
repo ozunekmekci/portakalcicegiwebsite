@@ -209,3 +209,43 @@ Yeni harici fotoğraf, klip veya çizim kullanılmadı. Yön föyünün sunduğu
 Önerilen başlık ve açıklama taslak metindir, yayınlanmadı. Yeni müşteri yorumu, satış istatistiği, fiyat, teslimat süresi veya ürün özelliği uydurulmadı. Tasarım için yeni bağımlılık gerekmiyor.
 
 Uygulama sırası: önce ana sayfa açılışı + okunabilirlik + çerez/sabit bar yerleşimi; sonra mevcut stüdyonun görünürlüğü ve mobil kontroller; ardından tema keşfi ve ürün bilgileri. Tasarım uygulanırsa aynı üretim derlemesi ve üç boyutla yeniden ölçülerek önce/sonra karşılaştırması yapılmalı. Bu rapordaki mevcut FAIL kayıtları düzeltilmiş kabul edilmiyor.
+
+## Uygulama: Kutlama Masası
+
+Bu bölüm önceki incelemeyi izleyen uygulamayı kaydeder. Tasarım The split stage (seed 1965344461) yönünden geliştirildi. Tipografi Inter / Playfair Display olarak kaldı. Çiçek beyazı, yaprak yeşili ve koyu portakal eylem rengi seçildi. Yön föyü yeniden çekilmedi. Açılışta sabitlenen fotoğraf yerine tek büyük kadraj, otomatik fotoğraf geçişi yerine ziyaretçinin seçtiği Pembe/Mavi geçişi kullanıldı. Böylece aynı kadrajda her iki gerçek seti karşılaştırmak mümkün.
+
+Mihrimah kapı süsü ve magnetleri açılışta birlikte görülüyor. Pasta süslerinde Pembe/Mavi seçimi fotoğrafı ve stüdyo bağlantısını değiştiriyor. Katalog tüm 12 temayı aynı seçicide sunuyor, seçili setin parça adetleri metin olarak okunuyor ve afiş ayrı bir pencerede büyütülebiliyor. Bildirim ilk ziyarette menünün altında, içerik akışında yer alıyor. Mobil talep çubuğu ürün eklenince geliyor.
+
+### Üretim derlemesi ve tarayıcı karşılaştırması
+
+`npm run build` başarılı. Chromium'da 1440, 768 ve 390 px ekranlar kullanıldı. Dört sayfada ölçülen yatay taşma ve kırık görsel sayısı sıfır. İlk ziyaret çerez alanı 390 px ekranda 191 px'den 111 px'ye indi, açılış fotoğrafının üst kenarı 690 px'den 425 px'ye geldi.
+
+| Sayfa | Inspector FAIL / WARN önce → sonra | Belirgin fark |
+| --- | --- | --- |
+| Ana sayfa | 15 / 6 → 0 / 1 | Başlık 4 / 3 / 4 yerine 2 / 2 / 2 satır, gövde 12 → 17 px |
+| Set stüdyosu | 11 / 9 → 2 / 4 | Tema ve görünüm kontrolü sahne üstünde, gövde 12 → 16 px |
+| Set içerikleri | 9 / 7 → 3 / 3 | Mobil sayfa 10.889 → 2.034 px, 12 tema tek seçicide |
+| Magnet | 10 / 10 → 2 / 3 | Ürün adı ilk ekranda, gövde 13 → 17 px |
+
+Alt sayfalarda kalan FAIL kayıtları ağırlıkla bir seferde gösterilen görsel sayısı ve bazı yardımcı metinlerin başlık üstü etiket sayılması. Katalog mobilinde araç baskın yazı boyutunu 14 px ölçtü. Ana sayfadaki WARN yazı boyutu çeşitliliği. Masaüstü, tablet ve mobil açılış ve tam sayfa görüntüleri incelendi. Ürün dışı yeni fotoğraf, klip, çizim veya örnek ticari bilgi kullanılmadı.
+
+390 px Chromium'da çerez tercihi, menü ve Escape ile odak dönüşü, Mavi önizlemeden stüdyoya geçiş, pipet detayı, 12 tema ve Magic Set adetleri, afiş penceresi ve Escape ile odak dönüşü, seçili temanın talep formuna taşınması, magnet detay fotoğrafı ve talebe ekleme kontrol edildi. Bu akışlarda konsol hatası görülmedi. Harici sipariş mesajı gönderilmedi.
+
+### Görsel eleştiri — ROUND 2
+
+Seen in one second: Büyük Mihrimah fotoğrafı, kısa başlık ve ürünleri açan eylem.
+
+Idea (one sentence): Mihrimah kapı süsü ve magnetlerinin birlikte kullanımı ile fotoğraflı set parçaları ziyaretçinin inceleyebildiği bir kutlama masasına dönüşür.
+
+Live thing: Pembe ve Mavi önizleme, doğru temayla stüdyoya geçiş ve katalogda seçilen temanın gerçek adetleri.
+
+Layout words by section: hero=büyük fotoğraflı split / ürünler=farklı genişlikte fotoğraf dizisi / pasta süsleri=renk alanında sahne / uyumlu ürünler=video ve metin / sipariş=başlık ve dikey liste / kapanış=yan yana başlık ve eylem.
+
+Scores: design 7.6 · usability 7.8 · creativity 7 · content 7.5 → overall 7.5. Bunlar ana sayfa için öznel değerlendirme puanlarıdır.
+
+Caps applied: Fotoğraflı tema karşılaştırması başka atölyelerde de uygulanabileceği için yaratıcılık tavanı 7. Alt sayfalardaki kalan FAIL kayıtları nedeniyle tüm site için aynı puan geçerli değil.
+
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. Mobil açılışta çerez şeridi 111 px yer tutuyor. İçeriği örtmüyor, tercihi henüz olmayan ziyaretçide ürün fotoğrafını aşağı itiyor.
+2. Ana sayfa masaüstü açılışında portre kaynağının üst kenarı kırpılıyor. İsim ve magnetler birlikte okunuyor. Daha geniş kadraj için aynı setin yatay çekimi işe yarar.
+3. Mobil katalogda afiş küçük kalıyor. İçerik metni yanında, afiş büyütme eylemi altında duruyor.

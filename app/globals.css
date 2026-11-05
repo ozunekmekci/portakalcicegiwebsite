@@ -98,3 +98,24 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+:root {
+  --taste-paper: #ffffff;
+  --taste-ink: #24372c;
+  --taste-field: #edf1eb;
+  --taste-field-strong: #dee7dc;
+  --taste-action: #9c3d20;
+  --taste-action-hover: #783019;
+  --taste-gutter: clamp(18px, 3vw, 32px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal][data-arrived] {
+    animation: taste-arrive 430ms ease-out var(--reveal-delay, 0ms) backwards;
+  }
+}
+
+@keyframes taste-arrive {
+  from { opacity: .7; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}

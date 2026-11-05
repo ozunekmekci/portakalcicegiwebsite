@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import StickyMobileCTA from "@/components/layout/StickyMobileCTA";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Analytics from "@/components/analytics/Analytics";
@@ -25,7 +24,7 @@ const playfair = Playfair_Display({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#FDFBF7",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -93,15 +92,14 @@ export default function RootLayout({
       <head>
         <JsonLd type="home" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} min-h-screen flex flex-col bg-brand-cream text-brand-ink selection:bg-[#F7E5DB] selection:text-[#1E1C1A]`}>
+      <body className={`${inter.variable} ${playfair.variable} min-h-screen flex flex-col bg-white text-brand-ink selection:bg-[#F7E5DB] selection:text-[#1E1C1A]`}>
         <Analytics />
         <InquiryProvider>
-        <AnnouncementBar />
         <Navbar />
+        <CookieBanner />
         <main className="flex-grow">{children}</main>
         <Footer />
         <StickyMobileCTA />
-        <CookieBanner />
         </InquiryProvider>
       </body>
     </html>

@@ -7,4 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/set-studyosu" },
 };
 
-export default function SetStudioPage() { return <SetStudio />; }
+export default function SetStudioPage({ searchParams }: { searchParams: { tema?: string | string[] } }) {
+  const theme = searchParams.tema === "mavi" ? "mavi" : "pembe";
+  return <SetStudio key={theme} initialTheme={theme} />;
+}

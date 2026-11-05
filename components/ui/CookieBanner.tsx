@@ -2,18 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Cookie, X } from "lucide-react";
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("portakal_cookie_consent");
-    if (!consent) {
-      // Small delay for smooth appearance
-      const timer = setTimeout(() => setShowBanner(true), 1200);
-      return () => clearTimeout(timer);
-    }
+    if (localStorage.getItem("portakal_cookie_consent")) return;
+    setShowBanner(true);
   }, []);
 
   const handleAcceptAll = () => {
@@ -30,55 +25,20 @@ export default function CookieBanner() {
 
   return (
     <div
-      role="dialog"
+      role="region"
       aria-live="polite"
-      aria-label="Çerez Tercihleri Bildirimi"
-      className="fixed bottom-20 md:bottom-6 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 bg-[#FDFBF7] border border-[#EDE6DF] rounded-none p-5 shadow-[0_16px_36px_-6px_rgba(30,28,26,0.15)] transition-all animate-in fade-in slide-in-from-bottom-5 duration-300"
+      aria-label="Çerez tercihleri"
+      className="bg-[var(--taste-ink)] text-white"
     >
-      <div className="space-y-3 text-left">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-none bg-[#C86D51]/10 flex items-center justify-center text-[#C86D51]">
-              <Cookie size={16} />
-            </div>
-            <h3 className="font-serif text-sm font-semibold text-[#1E1C1A]">
-              Çerez tercihlerin
-            </h3>
-          </div>
-          <button
-            onClick={handleAcceptEssential}
-            type="button"
-            aria-label="Bildirimi kapat"
-            className="text-[#8E857B] hover:text-[#1E1C1A] p-1 transition-colors"
-          >
-            <X size={15} />
-          </button>
-        </div>
-
-        <p className="font-sans text-xs text-[#696159] leading-relaxed">
-          Sitenin çalışması ve ziyaretçi istatistikleri için çerezler kullanıyoruz. Ayrıntıları{" "}
-          <Link href="/gizlilik-politikasi" className="underline text-[#C86D51] hover:text-[#A85338]">
-            gizlilik politikamızda
-          </Link>{" "}
-          bulabilirsin.
-        </p>
-
-        <div className="flex items-center gap-2.5 pt-1">
-          <button
-            onClick={handleAcceptAll}
-            type="button"
-            className="flex-1 py-2 px-3 rounded-none bg-[#C86D51] hover:bg-[#A85338] text-[#FDFBF7] text-xs font-sans font-semibold uppercase tracking-wider transition-colors cursor-pointer text-center"
-          >
-            Tümünü kabul et
-          </button>
-          <button
-            onClick={handleAcceptEssential}
-            type="button"
-            className="flex-1 py-2 px-3 rounded-none border border-[#EDE6DF] bg-[#F5EFEB] hover:bg-[#EDE6DF] text-[#1E1C1A] text-xs font-sans font-semibold uppercase tracking-wider transition-colors cursor-pointer text-center"
-          >
-            Yalnızca zorunlu olanlar
-          </button>
-        </div>
+      <div className="mx-auto grid max-w-[1344px] gap-2 px-[var(--taste-gutter)] py-2.5 md:grid-cols-[1fr_auto] md:items-center">
+      <p className="text-sm leading-snug">
+        Çerezleri site işleyişi ve ziyaretçi istatistikleri için kullanıyoruz.{" "}
+        <Link href="/gizlilik-politikasi" className="underline underline-offset-2">Ayrıntılar</Link>
+      </p>
+      <div className="flex flex-wrap gap-2">
+        <button onClick={handleAcceptEssential} type="button" className="min-h-11 flex-1 bg-white px-2 text-sm font-semibold text-[var(--taste-ink)] hover:bg-[var(--taste-field-strong)]">Yalnızca zorunlu</button>
+        <button onClick={handleAcceptAll} type="button" className="min-h-11 flex-1 bg-[var(--taste-action)] px-2 text-sm font-semibold hover:bg-[var(--taste-action-hover)]">Tümünü kabul et</button>
+      </div>
       </div>
     </div>
   );
