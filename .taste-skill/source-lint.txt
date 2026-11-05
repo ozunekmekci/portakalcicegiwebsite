@@ -1,0 +1,59 @@
+TASTESKILL · LINT   14 file(s)
+
+FAIL
+  [eyebrow] Eyebrow / kicker label above a heading.  (16×)
+      components/celebration/Celebration.module.css:3  .eyebrow {
+      components/celebration/CelebrationHome.tsx:23  className={styles.eyebrow
+      components/celebration/CelebrationHome.tsx:38  className={styles.eyebrow
+      components/celebration/CelebrationHome.tsx:45  className={styles.eyebrow
+      components/celebration/CelebrationHome.tsx:54  className={styles.eyebrow
+      components/celebration/CelebrationHome.tsx:58  className={styles.eyebrow
+      … 10 more
+  [shadow] Shadow. Elements at rest carry none; only real overlays (menu, dialog, sticky bar) may.  (10×)
+      components/celebration/Celebration.module.css:15  box-shadow:
+      components/celebration/Celebration.module.css:18  box-shadow:
+      components/celebration/Celebration.module.css:40  box-shadow:
+      components/sections/SetStudio.module.css:129  box-shadow:
+      components/sections/SetStudio.module.css:203  drop-shadow(
+      components/sections/SetStudio.module.css:207  drop-shadow(
+      … 4 more
+  [hairline] Thin rule / divider line. Separate with space, tone or scale; lines belong to real tables and form fields.  (20×)
+      components/celebration/Celebration.module.css:23  border-top:1px
+      components/celebration/Celebration.module.css:47  border-bottom:1px
+      components/celebration/Celebration.module.css:56  border-top:1px
+      components/celebration/Celebration.module.css:58  border-top:1px
+      components/celebration/Celebration.module.css:81  border-top:1px
+      components/celebration/Celebration.module.css:90  border-top:1px
+      … 14 more
+  [emoji] Emoji used as UI.  (1×)
+      components/celebration/CelebrationHome.tsx:27  ✳
+  [numbering] Decorative index numbering (01 / 02 / 03).  (5×)
+      components/celebration/CelebrationHome.tsx:60  "01"
+      components/celebration/CelebrationHome.tsx:61  "02"
+      components/celebration/CelebrationHome.tsx:62  "03"
+      components/celebration/InquiryForm.tsx:63  >01<
+      components/celebration/InquiryForm.tsx:75  >02<
+  [gradient] Gradient fill. Use a flat colour or a real image (a neutral scrim over a photo is the one exception).  (2×)
+      components/sections/SetStudio.module.css:143  radial-gradient(
+      components/sections/SetStudio.module.css:280  linear-gradient(
+  [micro-label] Tiny uppercase letter-spaced label.  (1×)
+      components/sections/SetPosterGallery.tsx:159  inline-flex min-h-12 items-center justify-center gap-2 bg-[#C86D51] px
+
+WARN
+  [outlined-box] A 1px outlined box. Prefer a filled surface or no box.  (8×)
+      components/celebration/Celebration.module.css:69  border:1px solid
+      components/celebration/Celebration.module.css:71  border:1px solid
+      components/celebration/Celebration.module.css:86  border:1px solid
+      components/celebration/InquiryForm.module.css:13  border: 1px solid
+      components/celebration/InquiryForm.module.css:40  border: 1px solid
+      components/sections/SetStudio.module.css:92  border: 1px solid
+      … 2 more
+  [glass] Backdrop blur. One sticky bar at most; glass cards are a tell.  (3×)
+      components/layout/Navbar.tsx:20  backdrop-blur
+      components/layout/StickyMobileCTA.tsx:8  backdrop-blur
+      components/sections/SetPosterGallery.tsx:97  backdrop-blur
+  [numbering] Zero-padding in script. Fine for a clock, a date or a price; if it builds 01 / 02 / 03 labels, remove it.  (1×)
+      components/sections/SetPosterGallery.tsx:79  padStart(2, "0")
+
+RESULT: 55 FAIL, 12 WARN — fix the FAILs before rendering.
+Interface fragments marked data-ui keep their own borders and shadows. Any other line that must keep a flagged pattern for a real reason can carry the comment taste-skill-ignore.

@@ -1,0 +1,77 @@
+{
+  "at": "2026-11-05T00:52:21.662Z",
+  "width": 390,
+  "results": [
+    {
+      "check": "Fresh mobile overlays",
+      "value": {
+        "cookieHeight": 191,
+        "cookieTop": 573,
+        "heroPhotoTop": 690,
+        "viewportHeight": 844
+      }
+    },
+    {
+      "check": "Mobile menu opens",
+      "value": true
+    },
+    {
+      "check": "Mobile menu Escape and focus",
+      "value": {
+        "closed": true,
+        "focus": "Menüyü aç"
+      }
+    },
+    {
+      "check": "Studio Mavi theme",
+      "value": {
+        "theme": "mavi",
+        "selected": "true"
+      }
+    },
+    {
+      "check": "Studio pieces",
+      "value": 12
+    },
+    {
+      "check": "Studio straws selected",
+      "value": "İçecek bardaklarındaSüslü pipetlerFotoğraflı pipetler de setin diğer süsleriyle aynı temada hazırlanır."
+    },
+    {
+      "check": "Poster opens and close focus",
+      "value": {
+        "title": "Pembe Set",
+        "focus": "Afiş penceresini kapat"
+      }
+    },
+    {
+      "check": "Poster Escape restores focus",
+      "value": {
+        "closed": true,
+        "focus": "Pembe Set afişini ve içeriğini büyüt"
+      }
+    },
+    {
+      "check": "Poster selection reaches inquiry",
+      "value": {
+        "pathname": "/talep-olustur",
+        "concept": "Pembe Set",
+        "selected": true
+      }
+    },
+    {
+      "check": "Magnet detail view",
+      "value": {
+        "image": "Magnet: ürün detayları"
+      }
+    },
+    {
+      "check": "Magnet selection",
+      "value": [
+        "Yakından incele",
+        " Talebine eklendi · Çıkar"
+      ]
+    }
+  ],
+  "note": "Local production build only. No contact link was followed and no message was sent."
+}

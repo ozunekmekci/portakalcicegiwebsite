@@ -1,0 +1,1738 @@
+{
+ "url": "http://127.0.0.1:3100/urun-gruplari/magnet",
+ "at": "2026-11-05T00:50:02.482Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.54,
+    0.51,
+    0.54
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1819,
+     "screens": 2,
+     "words": 191,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 14,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fcelebrations%2Fmagnet-bulk"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Magnet",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 65,
+     "vw": 4.5,
+     "font": "__Playfair_Display_06d865",
+     "weight": 500,
+     "tracking": -0.045,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "right",
+     "widthRatio": 0.37,
+     "top": 261,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Magnet",
+     "words": 1,
+     "lines": 1,
+     "size": 65,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "Magnet",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 65,
+      "vw": 4.5,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 261,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Magnet ve kapı süsü seti",
+      "words": 5,
+      "chars": 24,
+      "lines": 1,
+      "size": 32,
+      "vw": 2.2,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.49,
+      "top": 1233,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.88,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.12,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      18,
+      19,
+      25,
+      26,
+      27,
+      32,
+      65
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 13,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.9
+     },
+     "measureChars": 82,
+     "max": {
+      "size": 65,
+      "vw": 4.5,
+      "font": "__Playfair_Display_06d865",
+      "text": "Magnet"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.011,
+     "microSamples": [
+      "Ürün bilgileri"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.11,
+     "smallText": 32
+    },
+    "eyebrows": [
+     {
+      "text": "Ürün bilgileri",
+      "above": "Magnet",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 229
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fdfbf7",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.6,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#f3eee4",
+       "top": 212,
+       "hsl": {
+        "h": 40,
+        "s": 0.38,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 1473,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7c6b5c",
+       "share": 0.33
+      },
+      {
+       "color": "#615345",
+       "share": 0.12
+      },
+      {
+       "color": "#1e1c1a",
+       "share": 0.09
+      },
+      {
+       "color": "#696159",
+       "share": 0.07
+      },
+      {
+       "color": "#8d7a65",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#a9533d",
+      "hsl": {
+       "h": 12,
+       "s": 0.47,
+       "l": 0.45
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "gizlilik politikamızda",
+       "ratio": 3.5,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#c86d51",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Tümünü kabul et",
+       "ratio": 3.5,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#fdfbf7",
+       "bg": "#c86d51"
+      },
+      {
+       "text": "Kutlamada kullanım örneği",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#88725f",
+       "bg": "#f3eee4"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 7,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Talep oluştur",
+      "Toplu sunumda gör",
+      "Yakından incele",
+      "Talebime ekle +",
+      "Bu ürün için talep oluştur"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 1440px",
+      "header.sticky.top-0 1440px",
+      "div.Celebration_productDetails__jOqQ4 535px",
+      "div.Celebration_experienceEnd__cFeEm 700px",
+      "footer.border-t.border-[#ded4c5] 1440px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.31
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1819,
+    "margins": {
+     "left": 80,
+     "right": 80
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 1349,
+      "words": 114,
+      "media": 1,
+      "middle": 91,
+      "heading": {
+       "text": "Magnet",
+       "size": 65,
+       "tag": "h1"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 97,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 1473,
+      "height": 346,
+      "words": 40,
+      "media": 0,
+      "middle": 252,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Magnet",
+      "size": 65,
+      "top": 261,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 825,
+      "n": 3
+     },
+     {
+      "x": 80,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 4,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.06,
+    "voidBox": {
+     "x": 180,
+     "y": 120,
+     "w": 1260,
+     "h": 60
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.66,
+    0.26,
+    0.48
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2421,
+     "screens": 2.4,
+     "words": 182,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 14,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fcelebrations%2Fmagnet-bulk"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Portakal Çiçeği Atölye",
+     "words": 3,
+     "chars": 22,
+     "lines": 1,
+     "size": 25,
+     "vw": 3.3,
+     "font": "__Playfair_Display_06d865",
+     "weight": 600,
+     "tracking": -0.025,
+     "leading": 1.6,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.31,
+     "top": 54,
+     "tag": "span",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Magnet",
+     "words": 1,
+     "lines": 1,
+     "size": 46,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "Magnet",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 46,
+      "vw": 6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 1144,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "İsimli hatıra magnetleri",
+      "words": 3,
+      "chars": 24,
+      "lines": 1,
+      "size": 26,
+      "vw": 3.4,
+      "font": "__Playfair_Display_06d865",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 1207,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Magnet ve kapı süsü seti",
+      "words": 5,
+      "chars": 24,
+      "lines": 1,
+      "size": 32,
+      "vw": 4.2,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1835,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 2,
+      "size": 27,
+      "vw": 3.5,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.24,
+      "top": 2135,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.87,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.13,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      18,
+      19,
+      25,
+      26,
+      27,
+      32,
+      46
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 13,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.9
+     },
+     "measureChars": 92,
+     "max": {
+      "size": 46,
+      "vw": 6,
+      "font": "__Playfair_Display_06d865",
+      "text": "Magnet"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.011,
+     "microSamples": [
+      "Ürün bilgileri"
+     ],
+     "upperShare": 0.07,
+     "centerShare": 0.12,
+     "smallText": 28
+    },
+    "eyebrows": [
+     {
+      "text": "Ürün bilgileri",
+      "above": "Magnet",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 1112
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fdfbf7",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.6,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#f3eee4",
+       "top": 212,
+       "hsl": {
+        "h": 40,
+        "s": 0.38,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 2075,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7c6b5c",
+       "share": 0.35
+      },
+      {
+       "color": "#615345",
+       "share": 0.13
+      },
+      {
+       "color": "#1e1c1a",
+       "share": 0.1
+      },
+      {
+       "color": "#696159",
+       "share": 0.08
+      },
+      {
+       "color": "#8d7a65",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#fffcf6",
+      "hsl": {
+       "h": 40,
+       "s": 1,
+       "l": 0.98
+      },
+      "fg": "#684c38"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Kutlamada kullanım örneği",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#88725f",
+       "bg": "#f3eee4"
+      },
+      {
+       "text": "MAGNET, KAPI VE PASTA SÜSLERİ",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#8c7968",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Yakından incele",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#816d5b",
+       "bg": "#f3eee4"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 4,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Toplu sunumda gör",
+      "Yakından incele",
+      "TÜMÜNÜ KABUL ET",
+      "YALNIZCA ZORUNLU OLANLAR"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 768px",
+      "header.sticky.top-0 768px",
+      "div.Celebration_productDetails__jOqQ4 600px",
+      "div.Celebration_experienceEnd__cFeEm 700px",
+      "footer.border-t.border-[#ded4c5] 768px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.57
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2421,
+    "margins": {
+     "left": 24,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 1951,
+      "words": 114,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 24,
+      "right": 84,
+      "textLeft": 24,
+      "textRight": 90,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 2075,
+      "height": 346,
+      "words": 40,
+      "media": 0,
+      "middle": 87,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Magnet",
+      "size": 46,
+      "top": 1144,
+      "firstScreen": false
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 84,
+      "n": 3
+     },
+     {
+      "x": 24,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 4,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.68,
+    0.54,
+    0.81,
+    0.86
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2547,
+     "screens": 3,
+     "words": 185,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 14,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fcelebrations%2Fmagnet-bulk"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Portakal Çiçeği Atölye",
+     "words": 3,
+     "chars": 22,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "__Playfair_Display_06d865",
+     "weight": 600,
+     "tracking": -0.025,
+     "leading": 1.6,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.53,
+     "top": 56,
+     "tag": "span",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Magnet",
+     "words": 1,
+     "lines": 1,
+     "size": 50,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 56,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Magnet",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 50,
+      "vw": 12.8,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.045,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 833,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "İsimli hatıra magnetleri",
+      "words": 3,
+      "chars": 24,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "__Playfair_Display_06d865",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": true,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 901,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Magnet ve kapı süsü seti",
+      "words": 5,
+      "chars": 24,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1552,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 27,
+      "vw": 6.9,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.69,
+      "top": 1842,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.87,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.13,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      18,
+      19,
+      22,
+      26,
+      27,
+      28,
+      50
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 13,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.9
+     },
+     "measureChars": 54,
+     "max": {
+      "size": 50,
+      "vw": 12.8,
+      "font": "__Playfair_Display_06d865",
+      "text": "Magnet"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 1,
+     "microLabelShare": 0.011,
+     "microSamples": [
+      "Ürün bilgileri"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.12,
+     "smallText": 29
+    },
+    "eyebrows": [
+     {
+      "text": "Ürün bilgileri",
+      "above": "Magnet",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 801
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fdfbf7",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.6,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#f3eee4",
+       "top": 200,
+       "hsl": {
+        "h": 40,
+        "s": 0.38,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 1782,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7c6b5c",
+       "share": 0.34
+      },
+      {
+       "color": "#615345",
+       "share": 0.12
+      },
+      {
+       "color": "#1e1c1a",
+       "share": 0.09
+      },
+      {
+       "color": "#696159",
+       "share": 0.08
+      },
+      {
+       "color": "#8d7a65",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#a9533d",
+      "hsl": {
+       "h": 12,
+       "s": 0.47,
+       "l": 0.45
+      },
+      "fg": "#684c38"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Kutlamada kullanım örneği",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#88725f",
+       "bg": "#f3eee4"
+      },
+      {
+       "text": "MAGNET, KAPI VE PASTA SÜSLERİ",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#8c7968",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Yakından incele",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#816d5b",
+       "bg": "#f3eee4"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 6,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Toplu sunumda gör",
+      "Yakından incele",
+      "Ürünler",
+      "Talep oluştur",
+      "TÜMÜNÜ KABUL ET"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 7,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 390px",
+      "header.sticky.top-0 390px",
+      "div.Celebration_productDetails__jOqQ4 354px",
+      "div.Celebration_experienceEnd__cFeEm 354px",
+      "footer.border-t.border-[#ded4c5] 390px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 2,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.48
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2547,
+    "margins": {
+     "left": 18,
+     "right": 18
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 1658,
+      "words": 114,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Magnet",
+       "size": 50,
+       "tag": "h1"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 29,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 1782,
+      "height": 765,
+      "words": 40,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Magnet",
+      "size": 50,
+      "top": 833,
+      "firstScreen": false
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 18,
+      "n": 4
+     }
+    ],
+    "leftBlocks": 4,
+    "bodySize": 13,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "1 eyebrow/kicker label(s) above headings: \"Ürün bilgileri\" above \"Magnet\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "1 tiny uppercase letter-spaced label(s): \"Ürün bilgileri\"",
+   "fix": "Prefer sentence case at body size.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "6 thin rule(s)/divider line(s): div.border-b.border-[#e5d8c6] 1440px | header.sticky.top-0 1440px | div.Celebration_productDetails__jOqQ4 535px | div.Celebration_experienceEnd__cFeEm 700px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "2 box(es) drawn with a 1px outline.",
+   "fix": "Prefer a filled surface or no box.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "palette-claude",
+   "width": 1440,
+   "message": "Cream + terracotta palette (page background #fdfbf7, section #fdfbf7, section #f3eee4, section #ece6da).",
+   "fix": "Re-draw the palette from the library. This pairing reads as an assistant brand, not yours.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"© 2026 Portakal Çiçeği Atölye\" 3.3:1 needs 4.5:1; \"Gizlilik politikası\" 3.3:1 needs 4.5:1; \"Sipariş koşulları\" 3.3:1 needs 4.5:1; \"gizlilik politikamızda\" 3.5:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "13 different font sizes (9, 10, 11, 12, 13, 14, 18, 19, 25, 26, 27, 32, 65).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 13px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (4.9:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 1 picture(s) on the page (1 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "32 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "name-only-title",
+   "width": 1440,
+   "message": "The h1 is a bare name (\"Magnet\") and nothing else on the first screen says what this is.",
+   "fix": "Keep the name if it leads, and give the line under it (18px or more) the plain words: what it is, for whom, where or when. In the study of 97 Sites of the Day, first screens that named nothing lost usability and content points."
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 0 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 768,
+   "message": "Yellow-cream background (page background #fdfbf7, section #fdfbf7, section #f3eee4).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream."
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 768,
+   "message": "Longest paragraph runs about 92 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+  },
+  {
+   "level": "FAIL",
+   "id": "no-title",
+   "width": 768,
+   "message": "The h1 (\"Magnet\") is not on the first screen (it starts 1144px down).",
+   "fix": "The title belongs on the first screen, where a visitor decides whether to stay.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "covered-text",
+   "width": 768,
+   "message": "Large text lies under another element at some scroll position: \"Magnet ve kapı süsü seti\" (screen 2, 25% hidden)",
+   "fix": "Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 390,
+   "message": "2 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell."
+  },
+  {
+   "level": "FAIL",
+   "id": "late-title",
+   "width": 390,
+   "message": "The title is not readable 1.2s after the page loaded (something lies over it).",
+   "fix": "Put the headline in the HTML, painted on the first frame; the load sequence only adds arrival and is settled by 1.2s (references/motion.md, \"Load sequence in 1.2 seconds\"). No preloader, no gate, no waiting for the load event."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/magnet/desktop-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/magnet/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/magnet/tablet-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/magnet/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/magnet/mobile-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/magnet/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

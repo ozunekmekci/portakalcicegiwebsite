@@ -1,0 +1,79 @@
+npm notice run temp-next@0.1.0 build
+npm notice run next build
+  ▲ Next.js 14.2.3
+
+   Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/50) ...
+   Generating static pages (12/50)
+   Generating static pages (24/50)
+   Generating static pages (37/50)
+ ✓ Generating static pages (50/50)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                              Size     First Load JS
+┌ ○ /                                                    2.68 kB         102 kB
+├ ○ /_not-found                                          140 B          87.5 kB
+├ ○ /admin                                               6.29 kB         106 kB
+├ ○ /admin/ayarlar                                       3.22 kB         100 kB
+├ ○ /admin/giris                                         2.12 kB        89.5 kB
+├ ƒ /admin/kategori-duzenle/[id]                         2.28 kB         106 kB
+├ ○ /admin/kategori-ekle                                 2.06 kB         106 kB
+├ ○ /admin/kategoriler                                   2.79 kB        96.9 kB
+├ ○ /admin/sirala                                        4.25 kB         104 kB
+├ ƒ /admin/urun-duzenle/[id]                             2.97 kB         107 kB
+├ ○ /admin/urun-ekle                                     2.77 kB         107 kB
+├ ○ /admin/yorumlar                                      4.24 kB         103 kB
+├ ƒ /admin/yorumlar/duzenle/[id]                         2.19 kB         106 kB
+├ ○ /admin/yorumlar/ekle                                 1.95 kB         106 kB
+├ ƒ /api/admin/auth                                      0 B                0 B
+├ ƒ /api/admin/categories                                0 B                0 B
+├ ƒ /api/admin/categories/[id]                           0 B                0 B
+├ ƒ /api/admin/products                                  0 B                0 B
+├ ƒ /api/admin/products/[id]                             0 B                0 B
+├ ƒ /api/admin/products/reorder                          0 B                0 B
+├ ƒ /api/admin/settings                                  0 B                0 B
+├ ƒ /api/admin/testimonials                              0 B                0 B
+├ ƒ /api/admin/testimonials/[id]                         0 B                0 B
+├ ƒ /api/cloudinary/signature                            0 B                0 B
+├ ○ /gizlilik-politikasi                                 181 B          94.3 kB
+├ ○ /icon.svg                                            0 B                0 B
+├ ● /koleksiyonlar/[slug]                                1.43 kB         142 kB
+├   ├ /koleksiyonlar/magnet
+├   ├ /koleksiyonlar/cake-topper
+├   ├ /koleksiyonlar/kapi-susu
+├   └ [+7 more paths]
+├ ○ /kullanim-kosullari                                  181 B          94.3 kB
+├ ƒ /opengraph-image                                     0 B                0 B
+├ ○ /set-icerikleri                                      6.07 kB         105 kB
+├ ○ /set-studyosu                                        179 B           106 kB
+├ ○ /sitemap.xml                                         0 B                0 B
+├ ƒ /talep-olustur                                       5.46 kB        99.6 kB
+├ ○ /tesekkur-ederiz                                     181 B          94.3 kB
+├ ● /urun-gruplari/[slug]                                2.5 kB          108 kB
+├   ├ /urun-gruplari/magnet
+├   ├ /urun-gruplari/kapi-susu
+├   └ /urun-gruplari/pasta-susleri
+└ ● /urunler/[slug]                                      5.47 kB         146 kB
+    ├ /urunler/aynali-pleksi-ozel-isimli-pasta-susu
+    ├ /urunler/ilk-yas-one-akrilik-pasta-susu
+    ├ /urunler/safari-temali-3d-ahsap-pleksi-pasta-susu
+    └ [+10 more paths]
++ First Load JS shared by all                            87.4 kB
+  ├ chunks/23-1dc7a28b320d3501.js                        31.6 kB
+  ├ chunks/fd9d1056-4a917af64af6b262.js                  53.8 kB
+  └ other shared chunks (total)                          1.96 kB
+
+
+ƒ Middleware                                             27.9 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+ƒ  (Dynamic)  server-rendered on demand

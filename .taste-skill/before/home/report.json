@@ -1,0 +1,2705 @@
+{
+ "url": "http://127.0.0.1:3100/",
+ "at": "2026-11-05T00:50:02.453Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.54,
+    0.56,
+    0.94,
+    0.5,
+    0.56,
+    0.87
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 1,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4848,
+     "screens": 5.4,
+     "words": 304,
+     "img": 6,
+     "video": 1,
+     "canvas": 0,
+     "svg": 20,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 1,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fcelebrations%2Fmihrimah-se",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-cake.w",
+      "image?url=%2Fimages%2Fcelebrations%2Fmagnet-deta",
+      "image?url=%2Fimages%2Fcelebrations%2Fdoor-detail",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-cake.w",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-pieces"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "✳"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+     "words": 7,
+     "chars": 48,
+     "lines": 4,
+     "size": 87,
+     "vw": 6,
+     "font": "__Playfair_Display_06d865",
+     "weight": 500,
+     "tracking": -0.055,
+     "leading": 1.01,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.41,
+     "top": 218,
+     "mixedFonts": [
+      "__Playfair_Display_06d865",
+      "__Playfair_Display_06d865 italic"
+     ],
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+     "words": 7,
+     "lines": 4,
+     "size": 87,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+      "words": 7,
+      "chars": 48,
+      "lines": 4,
+      "size": 87,
+      "vw": 6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.055,
+      "leading": 1.01,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.41,
+      "top": 218,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "✳",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 42,
+      "vw": 2.9,
+      "font": "__Inter_259a74",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.02,
+      "top": 789,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Ürünler",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 43,
+      "vw": 3,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.1,
+      "top": 992,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "İsimli magnetler ve kapı süsleri",
+      "words": 5,
+      "chars": 32,
+      "lines": 2,
+      "size": 63.4,
+      "vw": 4.4,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 2105,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Fotoğraflı pasta süsü setleri",
+      "words": 4,
+      "chars": 29,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 4,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.13,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.4,
+      "top": 3030,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Nasıl ilerliyoruz?",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 43,
+      "vw": 3,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 3717,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Sipariş vermek ister misin?",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 68,
+      "vw": 4.7,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 4161,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 4,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 4,
+     "mixedFontHeadings": 4
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      24,
+      25,
+      27,
+      42,
+      43,
+      58,
+      63,
+      68,
+      87
+     ],
+     "sizeCount": 18,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 12,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.8
+     },
+     "measureChars": 57,
+     "max": {
+      "size": 87,
+      "vw": 6,
+      "font": "__Playfair_Display_06d865",
+      "text": "İsimli magnetler,kapı süsleri ve"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.04,
+     "microSamples": [
+      "Portakal Çiçeği Atölye",
+      "Atölyeden",
+      "Setler",
+      "Pasta süsleri",
+      "Sipariş öncesi",
+      "Portakal Çiçeği Atölye"
+     ],
+     "upperShare": 0.07,
+     "centerShare": 0.11,
+     "smallText": 46
+    },
+    "eyebrows": [
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "above": "İsimli magnetler, kapı süsleri ve pasta ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 186
+     },
+     {
+      "text": "Ürünlere bak",
+      "above": "✳",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 702
+     },
+     {
+      "text": "Atölyeden",
+      "above": "Ürünler",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 960
+     },
+     {
+      "text": "Setler",
+      "above": "İsimli magnetler ve kapı süsleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 2073
+     },
+     {
+      "text": "Pasta süsleri",
+      "above": "Fotoğraflı pasta süsü setleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 2998
+     },
+     {
+      "text": "Sipariş öncesi",
+      "above": "Nasıl ilerliyoruz?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 3685
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "above": "Sipariş vermek ister misin?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 4129
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 10,
+      "top": 1610
+     },
+     {
+      "text": "02",
+      "size": 10,
+      "top": 1610
+     },
+     {
+      "text": "03",
+      "size": 10,
+      "top": 1610
+     },
+     {
+      "text": "01",
+      "size": 11,
+      "top": 3831
+     },
+     {
+      "text": "02",
+      "size": 11,
+      "top": 3831
+     },
+     {
+      "text": "03",
+      "size": 11,
+      "top": 3831
+     }
+    ],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fdfbf7",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.6,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#f0eee5",
+       "top": 1810,
+       "hsl": {
+        "h": 49,
+        "s": 0.27,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#fffcf5",
+       "top": 1881,
+       "hsl": {
+        "h": 42,
+        "s": 1,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#e4e0d0",
+       "top": 1891,
+       "hsl": {
+        "h": 48,
+        "s": 0.27,
+        "l": 0.85
+       }
+      },
+      {
+       "color": "#f5f0ea",
+       "top": 2849,
+       "hsl": {
+        "h": 33,
+        "s": 0.35,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#f4e8e2",
+       "top": 4061,
+       "hsl": {
+        "h": 20,
+        "s": 0.45,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 4502,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7b6d5e",
+       "share": 0.12
+      },
+      {
+       "color": "#1e1c1a",
+       "share": 0.07
+      },
+      {
+       "color": "#615345",
+       "share": 0.07
+      },
+      {
+       "color": "#302a25",
+       "share": 0.07
+      },
+      {
+       "color": "#7b6a60",
+       "share": 0.06
+      }
+     ],
+     "button": {
+      "bg": "#a9533d",
+      "hsl": {
+       "h": 12,
+       "s": 0.47,
+       "l": 0.45
+      },
+      "fg": "#fffaf4"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "gizlilik politikamızda",
+       "ratio": 3.5,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#c86d51",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Tümünü kabul et",
+       "ratio": 3.5,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#fdfbf7",
+       "bg": "#c86d51"
+      },
+      {
+       "text": "İstediğin ürünleri seçip bize mesaj gönd",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#8c6c60",
+       "bg": "#f4e8e2"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 4,
+     "radius": 0,
+     "height": 49,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Talep oluştur",
+      "Ürünlere bak",
+      "TÜMÜNÜ KABUL ET",
+      "YALNIZCA ZORUNLU OLANLAR"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.Celebration_heroPaper__pAIcA → rgba(118, 86, 56, 0.07) 0px 12px 36px 0px",
+      "a.Celebration_heroInset__L8kJp → rgba(100, 75, 52, 0.125) 0px 6px 30px 0px",
+      "div.Celebration_storyMedia__ZDwXW → rgba(106, 80, 49, 0.063) 0px 6px 22px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 9,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 1440px",
+      "header.sticky.top-0 1440px",
+      "section#urunler.Celebration_container__Iu0hO.Celebration_pro 1280px",
+      "section#surec.Celebration_container__Iu0hO.Celebration_proce 1280px",
+      "div 397px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 7,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3801
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.21
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4848,
+    "margins": {
+     "left": 80,
+     "right": 80
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 4378,
+      "words": 234,
+      "media": 7,
+      "middle": 0,
+      "heading": {
+       "text": "İsimli magnetler,",
+       "size": 87,
+       "tag": "h1"
+      },
+      "left": 77,
+      "right": 69,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 4502,
+      "height": 346,
+      "words": 40,
+      "media": 0,
+      "middle": 252,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+      "size": 87,
+      "top": 218,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 80,
+      "n": 7
+     },
+     {
+      "x": 784,
+      "n": 4
+     },
+     {
+      "x": 107,
+      "n": 1
+     },
+     {
+      "x": 522,
+      "n": 1
+     },
+     {
+      "x": 543,
+      "n": 1
+     },
+     {
+      "x": 963,
+      "n": 1
+     },
+     {
+      "x": 979,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 16,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.07,
+    "voidBox": {
+     "x": 0,
+     "y": 120,
+     "w": 1440,
+     "h": 60
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.39,
+    0.48,
+    0.78,
+    0.45,
+    0.78
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 1,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 4401,
+     "screens": 4.3,
+     "words": 295,
+     "img": 6,
+     "video": 1,
+     "canvas": 0,
+     "svg": 20,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 1,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fcelebrations%2Fmihrimah-se",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-cake.w",
+      "image?url=%2Fimages%2Fcelebrations%2Fmagnet-deta",
+      "image?url=%2Fimages%2Fcelebrations%2Fdoor-detail",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-cake.w",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-pieces"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "✳"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+     "words": 7,
+     "chars": 48,
+     "lines": 3,
+     "size": 76.8,
+     "vw": 10,
+     "font": "__Playfair_Display_06d865",
+     "weight": 500,
+     "tracking": -0.055,
+     "leading": 1.01,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.78,
+     "top": 191,
+     "mixedFonts": [
+      "__Playfair_Display_06d865",
+      "__Playfair_Display_06d865 italic"
+     ],
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+     "words": 7,
+     "lines": 3,
+     "size": 76.8,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+      "words": 7,
+      "chars": 48,
+      "lines": 3,
+      "size": 76.8,
+      "vw": 10,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.055,
+      "leading": 1.01,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 191,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "✳",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 42,
+      "vw": 5.5,
+      "font": "__Inter_259a74",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.05,
+      "top": 597,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Ürünler",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 1421,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "İsimli magnetler ve kapı süsleri",
+      "words": 5,
+      "chars": 32,
+      "lines": 2,
+      "size": 40,
+      "vw": 5.2,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 2229,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Fotoğraflı pasta süsü setleri",
+      "words": 4,
+      "chars": 29,
+      "lines": 2,
+      "size": 39,
+      "vw": 5.1,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.13,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.44,
+      "top": 2811,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Nasıl ilerliyoruz?",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3303,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Sipariş vermek ister misin?",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 43,
+      "vw": 5.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 3769,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 2,
+      "size": 27,
+      "vw": 3.5,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.24,
+      "top": 4115,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 4
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      21,
+      24,
+      25,
+      27,
+      30,
+      39,
+      40,
+      42,
+      43,
+      77
+     ],
+     "sizeCount": 18,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 12,
+      "leading": 1.95,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.5
+     },
+     "measureChars": 52,
+     "max": {
+      "size": 76.8,
+      "vw": 10,
+      "font": "__Playfair_Display_06d865",
+      "text": "İsimli magnetler,kapı süsleri ve"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.041,
+     "microSamples": [
+      "Portakal Çiçeği Atölye",
+      "Atölyeden",
+      "Setler",
+      "Pasta süsleri",
+      "Sipariş öncesi",
+      "Portakal Çiçeği Atölye"
+     ],
+     "upperShare": 0.07,
+     "centerShare": 0.11,
+     "smallText": 44
+    },
+    "eyebrows": [
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "above": "İsimli magnetler, kapı süsleri ve pasta ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 159
+     },
+     {
+      "text": "Ürünlere bak",
+      "above": "✳",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12,
+      "top": 526
+     },
+     {
+      "text": "Atölyeden",
+      "above": "Ürünler",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 1389
+     },
+     {
+      "text": "Setler",
+      "above": "İsimli magnetler ve kapı süsleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 2197
+     },
+     {
+      "text": "Pasta süsleri",
+      "above": "Fotoğraflı pasta süsü setleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 2779
+     },
+     {
+      "text": "Sipariş öncesi",
+      "above": "Nasıl ilerliyoruz?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 3271
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "above": "Sipariş vermek ister misin?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 3737
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 10,
+      "top": 1832
+     },
+     {
+      "text": "02",
+      "size": 10,
+      "top": 1832
+     },
+     {
+      "text": "03",
+      "size": 10,
+      "top": 1832
+     },
+     {
+      "text": "01",
+      "size": 11,
+      "top": 3401
+     },
+     {
+      "text": "02",
+      "size": 11,
+      "top": 3401
+     },
+     {
+      "text": "03",
+      "size": 11,
+      "top": 3401
+     }
+    ],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fdfbf7",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.6,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#ede7d9",
+       "top": 671,
+       "hsl": {
+        "h": 42,
+        "s": 0.36,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#f0eee5",
+       "top": 2053,
+       "hsl": {
+        "h": 49,
+        "s": 0.27,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#f4e8e2",
+       "top": 3669,
+       "hsl": {
+        "h": 20,
+        "s": 0.45,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 4055,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7b6d5e",
+       "share": 0.12
+      },
+      {
+       "color": "#1e1c1a",
+       "share": 0.08
+      },
+      {
+       "color": "#615345",
+       "share": 0.08
+      },
+      {
+       "color": "#302a25",
+       "share": 0.07
+      },
+      {
+       "color": "#7b6a60",
+       "share": 0.06
+      }
+     ],
+     "button": {
+      "bg": "#a9533d",
+      "hsl": {
+       "h": 12,
+       "s": 0.47,
+       "l": 0.45
+      },
+      "fg": "#fffaf4"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "İstediğin ürünleri seçip bize mesaj gönd",
+       "ratio": 3.9,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#8c6c60",
+       "bg": "#f4e8e2"
+      },
+      {
+       "text": "MAGNET, KAPI VE PASTA SÜSLERİ",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#8c7968",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "İsim ve renk seçenekleriiçin bize yazabi",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8c7968",
+       "bg": "#fdfbf7"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 3,
+     "radius": 0,
+     "height": 49,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Ürünlere bak",
+      "TÜMÜNÜ KABUL ET",
+      "YALNIZCA ZORUNLU OLANLAR"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.Celebration_heroPaper__pAIcA → rgba(118, 86, 56, 0.07) 0px 12px 36px 0px",
+      "a.Celebration_heroInset__L8kJp → rgba(100, 75, 52, 0.125) 0px 6px 30px 0px",
+      "div.Celebration_storyMedia__ZDwXW → rgba(106, 80, 49, 0.063) 0px 6px 22px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 768px",
+      "header.sticky.top-0 768px",
+      "section#urunler.Celebration_container__Iu0hO.Celebration_pro 720px",
+      "section#surec.Celebration_container__Iu0hO.Celebration_proce 720px",
+      "footer.border-t.border-[#ded4c5] 768px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 7,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": false,
+       "top": 3371
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.19
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 4401,
+    "margins": {
+     "left": 24,
+     "right": 29
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 3931,
+      "words": 234,
+      "media": 7,
+      "middle": 0,
+      "heading": {
+       "text": "İsimli magnetler,",
+       "size": 77,
+       "tag": "h1"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 27,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 4055,
+      "height": 346,
+      "words": 40,
+      "media": 0,
+      "middle": 87,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+      "size": 77,
+      "top": 191,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 24,
+      "n": 7
+     },
+     {
+      "x": 406,
+      "n": 4
+     },
+     {
+      "x": 270,
+      "n": 2
+     },
+     {
+      "x": 516,
+      "n": 1
+     },
+     {
+      "x": 534,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 15,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    0.6,
+    0.59,
+    0.65,
+    0.69,
+    0.85,
+    0.67,
+    0.68,
+    0.86
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 1,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 6661,
+     "screens": 7.9,
+     "words": 290,
+     "img": 6,
+     "video": 1,
+     "canvas": 0,
+     "svg": 20,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 7,
+     "videoCount": 1,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fcelebrations%2Fmihrimah-se",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-cake.w",
+      "image?url=%2Fimages%2Fcelebrations%2Fmagnet-deta",
+      "image?url=%2Fimages%2Fcelebrations%2Fdoor-detail",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-cake.w",
+      "image?url=%2Fimages%2Fcelebrations%2Fpink-pieces"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+     "words": 7,
+     "chars": 48,
+     "lines": 4,
+     "size": 57,
+     "vw": 14.6,
+     "font": "__Playfair_Display_06d865",
+     "weight": 500,
+     "tracking": -0.055,
+     "leading": 1.01,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.91,
+     "top": 191,
+     "mixedFonts": [
+      "__Playfair_Display_06d865",
+      "__Playfair_Display_06d865 italic"
+     ],
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+     "words": 7,
+     "lines": 4,
+     "size": 57,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 56,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+      "words": 7,
+      "chars": 48,
+      "lines": 4,
+      "size": 57,
+      "vw": 14.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.055,
+      "leading": 1.01,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 191,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Ürünler",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 34,
+      "vw": 8.7,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 1250,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Magnet",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 1775,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Kapı süsü",
+      "words": 2,
+      "chars": 9,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 2333,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Pasta ve kürdan süsleri",
+      "words": 4,
+      "chars": 23,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 2890,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "İsimli magnetler ve kapı süsleri",
+      "words": 5,
+      "chars": 32,
+      "lines": 2,
+      "size": 49,
+      "vw": 12.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 3643,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Fotoğraflı pasta süsü setleri",
+      "words": 4,
+      "chars": 29,
+      "lines": 2,
+      "size": 45,
+      "vw": 11.5,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.13,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 4537,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Nasıl ilerliyoruz?",
+      "words": 2,
+      "chars": 18,
+      "lines": 1,
+      "size": 34,
+      "vw": 8.7,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 4987,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Ürünleri seç",
+      "words": 2,
+      "chars": 12,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 5091,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Kutlama bilgilerini yaz",
+      "words": 3,
+      "chars": 23,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 5243,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Detayları konuşalım",
+      "words": 2,
+      "chars": 19,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 5394,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Sipariş vermek ister misin?",
+      "words": 4,
+      "chars": 27,
+      "lines": 2,
+      "size": 52,
+      "vw": 13.3,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.045,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 5618,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 27,
+      "vw": 6.9,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.69,
+      "top": 5956,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 14,
+     "maxLines": 4,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 4
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.82,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.18,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      22,
+      25,
+      26,
+      27,
+      34,
+      45,
+      49,
+      52,
+      57
+     ],
+     "sizeCount": 18,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 12,
+      "leading": 1.9,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.8
+     },
+     "measureChars": 54,
+     "max": {
+      "size": 57,
+      "vw": 14.6,
+      "font": "__Playfair_Display_06d865",
+      "text": "İsimli magnetler,kapı süsleri ve"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.042,
+     "microSamples": [
+      "Portakal Çiçeği Atölye",
+      "Atölyeden",
+      "Setler",
+      "Pasta süsleri",
+      "Sipariş öncesi",
+      "Portakal Çiçeği Atölye"
+     ],
+     "upperShare": 0.07,
+     "centerShare": 0.11,
+     "smallText": 42
+    },
+    "eyebrows": [
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "above": "İsimli magnetler, kapı süsleri ve pasta ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 159
+     },
+     {
+      "text": "Atölyeden",
+      "above": "Ürünler",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 1218
+     },
+     {
+      "text": "Setler",
+      "above": "İsimli magnetler ve kapı süsleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 3611
+     },
+     {
+      "text": "Pasta süsleri",
+      "above": "Fotoğraflı pasta süsü setleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 4505
+     },
+     {
+      "text": "Sipariş öncesi",
+      "above": "Nasıl ilerliyoruz?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 4955
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "above": "Sipariş vermek ister misin?",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 5586
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 10,
+      "top": 1779
+     },
+     {
+      "text": "02",
+      "size": 10,
+      "top": 2337
+     },
+     {
+      "text": "03",
+      "size": 10,
+      "top": 2894
+     },
+     {
+      "text": "01",
+      "size": 11,
+      "top": 5099
+     },
+     {
+      "text": "02",
+      "size": 11,
+      "top": 5251
+     },
+     {
+      "text": "03",
+      "size": 11,
+      "top": 5402
+     }
+    ],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fdfbf7",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.6,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#ede7d9",
+       "top": 683,
+       "hsl": {
+        "h": 42,
+        "s": 0.36,
+        "l": 0.89
+       }
+      },
+      {
+       "color": "#f1eadf",
+       "top": 1361,
+       "hsl": {
+        "h": 37,
+        "s": 0.39,
+        "l": 0.91
+       }
+      },
+      {
+       "color": "#f0eee5",
+       "top": 3050,
+       "hsl": {
+        "h": 49,
+        "s": 0.27,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#fffcf5",
+       "top": 3092,
+       "hsl": {
+        "h": 42,
+        "s": 1,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#e4e0d0",
+       "top": 3102,
+       "hsl": {
+        "h": 48,
+        "s": 0.27,
+        "l": 0.85
+       }
+      },
+      {
+       "color": "#f5f0ea",
+       "top": 4082,
+       "hsl": {
+        "h": 33,
+        "s": 0.35,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#f4e8e2",
+       "top": 5538,
+       "hsl": {
+        "h": 20,
+        "s": 0.45,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 5896,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7b6d5e",
+       "share": 0.12
+      },
+      {
+       "color": "#1e1c1a",
+       "share": 0.08
+      },
+      {
+       "color": "#615345",
+       "share": 0.08
+      },
+      {
+       "color": "#302a25",
+       "share": 0.07
+      },
+      {
+       "color": "#7b6a60",
+       "share": 0.06
+      }
+     ],
+     "button": {
+      "bg": "#a9533d",
+      "hsl": {
+       "h": 12,
+       "s": 0.47,
+       "l": 0.45
+      },
+      "fg": "#fffaf4"
+     },
+     "lowContrast": [
+      {
+       "text": "gizlilik politikamızda",
+       "ratio": 3.5,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#c86d51",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "MAGNET, KAPI VE PASTA SÜSLERİ",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#8c7968",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Bir arada kullanım",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8e7966",
+       "bg": "#fffcf5"
+      },
+      {
+       "text": "İsimli magnet",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#7d6e54",
+       "bg": "#f0eee5"
+      },
+      {
+       "text": "Kapı süsü",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#7d6e54",
+       "bg": "#f0eee5"
+      },
+      {
+       "text": "Magnet, kapı süsü ve pasta süsleri.",
+       "ratio": 4.4,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#7d674d",
+       "bg": "#eee8dc"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 5,
+     "radius": 0,
+     "height": 49,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Ürünlere bak",
+      "Ürünler",
+      "Talep oluştur",
+      "TÜMÜNÜ KABUL ET",
+      "YALNIZCA ZORUNLU OLANLAR"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "div.Celebration_heroPaper__pAIcA → rgba(118, 86, 56, 0.07) 0px 12px 36px 0px",
+      "a.Celebration_heroInset__L8kJp → rgba(100, 75, 52, 0.125) 0px 6px 30px 0px",
+      "div.Celebration_storyMedia__ZDwXW → rgba(106, 80, 49, 0.063) 0px 6px 22px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 10,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 390px",
+      "header.sticky.top-0 390px",
+      "section#urunler.Celebration_container__Iu0hO.Celebration_pro 354px",
+      "section#surec.Celebration_container__Iu0hO.Celebration_proce 354px",
+      "div 354px"
+     ],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 2,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 6,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.13
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 6661,
+    "margins": {
+     "left": 18,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 5772,
+      "words": 227,
+      "media": 7,
+      "middle": 0,
+      "heading": {
+       "text": "İsimli magnetler,",
+       "size": 57,
+       "tag": "h1"
+      },
+      "left": 18,
+      "right": 2,
+      "textLeft": 18,
+      "textRight": 2,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 5896,
+      "height": 765,
+      "words": 40,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "İsimli magnetler, kapı süsleri ve pasta süsleri.",
+      "size": 57,
+      "top": 191,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [
+     {
+      "text": "isimli kapı süsü",
+      "side": "right",
+      "px": 2
+     },
+     {
+      "text": "ve magnetler",
+      "side": "right",
+      "px": 11
+     }
+    ],
+    "edges": [
+     {
+      "x": 18,
+      "n": 9
+     },
+     {
+      "x": 43,
+      "n": 3
+     },
+     {
+      "x": 54,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 15,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "1 headline(s) wrap past two lines at 1440px: \"İsimli magnetler, kapı süsleri ve pasta süsleri.\" → 4 lines (7 words, 87px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "mixed-font-headline",
+   "width": 1440,
+   "message": "4 headline(s) switch typeface or to italic mid-line (the \"one italic serif word\" move).",
+   "fix": "Set the whole headline in one face. Emphasis comes from the words.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "7 eyebrow/kicker label(s) above headings: \"Portakal Çiçeği Atölye\" above \"İsimli magnetler, kapı süsleri ve pasta \"; \"Ürünlere bak\" above \"✳\"; \"Atölyeden\" above \"Ürünler\"; \"Setler\" above \"İsimli magnetler ve kapı süsleri\"; \"Pasta süsleri\" above \"Fotoğraflı pasta süsü setleri\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"01\", \"02\", \"03\", \"01\", \"02\", \"03\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "6 tiny uppercase letter-spaced labels (e.g. \"Portakal Çiçeği Atölye\", \"Atölyeden\", \"Setler\", \"Pasta süsleri\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "emoji",
+   "width": 1440,
+   "message": "Emoji in the page: ✳",
+   "fix": "Remove. Use words or real imagery.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "3 box-shadow(s) on elements at rest: div.Celebration_heroPaper__pAIcA → rgba(118, 86, 56, 0.07) 0px 12px 36px 0px | a.Celebration_heroInset__L8kJp → rgba(100, 75, 52, 0.125) 0px 6px 30px 0px | div.Celebration_storyMedia__ZDwXW → rgba(106, 80, 49, 0.063) 0px 6px 22px 0px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "9 thin rule(s)/divider line(s): div.border-b.border-[#e5d8c6] 1440px | header.sticky.top-0 1440px | section#urunler.Celebration_container__Iu0hO.Celebration_pro 1280px | section#surec.Celebration_container__Iu0hO.Celebration_proce 1280px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "1 box(es) drawn with a 1px outline.",
+   "fix": "Prefer a filled surface or no box.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "palette-claude",
+   "width": 1440,
+   "message": "Cream + terracotta palette (page background #fdfbf7, section #fdfbf7, section #f0eee5, section #fffcf5).",
+   "fix": "Re-draw the palette from the library. This pairing reads as an assistant brand, not yours.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"© 2026 Portakal Çiçeği Atölye\" 3.3:1 needs 4.5:1; \"Gizlilik politikası\" 3.3:1 needs 4.5:1; \"Sipariş koşulları\" 3.3:1 needs 4.5:1; \"gizlilik politikamızda\" 3.5:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "18 different font sizes (9, 10, 11, 12, 13, 14, 16, 17, 18, 24, 25, 27, 42, 43, 58, 63, 68, 87).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 12px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (4.8:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "46 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "covered-text",
+   "width": 1440,
+   "message": "Large text lies under another element at some scroll position: \"Pasta ve kürdan süsleri\" (screen 2, 100% hidden)",
+   "fix": "Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 0 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "1 headline(s) wrap past two lines at 768px: \"İsimli magnetler, kapı süsleri ve pasta süsleri.\" → 3 lines (7 words, 76.8px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"İsimli magnetler, kapı süsleri ve pasta süsleri.\" → 4 lines (7 words, 57px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 390,
+   "message": "2 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell."
+  },
+  {
+   "level": "FAIL",
+   "id": "edge-text",
+   "width": 390,
+   "message": "2 text block(s) sit within 12px of the screen edge: \"isimli kapı süsü\" (2px from the right); \"ve magnetler\" (11px from the right)",
+   "fix": "Keep text inside the page margin (16–20px). Only display type deliberately bled past the edge may touch it."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/home/desktop-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/home/desktop-page-01.jpg",
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/home/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/home/tablet-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/home/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/home/mobile-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/home/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

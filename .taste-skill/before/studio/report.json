@@ -1,0 +1,1918 @@
+{
+ "url": "http://127.0.0.1:3100/set-studyosu",
+ "at": "2026-11-05T00:50:02.530Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.95,
+    0.94
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1717,
+     "screens": 1.9,
+     "words": 229,
+     "img": 11,
+     "video": 0,
+     "canvas": 0,
+     "svg": 18,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fset-scene%2Frealistic-food",
+      "image?url=%2Fimages%2Fset-layers%2Fpembe%2Flayer"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Pembe Set Fotoğraflı pasta süsleri",
+     "words": 5,
+     "chars": 34,
+     "lines": 2,
+     "size": 52,
+     "vw": 3.6,
+     "font": "__Playfair_Display_06d865",
+     "weight": 500,
+     "tracking": -0.035,
+     "leading": 1.07,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "right",
+     "widthRatio": 0.33,
+     "top": 346,
+     "mixedFonts": [
+      "__Playfair_Display_06d865",
+      "__Playfair_Display_06d865 italic"
+     ],
+     "tag": "h2",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Pembe ve mavi pasta süsü setleri",
+     "words": 6,
+     "lines": 1,
+     "size": 46.1,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "Pembe ve mavi pasta süsü setleri",
+      "words": 6,
+      "chars": 32,
+      "lines": 1,
+      "size": 46.1,
+      "vw": 3.2,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.16,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 230,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Pembe Set Fotoğraflı pasta süsleri",
+      "words": 5,
+      "chars": 34,
+      "lines": 2,
+      "size": 52,
+      "vw": 3.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.07,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.33,
+      "top": 346,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 6,
+     "mixedFontHeadings": 2
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.86,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.14,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      9,
+      10,
+      11,
+      12,
+      14,
+      18,
+      19,
+      20,
+      25,
+      26,
+      27,
+      46,
+      52
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 12,
+      "leading": 1.8,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.9
+     },
+     "measureChars": 83,
+     "max": {
+      "size": 52,
+      "vw": 3.6,
+      "font": "__Playfair_Display_06d865",
+      "text": "Pembe Set"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.066,
+     "microSamples": [
+      "Pasta süsü setleri",
+      "Fotoğraflı pasta süsleri",
+      "01 / Kullanım",
+      "Fotoğraflı kutlama koleksiyonu",
+      "Pastanın en üstünde"
+     ],
+     "upperShare": 0.11,
+     "centerShare": 0.16,
+     "smallText": 43
+    },
+    "eyebrows": [
+     {
+      "text": "Fotoğraflı pasta süsleri",
+      "above": "Pembe ve mavi pasta süsü setleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 202
+     },
+     {
+      "text": "Fotoğraflı kutlama koleksiyonu",
+      "above": "Pembe Set Fotoğraflı pasta süsleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 318
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01 / Kullanım",
+      "size": 9,
+      "top": 349
+     },
+     {
+      "text": "01",
+      "size": 9,
+      "top": 654
+     },
+     {
+      "text": "02",
+      "size": 9,
+      "top": 707
+     },
+     {
+      "text": "03",
+      "size": 9,
+      "top": 760
+     },
+     {
+      "text": "04",
+      "size": 9,
+      "top": 813
+     }
+    ],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fcfaf6",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.5,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#f4eee5",
+       "top": 315,
+       "hsl": {
+        "h": 36,
+        "s": 0.41,
+        "l": 0.93
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 1371,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7b6b63",
+       "share": 0.28
+      },
+      {
+       "color": "#a94f69",
+       "share": 0.12
+      },
+      {
+       "color": "#615345",
+       "share": 0.1
+      },
+      {
+       "color": "#696159",
+       "share": 0.06
+      },
+      {
+       "color": "#685a51",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#fffcf8",
+      "hsl": {
+       "h": 34,
+       "s": 1,
+       "l": 0.99
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "gizlilik politikamızda",
+       "ratio": 3.5,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#c86d51",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Tümünü kabul et",
+       "ratio": 3.5,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#fdfbf7",
+       "bg": "#c86d51"
+      },
+      {
+       "text": "01 / Kullanım",
+       "ratio": 3.8,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#85766d",
+       "bg": "#f4eee5"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 7,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 1,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Talep oluştur",
+      "Kutlamada gör",
+      "Pembe",
+      "Mavi",
+      "01 Büyük pasta süsü 1 adet"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 2,
+     "shadowSamples": [],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.SetStudio_stage__vP0AB → radial-gradient(at 48% 48%, rgb(255, 253, 248) 0px, rgb(248, 242, 232) 47%, rgb(238, 227, 214) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 12,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 1440px",
+      "header.sticky.top-0 1440px",
+      "div.SetStudio_visualBottom__EdFI1 778px",
+      "div.SetStudio_contentsHeading__MQiTd 473px",
+      "button 473px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 2,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.31
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1717,
+    "margins": {
+     "left": 60,
+     "right": 60
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 1247,
+      "words": 144,
+      "media": 3,
+      "middle": 69,
+      "heading": {
+       "text": "Pembe Set",
+       "size": 52,
+       "tag": "h2"
+      },
+      "left": 60,
+      "right": 60,
+      "textLeft": 60,
+      "textRight": 60,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": true
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 1371,
+      "height": 346,
+      "words": 40,
+      "media": 0,
+      "middle": 252,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 80,
+      "right": 80,
+      "textLeft": 80,
+      "textRight": 80,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Pembe ve mavi pasta süsü setleri",
+      "size": 46,
+      "top": 230,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 907,
+      "n": 3
+     },
+     {
+      "x": 60,
+      "n": 1
+     },
+     {
+      "x": 357,
+      "n": 1
+     },
+     {
+      "x": 925,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.06,
+    "voidBox": {
+     "x": 1200,
+     "y": 300,
+     "w": 240,
+     "h": 300
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.9,
+    0.86,
+    0.92
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2488,
+     "screens": 2.4,
+     "words": 218,
+     "img": 11,
+     "video": 0,
+     "canvas": 0,
+     "svg": 18,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fset-scene%2Frealistic-food",
+      "image?url=%2Fimages%2Fset-layers%2Fpembe%2Flayer"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Pembe ve mavi pasta süsü setleri",
+     "words": 6,
+     "chars": 32,
+     "lines": 2,
+     "size": 35,
+     "vw": 4.6,
+     "font": "__Playfair_Display_06d865",
+     "weight": 500,
+     "tracking": -0.035,
+     "leading": 1.16,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.63,
+     "top": 213,
+     "mixedFonts": [
+      "__Playfair_Display_06d865",
+      "__Playfair_Display_06d865 italic"
+     ],
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Pembe ve mavi pasta süsü setleri",
+     "words": 6,
+     "lines": 2,
+     "size": 35,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "Pembe ve mavi pasta süsü setleri",
+      "words": 6,
+      "chars": 32,
+      "lines": 2,
+      "size": 35,
+      "vw": 4.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.16,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 213,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Pembe Set Fotoğraflı pasta süsleri",
+      "words": 5,
+      "chars": 34,
+      "lines": 2,
+      "size": 45,
+      "vw": 5.9,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.07,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 1173,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 2,
+      "size": 27,
+      "vw": 3.5,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.24,
+      "top": 2202,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 2
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.86,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.14,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      18,
+      19,
+      20,
+      23,
+      25,
+      27,
+      35,
+      45
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 12,
+      "leading": 1.8,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.9
+     },
+     "measureChars": 128,
+     "max": {
+      "size": 45,
+      "vw": 5.9,
+      "font": "__Playfair_Display_06d865",
+      "text": "Pembe Set"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 5,
+     "microLabelShare": 0.069,
+     "microSamples": [
+      "Pasta süsü setleri",
+      "Fotoğraflı pasta süsleri",
+      "01 / Kullanım",
+      "Fotoğraflı kutlama koleksiyonu",
+      "Pastanın en üstünde"
+     ],
+     "upperShare": 0.11,
+     "centerShare": 0.16,
+     "smallText": 39
+    },
+    "eyebrows": [
+     {
+      "text": "Fotoğraflı pasta süsleri",
+      "above": "Pembe ve mavi pasta süsü setleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 185
+     },
+     {
+      "text": "Fotoğraflı kutlama koleksiyonu",
+      "above": "Pembe Set Fotoğraflı pasta süsleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 9,
+      "top": 1146
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01 / Kullanım",
+      "size": 8,
+      "top": 387
+     },
+     {
+      "text": "01",
+      "size": 9,
+      "top": 1440
+     },
+     {
+      "text": "02",
+      "size": 9,
+      "top": 1493
+     },
+     {
+      "text": "03",
+      "size": 9,
+      "top": 1546
+     },
+     {
+      "text": "04",
+      "size": 9,
+      "top": 1599
+     }
+    ],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fcfaf6",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.5,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#f4eee5",
+       "top": 356,
+       "hsl": {
+        "h": 36,
+        "s": 0.41,
+        "l": 0.93
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 2142,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7b6b63",
+       "share": 0.29
+      },
+      {
+       "color": "#a94f69",
+       "share": 0.13
+      },
+      {
+       "color": "#615345",
+       "share": 0.1
+      },
+      {
+       "color": "#696159",
+       "share": 0.07
+      },
+      {
+       "color": "#685a51",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#fffcf8",
+      "hsl": {
+       "h": 34,
+       "s": 1,
+       "l": 0.99
+      },
+      "fg": "#a94f69"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "01 / Kullanım",
+       "ratio": 3.8,
+       "need": 4.5,
+       "size": 8,
+       "fg": "#85766d",
+       "bg": "#f4eee5"
+      },
+      {
+       "text": "MAGNET, KAPI VE PASTA SÜSLERİ",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#8c7968",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Parçaları incele",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#74675f",
+       "bg": "#e8e1d8"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 3,
+     "radius": 3,
+     "height": 44,
+     "withShadow": 1,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Kutlamada gör",
+      "TÜMÜNÜ KABUL ET",
+      "YALNIZCA ZORUNLU OLANLAR"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "button → rgba(75, 46, 33, 0.063) 0px 1px 5px 0px"
+     ],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.SetStudio_stage__vP0AB → radial-gradient(at 48% 48%, rgb(255, 253, 248) 0px, rgb(248, 242, 232) 47%, rgb(238, 227, 214) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 12,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 768px",
+      "header.sticky.top-0 768px",
+      "div.SetStudio_visualBottom__EdFI1 730px",
+      "div.SetStudio_contentsHeading__MQiTd 720px",
+      "button 720px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 2,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.56
+     },
+     {
+      "type": "img",
+      "ratio": 0.12
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2488,
+    "margins": {
+     "left": 18,
+     "right": 19
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 2018,
+      "words": 144,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Pembe ve mavi",
+       "size": 35,
+       "tag": "h1"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 2142,
+      "height": 346,
+      "words": 40,
+      "media": 0,
+      "middle": 87,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Pembe ve mavi pasta süsü setleri",
+      "size": 35,
+      "top": 213,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 18,
+      "n": 5
+     },
+     {
+      "x": 42,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.89,
+    0.91,
+    0.86,
+    0.86
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2638,
+     "screens": 3.1,
+     "words": 218,
+     "img": 11,
+     "video": 0,
+     "canvas": 0,
+     "svg": 18,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Fimages%2Fset-scene%2Frealistic-food"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Pembe ve mavi pasta süsü setleri",
+     "words": 6,
+     "chars": 32,
+     "lines": 2,
+     "size": 35,
+     "vw": 9,
+     "font": "__Playfair_Display_06d865",
+     "weight": 500,
+     "tracking": -0.035,
+     "leading": 1.16,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.91,
+     "top": 213,
+     "mixedFonts": [
+      "__Playfair_Display_06d865",
+      "__Playfair_Display_06d865 italic"
+     ],
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Pembe ve mavi pasta süsü setleri",
+     "words": 6,
+     "lines": 2,
+     "size": 35,
+     "font": "__Playfair_Display_06d865"
+    },
+    "headings": [
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "__Playfair_Display_06d865",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 56,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Pembe ve mavi pasta süsü setleri",
+      "words": 6,
+      "chars": 32,
+      "lines": 2,
+      "size": 35,
+      "vw": 9,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.16,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 213,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Pembe Set Fotoğraflı pasta süsleri",
+      "words": 5,
+      "chars": 34,
+      "lines": 2,
+      "size": 45,
+      "vw": 11.5,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": -0.035,
+      "leading": 1.07,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 882,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Diğer tema setleri",
+      "words": 3,
+      "chars": 18,
+      "lines": 2,
+      "size": 25,
+      "vw": 6.4,
+      "font": "__Playfair_Display_06d865",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.34,
+      "top": 1733,
+      "mixedFonts": [
+       "__Playfair_Display_06d865",
+       "__Playfair_Display_06d865 italic"
+      ],
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Portakal Çiçeği Atölye",
+      "words": 3,
+      "chars": 22,
+      "lines": 1,
+      "size": 27,
+      "vw": 6.9,
+      "font": "__Playfair_Display_06d865",
+      "weight": 500,
+      "tracking": 0,
+      "leading": 1.6,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.69,
+      "top": 1933,
+      "tag": "a",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 3
+    },
+    "type": {
+     "families": [
+      {
+       "family": "__Inter_259a74",
+       "share": 0.86,
+       "mono": false
+      },
+      {
+       "family": "__Playfair_Display_06d865",
+       "share": 0.14,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      18,
+      19,
+      20,
+      22,
+      23,
+      25,
+      27,
+      35,
+      45
+     ],
+     "sizeCount": 15,
+     "notLoaded": [],
+     "body": {
+      "font": "__Inter_259a74",
+      "size": 12,
+      "leading": 1.8,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 4.9
+     },
+     "measureChars": 59,
+     "max": {
+      "size": 45,
+      "vw": 11.5,
+      "font": "__Playfair_Display_06d865",
+      "text": "Pembe Set"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 4,
+     "microLabelShare": 0.06,
+     "microSamples": [
+      "Pasta süsü setleri",
+      "Fotoğraflı pasta süsleri",
+      "Fotoğraflı kutlama koleksiyonu",
+      "Pastanın en üstünde"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0.16,
+     "smallText": 40
+    },
+    "eyebrows": [
+     {
+      "text": "Fotoğraflı pasta süsleri",
+      "above": "Pembe ve mavi pasta süsü setleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 10,
+      "top": 185
+     },
+     {
+      "text": "Fotoğraflı kutlama koleksiyonu",
+      "above": "Pembe Set Fotoğraflı pasta süsleri",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 9,
+      "top": 855
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 9,
+      "top": 1171
+     },
+     {
+      "text": "02",
+      "size": 9,
+      "top": 1224
+     },
+     {
+      "text": "03",
+      "size": 9,
+      "top": 1277
+     },
+     {
+      "text": "04",
+      "size": 9,
+      "top": 1330
+     }
+    ],
+    "color": {
+     "bodyBg": "#fdfbf7",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.6,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fcfaf6",
+       "top": 124,
+       "hsl": {
+        "h": 40,
+        "s": 0.5,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#f4eee5",
+       "top": 378,
+       "hsl": {
+        "h": 36,
+        "s": 0.41,
+        "l": 0.93
+       }
+      },
+      {
+       "color": "#ece6da",
+       "top": 1873,
+       "hsl": {
+        "h": 40,
+        "s": 0.32,
+        "l": 0.89
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#7b6b63",
+       "share": 0.29
+      },
+      {
+       "color": "#a94f69",
+       "share": 0.13
+      },
+      {
+       "color": "#615345",
+       "share": 0.1
+      },
+      {
+       "color": "#696159",
+       "share": 0.06
+      },
+      {
+       "color": "#685a51",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#fffcf8",
+      "hsl": {
+       "h": 34,
+       "s": 1,
+       "l": 0.99
+      },
+      "fg": "#a94f69"
+     },
+     "lowContrast": [
+      {
+       "text": "© 2026 Portakal Çiçeği Atölye",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Gizlilik politikası",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "Sipariş koşulları",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 10,
+       "fg": "#8d7a65",
+       "bg": "#ece6da"
+      },
+      {
+       "text": "MAGNET, KAPI VE PASTA SÜSLERİ",
+       "ratio": 4,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#8c7968",
+       "bg": "#fdfbf7"
+      },
+      {
+       "text": "Parçaları incele",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 11,
+       "fg": "#74675f",
+       "bg": "#e8e1d8"
+      },
+      {
+       "text": "Büyük pasta süsü · 1 adet",
+       "ratio": 4.2,
+       "need": 4.5,
+       "size": 9,
+       "fg": "#83736a",
+       "bg": "#faf6f0"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 5,
+     "radius": 0,
+     "height": 44,
+     "withShadow": 1,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "Kutlamada gör",
+      "Ürünler",
+      "Talep oluştur",
+      "TÜMÜNÜ KABUL ET",
+      "YALNIZCA ZORUNLU OLANLAR"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "button → rgba(75, 46, 33, 0.063) 0px 1px 5px 0px"
+     ],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.SetStudio_stage__vP0AB → radial-gradient(at 48% 48%, rgb(255, 253, 248) 0px, rgb(248, 242, 232) 47%, rgb(238, 227, 214) 100%)"
+     ],
+     "gradientText": 0,
+     "hairlines": 13,
+     "hairlineSamples": [
+      "div.border-b.border-[#e5d8c6] 390px",
+      "header.sticky.top-0 390px",
+      "div.SetStudio_visualBottom__EdFI1 352px",
+      "div.SetStudio_contentsHeading__MQiTd 342px",
+      "button 342px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 2,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.33
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 83,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "__inter_259a74",
+     "__playfair_display_06d865"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2638,
+    "margins": {
+     "left": 18,
+     "right": 18
+    },
+    "sections": [
+     {
+      "sel": "main.flex-grow",
+      "tag": "main",
+      "top": 124,
+      "height": 1749,
+      "words": 141,
+      "media": 2,
+      "middle": 0,
+      "heading": {
+       "text": "Pembe Set",
+       "size": 45,
+       "tag": "h2"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "footer.border-t.border-[#ded4c5]",
+      "tag": "footer",
+      "top": 1873,
+      "height": 765,
+      "words": 40,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Portakal Çiçeği Atölye",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 18,
+      "right": 18,
+      "textLeft": 18,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Pembe ve mavi pasta süsü setleri",
+      "size": 35,
+      "top": 213,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 18,
+      "n": 5
+     },
+     {
+      "x": 42,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 12,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "mixed-font-headline",
+   "width": 1440,
+   "message": "2 headline(s) switch typeface or to italic mid-line (the \"one italic serif word\" move).",
+   "fix": "Set the whole headline in one face. Emphasis comes from the words.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "2 eyebrow/kicker label(s) above headings: \"Fotoğraflı pasta süsleri\" above \"Pembe ve mavi pasta süsü setleri\"; \"Fotoğraflı kutlama koleksiyonu\" above \"Pembe Set Fotoğraflı pasta süsleri\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"01 / Kullanım\", \"01\", \"02\", \"03\", \"04\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "5 tiny uppercase letter-spaced labels (e.g. \"Pasta süsü setleri\", \"Fotoğraflı pasta süsleri\", \"01 / Kullanım\", \"Fotoğraflı kutlama koleksiyonu\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "1 gradient fill(s): div.SetStudio_stage__vP0AB → radial-gradient(at 48% 48%, rgb(255, 253, 248) 0px, rgb(248, 242, 232) 47%, rgb(238, 227, 214) 100%)",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with shadow/glow.",
+   "fix": "Flat fill, one colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "12 thin rule(s)/divider line(s): div.border-b.border-[#e5d8c6] 1440px | header.sticky.top-0 1440px | div.SetStudio_visualBottom__EdFI1 778px | div.SetStudio_contentsHeading__MQiTd 473px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "2 box(es) drawn with a 1px outline.",
+   "fix": "Prefer a filled surface or no box.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #fdfbf7, section #fcfaf6, section #f4eee5).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"© 2026 Portakal Çiçeği Atölye\" 3.3:1 needs 4.5:1; \"Gizlilik politikası\" 3.3:1 needs 4.5:1; \"Sipariş koşulları\" 3.3:1 needs 4.5:1; \"gizlilik politikamızda\" 3.5:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "13 different font sizes (9, 10, 11, 12, 14, 18, 19, 20, 25, 26, 27, 46, 52).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 12px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 1440,
+   "message": "The running text is a soft grey on its ground (4.9:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 2 picture(s) on the page (2 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "43 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Only 0 element(s) moved while the page loaded and scrolled.",
+   "fix": "Build the motion layer (SKILL.md step 9, references/motion.md): the signature move, an entrance for the parts of every section, feedback on every control, and one moving picture. Transform and opacity only, with a reduced-motion fallback."
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 768,
+   "message": "1 box-shadow(s) on elements at rest: button → rgba(75, 46, 33, 0.063) 0px 1px 5px 0px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "measure",
+   "width": 768,
+   "message": "Longest paragraph runs about 128 characters per line.",
+   "fix": "Cap paragraphs at 45–75 characters (max-width: 60ch)."
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 390,
+   "message": "2 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/studio/desktop-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/studio/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/studio/tablet-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/studio/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/studio/mobile-fold.jpg",
+   "pages": [
+    "/home/znekm/Masaüstü/portakalcicegi/.taste-skill/before/studio/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
