@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { productGroups } from "@/content/celebrations";
+import { cakeCatalogPath, cakeSetPath } from "@/content/set-posters";
 import { SelectProductLink } from "./InquiryContext";
 import styles from "./Celebration.module.css";
 
@@ -28,7 +29,7 @@ export default function CelebrationHome() {
       </div>
       <div className={styles.heroComposition}>
         <div className={styles.heroPaper}><Image src="/images/celebrations/mihrimah-set.webp" alt="İsimli kapı süsü ve sepet içindeki uyumlu magnetler" fill priority sizes="(max-width: 900px) 80vw, 460px" /><span>İsimli kapı süsü ve magnetler</span></div>
-        <Link href="/set-studyosu" className={styles.heroInset}><div><Image src="/images/celebrations/pink-cake.webp" alt="Pasta üzerindeki fotoğraflı büyük süs ve şapkalı kürdan topper kullanım örneği" fill priority sizes="(max-width: 900px) 32vw, 210px" /></div><span>Pasta üzerinde gör <ArrowUpRight size={14} /></span></Link>
+        <Link href={cakeSetPath("pembe")} className={styles.heroInset}><div><Image src="/images/celebrations/pink-cake.webp" alt="Pasta üzerindeki fotoğraflı büyük süs ve şapkalı kürdan topper kullanım örneği" fill priority sizes="(max-width: 900px) 32vw, 210px" /></div><span>Pasta üzerinde gör <ArrowUpRight size={14} /></span></Link>
         <span className={styles.heroHandwritten}>isimli kapı süsü<br />ve magnetler</span>
       </div>
     </section>
@@ -51,7 +52,7 @@ export default function CelebrationHome() {
 
     <section id="hakkinda" className={`${styles.container} ${styles.studioTeaser}`} aria-labelledby="studio-title">
       <div className={styles.studioPhoto}><Image src="/images/celebrations/pink-pieces.webp" alt="Fotoğraflı büyük pasta süsü ile farklı şapkalı kürdan süslerinin bir arada görünümü" fill sizes="(max-width: 800px) 90vw, 500px" /><span>Kullanım örneklerinden</span></div>
-      <div><p className={styles.eyebrow}>Pasta süsleri</p><h2 id="studio-title">Fotoğraflı<br /><em>pasta süsü setleri</em></h2><p>Pembe ve Mavi setlerin pastada ve ikramlarda nasıl göründüğüne bak. Setlerde hangi süslerden kaçar adet olduğunu da görebilirsin.</p><Link href="/set-studyosu" className={styles.primary}>Seti yakından incele <ArrowRight size={16} /></Link><Link href="/set-icerikleri" className={styles.textLink}>Diğer tema setlerine bak <ArrowUpRight size={15} /></Link></div>
+      <div><p className={styles.eyebrow}>Pasta süsleri</p><h2 id="studio-title">Fotoğraflı<br /><em>pasta süsü setleri</em></h2><p>Temanı seçip pasta, cupcake ve pipet süslerinin masada nasıl göründüğüne bak.</p><Link href={cakeCatalogPath} className={styles.primary}>Setlere göz at <ArrowRight size={16} /></Link><Link href="/set-icerikleri" className={styles.textLink}>Set afişlerine bak <ArrowUpRight size={15} /></Link></div>
     </section>
 
     <section id="surec" className={`${styles.container} ${styles.process}`} aria-labelledby="process-title"><span id="nasil-calisir" className={styles.anchor} />

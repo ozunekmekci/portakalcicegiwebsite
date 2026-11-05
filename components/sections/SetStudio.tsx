@@ -1,124 +1,149 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, MousePointer2, RotateCcw } from "lucide-react";
-import styles from "./SetStudio.module.css";
+import { ArrowLeft, ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { SelectProductLink } from "@/components/celebration/InquiryContext";
+import { cakeCatalogPath, cakeSetImage, cakeSetTotal, getCakeSetParts, type SetPoster } from "@/content/set-posters";
+import styles from "./SetStudio.module.css";
 
-type Part = "topper" | "picks" | "cupcakes" | "straws";
-type Theme = "pembe" | "mavi";
-const parts: { id: Part; title: string; count: number; location: string; description: string }[] = [
-  { id: "topper", title: "Büyük pasta süsü", count: 1, location: "Pastanın en üstünde", description: "Fotoğrafınla hazırlanan büyük süsü pastanın üstüne yerleştirebilirsin. Renkleri setin diğer parçalarıyla uyumludur." },
-  { id: "picks", title: "Şapkalı süsler", count: 10, location: "Pasta ve ikramlarda", description: "Fotoğrafını farklı parti şapkalarıyla hazırlıyoruz. Bu süsleri pastanın çevresinde veya ikramlarda kullanabilirsin." },
-  { id: "cupcakes", title: "Cupcake süsleri", count: 10, location: "Küçük tatlıların üzerinde", description: "Kısa çubuklu süsleri cupcake ve diğer küçük tatlıların üzerine yerleştirebilirsin." },
-  { id: "straws", title: "Süslü pipetler", count: 10, location: "İçecek bardaklarında", description: "Fotoğraflı pipetler de setin diğer süsleriyle aynı temada hazırlanır." },
-];
-const layers: Record<Theme, Record<Part, number>> = {
-  pembe: { topper: 2, picks: 1, cupcakes: 3, straws: 4 },
-  mavi: { topper: 4, picks: 3, cupcakes: 2, straws: 5 },
-};
-const source = (theme: Theme, part: Part) => `/images/set-layers/${theme}/layer-${layers[theme][part]}.webp`;
+const slides = [
+  { id: "overview", title: "Tüm set" },
+  { id: "cake", title: "Pasta süsleri" },
+  { id: "cupcakes", title: "Cupcake süsleri" },
+  { id: "straws", title: "Pipetler" },
+] as const;
 
-const pickPlacement = [
-  { left: "1%", top: "4%", height: "80%", transform: "rotate(-12deg)" },
-  { left: "15%", top: "-1%", height: "77%", transform: "rotate(-7deg)" },
-  { left: "73%", top: "1%", height: "77%", transform: "rotate(7deg)" },
-  { left: "86%", top: "11%", height: "77%", transform: "rotate(12deg)" },
-  { left: "19%", top: "21%", height: "74%", transform: "rotate(-5deg)" },
-  { left: "41%", top: "26%", height: "70%" },
-  { left: "63%", top: "23%", height: "71%", transform: "rotate(5deg)" },
-];
+const sizes = "(max-width: 800px) 94vw, (max-width: 1380px) 60vw, 800px";
 
-function CakeScene() {
-  return <Image src="/images/set-scene/realistic-food-v2.webp" alt="" fill priority quality={90} sizes="(max-width: 800px) 95vw, (max-width: 1050px) 85vw, 780px" className={styles.cake} />;
-}
+export default function SetStudio({ set }: { set: SetPoster }) {
+  const [active, setActive] = useState(0);
+  const viewport = useRef<HTMLDivElement>(null);
+  const scrollTimer = useRef<ReturnType<typeof setTimeout>>();
+  const parts = getCakeSetParts(set);
+  const total = cakeSetTotal(set);
+  const { topper, picks, cupcakes, straws } = set.counts;
+  const captions = [
+    `${total} parça bir arada`,
+    `${topper} büyük süs ve ${picks} pasta kürdanı`,
+    `${cupcakes} cupcake süsü`,
+    `${straws} süslü pipet`,
+  ];
+  const uses = [
+    "",
+    "Kutlama masasında pasta üzerindeki süsler",
+    `Servis tepsisinde ${cupcakes} süslü cupcake`,
+    `${straws} bardakta birer süslü pipet`,
+  ];
 
-export default function SetStudio() {
-  const [theme, setTheme] = useState<Theme>("pembe");
-  const [mode, setMode] = useState<"scene" | "pieces">("scene");
-  const [selected, setSelected] = useState<Part>("topper");
-  const [showAll, setShowAll] = useState(true);
-  const active = parts.find(part => part.id === selected)!;
-  const title = theme === "pembe" ? "Pembe Set" : "Mavi Set";
-  const selectPart = (part: Part) => setSelected(part);
+  useEffect(() => () => clearTimeout(scrollTimer.current), []);
+
+  function goTo(index: number) {
+    const frame = viewport.current;
+    if (!frame || index < 0 || index >= slides.length) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setActive(index);
+    frame.scrollTo({ left: index * frame.clientWidth, behavior: reducedMotion ? "instant" : "smooth" });
+  }
+
+  function openFromOverview(index: number) {
+    viewport.current?.focus({ preventScroll: true });
+    goTo(index);
+  }
+
+  function syncSlide() {
+    clearTimeout(scrollTimer.current);
+    scrollTimer.current = setTimeout(() => {
+      const frame = viewport.current;
+      if (frame?.clientWidth) setActive(Math.round(frame.scrollLeft / frame.clientWidth));
+    }, 120);
+  }
+
+  function onKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
+    const index = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: slides.length - 1 }[event.key];
+    if (index === undefined) return;
+    event.preventDefault();
+    goTo(index);
+  }
 
   return (
-    <div className={styles.studio} data-theme={theme}>
+    <div className={styles.studio} data-theme={set.id}>
       <div className={styles.container}>
-        <div className={styles.breadcrumb}>
-          <Link href="/set-icerikleri"><ArrowLeft size={14} /> Set içerikleri</Link>
-          <span>Pasta süsü setleri</span>
-        </div>
-        <div className={styles.heading}>
-          <div><p className={styles.eyebrow}>Fotoğraflı pasta süsleri</p><h1>Pembe ve mavi <em>pasta süsü setleri</em></h1></div>
-          <p>Setleri fotoğrafınla hazırlıyoruz.<br />Aşağıda parçaları ve adetlerini inceleyebilirsin.</p>
-        </div>
-
+        <Link href={cakeCatalogPath} className={styles.backLink}><ArrowLeft size={16} aria-hidden="true" /> Tüm pasta süsü setleri</Link>
         <div className={styles.workspace}>
-          <section className={styles.visual} aria-label="Etkileşimli set görselleri">
-            <div className={styles.visualToolbar}>
-              <div className={styles.modeSwitch} role="group" aria-label="Seti görüntüleme biçimi">
-                <button aria-pressed={mode === "scene"} onClick={() => setMode("scene")}>Kutlamada gör</button>
-                <button aria-pressed={mode === "pieces"} onClick={() => setMode("pieces")}>Parçaları incele</button>
+          <header className={styles.detailHeading}>
+            <p className={styles.eyebrow}>Kişiye özel kutlama süsleri</p>
+            <h1 id="cake-set-title">{set.title}</h1>
+            <p className={styles.description}>Pastadan içecek bardaklarına, kutlama masası için aynı temada hazırlanan süsler.</p>
+          </header>
+          <section className={styles.gallery} aria-label="Set fotoğrafları" aria-roledescription="karusel" onKeyDown={onKeyDown}>
+            <div className={styles.thumbnails} role="group" aria-label="Gösterilecek fotoğraf">
+              {slides.map((slide, index) => (
+                <button key={slide.id} type="button" onClick={() => goTo(index)} aria-pressed={active === index} aria-label={`${index + 1}. fotoğraf: ${slide.title}`}>
+                  <span className={styles.thumbnailImage}><Image src={cakeSetImage(set.id, index === 0 ? "overview" : `${slide.id}-table`)} alt="" fill sizes="80px" /></span>
+                  <span className={styles.thumbnailText}>{slide.title}</span>
+                </button>
+              ))}
+            </div>
+            <div className={styles.galleryBody}>
+              <div className={styles.galleryFrame}>
+                <div className={styles.track} ref={viewport} onScroll={syncSlide} tabIndex={0} aria-label="Fotoğrafları yatay kaydır">
+                  {slides.map((slide, index) => (
+                    <div key={slide.id} className={styles.slide} role="group" aria-roledescription="kare" aria-label={`${index + 1} / ${slides.length}: ${slide.title}`} aria-hidden={active !== index}>
+                      {index === 0 ? (
+                        <div className={styles.overview}>
+                          <Image src={cakeSetImage(set.id, "overview")} alt={`${set.title}: ${captions[1]}, ${captions[2]} ve ${captions[3]}${set.counts.card ? ", fotoğraflı kartla" : ""} masada bir arada`} fill sizes={sizes} priority draggable={false} />
+                          <button type="button" className={styles.cakeHotspot} aria-label="Pasta süslerini yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(1)} />
+                          <button type="button" className={styles.cupcakeHotspot} aria-label="Cupcake süslerini yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(2)} />
+                          <button type="button" className={styles.strawHotspot} aria-label="Pipetleri yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(3)} />
+                        </div>
+                      ) : (
+                        <div className={styles.collage}>
+                          <div className={styles.panel}>
+                            <Image src={cakeSetImage(set.id, `${slide.id}-pieces`)} alt={captions[index]} fill sizes={sizes} draggable={false} />
+                            <span>Parçalar</span>
+                          </div>
+                          <div className={styles.panel}>
+                            <Image src={cakeSetImage(set.id, `${slide.id}-table`)} alt={uses[index]} fill sizes={sizes} draggable={false} />
+                            <span>Masada</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <button className={`${styles.galleryArrow} ${styles.previous}`} type="button" aria-disabled={active === 0} onClick={() => goTo(active - 1)} aria-label="Önceki fotoğraf"><ChevronLeft size={22} aria-hidden="true" /></button>
+                <button className={`${styles.galleryArrow} ${styles.next}`} type="button" aria-disabled={active === slides.length - 1} onClick={() => goTo(active + 1)} aria-label="Sonraki fotoğraf"><ChevronRight size={22} aria-hidden="true" /></button>
               </div>
-              <span className={styles.viewNumber}>{mode === "scene" ? "01 / Kullanım" : "02 / Set içeriği"}</span>
-            </div>
-
-            <div className={styles.stage}>
-              {mode === "scene" ? <>
-                <span className={styles.sceneCaption}>Masada<br /><em>kullanım örneği</em></span>
-                <CakeScene />
-                <button className={`${styles.sceneItem} ${styles.topper}`} data-active={selected === "topper"} data-visible={showAll || selected === "topper"} onClick={() => selectPart("topper")} aria-label="Büyük pasta süsünü incele, 1 adet">
-                  <span className={styles.woodStick} />
-                  <Image src={source(theme, "topper")} alt="Fotoğraflı büyük pasta süsü" fill sizes="(max-width: 800px) 35vw, 250px" className={styles.art} priority />
-                </button>
-                <button className={`${styles.sceneItem} ${styles.picks}`} data-active={selected === "picks"} data-visible={showAll || selected === "picks"} onClick={() => selectPart("picks")} aria-label="Şapkalı süsleri incele, 10 adet">
-                  {pickPlacement.map((placement, index) => <span key={index} className={styles.pick} style={placement}>
-                    <span className={styles.woodStick} /><span className={styles.pickHead}><Image src={`/images/set-layers/${theme}/pick-head-${index + 1}.webp`} alt="" fill sizes="60px" className={styles.art} /></span>
-                  </span>)}
-                </button>
-                <button className={`${styles.sceneItem} ${styles.cupcakes}`} data-active={selected === "cupcakes"} data-visible={showAll || selected === "cupcakes"} onClick={() => selectPart("cupcakes")} aria-label="Cupcake süslerini incele, 10 adet">
-                  <Image src={`/images/set-layers/${theme}/single-cupcake.webp?v=2`} alt="Cupcake üzerinde fotoğraflı süs" fill sizes="100px" className={styles.art} />
-                </button>
-                <button className={`${styles.sceneItem} ${styles.straws}`} data-active={selected === "straws"} data-visible={showAll || selected === "straws"} onClick={() => selectPart("straws")} aria-label="Süslü pipetleri incele, 10 adet">
-                  <Image src={`/images/set-layers/${theme}/single-straw.webp`} alt="Bardakta fotoğraflı pipet" fill sizes="70px" className={styles.art} />
-                </button>
-                <span className={styles.sceneNote}>Yerleşim örneği · Paket adetleri listede</span>
-              </> : <div className={styles.flatGrid}>
-                {parts.map((part, index) => <button key={part.id} className={styles.flatItem} data-active={selected === part.id} onClick={() => selectPart(part.id)} aria-pressed={selected === part.id}>
-                  <span className={styles.flatNumber}>0{index + 1}</span>
-                  <div className={styles.flatImage}><Image src={source(theme, part.id)} alt={`${title}: ${part.title}`} fill sizes="(max-width: 800px) 40vw, 320px" className={styles.art} /></div>
-                  <span className={styles.flatLabel}>{part.title}<strong>{part.count} adet</strong></span>
-                </button>)}
-              </div>}
-            </div>
-            <div className={styles.visualBottom}>
-              <span><MousePointer2 size={14} /> {active.title} · {active.count} adet</span>
-              {mode === "scene" && <button onClick={() => setShowAll(!showAll)} aria-pressed={!showAll}><RotateCcw size={13} />{showAll ? "Yalnızca seçili parça" : "Tüm seti göster"}</button>}
+              <div className={styles.galleryCaption} aria-live="polite" aria-atomic="true">
+                <span><strong>{slides[active].title}</strong> <span className={styles.captionDivider}>·</span> {captions[active]}</span>
+                <span className={styles.frameNumber}>{active + 1} / {slides.length}</span>
+              </div>
+              <p className={styles.galleryHint}>{active === 0 ? "Yakından bakmak için fotoğraftaki bir ürüne dokun veya fotoğrafı kaydır." : "Üstte setteki parçalar, altta masada kullanım örneği."}</p>
             </div>
           </section>
 
-          <aside className={styles.details} aria-label="Setin içeriği ve kişiselleştirme">
-            <div className={styles.productTitle}><p className={styles.eyebrow}>Fotoğraflı kutlama koleksiyonu</p><h2>{title}<span>Fotoğraflı pasta süsleri</span></h2><p>Aynı temada 4 farklı süs:<br />pasta ve cupcake süsleri, şapkalı süsler, pipetler.</p></div>
-            <div className={styles.themePicker} role="group" aria-label="Set temasını seç">
-              <button onClick={() => setTheme("pembe")} aria-pressed={theme === "pembe"}><span className={styles.pinkSwatch} />Pembe</button>
-              <button onClick={() => setTheme("mavi")} aria-pressed={theme === "mavi"}><span className={styles.blueSwatch} />Mavi</button>
-            </div>
-            <div className={styles.contentsHeading}><h3>Setin içinde</h3><span>31 parça</span></div>
-            <div className={styles.partList} role="group" aria-label="İncelenecek parçayı seç">
-              {parts.map((part, index) => <button key={part.id} onClick={() => selectPart(part.id)} aria-pressed={selected === part.id}>
-                <span className={styles.listNumber}>0{index + 1}</span><span>{part.title}</span><strong>{part.count} adet</strong><ArrowRight size={15} />
-              </button>)}
-            </div>
-            <div className={styles.partDetail} aria-live="polite" aria-atomic="true"><p>{active.location}</p><h3>{active.title}</h3><span>{active.description}</span></div>
-            <div className={styles.personalization}><span><Check size={14} /> Fotoğrafına göre hazırlanır</span><span><Check size={14} /> İsim ve yaşı birlikte belirleyelim</span></div>
-            <SelectProductLink products={["pasta-susleri"]} concept={title} className={styles.orderButton}>Bu set için bilgi al <ArrowRight size={17} /></SelectProductLink>
-            <p className={styles.orderNote}>Fotoğrafını ve kutlama tarihini mesajında paylaşabilirsin.</p>
+          <aside className={styles.details} aria-labelledby="cake-set-title">
+            <div className={styles.contentsHeading}><h2>Setin içinde</h2><span>{total} parça</span></div>
+            <ul className={styles.partList}>
+              {parts.map(({ id, title, slide, count }) => (
+                <li key={id}>
+                  <button type="button" onClick={() => {
+                    goTo(slide);
+                    if (window.matchMedia("(max-width: 800px)").matches) viewport.current?.focus();
+                  }} aria-pressed={active === slide && active !== 0}>
+                    <span>{title}</span><strong>{count} adet</strong><ChevronRight size={16} aria-hidden="true" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <p className={styles.personalization}><Check size={16} aria-hidden="true" /> İsim, yaş ve fotoğrafı sipariş öncesi birlikte belirleyebiliriz.</p>
+            <SelectProductLink products={["pasta-susleri"]} concept={set.title} className={styles.orderButton}>Bu set için bilgi al <ArrowRight size={17} aria-hidden="true" /></SelectProductLink>
+            <p className={styles.orderNote}>Pasta, cupcake ve bardaklar sunum örneğidir.</p>
           </aside>
         </div>
-        <div className={styles.closing}><p>Diğer<br /><em>tema setleri</em></p><span>Diğer temalardaki süsleri ve<br />set içeriklerini de inceleyebilirsin.</span><Link href="/set-icerikleri">Tüm temaları gör <ArrowRight size={16} /></Link></div>
       </div>
     </div>
   );

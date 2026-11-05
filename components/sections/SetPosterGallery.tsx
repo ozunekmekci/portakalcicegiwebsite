@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, Check, X } from "lucide-react";
-import { setPosters } from "@/content/set-posters";
+import { cakeSetPath, getCakeSetParts, setPosters } from "@/content/set-posters";
 import { SelectProductLink } from "@/components/celebration/InquiryContext";
 
 export default function SetPosterGallery() {
@@ -141,10 +142,10 @@ export default function SetPosterGallery() {
               </div>
 
               <ul className="space-y-3 border-y border-[#EDE6DF] py-5">
-                {selectedPoster.included.map((item) => (
-                  <li key={item} className="flex items-start gap-3 font-sans text-sm text-[#37322E]">
+                {getCakeSetParts(selectedPoster).map(({ id, count, title }) => (
+                  <li key={id} className="flex items-start gap-3 font-sans text-sm text-[#37322E]">
                     <Check aria-hidden="true" size={17} className="mt-0.5 shrink-0 text-[#5A6855]" />
-                    <span>{item}</span>
+                    <span>{count} {title.toLocaleLowerCase("tr")}</span>
                   </li>
                 ))}
               </ul>
@@ -152,6 +153,10 @@ export default function SetPosterGallery() {
               <p className="font-sans text-xs leading-relaxed text-[#696159]">
                 İsim, yaş ve renkleri değiştirebiliriz. Nasıl istediğini sipariş öncesi birlikte konuşalım.
               </p>
+
+              <Link href={cakeSetPath(selectedPoster.id)} className="text-sm font-semibold text-[#A85338] underline underline-offset-4">
+                Kullanım fotoğraflarına bak
+              </Link>
 
               <SelectProductLink
                 products={["pasta-susleri"]}

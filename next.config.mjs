@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [{ source: "/set-studyosu", destination: "/urun-gruplari/pasta-susleri", permanent: true }];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [

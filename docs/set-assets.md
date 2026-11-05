@@ -1,6 +1,8 @@
 # Set görselleri
 
-`/set-studyosu`, iki sunumu karşılaştırır:
+Güncel katalog ve kullanım fotoğrafları için [pasta süsü set galerisine](cake-set-gallery.md) bak.
+
+Eski `/set-studyosu` sayfası iki sunumu karşılaştırıyordu:
 
 - Kutlamada gör: fotoğraf gerçekliğinde pasta, cupcake ve içecek sahnesinde gerçek ürün katmanları.
 - Parçaları incele: aynı ürün katmanlarını ayrı ayrı gösteren etkileşimli düzen.
