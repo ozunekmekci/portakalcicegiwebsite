@@ -1,71 +1,42 @@
-# 🍊 Portakal Çiçeği Atölye — Proje Kontrol Merkezi
+# Portakal Çiçeği Atölye
 
-## Bu Klasördeki Dosyalar
+Portakal Çiçeği Atölye'nin web sitesi. İsimli magnetleri, kapı süslerini ve fotoğraflı pasta süslerini incelemek; bir kutlama için fiyat ve tasarım bilgisi almak isteyenler için hazırlandı.
 
-| Dosya | Ne İşe Yarar | Ne Zaman Dokunulur |
-|-------|-------------|-------------------|
-| `SYSTEM_PROMPT.md` | AI ajanının kimliği ve kuralları | Her oturumun başında ajana verilir |
-| `PROJECT_BRIEF.md` | Marka, renkler, ton, teknik kararlar | Değişmez — sadece koleksiyon isimleri netleşince güncellenir |
-| `PLAN.md` | 4 haftalık görev listesi | Görevler tamamlandıkça PROGRESS.md'ye taşınır |
-| `PROGRESS.md` | Nerede kaldık? Sıradaki ne? | Her oturum sonunda ajan günceller |
+<p align="center">
+  <img src="public/images/celebrations/mihrimah-set.webp" alt="İsimli kapı süsü ve sepet içinde aynı temada hazırlanmış magnetler" width="420">
+</p>
 
----
+<p align="center"><em>İsimli kapı süsü ve magnetlerden bir örnek</em></p>
 
-## 🤖 AI Ajanını Nasıl Kullanacaksın
+[Siteyi ziyaret et](https://portakalcicegiwebsite.vercel.app) · [Set içeriklerine bak](https://portakalcicegiwebsite.vercel.app/set-icerikleri) · [Instagram](https://www.instagram.com/portakalcicegi.atolye/)
 
-### Her Oturum Başında Şunu Yap:
+## Sitede neler var?
 
-1. AI ajanını aç (Claude Code, Cursor, Windsurf, vb.)
-2. **İlk mesajında şunu kopyala-yapıştır:**
+Ürün gruplarında magnetleri ve kapı süslerini yakından görebilir, fotoğraf ve videolardaki örneklere bakabilirsin. Pasta süsü setlerinin sayfasında temalara göre değişen parçalar ve adetleri listeleniyor. Pembe ve mavi setler için parçaları masa üzerindeki örnekte ayrı ayrı incelemek de mümkün.
 
-```
-Sen bu projenin geliştiricisisin. Önce şu dosyaları oku:
-1. SYSTEM_PROMPT.md
-2. PROGRESS.md
-3. PLAN.md (sadece aktif sprint bölümünü)
+Beğendiğin ürünleri talebine ekleyip isim, tarih, renk ve adet gibi bilgileri yazabilirsin. Site önce bir mesaj taslağı hazırlar; sen kontrol edip paylaşana kadar mesaj gönderilmez. Bir WhatsApp numarası tanımlıysa mesaj WhatsApp'ta açılır. Numara yoksa metni kopyalayıp Instagram üzerinden gönderebilirsin.
 
-Sonra kaldığın yerden devam et.
+## Projeyi çalıştırmak
+
+Proje Next.js 14 ve React ile geliştirildi. Yerel geliştirmede SQLite kullanılıyor.
+
+```bash
+npm install
+npm run dev
 ```
 
-3. Ajan sana "Kaldığım yerden devam ediyorum: [görev]" diyecek ve işe başlayacak.
-4. Sen sadece onaylarsın veya yönlendirirsin.
+Ardından [localhost:3000](http://localhost:3000) adresini aç. Yerel veritabanı proje klasöründe `portakalcicegi.db` adıyla oluşturulur ve Git tarafından takip edilmez.
 
-### Her Oturum Sonunda:
+Yönetim paneline giriş için `.env.local` dosyasında `ADMIN_PASSWORD` ve `ADMIN_SECRET` tanımlanmalı. `NEXT_PUBLIC_WHATSAPP_NUMBER` isteğe bağlıdır; numara uluslararası biçimde, yalnızca rakamlarla girilebilir. Panelden kaydedilen iletişim numarası da talep akışında kullanılır.
 
-"Bitti" veya "bugünlük kapat" de. Ajan PROGRESS.md'yi güncelleyecek.
+Üretim ortamındaki veritabanı ve görsel yükleme özellikleri ilgili PostgreSQL ve Cloudinary yapılandırmasına bağlıdır. Gerçek parolaları ve servis anahtarlarını depoya ekleme.
 
----
+## Kontroller
 
-## ⚡ Hızlı Başlangıç (İlk Oturum)
-
-İlk oturumda ajana şunu söyle:
-
-```
-Sen bu projenin geliştiricisisin. Önce şu dosyaları oku:
-SYSTEM_PROMPT.md, PROGRESS.md, PLAN.md
-
-Sonra GÖREV 1.1'den başla: Next.js 14 projesi oluştur.
-Proje adı: portakalcicegi
+```bash
+npm test           # Talep akışı ve yapılandırılmış veri testleri
+npm run lint       # Kod kontrolleri
+npm run build      # Üretim derlemesi
 ```
 
----
-
-## 📋 Karar Bekleyen Şeyler (Önce Bunları Tamamla)
-
-Ajan Hafta 3'e gelmeden bunları hazır et:
-
-- [ ] **Koleksiyon isimleri:** Kaç koleksiyonun var ve isimleri ne? (örn: "Bebek Koleksiyonu", "Düğün Koleksiyonu")
-- [ ] **WhatsApp numarası:** Siteye eklenecek numara
-- [ ] **Formspree hesabı aç:** https://formspree.io → ücretsiz → endpoint URL'ini al
-- [ ] **Notion hesabı:** Zaten varsa token al, yoksa aç (ücretsiz)
-- [ ] **Ürün fotoğrafları:** En az 6-8 adet yüksek kaliteli fotoğraf hazırla
-
----
-
-## 🎯 1 Ay Sonunda Ne Olacak?
-
-- Vercel'de canlı, gerçek domainli profesyonel web sitesi
-- Notion'dan 5 dakikada koleksiyon güncelleyebileceksin
-- WhatsApp'a direkt sipariş yönlendirmesi çalışıyor
-- Google'da aranabilir (SEO hazır)
-- Aylık maliyet: ₺0
+Sayfalar `app/`, arayüz bileşenleri `components/`, ürün grupları ve set içerikleri `content/` klasöründe. Görseller ve videolar `public/` altında yer alıyor.
