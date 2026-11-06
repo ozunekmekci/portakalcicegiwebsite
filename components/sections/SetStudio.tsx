@@ -9,10 +9,13 @@ import { cakeCatalogPath, cakeSetImage, cakeSetTotal, getCakeSetParts, type SetP
 import styles from "./SetStudio.module.css";
 
 const slides = [
-  { id: "overview", title: "Tüm set" },
-  { id: "cake", title: "Pasta süsleri" },
-  { id: "cupcakes", title: "Cupcake süsleri" },
-  { id: "straws", title: "Pipetler" },
+  { id: "overview", title: "Tüm set", layout: "overview" },
+  { id: "cake-post", title: "Pasta süsleri", layout: "parts" },
+  { id: "cupcakes-post", title: "Cupcake süsleri", layout: "parts" },
+  { id: "straws-post", title: "Pipetler", layout: "parts" },
+  { id: "cake-party", title: "Masada pasta", layout: "party" },
+  { id: "cupcakes-party", title: "Masada cupcake", layout: "party" },
+  { id: "straws-party", title: "Masada limonata", layout: "party" },
 ] as const;
 
 const sizes = "(max-width: 600px) 94vw, (max-width: 800px) 560px, (max-width: 1150px) 52vw, 580px";
@@ -24,18 +27,28 @@ export default function SetStudio({ set }: { set: SetPoster }) {
   const parts = getCakeSetParts(set);
   const total = cakeSetTotal(set);
   const { topper, picks, cupcakes, straws } = set.counts;
+  const cakeCaption = `${topper} büyük süs ve ${picks} pasta kürdanı`;
+  const cupcakeCaption = `${cupcakes} cupcake süsü`;
+  const strawCaption = `${straws} süslü pipet`;
   const captions = [
     `${total} parça bir arada`,
-    `${topper} büyük süs ve ${picks} pasta kürdanı`,
-    `${cupcakes} cupcake süsü`,
-    `${straws} süslü pipet`,
+    cakeCaption,
+    cupcakeCaption,
+    strawCaption,
+    cakeCaption,
+    cupcakeCaption,
+    strawCaption,
   ];
   const uses = [
     "",
-    "Kutlama masasında pasta üzerindeki süsler",
-    `Servis tepsisinde ${cupcakes} süslü cupcake`,
+    "Pasta üzerindeki süsler",
+    `${cupcakes} süslü cupcake`,
     `${straws} uzun çilekli limonata bardağında birer süslü pipet`,
+    `Balonlarla süslenmiş kutlama masasında ${set.title} süsleriyle hazırlanmış pasta`,
+    `Kutlama masasında ${cupcakes} cupcake üzerinde ${set.title} süsleri`,
+    `Kutlama masasında ${straws} uzun çilekli limonata bardağında ${set.title} pipetleri`,
   ];
+  const activeSlide = slides[active];
 
   useEffect(() => () => clearTimeout(scrollTimer.current), []);
 
@@ -82,7 +95,7 @@ export default function SetStudio({ set }: { set: SetPoster }) {
             <div className={styles.thumbnails} role="group" aria-label="Gösterilecek fotoğraf">
               {slides.map((slide, index) => (
                 <button key={slide.id} type="button" onClick={() => goTo(index)} aria-pressed={active === index} aria-label={`${index + 1}. fotoğraf: ${slide.title}`}>
-                  <span className={styles.thumbnailImage}><Image src={cakeSetImage(set.id, index === 0 ? "overview" : `${slide.id}-post`)} alt="" fill sizes="80px" /></span>
+                  <span className={styles.thumbnailImage}><Image src={cakeSetImage(set.id, slide.id)} alt="" fill sizes="80px" /></span>
                   <span className={styles.thumbnailText}>{slide.title}</span>
                 </button>
               ))}
@@ -92,7 +105,7 @@ export default function SetStudio({ set }: { set: SetPoster }) {
                 <div className={styles.track} ref={viewport} onScroll={syncSlide} tabIndex={0} aria-label="Fotoğrafları yatay kaydır">
                   {slides.map((slide, index) => (
                     <div key={slide.id} className={styles.slide} role="group" aria-roledescription="kare" aria-label={`${index + 1} / ${slides.length}: ${slide.title}`} aria-hidden={active !== index}>
-                      {index === 0 ? (
+                      {slide.layout === "overview" ? (
                         <div className={styles.overview}>
                           <div className={styles.overviewScene}>
                             <Image src={cakeSetImage(set.id, "overview")} alt={`${set.title}: ${captions[1]}, ${captions[2]} ve ${captions[3]}${set.counts.card ? ", fotoğraflı kartla" : ""} masada bir arada`} fill sizes={sizes} priority draggable={false} />
@@ -103,8 +116,8 @@ export default function SetStudio({ set }: { set: SetPoster }) {
                         </div>
                       ) : (
                         <div className={styles.post}>
-                          <Image src={cakeSetImage(set.id, `${slide.id}-post`)} alt={`Solda ${captions[index]}. Sağda ${uses[index]}.`} fill sizes={sizes} draggable={false} />
-                          <div className={styles.postLabels} aria-hidden="true"><span>Parçalar</span><span>Masada</span></div>
+                          <Image src={cakeSetImage(set.id, slide.id)} alt={slide.layout === "parts" ? `Solda ${captions[index]}. Sağda ${uses[index]}.` : uses[index]} fill sizes={sizes} draggable={false} />
+                          {slide.layout === "parts" && <div className={styles.postLabels} aria-hidden="true"><span>Parçalar</span><span>Masada</span></div>}
                         </div>
                       )}
                     </div>
@@ -113,7 +126,7 @@ export default function SetStudio({ set }: { set: SetPoster }) {
               </div>
               <div className={styles.galleryFooter}>
                 <div className={styles.galleryCaption} aria-live="polite" aria-atomic="true">
-                  <span><strong>{slides[active].title}</strong> <span className={styles.captionDivider}>·</span> {captions[active]}</span>
+                  <span><strong>{activeSlide.title}</strong> <span className={styles.captionDivider}>·</span> {captions[active]}</span>
                   <span className={styles.frameNumber}>{active + 1} / {slides.length}</span>
                 </div>
                 <div className={styles.galleryArrows}>
@@ -121,7 +134,11 @@ export default function SetStudio({ set }: { set: SetPoster }) {
                   <button className={styles.galleryArrow} type="button" aria-disabled={active === slides.length - 1} onClick={() => goTo(active + 1)} aria-label="Sonraki fotoğraf"><ChevronRight size={22} aria-hidden="true" /></button>
                 </div>
               </div>
-              <p className={styles.galleryHint}>{active === 0 ? "Yakından bakmak için fotoğraftaki bir ürüne dokun veya fotoğrafı kaydır." : "Solda setteki parçalar, sağda masada kullanım örneği."}</p>
+              <p className={styles.galleryHint}>
+                {activeSlide.layout === "overview" && "Yakından bakmak için fotoğraftaki bir ürüne dokun veya fotoğrafı kaydır."}
+                {activeSlide.layout === "parts" && "Solda setteki parçalar, sağda masada kullanım örneği."}
+                {activeSlide.layout === "party" && "Kutlama masasında örnek sunum."}
+              </p>
             </div>
           </section>
 
