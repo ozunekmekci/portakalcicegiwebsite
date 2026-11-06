@@ -4,17 +4,20 @@ Katalog: `/urun-gruplari/pasta-susleri`. Her temanın kendi adresi ve dört kare
 var: bütün set, pasta süsleri, cupcake süsleri, pipetler. Adetler
 [`content/set-posters.ts`](../content/set-posters.ts) içinden gelir.
 
-Web çıktıları [`public/images/cake-sets/`](../public/images/cake-sets/): tema başına
-bir bütün set görseli ve üç ürün/kullanım görseli çifti. Set çizimleri ve
-fotoğraflar mevcut Canva kaynaklarından alındı. Süs adedini göstermek için
-gerekli yerlerde kaynak tasarımdaki aynı süs tekrar kullanıldı.
+[`public/images/cake-sets/`](../public/images/cake-sets/) klasöründe her tema için
+bir bütün set görseli ve üç adet 1200 × 1500 piksel `*-post.webp` dosyası var.
+Dikey gönderilerde Canva'daki ürün çizimleri solda, kullanım örneği sağda.
+Pipet karesinde yerleşik `image_gen` aracıyla üretilen uzun çilekli limonata
+bardağı kullanılıyor.
 
-Alt panellerdeki boş pasta, cupcake ve içecek sahneleri yerleşik `image_gen`
-aracıyla oluşturuldu. Mevcut ürün çizimleri bu sahnelere ayrı katmanlar olarak
-yerleştirildi ve web için WebP olarak kaydedildi. İlk kare önceki etkileşimli
-sahnenin şeffaf yiyecek görselini kullanır.
+İlk kare, önceki etkileşimli sahnenin şeffaf yiyecek görselini kullanır.
+Önceki yatay sahnelerin üretim promptları da aşağıda kayıtlıdır.
 
 ## Üretim promptları
+
+### Uzun çilekli limonata bardağı
+
+Asset for an artisan party supply shop, isolated transparent photoreal product cutout. ONE tall, narrow, straight-sided clear Collins lemonade glass (not a short tumbler), no stem, sides nearly parallel, glass height 2.8 times its width, filled 85 percent with translucent pastel strawberry-pink lemonade, a few irregular ice cubes, a small fresh pale yellow lemon wheel visible against the interior of the glass, two small sliced strawberries visible near the bottom, subtle condensation. Homemade nonalcoholic lemonade for a birthday party. No garnish on the rim, no straws, no umbrellas, no herbs, no salt or sugar rim, no branding, no text, no hands, no other glassware, no props. Soft warm daylight from upper left. Very slightly elevated straight-on eye-level front view so the oval rim is visible, clear rim and whole base, glass silhouette upright with a little breathing room. Authentic commercial photo, warm highlights, maintain soft salmon-pink liquid. Isolate exactly one full glass with a true transparent alpha background. No visible floor and no large detached shadow. A separate customized party straw will be placed into the glass by the website.
 
 ### Pasta
 

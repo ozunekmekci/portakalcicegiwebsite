@@ -34,7 +34,7 @@ export default function SetStudio({ set }: { set: SetPoster }) {
     "",
     "Kutlama masasında pasta üzerindeki süsler",
     `Servis tepsisinde ${cupcakes} süslü cupcake`,
-    `${straws} bardakta birer süslü pipet`,
+    `${straws} uzun çilekli limonata bardağında birer süslü pipet`,
   ];
 
   useEffect(() => () => clearTimeout(scrollTimer.current), []);
@@ -82,7 +82,7 @@ export default function SetStudio({ set }: { set: SetPoster }) {
             <div className={styles.thumbnails} role="group" aria-label="Gösterilecek fotoğraf">
               {slides.map((slide, index) => (
                 <button key={slide.id} type="button" onClick={() => goTo(index)} aria-pressed={active === index} aria-label={`${index + 1}. fotoğraf: ${slide.title}`}>
-                  <span className={styles.thumbnailImage}><Image src={cakeSetImage(set.id, index === 0 ? "overview" : `${slide.id}-table`)} alt="" fill sizes="80px" /></span>
+                  <span className={styles.thumbnailImage}><Image src={cakeSetImage(set.id, index === 0 ? "overview" : `${slide.id}-post`)} alt="" fill sizes="80px" /></span>
                   <span className={styles.thumbnailText}>{slide.title}</span>
                 </button>
               ))}
@@ -102,28 +102,26 @@ export default function SetStudio({ set }: { set: SetPoster }) {
                           </div>
                         </div>
                       ) : (
-                        <div className={styles.collage} data-slide={slide.id}>
-                          <div className={styles.panel}>
-                            <Image src={cakeSetImage(set.id, `${slide.id}-pieces`)} alt={captions[index]} fill sizes={sizes} draggable={false} />
-                            <span>Parçalar</span>
-                          </div>
-                          <div className={styles.panel}>
-                            <Image src={cakeSetImage(set.id, `${slide.id}-table`)} alt={uses[index]} fill sizes={sizes} draggable={false} />
-                            <span>Masada</span>
-                          </div>
+                        <div className={styles.post}>
+                          <Image src={cakeSetImage(set.id, `${slide.id}-post`)} alt={`Solda ${captions[index]}. Sağda ${uses[index]}.`} fill sizes={sizes} draggable={false} />
+                          <div className={styles.postLabels} aria-hidden="true"><span>Parçalar</span><span>Masada</span></div>
                         </div>
                       )}
                     </div>
                   ))}
                 </div>
-                <button className={`${styles.galleryArrow} ${styles.previous}`} type="button" aria-disabled={active === 0} onClick={() => goTo(active - 1)} aria-label="Önceki fotoğraf"><ChevronLeft size={22} aria-hidden="true" /></button>
-                <button className={`${styles.galleryArrow} ${styles.next}`} type="button" aria-disabled={active === slides.length - 1} onClick={() => goTo(active + 1)} aria-label="Sonraki fotoğraf"><ChevronRight size={22} aria-hidden="true" /></button>
               </div>
-              <div className={styles.galleryCaption} aria-live="polite" aria-atomic="true">
-                <span><strong>{slides[active].title}</strong> <span className={styles.captionDivider}>·</span> {captions[active]}</span>
-                <span className={styles.frameNumber}>{active + 1} / {slides.length}</span>
+              <div className={styles.galleryFooter}>
+                <div className={styles.galleryCaption} aria-live="polite" aria-atomic="true">
+                  <span><strong>{slides[active].title}</strong> <span className={styles.captionDivider}>·</span> {captions[active]}</span>
+                  <span className={styles.frameNumber}>{active + 1} / {slides.length}</span>
+                </div>
+                <div className={styles.galleryArrows}>
+                  <button className={styles.galleryArrow} type="button" aria-disabled={active === 0} onClick={() => goTo(active - 1)} aria-label="Önceki fotoğraf"><ChevronLeft size={22} aria-hidden="true" /></button>
+                  <button className={styles.galleryArrow} type="button" aria-disabled={active === slides.length - 1} onClick={() => goTo(active + 1)} aria-label="Sonraki fotoğraf"><ChevronRight size={22} aria-hidden="true" /></button>
+                </div>
               </div>
-              <p className={styles.galleryHint}>{active === 0 ? "Yakından bakmak için fotoğraftaki bir ürüne dokun veya fotoğrafı kaydır." : "Üstte setteki parçalar, altta masada kullanım örneği."}</p>
+              <p className={styles.galleryHint}>{active === 0 ? "Yakından bakmak için fotoğraftaki bir ürüne dokun veya fotoğrafı kaydır." : "Solda setteki parçalar, sağda masada kullanım örneği."}</p>
             </div>
           </section>
 
