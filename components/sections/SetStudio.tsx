@@ -15,7 +15,7 @@ const slides = [
   { id: "straws", title: "Pipetler" },
 ] as const;
 
-const sizes = "(max-width: 800px) 94vw, (max-width: 1380px) 60vw, 800px";
+const sizes = "(max-width: 600px) 94vw, (max-width: 800px) 560px, (max-width: 1150px) 52vw, 580px";
 
 export default function SetStudio({ set }: { set: SetPoster }) {
   const [active, setActive] = useState(0);
@@ -70,7 +70,7 @@ export default function SetStudio({ set }: { set: SetPoster }) {
 
   return (
     <div className={styles.studio} data-theme={set.id}>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${styles.detailContainer}`}>
         <Link href={cakeCatalogPath} className={styles.backLink}><ArrowLeft size={16} aria-hidden="true" /> Tüm pasta süsü setleri</Link>
         <div className={styles.workspace}>
           <header className={styles.detailHeading}>
@@ -94,13 +94,15 @@ export default function SetStudio({ set }: { set: SetPoster }) {
                     <div key={slide.id} className={styles.slide} role="group" aria-roledescription="kare" aria-label={`${index + 1} / ${slides.length}: ${slide.title}`} aria-hidden={active !== index}>
                       {index === 0 ? (
                         <div className={styles.overview}>
-                          <Image src={cakeSetImage(set.id, "overview")} alt={`${set.title}: ${captions[1]}, ${captions[2]} ve ${captions[3]}${set.counts.card ? ", fotoğraflı kartla" : ""} masada bir arada`} fill sizes={sizes} priority draggable={false} />
-                          <button type="button" className={styles.cakeHotspot} aria-label="Pasta süslerini yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(1)} />
-                          <button type="button" className={styles.cupcakeHotspot} aria-label="Cupcake süslerini yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(2)} />
-                          <button type="button" className={styles.strawHotspot} aria-label="Pipetleri yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(3)} />
+                          <div className={styles.overviewScene}>
+                            <Image src={cakeSetImage(set.id, "overview")} alt={`${set.title}: ${captions[1]}, ${captions[2]} ve ${captions[3]}${set.counts.card ? ", fotoğraflı kartla" : ""} masada bir arada`} fill sizes={sizes} priority draggable={false} />
+                            <button type="button" className={styles.cakeHotspot} aria-label="Pasta süslerini yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(1)} />
+                            <button type="button" className={styles.cupcakeHotspot} aria-label="Cupcake süslerini yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(2)} />
+                            <button type="button" className={styles.strawHotspot} aria-label="Pipetleri yakından incele" tabIndex={active === 0 ? 0 : -1} onClick={() => openFromOverview(3)} />
+                          </div>
                         </div>
                       ) : (
-                        <div className={styles.collage}>
+                        <div className={styles.collage} data-slide={slide.id}>
                           <div className={styles.panel}>
                             <Image src={cakeSetImage(set.id, `${slide.id}-pieces`)} alt={captions[index]} fill sizes={sizes} draggable={false} />
                             <span>Parçalar</span>

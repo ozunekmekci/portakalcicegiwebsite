@@ -13,6 +13,7 @@
 .studio[data-theme=mavi] { --accent: #355b7a; --accent-soft: #e4edf2; }
 
 .container { max-width: 1340px; margin-inline: auto; }
+.detailContainer { max-width: 1080px; }
 
 .backLink {
   display: inline-flex;
@@ -77,7 +78,7 @@
 
 .workspace {
   display: grid;
-  grid-template-columns: minmax(0, 2.25fr) minmax(260px, 1fr);
+  grid-template-columns: minmax(0, 1.85fr) minmax(260px, 1fr);
   grid-template-areas: "gallery intro" "gallery details";
   grid-template-rows: auto 1fr;
   align-items: start;
@@ -127,9 +128,11 @@
   background: #f0e6da;
 }
 .track::-webkit-scrollbar { display: none; }
-.slide { position: relative; flex: 0 0 100%; min-width: 0; aspect-ratio: 800 / 680; scroll-snap-align: start; }
+.slide { position: relative; flex: 0 0 100%; min-width: 0; aspect-ratio: 4 / 5; scroll-snap-align: start; }
 .overview, .collage { position: absolute; inset: 0; }
-.overview img, .panel img { object-fit: cover; user-select: none; }
+.overview { display: grid; align-items: center; background: #f5ece1; }
+.overviewScene { position: relative; aspect-ratio: 20 / 17; }
+.overview img, .panel img { object-fit: contain; user-select: none; }
 .overview button { position: absolute; border-radius: 8px; transition: background .2s; }
 .overview button:hover { background: #fff7ed24; box-shadow: inset 0 0 0 1px #fff7ed95; }
 .cakeHotspot { left: 24%; top: 2%; width: 52%; height: 66%; }
@@ -137,7 +140,8 @@
 .cupcakeHotspot { left: 2%; top: 68%; width: 48%; height: 31%; }
 .strawHotspot { left: 51%; top: 68%; width: 47%; height: 31%; }
 .collage { display: grid; grid-template-rows: 1fr 1fr; gap: 4px; background: #fcfaf6; }
-.panel { position: relative; min-height: 0; background: #f0e6da; }
+.panel { position: relative; min-height: 0; background: #f5ece1; }
+.collage[data-slide=cake] .panel:last-child img { object-fit: cover; }
 .panel > span {
   position: absolute;
   top: 8px;
@@ -244,6 +248,7 @@
   .catalogGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
+  .detailContainer { max-width: 560px; }
   .workspace { grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "gallery" "details"; gap: 18px; margin-top: 12px; }
   .gallery { grid-template-columns: minmax(0, 1fr); grid-template-areas: "frames" "thumbs"; gap: 13px; }
   .thumbnails { grid-template-columns: repeat(4, minmax(0, 1fr)); }
